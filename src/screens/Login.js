@@ -5,6 +5,8 @@ import SmsVerification from "../components/SmsVerification";
 import BasicInput from "../components/inputs/BasicInput";
 import { checkIsPhoneFormat } from "../util/functions";
 import Toastbox, { toast } from "react-toastbox";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
   const [phoneNumber, setPhoneNumber] = useState();
@@ -13,7 +15,8 @@ function Login() {
   const [codeSmsValidated, setCodeSmsValidated] = useState(false);
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
-
+  const [points, setPoints] = useState("");
+  const history = useHistory();
   useEffect(() => {
     setphoneNumberError(!checkIsPhoneFormat(phoneNumber));
   }, [phoneNumber]);
@@ -27,7 +30,31 @@ function Login() {
       return;
     }
   };
-
+  const createWallet = () => {
+    console.log("ok");
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user != null)
+    {
+      console.log("utilisateur trouvé");
+    }
+    else{
+      setPoints("...");
+    axios
+    .post("http://localhost:8080/CreateWallet/", {
+      phoneNumber: phoneNumber,
+      password: password
+    })
+    .then(function (response) {
+      console.log(response.data);
+      localStorage.setItem('user', JSON.stringify({phoneNumber: phoneNumber,wallet:response.data}));
+      history.push("/card")
+    })
+    .catch(function (error) {
+        //handle error here
+        console.log(error);
+    });
+  }
+  };
   const onCodeValidate = () => {
     setCodeSmsValidated(true);
   };
@@ -108,7 +135,7 @@ function Login() {
                 </div>
               </div>
               <div className="form-button-group  transparent">
-                <BlockLargeButton value="Validate" type="submit" />
+                <BlockLargeButton value={"Validate"+points}  onClick={() => createWallet()}/>
               </div>
             </form>
           </div>
