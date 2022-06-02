@@ -1,0 +1,44 @@
+#background-video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.text-box {
+  color: blue;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 40px;
+}
+
+.text-box p {
+  text-align: start;
+  font-family: seravek;
+  font-style: italic;
+}
+
+.text-box h3 {
+  color: blue;
+  font-family: seravek;
+  font-style: italic;
+}
+
+.btn-width {
+  width: 40%;
+}
+
+.custom-font {
+  font-family: seravek;
+  font-style: italic;
+}
+
+.blue-text {
+  color: blue !important;
+}
+
+@media screen and (max-width: 400px) {
+  .btn-width {
+    width: 70%;
+  }
+}
