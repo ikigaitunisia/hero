@@ -1,17 +1,17 @@
-.card-main {
+.card-main-custom {
   display: flex !important;
   justify-content: space-evenly !important;
   align-items: center !important;
 }
 
-.in,
-.card-number {
+.in-custom,
+.card-number-custom {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
 }
 
-.wallet-card {
+.wallet-card-custom {
   background: none !important;
   box-shadow: none !important;
   border-radius: unset !important;
@@ -19,14 +19,14 @@
   z-index: unset !important;
   padding: 0px 20px !important;
 }
-.wallet-footer {
+.wallet-footer-custom {
   display: flex !important;
   align-items: flex-start !important;
   justify-content: space-between !important;
   border: none !important;
 }
 
-.card-number strong {
+.card-number-custom strong {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,7 +34,7 @@
   padding: 10px 0px;
 }
 
-.icon-wrapper {
+.icon-wrapper-custom {
   border-radius: 50% !important;
 }
 
@@ -54,7 +54,7 @@ li {
   color: blue;
 }
 
-p {
+.left-right-padding {
   padding: 0 30px;
 }
 
@@ -96,15 +96,15 @@ p {
     height: 70px;
     width: 100px;
   }
-  .card-number strong {
+  .card-number-custom strong {
     font-size: 15px;
     padding: 10px 0px;
   }
-  .card-main {
+  .card-main-custom {
     flex-direction: column !important;
   }
-  .in,
-  .card-number {
+  .in-custom,
+  .card-number-custom {
     align-items: center !important;
   }
   .center-div,
@@ -116,7 +116,7 @@ p {
     padding-left: 5px;
     padding-right: 5px;
   }
-  p {
+  .left-right-padding {
     padding: 0 5px;
   }
 }

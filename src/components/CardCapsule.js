@@ -7,15 +7,15 @@ function CardCapsule(props) {
     <div id="appCapsule">
       <div className="section mt-2">
         <div className="card-block mb-2">
-          <div className="card-main">
+          <div className="card-main card-main-custom">
             <div>
               <ion-icon
                 class="icon-title"
                 src="assets/img/svg/heroCardWhite.svg"
               ></ion-icon>
             </div>
-            <div className="in">
-              <div className="card-number">
+            <div className="in in-custom">
+              <div className="card-number card-number-custom">
                 <span className="label">HERO COINS</span>
                 <strong>
                   <ion-icon
@@ -25,7 +25,7 @@ function CardCapsule(props) {
                   2.250
                 </strong>
               </div>
-              <div className="card-number">
+              <div className="card-number card-number-custom">
                 <span className="label">EQUIVALENT IN USD</span>
                 <strong>$ 1.562.50</strong>
               </div>
@@ -33,8 +33,8 @@ function CardCapsule(props) {
           </div>
         </div>
       </div>
-      <div className="wallet-card">
-        <div className="wallet-footer">
+      <div className="wallet-card wallet-card-custom">
+        <div className="wallet-footer wallet-footer-custom">
           <div className="item">
             <a
               href="#"
@@ -42,7 +42,7 @@ function CardCapsule(props) {
               data-bs-target="#withdrawActionSheet"
               style={{ display: "block" }}
             >
-              <div className="icon-wrapper">
+              <div className="icon-wrapper icon-wrapper-custom">
                 <ion-icon name="arrow-down-outline"></ion-icon>
               </div>
               <strong style={{ color: "blue" }}>Withdraw</strong>
@@ -54,7 +54,7 @@ function CardCapsule(props) {
               data-bs-toggle="modal"
               data-bs-target="#exchangeActionSheet"
             >
-              <div className="icon-wrapper">
+              <div className="icon-wrapper icon-wrapper-custom">
                 <ion-icon src="assets/img/svg/exchange.svg"></ion-icon>
               </div>
               <strong style={{ color: "blue" }}>Exchange</strong>
@@ -62,7 +62,7 @@ function CardCapsule(props) {
           </div>
           <div className="item">
             <a href="">
-              <div className="icon-wrapper">
+              <div className="icon-wrapper icon-wrapper-custom">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </div>
               <strong style={{ color: "blue" }}>Support</strong>
@@ -74,7 +74,7 @@ function CardCapsule(props) {
               data-bs-toggle="modal"
               data-bs-target="#exchangeActionSheet"
             >
-              <div className="icon-wrapper bg-dark">
+              <div className="icon-wrapper icon-wrapper-custom bg-dark">
                 <ion-icon src="assets/img/svg/vote.svg"></ion-icon>
               </div>
               <strong style={{ color: "blue" }}>Vote</strong>
@@ -85,7 +85,7 @@ function CardCapsule(props) {
       <ExchangeModal/>
       <div className="text">
         <h1 className="text-title">Carbon offsets for recent transcations*</h1>
-        <p>
+        <p className="left-right-padding">
           *The amount of carbon offset credits are calculated in real time by
           the actions taken by the mobilizers you support and the projects and
           policies they are pushing forward globally. You can access the full
