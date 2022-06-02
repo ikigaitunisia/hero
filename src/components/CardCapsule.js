@@ -1,5 +1,6 @@
 import React from "react";
 import "./CardCapsule.css";
+import ExchangeModal from "./modals/ExchangeModal";
 
 function CardCapsule(props) {
   return (
@@ -51,7 +52,7 @@ function CardCapsule(props) {
             <a
               href="#"
               data-bs-toggle="modal"
-              data-bs-target="#sendActionSheet"
+              data-bs-target="#exchangeActionSheet"
             >
               <div className="icon-wrapper">
                 <ion-icon src="assets/img/svg/exchange.svg"></ion-icon>
@@ -81,6 +82,7 @@ function CardCapsule(props) {
           </div>
         </div>
       </div>
+      <ExchangeModal/>
       <div className="text">
         <h1 className="text-title">Carbon offsets for recent transcations*</h1>
         <p>
