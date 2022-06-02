@@ -1,4 +1,5 @@
 import React from "react";
+import "./CardCapsule.css";
 
 function CardHeader(props) {
   return (
@@ -10,7 +11,7 @@ function CardHeader(props) {
       </div>
       <div className="pageTitle">
         <ion-icon
-          style={{ height: "100px", width: "150px" }}
+          class="icon-title"
           src="assets/img/svg/heroCardBlue.svg"
         ></ion-icon>
       </div>
