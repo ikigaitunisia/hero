@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory,useParams } from "react-router-dom";
+import axios from "axios";
+
 import "./ActivistProfileCapsule.css";
 
 function ActivistProfileCapsule(props) {
+  const { id } = useParams();
+  const history = useHistory();
+  const [Info,setInfo] = useState({});
+  useEffect(() => {
+    axios
+    .post("http://localhost:8080/GetActivistByID", {
+      ID: id
+    })
+    .then(function (response) {
+      console.log(response.data);
+      
+    })
+    .catch(function (error) {
+        //handle error here
+        console.log(error);
+    }); 
+
+
+  }, []);
+
   return (
     <div id="appCapsule">
       <div className="section wallet-card-section pt-1">
