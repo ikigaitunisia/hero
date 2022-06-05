@@ -40,14 +40,14 @@ function Login() {
     else{
       setPoints("...");
     axios
-    .post("http://localhost:8080/CreateWallet/", {
+    .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
       phoneNumber: phoneNumber,
       password: password
     })
     .then(function (response) {
       console.log(response.data);
       localStorage.setItem('user', JSON.stringify({phoneNumber: phoneNumber,wallet:response.data}));
-      history.push("/card")
+      history.push("/Card")
     })
     .catch(function (error) {
         //handle error here

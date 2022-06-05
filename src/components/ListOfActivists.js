@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory,useParams } from "react-router-dom";
 import axios from "axios";
-
 import "./ActivistProfileCapsule.css";
 
 function ListOfActivists(props) {
@@ -13,7 +12,7 @@ function ListOfActivists(props) {
   useEffect(() => {
     
     axios
-    .post("http://localhost:8080/GetIndexActiv", {
+    .post("https://hegemony.donftify.digital:8080/GetIndexActiv", {
       ID: id
     })
     .then(function (response) {
@@ -27,11 +26,12 @@ function ListOfActivists(props) {
     for (var i=0;i<=Index;i++)
     {
     axios
-    .post("http://localhost:8080/GetActivistByID", {
+    .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
       ID: i
     })
     .then(function (response) {
       console.log(response.data);
+
       setActivist([...Activist,response.data]);
     })
     .catch(function (error) {

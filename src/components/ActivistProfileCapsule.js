@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { useHistory,useParams } from "react-router-dom";
+import { useHistory,useLocation } from "react-router-dom";
 import axios from "axios";
 
 import "./ActivistProfileCapsule.css";
-
+import ExchangeModal from "./modals/ExchangeModal";
 function ActivistProfileCapsule(props) {
-  const { id } = useParams();
+  const A = useLocation();
   const history = useHistory();
   const [Info,setInfo] = useState({});
-  useEffect(() => {
-    axios
-    .post("http://localhost:8080/GetActivistByID", {
-      ID: id
-    })
-    .then(function (response) {
-      console.log(response.data);
-      
-    })
-    .catch(function (error) {
-        //handle error here
-        console.log(error);
-    }); 
+  const [show,setShow] = useState(false);
+  const support = () => {
+    console.log("Anuna");
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user == null)
+    {
+      history.push("/Login");
+    }
+    else
+    {
+      setShow(true);
+    }
 
-
-  }, []);
+  }
 
   return (
     <div id="appCapsule">
@@ -32,6 +30,7 @@ function ActivistProfileCapsule(props) {
           className="wallet-card"
           style={{ height: "40vh", padding: 0, borderRadius: "15px" }}
         >
+          <ExchangeModal/>
           <video
             id="background-video"
             autoPlay
@@ -40,7 +39,7 @@ function ActivistProfileCapsule(props) {
             style={{ borderRadius: "10px" }}
           >
             <source
-              src="assets/videos/short-video-for-test.mp4"
+              src={A.state.autre.Video}
               type="video/mp4"
             />
           </video>
@@ -48,8 +47,8 @@ function ActivistProfileCapsule(props) {
       </div>
       <div className="section mt-4">
         <div className="wallet-card custom-font blue-text">
-          <h1 className="blue-text">Anuna de Wever</h1>
-          <span>Belgium</span>
+          <h1 className="blue-text">{A.state.Nom+" "+A.state.Prenom}</h1>
+          <span>{A.state.autre.Pays}</span>
         </div>
       </div>
       <div className="section">
@@ -57,7 +56,7 @@ function ActivistProfileCapsule(props) {
           <div className="col-5">
             <div className="stat-box">
               <div className="title blue-text">Funding Goal</div>
-              <div className="value blue-text">€5, 000</div>
+              <div className="value blue-text">{"€"+A.state.autre.MaxFunds}</div>
             </div>
           </div>
           <div className="col-7">
@@ -76,17 +75,24 @@ function ActivistProfileCapsule(props) {
                 className="value"
                 style={{ color: "blue", textAlign: "start" }}
               >
-                € 500 of € 5,000 funded
+                 {"€ 500 of € "+A.state.autre.MaxFunds}
               </div>
             </div>
           </div>
         </div>
         <div className="row mt-2">
           <div className="col-12">
+
             <button
               type="button"
               class="btn btn-primary btn-lg rounded shadowed btn-width"
+              onClick={() => support()}
             >
+              <a
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#exchangeActionSheet"
+            ></a>
               Support Anuna
             </button>
           </div>
@@ -96,7 +102,7 @@ function ActivistProfileCapsule(props) {
             <div className="stat-box text-box">
               <h3>Bio</h3>
               <p>
-                Climate & Social Justice Mobilizer Co-founder{" "}
+                {A.state.autre.Bio+" "}
                 <a
                   href=""
                   style={{
@@ -120,13 +126,13 @@ function ActivistProfileCapsule(props) {
             </div>
           </div>
         </div>
+        
         <div className="row mt-2">
           <div className="col-12">
             <div className="stat-box text-box">
               <h3>Results to date</h3>
               <p>
-                1, 0000, 0000 people movilized in Belgium. Propossed law in the
-                EU Parliament to stop fossil fuel extraction in Central Europe.
+                {A.state.autre["Results to date"]}
               </p>
             </div>
           </div>
