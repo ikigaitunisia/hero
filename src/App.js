@@ -4,17 +4,14 @@ import Login from './screens/Login'
 import Card from './screens/Card'
 import ActivistProfile from './screens/ActivistProfile';
 import ActivistsLists from './screens/ActivistsLists';
+import "./App.css";
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 function App() {
   return (
     <div className="App">
-	  <Router>
+      <Router>
         <Route path="/" exact component={Main} />
         <Route path="/login" exact component={Login} />  
         <Route path="/card" exact component={Card} />  
@@ -23,6 +20,7 @@ function App() {
          
 	  </Router>
   
+       
     </div>
   );
 }
