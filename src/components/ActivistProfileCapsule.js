@@ -7,8 +7,8 @@ import ExchangeModal from "./modals/ExchangeModal";
 function ActivistProfileCapsule(props) {
   const A = useLocation();
   const history = useHistory();
-  const [Info, setInfo] = useState({});
-  const [showExchangeModal, setShowExchangeModal] = useState(false);
+  const [Info,setInfo] = useState({});
+  const [showExchangeModal,setShowExchangeModal] = useState(false);
   const support = () => {
     console.log("Anuna");
     const user = JSON.parse(localStorage.getItem("user"));
@@ -25,7 +25,8 @@ function ActivistProfileCapsule(props) {
           className="wallet-card"
           style={{ height: "40vh", padding: 0, borderRadius: "15px" }}
         >
-          <video
+     
+       <video
             id="background-video"
             autoPlay
             loop
