@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Modal } from "bootstrap";
+
 //import WalletConnect from "@walletconnect/client";
 //import QRCodeModal from "@walletconnect/qrcode-modal";
 
 function ExchangeModal(props) {
+  useEffect(() => {
+    if (props.show) {
+      const modal = new Modal(document.getElementById("exchangeActionSheet"), {
+        keyboard: false,
+      });
+      modal.show();
+    }
+
+    return () => {
+      props.onClose();
+    };
+  }, [props.show]);
   /*
   const connectWalletProcess = async () => { //TODO: implement
  
@@ -45,14 +59,14 @@ function ExchangeModal(props) {
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
-          <button
-                    type="button"
-                    className="btn btn-primary btn-block btn-lg"
-                    data-bs-dismiss="modal"
-                   //onClick={() => connectWalletPressedWC()}
-                  >
-                    Connect Wallet
-                  </button>
+            <button
+              type="button"
+              className="btn btn-primary btn-block btn-lg"
+              data-bs-dismiss="modal"
+              //onClick={() => connectWalletPressedWC()}
+            >
+              Connect Wallet
+            </button>
             <h5 className="modal-title">Exchange</h5>
           </div>
           <div className="modal-body">
@@ -89,7 +103,6 @@ function ExchangeModal(props) {
                 </div>
 
                 <div className="form-group basic">
-                
                   <button
                     type="button"
                     className="btn btn-primary btn-block btn-lg"

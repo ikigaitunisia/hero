@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CardCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 
 function CardCapsule(props) {
+  const [showExchangeModal, setShowExchangeModal] = useState(false);
+
   return (
     <div id="appCapsule">
       <div className="section mt-2">
@@ -49,16 +51,13 @@ function CardCapsule(props) {
             </a>
           </div>
           <div className="item">
-            <a
-              href="#"
-              data-bs-toggle="modal"
-              data-bs-target="#exchangeActionSheet"
-            >
-              <div className="icon-wrapper icon-wrapper-custom">
-                <ion-icon src="assets/img/svg/exchange.svg"></ion-icon>
-              </div>
-              <strong style={{ color: "blue" }}>Exchange</strong>
-            </a>
+            <div className="icon-wrapper icon-wrapper-custom">
+              <ion-icon
+                src="assets/img/svg/exchange.svg"
+                onClick={() => setShowExchangeModal(true)}
+              ></ion-icon>
+            </div>
+            <strong style={{ color: "blue" }}>Exchange</strong>
           </div>
           <div className="item">
             <a href="">
@@ -82,7 +81,10 @@ function CardCapsule(props) {
           </div>
         </div>
       </div>
-      <ExchangeModal/>
+      <ExchangeModal
+        show={showExchangeModal}
+        onClose={() => setShowExchangeModal(false)}
+      />
       <div className="text">
         <h1 className="text-title">Carbon offsets for recent transcations*</h1>
         <p className="left-right-padding">
