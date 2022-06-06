@@ -29,8 +29,19 @@ b {
   font-weight: bold !important;
 }
 
+.hero-mobilizers-logo{
+    width: 200px;
+    height: 100px;
+}
+.black-text{
+    color: black;
+}
 @media screen and (max-width: 400px) {
     .btn-section button {
         padding: 3px 24px;
       }
+      .hero-mobilizers-logo{
+        width: 150px;
+        height: 50px;
+    }
 }
