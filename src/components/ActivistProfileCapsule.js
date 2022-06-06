@@ -8,7 +8,7 @@ function ActivistProfileCapsule(props) {
   const A = useLocation();
   const history = useHistory();
   const [Info,setInfo] = useState({});
-  const [show,setShow] = useState(false);
+  const [showExchangeModal,setShowExchangeModal] = useState(false);
   const support = () => {
     console.log("Anuna");
     const user = JSON.parse(localStorage.getItem('user'));
@@ -18,7 +18,7 @@ function ActivistProfileCapsule(props) {
     }
     else
     {
-      setShow(true);
+      setShowExchangeModal(true);
     }
 
   }
@@ -30,8 +30,11 @@ function ActivistProfileCapsule(props) {
           className="wallet-card"
           style={{ height: "40vh", padding: 0, borderRadius: "15px" }}
         >
-          <ExchangeModal/>
-          <video
+<ExchangeModal
+        show={showExchangeModal}
+        onClose={() => setShowExchangeModal(false)}
+      />         
+       <video
             id="background-video"
             autoPlay
             loop
