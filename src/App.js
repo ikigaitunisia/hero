@@ -16,13 +16,12 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Route path="/" exact component={Main} />
         <Route path="/login" exact component={Login} />  
         <Route path="/card" exact component={Card} />  
         <Route path="/activistprofile" exact component={ActivistProfile} /> 
         <Route path="/ActivistsLists" exact component={ActivistsLists} /> 
         <Route path="/feed" exact component={Feed} />
-        <Route path="/home" exact component={Home} />
+        <Route path="/" exact component={Home} />
          
 	  </Router>
   

@@ -56,7 +56,7 @@ function HomeCapsule(props) {
         </div>
       </div>
       <div className="section mt-2">
-        <button type="button" class="btn btn-primary btn-lg rounded shadowed">
+        <button type="button" class="btn btn-primary btn-lg rounded shadowed" onClick={() => history.push("/feed")}>
           Become an early investor in the HERO Coin
         </button>
       </div>

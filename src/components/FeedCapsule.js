@@ -1,8 +1,45 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
+import axios from "axios";
 import "./FeedCapsule.css";
 
 function FeedCapsule(props) {
   const width = window.innerWidth;
+  const history = useHistory();
+  const [Info,setInfo] = useState({});
+  const [Index,setIndex] = useState(0);
+  const [Activist,setActivist] = useState([]);
+  useEffect(() => {
+    
+    axios
+    .post("https://hegemony.donftify.digital:8080/GetIndexActiv", {
+      ID: id
+    })
+    .then(function (response) {
+      console.log(response.data);
+      setIndex(response.data.index);
+    })
+    .catch(function (error) {
+        //handle error here
+        console.log(error);
+    }); 
+    for (var i=0;i<=Index;i++)
+    {
+    axios
+    .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
+      ID: i
+    })
+    .then(function (response) {
+      console.log(response.data);
+
+      setActivist([...Activist,response.data]);
+    })
+    .catch(function (error) {
+        //handle error here
+        console.log(error);
+    }); 
+  }
+
+  }, []);
   return (
     <div id="appCapsule">
       <div className="section wallet-card-section pt-1">
@@ -51,7 +88,10 @@ function FeedCapsule(props) {
               </div>
             </div>
           </div>**/}
-          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
+          {
+          Activist.map((activist) => (
+          <>
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2" >
             <div className="card bg-dark text-white">
               <img
                 className="card-img"
@@ -67,6 +107,7 @@ function FeedCapsule(props) {
                   <button
                     type="button"
                     class="btn btn-primary rounded shadowed"
+                    onClick={() => history.push("/activistprofile",activist)}
                   >
                     See Profile
                   </button>
@@ -80,6 +121,7 @@ function FeedCapsule(props) {
               </div>
             </div>
           </div>
+         
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
             <div className="card bg-dark text-white">
               <img
@@ -96,6 +138,8 @@ function FeedCapsule(props) {
                   <button
                     type="button"
                     class={"btn btn-primary rounded shadowed"}
+                    onClick={() => history.push("/activistprofile",activist)}
+
                   >
                     See Profile
                   </button>
@@ -109,6 +153,9 @@ function FeedCapsule(props) {
               </div>
             </div>
           </div>
+          </>
+           ))
+          }
         </div>
       </div>
     </div>

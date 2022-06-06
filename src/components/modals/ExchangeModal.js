@@ -8,7 +8,8 @@ import { newKitFromWeb3 } from '@celo/contractkit';
 function ExchangeModal(props) {
   const [provider,setProvider] = useState(null);
   const [kit,setKit] =useState(null);
-  
+  const [Wallet,setWallet] = useState("");
+  const [Connected,setConnected] = useState(false);
 
   const connect = async() => {
     const provider = new WalletConnectProvider({
@@ -27,7 +28,8 @@ function ExchangeModal(props) {
     provider.on("accountsChanged", (accounts) => {
       console.log(accounts);
     });
-  
+    setWallet(accounts);
+    setConnected(true);
     setProvider(provider);
     setKit(kit);
   }
@@ -91,7 +93,9 @@ function ExchangeModal(props) {
               data-bs-dismiss="modal"
               onClick={() => connect()}
             >
-              Connect Wallet
+              {!Connected ? "Connect Wallet"
+              : Wallet
+              }
             </button>
             <h5 className="modal-title">Exchange</h5>
           </div>
