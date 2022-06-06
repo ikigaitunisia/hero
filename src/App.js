@@ -1,3 +1,5 @@
+import React, { Component }  from 'react';
+
 import './App.css';
 import Main from './screens/Main'
 import Login from './screens/Login'

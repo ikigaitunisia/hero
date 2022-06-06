@@ -9,7 +9,7 @@
 }
 
 .box-bg {
-  background-image: url("../../public/assets/img/bg1.png");
+  background-image: url("/assets/img/bg1.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
