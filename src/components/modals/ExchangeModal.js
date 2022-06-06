@@ -1,10 +1,36 @@
 import React, { useEffect } from "react";
 import { Modal } from "bootstrap";
 
-//import WalletConnect from "@walletconnect/client";
-//import QRCodeModal from "@walletconnect/qrcode-modal";
+import WalletConnectProvider from '@walletconnect/web3-provider';
+import Web3 from 'web3';
+import { newKitFromWeb3 } from '@celo/contractkit';
 
 function ExchangeModal(props) {
+  const [provider,setProvider] = useState(null);
+  const [kit,setKit] =useState(null);
+  
+
+  const connect = async() => {
+    const provider = new WalletConnectProvider({
+      rpc: {
+        44787: "https://alfajores-forno.celo-testnet.org",
+        42220: "https://forno.celo.org",
+      },
+    });
+  
+    await provider.enable()
+    const web3 = new Web3(provider);
+    let kit = newKitFromWeb3(web3)
+  
+    kit.defaultAccount = provider.accounts[0]
+    console.log(kit.defaultAccount);
+    provider.on("accountsChanged", (accounts) => {
+      console.log(accounts);
+    });
+  
+    setProvider(provider);
+    setKit(kit);
+  }
   useEffect(() => {
     if (props.show) {
       const modal = new Modal(document.getElementById("exchangeActionSheet"), {
@@ -63,7 +89,7 @@ function ExchangeModal(props) {
               type="button"
               className="btn btn-primary btn-block btn-lg"
               data-bs-dismiss="modal"
-              //onClick={() => connectWalletPressedWC()}
+              onClick={() => connect()}
             >
               Connect Wallet
             </button>
