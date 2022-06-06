@@ -1,16 +1,36 @@
-.btn-section{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+.btn-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.btn-section button{
-    padding: 0 40px;
+.btn-section button {
+  padding: 0 40px;
 }
 
-.box-bg{
-    background-image: url("../../public/assets/img/bg1.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+.box-bg {
+  background-image: url("../../public/assets/img/bg1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.white-text {
+  color: white;
+}
+
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+b {
+  font-weight: bold !important;
+}
+
+@media screen and (max-width: 400px) {
+    .btn-section button {
+        padding: 3px 24px;
+      }
 }
