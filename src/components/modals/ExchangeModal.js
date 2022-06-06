@@ -28,7 +28,7 @@ function ExchangeModal(props) {
     provider.on("accountsChanged", (accounts) => {
       console.log(accounts);
     });
-    setWallet(accounts);
+    setWallet(kit.defaultAccount);
     setConnected(true);
     setProvider(provider);
     setKit(kit);
