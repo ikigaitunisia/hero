@@ -8,6 +8,7 @@ import "./App.css";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Feed from './screens/Feed';
+import Home from './screens/Home';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/activistprofile" exact component={ActivistProfile} /> 
         <Route path="/ActivistsLists" exact component={ActivistsLists} /> 
         <Route path="/feed" exact component={Feed} />
+        <Route path="/home" exact component={Home} />
          
 	  </Router>
   
