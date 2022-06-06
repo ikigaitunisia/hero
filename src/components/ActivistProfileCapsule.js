@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory,useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 
 import "./ActivistProfileCapsule.css";
@@ -7,22 +7,17 @@ import ExchangeModal from "./modals/ExchangeModal";
 function ActivistProfileCapsule(props) {
   const A = useLocation();
   const history = useHistory();
-  const [Info,setInfo] = useState({});
-  const [show,setShow] = useState(false);
+  const [Info, setInfo] = useState({});
+  const [showExchangeModal, setShowExchangeModal] = useState(false);
   const support = () => {
     console.log("Anuna");
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user == null)
-    {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user == null) {
       history.push("/Login");
+    } else {
+      setShowExchangeModal(true);
     }
-    else
-    {
-      setShow(true);
-    }
-
-  }
-
+  };
   return (
     <div id="appCapsule">
       <div className="section wallet-card-section pt-1">
@@ -30,7 +25,6 @@ function ActivistProfileCapsule(props) {
           className="wallet-card"
           style={{ height: "40vh", padding: 0, borderRadius: "15px" }}
         >
-          <ExchangeModal/>
           <video
             id="background-video"
             autoPlay
@@ -38,16 +32,13 @@ function ActivistProfileCapsule(props) {
             muted
             style={{ borderRadius: "10px" }}
           >
-            <source
-              src={A.state.autre.Video}
-              type="video/mp4"
-            />
+            <source src={A.state.autre.Video} type="video/mp4" />
           </video>
         </div>
       </div>
       <div className="section mt-4">
         <div className="wallet-card custom-font blue-text">
-          <h1 className="blue-text">{A.state.Nom+" "+A.state.Prenom}</h1>
+          <h1 className="blue-text">{A.state.Nom + " " + A.state.Prenom}</h1>
           <span>{A.state.autre.Pays}</span>
         </div>
       </div>
@@ -56,7 +47,9 @@ function ActivistProfileCapsule(props) {
           <div className="col-5">
             <div className="stat-box">
               <div className="title blue-text">Funding Goal</div>
-              <div className="value blue-text">{"€"+A.state.autre.MaxFunds}</div>
+              <div className="value blue-text">
+                {"€" + A.state.autre.MaxFunds}
+              </div>
             </div>
           </div>
           <div className="col-7">
@@ -75,24 +68,18 @@ function ActivistProfileCapsule(props) {
                 className="value"
                 style={{ color: "blue", textAlign: "start" }}
               >
-                 {"€ 500 of € "+A.state.autre.MaxFunds}
+                {"€ 500 of € " + A.state.autre.MaxFunds}
               </div>
             </div>
           </div>
         </div>
         <div className="row mt-2">
           <div className="col-12">
-
             <button
               type="button"
               class="btn btn-primary btn-lg rounded shadowed btn-width"
               onClick={() => support()}
             >
-              <a
-              href="#"
-              data-bs-toggle="modal"
-              data-bs-target="#exchangeActionSheet"
-            ></a>
               Support Anuna
             </button>
           </div>
@@ -102,7 +89,7 @@ function ActivistProfileCapsule(props) {
             <div className="stat-box text-box">
               <h3>Bio</h3>
               <p>
-                {A.state.autre.Bio+" "}
+                {A.state.autre.Bio + " "}
                 <a
                   href=""
                   style={{
@@ -126,14 +113,12 @@ function ActivistProfileCapsule(props) {
             </div>
           </div>
         </div>
-        
+
         <div className="row mt-2">
           <div className="col-12">
             <div className="stat-box text-box">
               <h3>Results to date</h3>
-              <p>
-                {A.state.autre["Results to date"]}
-              </p>
+              <p>{A.state.autre["Results to date"]}</p>
             </div>
           </div>
         </div>
@@ -146,6 +131,10 @@ function ActivistProfileCapsule(props) {
           </div>
         </div>
       </div>
+      <ExchangeModal
+        show={showExchangeModal}
+        onClose={() => setShowExchangeModal(false)}
+      />
     </div>
   );
 }
