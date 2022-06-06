@@ -1,0 +1,16 @@
+.btn-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btn-section button{
+    padding: 0 40px;
+}
+
+.box-bg{
+    background-image: url("../../public/assets/img/bg1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

@@ -7,6 +7,7 @@ import ActivistsLists from './screens/ActivistsLists';
 import "./App.css";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Feed from './screens/Feed';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/card" exact component={Card} />  
         <Route path="/activistprofile" exact component={ActivistProfile} /> 
         <Route path="/ActivistsLists" exact component={ActivistsLists} /> 
+        <Route path="/feed" exact component={Feed} />
          
 	  </Router>
   
