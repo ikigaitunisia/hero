@@ -2,12 +2,15 @@ import React from "react";
 import "./FeedCapsule.css";
 
 function FeedCapsule(props) {
+  const width = window.innerWidth;
   return (
     <div id="appCapsule">
       <div className="section wallet-card-section pt-1">
         <div className="wallet-card">
           <div className="custom-font center-div">
-            <h1 className="blue-text">Your investment has global impact.</h1>
+            <h1 className="blue-text title-sm">
+              Your investment has global impact.
+            </h1>
             <hr data-content="AND" class="hr-text"></hr>
             <p className="black-text">
               By investing in the <b>HERO Coin</b> you contribute to providing a
@@ -32,7 +35,7 @@ function FeedCapsule(props) {
       </div>
       <div className="section mb-2">
         <div className="row mt-2">
-          <div className="col-12">
+          {/**<div className="col-12">
             <div className="stat-box box-bg">
               <div className="custom-font">
                 <h1 className="white-text">Anuna de Wever</h1>
@@ -45,6 +48,64 @@ function FeedCapsule(props) {
                 <button type="button" class="btn btn-primary rounded shadowed">
                   Support
                 </button>
+              </div>
+            </div>
+          </div>**/}
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
+            <div className="card bg-dark text-white">
+              <img
+                className="card-img"
+                src="assets/img/bg1.png"
+                alt="Card image"
+              />
+              <div className="card-img-overlay center-column-content">
+                <div className="custom-font">
+                  <h1 className="white-text">Anuna de Wever</h1>
+                  <span className="white-text">Belgium</span>
+                </div>
+                <div className="btn-section">
+                  <button
+                    type="button"
+                    class="btn btn-primary rounded shadowed"
+                  >
+                    See Profile
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary rounded shadowed"
+                  >
+                    Support
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
+            <div className="card bg-dark text-white">
+              <img
+                className="card-img"
+                src="assets/img/bg1.png"
+                alt="Card image"
+              />
+              <div className="card-img-overlay center-column-content">
+                <div className="custom-font">
+                  <h1 className="white-text">Anuna de Wever</h1>
+                  <span className="white-text">Belgium</span>
+                </div>
+                <div className="btn-section">
+                  <button
+                    type="button"
+                    class={"btn btn-primary rounded shadowed"}
+                  >
+                    See Profile
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary rounded shadowed"
+                  >
+                    Support
+                  </button>
+                </div>
               </div>
             </div>
           </div>
