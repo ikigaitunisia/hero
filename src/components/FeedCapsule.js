@@ -1,4 +1,6 @@
 import React,{useState,useEffect} from "react";
+import { withRouter,useHistory } from "react-router-dom";
+
 import axios from "axios";
 import "./FeedCapsule.css";
 
@@ -11,9 +13,7 @@ function FeedCapsule(props) {
   useEffect(() => {
     
     axios
-    .post("https://hegemony.donftify.digital:8080/GetIndexActiv", {
-      ID: id
-    })
+    .post("https://hegemony.donftify.digital:8080/GetIndexActiv")
     .then(function (response) {
       console.log(response.data);
       setIndex(response.data.index);
