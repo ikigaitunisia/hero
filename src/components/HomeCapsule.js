@@ -1,8 +1,9 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter,useHistory } from "react-router-dom";
 import "./HomeCapsule.css";
 
 function HomeCapsule(props) {
+  const history=useHistory();
   return (
     <div id="appCapsule">
       <div className="section wallet-card-section pt-1">
