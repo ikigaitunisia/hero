@@ -47,7 +47,7 @@ function Login() {
     .then(function (response) {
       console.log(response.data);
       localStorage.setItem('user', JSON.stringify({phoneNumber: phoneNumber,wallet:response.data}));
-      history.push("/Card")
+      history.push("/feed")
     })
     .catch(function (error) {
         //handle error here
