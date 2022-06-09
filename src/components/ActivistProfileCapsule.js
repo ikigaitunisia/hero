@@ -14,8 +14,9 @@ function ActivistProfileCapsule(props) {
       history.push("/cardtransaction");
     }
   };
-
+  
   return (
+    { (A.state != undefined) &&
     <>
       <div id="appCapsule" className="bg-g-1">
         <div className="section full">
@@ -172,6 +173,7 @@ function ActivistProfileCapsule(props) {
         </a>
       </div>
     </>
+            }
   );
 }
 
