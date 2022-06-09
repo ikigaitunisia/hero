@@ -5,23 +5,20 @@ function CardBottomMenu(props) {
     <div className="appBottomMenu">
       <a href="" className="item">
         <div className="col">
-          <ion-icon src="assets/img/svg/wallet.svg"></ion-icon>
-          <strong style={{ color: "blue" }}>Wallet</strong>
+          <ion-icon src="assets/img/svg/home.svg"></ion-icon>
         </div>
       </a>
       <a href="" className="item active">
         <div className="col">
           <ion-icon
-            name="arrow-forward-outline"
+            src="assets/img/svg/transaction.svg"
             style={{ color: "bule" }}
           ></ion-icon>
-          <strong style={{ color: "blue" }}>Support</strong>
         </div>
       </a>
       <a href="" className="item">
         <div className="col">
-          <ion-icon src="assets/img/svg/heroCoin.svg"></ion-icon>
-          <strong style={{ color: "blue" }}>HERO Coin</strong>
+          <ion-icon src="assets/img/svg/vote1.svg"></ion-icon>
         </div>
       </a>
     </div>

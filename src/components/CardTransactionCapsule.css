@@ -1,0 +1,64 @@
+#white-form {
+    padding: 30px 40px
+}
+
+#white-form label {
+  color: white;
+}
+
+#white-form .custom-select {
+  color: white;
+}
+#white-form option {
+  color: blue;
+}
+#white-form .input-group-text {
+  color: white;
+}
+
+#white-form ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+}
+
+#white-form :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+}
+
+#white-form .form-check-input:checked ~ .form-check-label:after{
+    background-color: #6236FF;
+    border-color: white !important;
+}
+#white-form .form-group.basic .form-control, .form-group.basic .custom-select {
+    border-bottom: 1px solid #DCDCE9;
+    color:white;
+}
+
+#white-form ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white;
+}
+.radio-input{
+    display: flex; 
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.flex-end{
+    display: flex;
+    justify-content: flex-end;
+}
+.add-icon{
+    width: 25px;
+    height: 25px;
+}
+@media screen and (max-width: 400px) {
+    #white-form {
+        padding: 30px 0
+    }
+    .radio-input{
+        display: flex; 
+        flex-direction: column;
+    }
+  }

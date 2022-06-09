@@ -11,6 +11,8 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Feed from './screens/Feed';
 import Home from './screens/Home';
+import MobilizerProfile from './screens/MobilizerProfile';
+import CardTransaction from './screens/CardTransaction';
 
 function App() {
   return (
@@ -22,6 +24,9 @@ function App() {
         <Route path="/ActivistsLists" exact component={ActivistsLists} /> 
         <Route path="/feed" exact component={Feed} />
         <Route path="/" exact component={Home} />
+        <Route path="/mobilizerprofile" exact component={MobilizerProfile} /> 
+        <Route path="/cardtransaction" exact component={CardTransaction} /> 
+
          
 	  </Router>
   

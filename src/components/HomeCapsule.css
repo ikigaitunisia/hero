@@ -8,3 +8,11 @@
   width: 100%;
   max-height: 50vh;
 }
+
+.bg-g{
+  background: linear-gradient(0deg, rgb(162, 174, 241), blue);
+}
+
+.custom-width{
+  width: 70%;
+}

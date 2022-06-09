@@ -16,7 +16,7 @@
 }
 
 .white-text {
-  color: white;
+  color: white!important;
 }
 
 .center-content {
@@ -65,4 +65,8 @@ b {
     padding: 0px 6px;
     font-size: 12px;
   }
+}
+
+.bg-g-1{
+  background: linear-gradient(0deg, white, #EDEDF5);
 }

@@ -1,16 +1,16 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import FeedCapsule from "../components/FeedCapsule";
 import BottomMenu from "../components/CardBottomMenu";
 import CustomHeader from "../components/CustomHeader";
+import MobilizerProfileCapsule from "../components/MobilizerProfileCapsule";
 
-function Feed(props) {
+function MobilizerProfile(props) {
   return (
     <>
       <CustomHeader />
-      <FeedCapsule />
+      <MobilizerProfileCapsule />
     </>
   );
 }
 
-export default withRouter(Feed);
+export default withRouter(MobilizerProfile);

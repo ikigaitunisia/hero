@@ -1,7 +1,7 @@
 import React from "react";
-import "./CardCapsule.css";
+import { withRouter } from "react-router-dom";
 
-function CardHeader(props) {
+function CustomHeader(props) {
   return (
     <div className="appHeader no-border transparent position-absolute">
       <div className="left">
@@ -15,13 +15,18 @@ function CardHeader(props) {
         </a>
       </div>
       <div className="pageTitle">
-        <ion-icon
-          class="icon-title"
-          src="assets/img/svg/heroCardBlue.svg"
-        ></ion-icon>
+        <img src="assets/img/HEROLogoBlue.png" alt="logo" className="logo" />
+      </div>
+      <div class="right">
+        <a
+          href="app-login.html"
+          class="headerButton"
+        >
+          Login
+        </a>
       </div>
     </div>
   );
 }
 
-export default CardHeader;
+export default withRouter(CustomHeader);
