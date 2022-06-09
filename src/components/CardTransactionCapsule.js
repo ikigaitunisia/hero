@@ -4,6 +4,47 @@ import ExchangeModal from "./modals/ExchangeModal";
 
 function CardTransactionCapsule(props) {
   const [showExchangeModal, setShowExchangeModal] = useState(false);
+  const [content, setContent] = useState("");
+  const mobilizer = (
+    <>
+      <div className="form-group basic">
+        <div className="input-wrapper">
+          <label className="label" for="account2d">
+            To
+          </label>
+          <select className="form-control custom-select" id="account2d">
+            <option value="0">Anuna de Wever</option>
+            <option value="1">Julieta Martinez</option>
+            <option value="1">Vanessa Nakate</option>
+          </select>
+          <i className="clear-input">
+            <ion-icon name="close-circle"></ion-icon>
+          </i>
+        </div>
+      </div>
+
+      <div className="form-group basic">
+        <label className="label">Enter Amount</label>
+        <div className="input-group mb-2">
+          <span className="input-group-text" id="basic-addonb1">
+            $
+          </span>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Enter an amount"
+          />
+        </div>
+      </div>
+    </>
+  );
+  const addContent = () => {
+    setContent((current) => (
+      <>
+        {current} {mobilizer}
+      </>
+    ));
+  };
 
   return (
     <div id="appCapsule" className="bg-g">
@@ -21,7 +62,11 @@ function CardTransactionCapsule(props) {
         <form id="white-form">
           <div className="flex-end">
             <a href="#" style={{ color: "white" }}>
-              <ion-icon class="add-icon" name="add"></ion-icon>
+              <ion-icon
+                class="add-icon"
+                name="add"
+                onClick={addContent}
+              ></ion-icon>
             </a>
           </div>
           <div className="form-group basic">
@@ -53,6 +98,7 @@ function CardTransactionCapsule(props) {
               />
             </div>
           </div>
+          {content}
           <div className="form-group basic">
             <label className="label mb-2">Type of Payment</label>
 
