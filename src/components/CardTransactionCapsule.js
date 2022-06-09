@@ -5,6 +5,7 @@ import ExchangeModal from "./modals/ExchangeModal";
 function CardTransactionCapsule(props) {
   const [showExchangeModal, setShowExchangeModal] = useState(false);
   const [content, setContent] = useState("");
+  const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x9dD392F9aAa8c9fE1F69B184b586eE9CeF85861D&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
   const mobilizer = (
     <>
       <div className="form-group basic">
@@ -111,23 +112,24 @@ function CardTransactionCapsule(props) {
                   id="flexRadioDefault1"
                 />
                 <label class="form-check-label" for="flexRadioDefault1">
-                  One time payment
+                  Crypto Payement
                 </label>
               </div>
-              <div class="form-check mb-1">
+              <div class="form-check mb-1" onClick={() => {window.location.href = urlOFGateway;}}>
                 <input
                   class="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault2"
                 />
-                <label class="form-check-label" for="flexRadioDefault2">
-                  Monthly subscription
+                <label class="form-check-label" for="flexRadioDefault2" >
+                  Credit Card
                 </label>
               </div>
             </div>
           </div>
 
+          {/*
           <div className="form-group basic">
             <div className="input-wrapper">
               <label className="label" for="account2d">
@@ -177,6 +179,8 @@ function CardTransactionCapsule(props) {
               </div>
             </div>
           </div>
+  */ }
+
           <div className="section">
             <h4 className="white-text">Transaction total</h4>
             <h3 className="white-text">$300</h3>
