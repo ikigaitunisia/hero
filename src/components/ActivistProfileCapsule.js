@@ -1,10 +1,11 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import "./ActivistProfileCapsule.css";
 
 function ActivistProfileCapsule(props) {
   const A = useLocation();
   const history = useHistory();
+  const [load,setLoad] = useState({});
   const support = () => {
     console.log("Anuna");
     const user = JSON.parse(localStorage.getItem("user"));
@@ -14,9 +15,12 @@ function ActivistProfileCapsule(props) {
       history.push("/cardtransaction");
     }
   };
-  
+  useEffect(() => {
+    console.log(A);
+  }, []);
+
   return (
-    { (A.state != undefined) &&
+    
     <>
       <div id="appCapsule" className="bg-g-1">
         <div className="section full">
@@ -173,7 +177,7 @@ function ActivistProfileCapsule(props) {
         </a>
       </div>
     </>
-            }
+            
   );
 }
 
