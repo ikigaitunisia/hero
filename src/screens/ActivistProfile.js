@@ -1,12 +1,12 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import ActivistProfileCapsule from "../components/ActivistProfileCapsule";
-import CustomHeader from "../components/CustomHeader";
+import Header from "../components/Header";
 
 function ActivistProfile(props) {
   return (
     <>
-      <CustomHeader />
+      <Header showLogo showLoginBtn showMenuBtn/>
       <ActivistProfileCapsule />
     </>
   );

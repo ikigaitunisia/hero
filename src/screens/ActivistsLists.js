@@ -7,7 +7,7 @@ import Header from "../components/Header";
 function ActivistProfile(props) {
   return (
     <>
-      <Header />
+      <Header showLogo showLoginBtn showMenuBtn/>
       <ListOfActivists />
       <BottomMenu />
     </>

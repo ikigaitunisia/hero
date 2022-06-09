@@ -1,56 +1,64 @@
-import React, { useState,useEffect } from 'react';
+import React from "react";
+import { withRouter } from "react-router-dom";
 
-import axios from "axios";
-import { withRouter } from 'react-router-dom';
-import { useHistory } from "react-router-dom";
+function Header(props) {
+  const whiteMode = props.whiteMode;
+  const showMenuBtn = props.showMenuBtn;
+  const showLoginBtn = props.showLoginBtn;
+  const showCloseBtn = props.showCloseBtn;
+  const showLogo = props.showLogo;
 
+  return (
+    <div className="appHeader no-border transparent position-absolute">
+      <div className="left">
+        {showMenuBtn && (
+          <a
+            href="#"
+            className="headerButton"
+            data-bs-toggle="modal"
+            data-bs-target="#sidebarPanel"
+            style={whiteMode ? { color: "white" } : {}}
+          >
+            <ion-icon name="menu-outline"></ion-icon>
+          </a>
+        )}
+      </div>
+      <div className="pageTitle">
+        {showLogo && (
+          <img
+            src={
+              whiteMode
+                ? "assets/img/HEROLogo.png"
+                : "assets/img/HEROLogoBlue.png"
+            }
+            alt="logo"
+            className="logo"
+          />
+        )}
+      </div>
+      <div class="right">
+        {showLoginBtn && (
+          <a
+            href="app-login.html"
+            class="headerButton"
+            style={whiteMode ? { color: "white" } : {}}
+          >
+            Login
+          </a>
+        )}
 
-function Header(props)  {
-
-const history = useHistory();
-
-
-// Set up some variables to prepare a Avalanche USDC -> BSC USDT quote
-
-        
-// Use the following flow to handle
-// 1) Receiving a bridge quote
-// 2) Submitting an approval TX on the specific Token
-// 3) Initiating a bridge transaction
-
-
-
-
-return (
-<>
-{/*<div id="loader">
-        <img src="assets/img/loading-icon.png" alt="icon" className="loading-icon" />
+        {showCloseBtn && (
+          <a
+            href="#"
+            className="headerButton goBack"
+            style={whiteMode ? { color: "white" } : {}}
+          >
+            <ion-icon name="close"></ion-icon>
+          </a>
+        )}
+      </div>
     </div>
-*/}   
-    <div className="appHeader bg-primary text-light">
-        <div className="left">
-            <a href="#" className="headerButton" data-bs-toggle="modal" data-bs-target="#sidebarPanel">
-                <ion-icon name="menu-outline"></ion-icon>
-            </a>
-        </div>
-        <div className="pageTitle">
-            <img src="assets/img/heroLogo.png" alt="logo" className="logo" />
-        </div>
-        <div className="right">
-            <a href="" className="headerButton">
-                <ion-icon className="icon" name="notifications-outline"></ion-icon>
-                <span className="badge badge-danger">4</span>
-            </a>
-            <a href="" className="headerButton">
-                <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" className="imaged w32" style={{ borderRadius: "50%"}}/>
-                <span className="badge badge-danger">6</span>
-            </a>
-        </div>
-    </div>
-</>    
-)
-
+  );
 }
-
 
 export default withRouter(Header);

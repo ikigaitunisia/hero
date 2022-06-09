@@ -2,12 +2,12 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import CardBottomMenu from "../components/CardBottomMenu";
 import CardCapsule from "../components/CardCapsule";
-import CardHeader from "../components/CardHeader";
+import Header from "../components/Header";
 
 function Card(props) {
   return (
     <>
-      <CardHeader />
+      <Header showLogo showMenuBtn />
       <CardCapsule />
       <CardBottomMenu />
     </>
