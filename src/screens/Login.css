@@ -1,0 +1,29 @@
+.supporter-logo {
+  width: 160px;
+}
+
+.login-form ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  text-align: center;
+}
+
+.login-form:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  text-align: center;
+}
+.login-form ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  text-align: center;
+}
+
+.login-form .verification-input {
+  background: transparent !important;
+  color: white !important;
+  border: 1px solid white !important;
+  box-shadow: unset !important;
+}
+@media screen and (max-width: 400px) {
+  .supporter-logo {
+    width: 100px;
+  }
+}

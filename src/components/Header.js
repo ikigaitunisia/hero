@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function Header(props) {
   const whiteMode = props.whiteMode;
@@ -7,6 +7,8 @@ function Header(props) {
   const showLoginBtn = props.showLoginBtn;
   const showCloseBtn = props.showCloseBtn;
   const showLogo = props.showLogo;
+  const showBackBtn = props.showBackBtn;
+  const history = useHistory();
 
   return (
     <div className="appHeader no-border transparent position-absolute">
@@ -20,6 +22,17 @@ function Header(props) {
             style={whiteMode ? { color: "white" } : {}}
           >
             <ion-icon name="menu-outline"></ion-icon>
+          </a>
+        )}
+        {showBackBtn && (
+          <a
+            href="#"
+            className="headerButton"
+            data-bs-toggle="modal"
+            data-bs-target="#sidebarPanel"
+            style={whiteMode ? { color: "white" } : {}}
+          >
+            <ion-icon name="chevron-back-outline"></ion-icon>
           </a>
         )}
       </div>
@@ -39,7 +52,7 @@ function Header(props) {
       <div class="right">
         {showLoginBtn && (
           <a
-            href="app-login.html"
+            onClick={() => history.push("/login")}
             class="headerButton"
             style={whiteMode ? { color: "white" } : {}}
           >
@@ -61,4 +74,4 @@ function Header(props) {
   );
 }
 
-export default withRouter(Header);
+export default Header;

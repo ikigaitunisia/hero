@@ -4,9 +4,11 @@ function BasicInput(props) {
   return (
     <div className="form-group basic">
       <div className="input-wrapper">
-        <label className="label" htmlFor={props.id}>
-          {props.label}
-        </label>
+        {props.label && (
+          <label className="label" htmlFor={props.id}>
+            {props.label}
+          </label>
+        )}
         <input
           type={props.type}
           className="form-control"
