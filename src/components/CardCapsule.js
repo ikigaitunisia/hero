@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import "./CardCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
+import ActivistCampaignsModal from "./modals/ActivistCampaignsModal";
+import ActivistVictoriesModal from "./modals/ActivistVictoriesModal";
 
 function CardCapsule(props) {
   const [showExchangeModal, setShowExchangeModal] = useState(false);
-
+  const [showMobilizerCampaignsModal, setShowMobilizerCampaignsModal] =
+    useState(false);
+  const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
+    useState(false);
   return (
-    <div id="appCapsule" className="bg-g-1">
+    <div id="appCapsule" className="bg-g-1 cardCapsule">
       <div className="section mt-2">
         <div className="card-block mb-2 bg-g">
           <div className="card-main card-main-custom">
@@ -68,11 +73,13 @@ function CardCapsule(props) {
                 class="md-icon"
                 src="assets/img/svg/voteBlue.svg"
                 style={{ marginRight: "5px" }}
+                onClick={() => setShowMobilizerCampaignsModal(true)}
               ></ion-icon>
               <ion-icon
                 class="md-icon"
                 src="assets/img/svg/HeroCoin2.svg"
                 style={{ marginRight: "5px" }}
+                onClick={() => setShowMobilizerVictoriesModal(true)}
               ></ion-icon>
             </div>
           </li>
@@ -96,11 +103,13 @@ function CardCapsule(props) {
                 class="md-icon"
                 src="assets/img/svg/voteBlue.svg"
                 style={{ marginRight: "5px" }}
+                onClick={() => setShowMobilizerCampaignsModal(true)}
               ></ion-icon>
               <ion-icon
                 class="md-icon"
                 src="assets/img/svg/HeroCoin2.svg"
                 style={{ marginRight: "5px" }}
+                onClick={() => setShowMobilizerVictoriesModal(true)}
               ></ion-icon>
             </div>
           </li>
@@ -124,16 +133,26 @@ function CardCapsule(props) {
                 class="md-icon"
                 src="assets/img/svg/voteBlue.svg"
                 style={{ marginRight: "5px" }}
+                onClick={() => setShowMobilizerCampaignsModal(true)}
               ></ion-icon>
               <ion-icon
                 class="md-icon"
                 src="assets/img/svg/HeroCoin2.svg"
                 style={{ marginRight: "5px" }}
+                onClick={() => setShowMobilizerVictoriesModal(true)}
               ></ion-icon>
             </div>
           </li>
         </ul>
       </div>
+      <ActivistCampaignsModal
+        show={showMobilizerCampaignsModal}
+        onClose={() => setShowMobilizerCampaignsModal(false)}
+      />
+      <ActivistVictoriesModal
+        show={showMobilizerVictoriesModal}
+        onClose={() => setShowMobilizerVictoriesModal(false)}
+      />
     </div>
   );
 }
