@@ -41,15 +41,43 @@
   .btn-width {
     width: 70%;
   }
+
+  #mobilizerVictories .center-div {
+    width: 100%;
+  }
+  #activistCampaigns .center-div {
+    width: 100%;
+  }
 }
 
-.flex-center{
+.flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.md-icon{
+.md-icon {
   width: 40px;
   height: 40px;
+}
+
+.white-divider {
+  background-color: white !important;
+  opacity: unset;
+}
+
+#mobilizerVictories .modal-content {
+  background-color: #0000ffe5 !important;
+  background: linear-gradient(0deg, rgb(162, 174, 241), #0000ffe5) !important;
+  opacity: 90%;
+}
+#activistCampaigns .modal-content {
+  background-color: #0000ffe5 !important;
+  background: linear-gradient(0deg, rgb(162, 174, 241), #0000ffe5) !important;
+  opacity: 90%;
+}
+
+.text-small,
+.text-xsmall {
+  font-weight: 100;
 }

@@ -1,11 +1,17 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import "./ActivistProfileCapsule.css";
+import ActivistCampaignsModal from "./modals/ActivistCampaignsModal";
+import ActivistVictoriesModal from "./modals/ActivistVictoriesModal";
 
 function ActivistProfileCapsule(props) {
   const A = useLocation();
   const history = useHistory();
-  const [load,setLoad] = useState({});
+  const [load, setLoad] = useState({});
+  const [showMobilizerCampaignsModal, setShowMobilizerCampaignsModal] =
+    useState(false);
+  const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
+    useState(false);
   const support = () => {
     console.log("Anuna");
     const user = JSON.parse(localStorage.getItem("user"));
@@ -20,7 +26,6 @@ function ActivistProfileCapsule(props) {
   }, []);
 
   return (
-    
     <>
       <div id="appCapsule" className="bg-g-1">
         <div className="section full">
@@ -66,6 +71,7 @@ function ActivistProfileCapsule(props) {
                 class="md-icon"
                 src="assets/img/svg/voteBlue.svg"
                 style={{ marginRight: "5px" }}
+                onClick={() => setShowMobilizerCampaignsModal(true)}
               ></ion-icon>
               <strong className="blue-text">Campaigns</strong>
             </div>
@@ -74,11 +80,20 @@ function ActivistProfileCapsule(props) {
                 class="md-icon"
                 src="assets/img/svg/HeroCoin2.svg"
                 style={{ marginRight: "5px" }}
+                onClick={() => setShowMobilizerVictoriesModal(true)}
               ></ion-icon>
               <strong className="blue-text">Victories</strong>
             </div>
           </div>
         </div>
+        <ActivistCampaignsModal
+          show={showMobilizerCampaignsModal}
+          onClose={() => setShowMobilizerCampaignsModal(false)}
+        />
+        <ActivistVictoriesModal
+          show={showMobilizerVictoriesModal}
+          onClose={() => setShowMobilizerVictoriesModal(false)}
+        />
         <hr
           data-content="AND"
           className="hr-text mt-2"
@@ -177,7 +192,6 @@ function ActivistProfileCapsule(props) {
         </a>
       </div>
     </>
-            
   );
 }
 
