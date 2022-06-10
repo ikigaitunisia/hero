@@ -5,7 +5,34 @@ import ExchangeModal from "./modals/ExchangeModal";
 function CardTransactionCapsule(props) {
   const [showExchangeModal, setShowExchangeModal] = useState(false);
   const [content, setContent] = useState("");
+  const [provider,setProvider] = useState(null);
+  const [kit,setKit] =useState(null);
+  const [Wallet,setWallet] = useState("");
+  const [Connected,setConnected] = useState(false);
+
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
+  const connect = async() => {
+    const provider = new WalletConnectProvider({
+      rpc: {
+        44787: "https://alfajores-forno.celo-testnet.org",
+        42220: "https://forno.celo.org",
+      },
+    });
+  
+    await provider.enable()
+    const web3 = new Web3(provider);
+    let kit = newKitFromWeb3(web3)
+  
+    kit.defaultAccount = provider.accounts[0]
+    console.log(kit.defaultAccount);
+    provider.on("accountsChanged", (accounts) => {
+      console.log(accounts);
+    });
+    setWallet(kit.defaultAccount);
+    setConnected(true);
+    setProvider(provider);
+    setKit(kit);
+  }
   const mobilizer = (
     <>
       <div className="form-group basic">
@@ -104,7 +131,7 @@ function CardTransactionCapsule(props) {
             <label className="label mb-2">Type of Payment</label>
 
             <div className="radio-input">
-              <div class="form-check mb-1">
+              <div class="form-check mb-1" onClick={() => connect()}    >
                 <input
                   class="form-check-input"
                   type="radio"
