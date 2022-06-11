@@ -56,7 +56,7 @@ function CardTransactionCapsule(props) {
     let instance = new Web3.eth.Contract(abiDepositContract, contractAddress);
     const bigAmounntSomme = ethers.utils.parseEther(Somme);
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    const txObject = await instance.methods.DepositCusd(amountSomme, arrA,bigAmounnt);
+    const txObject = await instance.methods.DepositCusd(amountSomme, arrA,ArrAv);
     let tx = await kit.sendTransactionObject(txObject, { from: kit.defaultAccount, gasPrice: 1000000000 });
 
     const hash = await tx.getHash();
