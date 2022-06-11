@@ -40,7 +40,7 @@ function CardTransactionCapsule(props) {
     setProvider(provider);
     setKit(kit);
   }
-  const getElems = () => {
+  const getElems = async() => {
     var arrA =[];
     var ArrAv =[];
     document.querySelectorAll(".seletAc").forEach(element => {
