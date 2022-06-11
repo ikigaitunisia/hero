@@ -68,28 +68,8 @@ function CardTransactionCapsule(props) {
       var amount = ethers.BigNumber.from(bigAmounnt.toString());
       ArrAv.push(amount) ;
     })
-    const provider = new WalletConnectProvider({
-      rpc: {
-        44787: "https://alfajores-forno.celo-testnet.org",
-        42220: "https://forno.celo.org",
-      },
-    });
-  
-    await provider.enable()
-    const web3 = new Web3(provider);
-    let kit = newKitFromWeb3(web3)
-  
-    kit.defaultAccount = provider.accounts[0]
-    console.log(kit.defaultAccount);
-    provider.on("accountsChanged", (accounts) => {
-      console.log(accounts);
-    });
-    setWallet(kit.defaultAccount);
-    setConnected(true);
-    setProvider(provider);
-    setKit(kit);
-    setWebT(web3);
-    let instance = web3.eth.Contract(abiDepositContract, contractAddress);
+    
+    let instance = new Web3.eth.Contract(abiDepositContract, contractAddress);
     const bigAmounntSomme = ethers.utils.parseEther(Somme);
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
     const txObject = await instance.methods.DepositCusd(amountSomme, arrA,ArrAv);
