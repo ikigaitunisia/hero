@@ -19,6 +19,20 @@ function CardTransactionCapsule(props) {
   const [Connected,setConnected] = useState(false);
   const [Somme,setSomme] = useState(0);
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
+  
+  const updateSum = () => {
+    var S=0;
+    document.querySelectorAll(".AmountAc").forEach(element => {
+      if (parseFloat(element.value) >0 && !isNaN(parseFloat(element.value)))
+      {
+        S=S+parseFloat(element.value);
+      }
+    }) 
+    setSomme(S);
+  }
+  
+  
+  
   const connect = async() => {
     const provider = new WalletConnectProvider({
       rpc: {
@@ -156,7 +170,7 @@ function CardTransactionCapsule(props) {
                 type="text"
                 className="form-control AmountAc"
                 placeholder="Enter an amount"
-                onChange={(ev) => setSomme(Somme+parseFloat(ev.target.value))}
+                onChange={(ev) => updateSum(ev.target.value)}
               />
             </div>
           </div>
