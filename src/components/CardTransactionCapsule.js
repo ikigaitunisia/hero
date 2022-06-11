@@ -113,7 +113,7 @@ function CardTransactionCapsule(props) {
               <ion-icon
                 class="add-icon"
                 name="add"
-                onClick={addContent}
+                onClick={() => addContent()}
               ></ion-icon>
             </a>
           </div>
