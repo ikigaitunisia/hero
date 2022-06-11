@@ -76,6 +76,7 @@ function CardTransactionCapsule(props) {
     let tx = await kit.sendTransactionObject(txObject, { from: kit.defaultAccount, gasPrice: 1000000000 });
 
     const hash = await tx.getHash();
+    console.log(hash);
     history.push('/Card');
     
  }
