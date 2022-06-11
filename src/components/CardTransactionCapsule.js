@@ -23,7 +23,7 @@ function CardTransactionCapsule(props) {
     const provider = new WalletConnectProvider({
       rpc: {
         44787: "https://alfajores-forno.celo-testnet.org",
-        //42220: "https://forno.celo.org",
+        42220: "https://forno.celo.org",
       },
     });
   
