@@ -70,7 +70,7 @@ function CardTransactionCapsule(props) {
     })
     
     let instance = await new webT.eth.Contract(abiDepositContract, contractAddress);
-    const bigAmounntSomme = ethers.utils.parseEther(Somme);
+    const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
     const txObject = await instance.methods.DepositCusd(amountSomme, arrA,ArrAv);
     let tx = await kit.sendTransactionObject(txObject, { from: kit.defaultAccount, gasPrice: 1000000000 });
