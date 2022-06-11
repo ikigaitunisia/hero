@@ -69,7 +69,7 @@ function CardTransactionCapsule(props) {
       ArrAv.push(amount) ;
     })
     
-    let instance = new Web3.eth.Contract(abiDepositContract, contractAddress);
+    let instance = await new webT.eth.Contract(abiDepositContract, contractAddress);
     const bigAmounntSomme = ethers.utils.parseEther(Somme);
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
     const txObject = await instance.methods.DepositCusd(amountSomme, arrA,ArrAv);
