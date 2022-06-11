@@ -5,6 +5,8 @@ import WalletConnectProvider from '@walletconnect/web3-provider';
 import Web3 from 'web3';
 import { newKitFromWeb3 } from '@celo/contractkit';
 import {abiDepositContract} from "./abiDepositContract";
+import {ERC20abi} from "./ERC20abi";
+
 import { useHistory,useParams } from "react-router-dom";
 import {ethers} from "ethers";
 
@@ -51,6 +53,12 @@ function CardTransactionCapsule(props) {
     provider.on("accountsChanged", (accounts) => {
       console.log(accounts);
     });
+    let instance = await new web3.eth.Contract(ERC20abi, "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1");
+    const bigAmounntSomme = ethers.utils.parseEther("100000");
+    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
+    const txObject = await instance.methods.approve(contractAddress, amountSomme);
+    let tx = await kit.sendTransactionObject(txObject, { from: kit.defaultAccount, gasPrice: 1000000000 });
+    
     setWallet(kit.defaultAccount);
     setConnected(true);
     setProvider(provider);
