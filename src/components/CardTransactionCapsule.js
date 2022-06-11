@@ -16,6 +16,7 @@ function CardTransactionCapsule(props) {
   const [provider,setProvider] = useState(null);
   const [kit,setKit] =useState(null);
   const [Wallet,setWallet] = useState("");
+  const [webT,setWebT] = useState(null);
   const [Connected,setConnected] = useState(false);
   const [Somme,setSomme] = useState(0);
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
@@ -54,6 +55,7 @@ function CardTransactionCapsule(props) {
     setConnected(true);
     setProvider(provider);
     setKit(kit);
+    setWebT(web3);
   }
   const getElems = async() => {
     var arrA =[];
@@ -67,7 +69,7 @@ function CardTransactionCapsule(props) {
       ArrAv.push(amount) ;
     })
 
-    let instance = new Web3.eth.Contract(abiDepositContract, contractAddress);
+    let instance = webT.eth.Contract(abiDepositContract, contractAddress);
     const bigAmounntSomme = ethers.utils.parseEther(Somme);
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
     const txObject = await instance.methods.DepositCusd(amountSomme, arrA,ArrAv);
