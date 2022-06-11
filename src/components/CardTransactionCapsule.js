@@ -9,7 +9,9 @@ function CardTransactionCapsule(props) {
   const [kit,setKit] =useState(null);
   const [Wallet,setWallet] = useState("");
   const [Connected,setConnected] = useState(false);
-
+  const [ListA,setListA] = useState([0]);
+  const [ListMo,setListMo] = useState([0]);
+  const [index,setIndex] = useState(0);
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
   const connect = async() => {
     const provider = new WalletConnectProvider({
@@ -33,17 +35,27 @@ function CardTransactionCapsule(props) {
     setProvider(provider);
     setKit(kit);
   }
-  const mobilizer = (
+  const updateListMB = (value,id) => {
+    var Lst = ListA;
+    Lst[id] = value;
+   setListA(Lst);
+ }
+ const updateListMBMon = (value,id) => {
+  var Lst = ListA;
+  Lst[id] = value;
+ setListA(Lst);
+}
+  const mobilizer = () => (
     <>
       <div className="form-group basic">
         <div className="input-wrapper">
           <label className="label" for="account2d">
             To
           </label>
-          <select className="form-control custom-select" id="account2d">
+          <select className="form-control custom-select" id="account2d"  onChange={(ev) => updateListMB(ev.target.value,index) }>
             <option value="0">Anuna de Wever</option>
             <option value="1">Julieta Martinez</option>
-            <option value="1">Vanessa Nakate</option>
+            <option value="2">Vanessa Nakate</option>
           </select>
           <i className="clear-input">
             <ion-icon name="close-circle"></ion-icon>
@@ -61,13 +73,18 @@ function CardTransactionCapsule(props) {
             type="text"
             className="form-control"
             placeholder="Enter an amount"
+            onChange={(ev) => updateListMBMon(ev.target.value,index) }
           />
         </div>
       </div>
     </>
   );
   const addContent = () => {
+    setListA([...ListA,0]);
+    setListMo([...ListMo,0]);
+    setIndex(index+1);
     setContent((current) => (
+
       <>
         {current} {mobilizer}
       </>
@@ -102,7 +119,7 @@ function CardTransactionCapsule(props) {
               <label className="label" for="account2d">
                 To
               </label>
-              <select className="form-control custom-select" id="account2d">
+              <select className="form-control custom-select" id="account2d" onChange={(ev) => updateListMB(ev.target.value,0)}>
                 <option value="0">Anuna de Wever</option>
                 <option value="1">Julieta Martinez</option>
                 <option value="1">Vanessa Nakate</option>
@@ -123,6 +140,7 @@ function CardTransactionCapsule(props) {
                 type="text"
                 className="form-control"
                 placeholder="Enter an amount"
+                onChange={(ev) => updateListMBMon(ev.target.value,0)}
               />
             </div>
           </div>
@@ -218,6 +236,9 @@ function CardTransactionCapsule(props) {
               class="btn btn-outline-secondary rounded"
               data-bs-dismiss="modal"
               style={{ borderColor: "white", color: "white", width: "200px" }}
+              onClick={() => {console.log(ListA);
+                console.log(ListMo);
+              }}
             >
               Confirm
             </button>
