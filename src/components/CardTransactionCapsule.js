@@ -58,7 +58,7 @@ function CardTransactionCapsule(props) {
           <label className="label" for="account2d">
             To
           </label>
-          <select className="form-control custom-select seletAc" id="account2d"  onChange={(ev) => updateListMB(ev.target.value,index) }>
+          <select className="form-control custom-select seletAc" id="account2d"  >
             <option value="0">Anuna de Wever</option>
             <option value="1">Julieta Martinez</option>
             <option value="2">Vanessa Nakate</option>
@@ -79,7 +79,6 @@ function CardTransactionCapsule(props) {
             type="text"
             className="form-control AmountAc"
             placeholder="Enter an amount"
-            onChange={(ev) => updateListMBMon(ev.target.value,index) }
           />
         </div>
       </div>
@@ -122,7 +121,7 @@ function CardTransactionCapsule(props) {
               <label className="label" for="account2d">
                 To
               </label>
-              <select className="form-control custom-select" id="account2d" onChange={(ev) => updateListMB(ev.target.value,0)}>
+              <select className="form-control custom-select seletAc" id="account2d" >
                 <option value="0">Anuna de Wever</option>
                 <option value="1">Julieta Martinez</option>
                 <option value="1">Vanessa Nakate</option>
@@ -141,9 +140,8 @@ function CardTransactionCapsule(props) {
               </span>
               <input
                 type="text"
-                className="form-control"
+                className="form-control AmountAc"
                 placeholder="Enter an amount"
-                onChange={(ev) => updateListMBMon(ev.target.value,0)}
               />
             </div>
           </div>
