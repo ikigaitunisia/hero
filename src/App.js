@@ -8,6 +8,7 @@ import ActivistsLists from "./screens/ActivistsLists";
 import Feed from "./screens/Feed";
 import Home from "./screens/Home";
 import CardTransaction from "./screens/CardTransaction";
+import Vote from "./screens/Vote";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/feed" exact component={Feed} />
         <Route path="/" exact component={Home} />
         <Route path="/cardtransaction" exact component={CardTransaction} />
+        <Route path="/vote" exact component={Vote} />
       </Router>
     </div>
   );
