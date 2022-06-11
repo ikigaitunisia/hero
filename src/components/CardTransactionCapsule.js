@@ -48,7 +48,7 @@ function CardTransactionCapsule(props) {
   Lst[id] = value;
  setListA(Lst);
 }
-  const mobilizer = () => (
+  const mobilizer = (
     <>
       <div className="form-group basic">
         <div className="input-wrapper">
