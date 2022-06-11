@@ -4,23 +4,25 @@ import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from '@walletconnect/web3-provider';
 import Web3 from 'web3';
 import { newKitFromWeb3 } from '@celo/contractkit';
+import {abiDepositContract} from "./abiDepositContract";
+import { useHistory,useParams } from "react-router-dom";
 
+const contractAddress = "0x19D466A13548408F2EA78E8d96B2721FEf191D8b";
 function CardTransactionCapsule(props) {
+  const history =useHistory();
   const [showExchangeModal, setShowExchangeModal] = useState(false);
   const [content, setContent] = useState("");
   const [provider,setProvider] = useState(null);
   const [kit,setKit] =useState(null);
   const [Wallet,setWallet] = useState("");
   const [Connected,setConnected] = useState(false);
-  const [ListA,setListA] = useState([0]);
-  const [ListMo,setListMo] = useState([0]);
-  const [index,setIndex] = useState(0);
+  const [Somme,setSomme] = useState(0);
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
   const connect = async() => {
     const provider = new WalletConnectProvider({
       rpc: {
         44787: "https://alfajores-forno.celo-testnet.org",
-        42220: "https://forno.celo.org",
+        //42220: "https://forno.celo.org",
       },
     });
   
@@ -45,10 +47,20 @@ function CardTransactionCapsule(props) {
       arrA.push(element.value) ;
     })
     document.querySelectorAll(".AmountAc").forEach(element => {
-      ArrAv.push(element.value) ;
+      const bigAmounnt = ethers.utils.parseEther(element.value);
+      var amount = ethers.BigNumber.from(bigAmounnt.toString());
+      ArrAv.push(amount) ;
     })
-    console.log(arrA);
-    console.log(ArrAv);
+
+    let instance = new web3.eth.Contract(abiDepositContract, contractAddress);
+    const bigAmounntSomme = ethers.utils.parseEther(Somme);
+    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
+    const txObject = await instance.methods.DepositCusd(amountSomme, arrA,bigAmounnt);
+    let tx = await kit.sendTransactionObject(txObject, { from: kit.defaultAccount, gasPrice: 1000000000 });
+
+    const hash = await tx.getHash();
+    history.push('/Card');
+    
  }
 
   const mobilizer = (
@@ -59,9 +71,9 @@ function CardTransactionCapsule(props) {
             To
           </label>
           <select className="form-control custom-select seletAc" id="account2d"  >
-            <option value="0">Anuna de Wever</option>
-            <option value="1">Julieta Martinez</option>
-            <option value="2">Vanessa Nakate</option>
+            <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Anuna de Wever</option>
+            <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Julieta Martinez</option>
+            <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Vanessa Nakate</option>
           </select>
           <i className="clear-input">
             <ion-icon name="close-circle"></ion-icon>
@@ -79,6 +91,7 @@ function CardTransactionCapsule(props) {
             type="text"
             className="form-control AmountAc"
             placeholder="Enter an amount"
+            onChange={(ev) => setSomme(Somme+parseInt(ev.target.value))}
           />
         </div>
       </div>
@@ -122,9 +135,9 @@ function CardTransactionCapsule(props) {
                 To
               </label>
               <select className="form-control custom-select seletAc" id="account2d" >
-                <option value="0">Anuna de Wever</option>
-                <option value="1">Julieta Martinez</option>
-                <option value="1">Vanessa Nakate</option>
+                <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Anuna de Wever</option>
+                <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Julieta Martinez</option>
+                <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Vanessa Nakate</option>
               </select>
               <i className="clear-input">
                 <ion-icon name="close-circle"></ion-icon>
@@ -142,6 +155,7 @@ function CardTransactionCapsule(props) {
                 type="text"
                 className="form-control AmountAc"
                 placeholder="Enter an amount"
+                onChange={(ev) => setSomme(Somme+parseInt(ev.target.value))}
               />
             </div>
           </div>
@@ -229,7 +243,7 @@ function CardTransactionCapsule(props) {
 
           <div className="section">
             <h4 className="white-text">Transaction total</h4>
-            <h3 className="white-text">$300</h3>
+            <h3 className="white-text">{"$"+Somme}</h3>
           </div>
           <div className="form-group basic">
             <button
