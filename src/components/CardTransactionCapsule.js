@@ -38,16 +38,19 @@ function CardTransactionCapsule(props) {
     setProvider(provider);
     setKit(kit);
   }
-  const updateListMB = (value,id) => {
-    var Lst = ListA;
-    Lst[id] = value;
-   setListA(Lst);
+  const getElems = () => {
+    var arrA =[];
+    var ArrAv =[];
+    document.querySelectorAll(".seletAc").forEach(element => {
+      arrA.push(element.value) ;
+    })
+    document.querySelectorAll(".AmountAc").forEach(element => {
+      ArrAv.push(element.value) ;
+    })
+    console.log(arrA);
+    console.log(ArrAv);
  }
- const updateListMBMon = (value,id) => {
-  var Lst = ListA;
-  Lst[id] = value;
- setListA(Lst);
-}
+
   const mobilizer = (
     <>
       <div className="form-group basic">
@@ -55,7 +58,7 @@ function CardTransactionCapsule(props) {
           <label className="label" for="account2d">
             To
           </label>
-          <select className="form-control custom-select" id="account2d"  onChange={(ev) => updateListMB(ev.target.value,index) }>
+          <select className="form-control custom-select seletAc" id="account2d"  onChange={(ev) => updateListMB(ev.target.value,index) }>
             <option value="0">Anuna de Wever</option>
             <option value="1">Julieta Martinez</option>
             <option value="2">Vanessa Nakate</option>
@@ -74,7 +77,7 @@ function CardTransactionCapsule(props) {
           </span>
           <input
             type="text"
-            className="form-control"
+            className="form-control AmountAc"
             placeholder="Enter an amount"
             onChange={(ev) => updateListMBMon(ev.target.value,index) }
           />
@@ -83,9 +86,6 @@ function CardTransactionCapsule(props) {
     </>
   );
   const addContent = () => {
-    setListA([...ListA,0]);
-    setListMo([...ListMo,0]);
-    setIndex(index+1);
     setContent((current) => (
 
       <>
@@ -113,7 +113,7 @@ function CardTransactionCapsule(props) {
               <ion-icon
                 class="add-icon"
                 name="add"
-                onClick={addContent}
+                onClick={() => addContent()}
               ></ion-icon>
             </a>
           </div>
@@ -239,9 +239,7 @@ function CardTransactionCapsule(props) {
               class="btn btn-outline-secondary rounded"
               data-bs-dismiss="modal"
               style={{ borderColor: "white", color: "white", width: "200px" }}
-              onClick={() => {console.log(ListA);
-                console.log(ListMo);
-              }}
+              onClick={() => getElems()}
             >
               Confirm
             </button>
