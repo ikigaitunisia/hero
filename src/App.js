@@ -9,6 +9,7 @@ import Feed from "./screens/Feed";
 import Home from "./screens/Home";
 import CardTransaction from "./screens/CardTransaction";
 import Vote from "./screens/Vote";
+import HeroTeam from "./screens/HeroTeam";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/cardtransaction" exact component={CardTransaction} />
         <Route path="/vote" exact component={Vote} />
+        <Route path="/heroteam" exact component={HeroTeam} />
       </Router>
     </div>
   );
