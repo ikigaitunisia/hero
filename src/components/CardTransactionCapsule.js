@@ -6,6 +6,7 @@ import Web3 from 'web3';
 import { newKitFromWeb3 } from '@celo/contractkit';
 import {abiDepositContract} from "./abiDepositContract";
 import { useHistory,useParams } from "react-router-dom";
+import {ethers} from "ethers";
 
 const contractAddress = "0x19D466A13548408F2EA78E8d96B2721FEf191D8b";
 function CardTransactionCapsule(props) {
@@ -52,7 +53,7 @@ function CardTransactionCapsule(props) {
       ArrAv.push(amount) ;
     })
 
-    let instance = new web3.eth.Contract(abiDepositContract, contractAddress);
+    let instance = new Web3.eth.Contract(abiDepositContract, contractAddress);
     const bigAmounntSomme = ethers.utils.parseEther(Somme);
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
     const txObject = await instance.methods.DepositCusd(amountSomme, arrA,bigAmounnt);
