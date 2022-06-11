@@ -92,7 +92,7 @@ function CardTransactionCapsule(props) {
             type="text"
             className="form-control AmountAc"
             placeholder="Enter an amount"
-            onChange={(ev) => setSomme(Somme+parseInt(ev.target.value))}
+            onChange={(ev) => setSomme(Somme+parseFloat(ev.target.value))}
           />
         </div>
       </div>
