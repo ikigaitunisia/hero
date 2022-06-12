@@ -10,6 +10,7 @@ import Home from "./screens/Home";
 import CardTransaction from "./screens/CardTransaction";
 import Vote from "./screens/Vote";
 import HeroTeam from "./screens/HeroTeam";
+import MobilizerCard from "./screens/MobilizerCard";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/cardtransaction" exact component={CardTransaction} />
         <Route path="/vote" exact component={Vote} />
         <Route path="/heroteam" exact component={HeroTeam} />
+        <Route path="/mobilizercard" exact component={MobilizerCard} />
       </Router>
     </div>
   );
