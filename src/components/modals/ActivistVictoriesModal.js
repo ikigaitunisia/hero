@@ -20,7 +20,7 @@ function ActivistVictoriesModal(props) {
     <div
       class="modal fade modalbox"
       id="mobilizerVictories"
-      tabindex="-1"
+      tabIndex="-1"
       role="dialog"
     >
       <div class="modal-dialog" role="document">

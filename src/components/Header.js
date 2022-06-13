@@ -50,11 +50,11 @@ function Header(props) {
             />
           )}
         </div>
-        <div class="right">
+        <div className="right">
           {showLoginBtn && (
             <a
               onClick={() => history.push("/login")}
-              class="headerButton"
+              className="headerButton"
               style={whiteMode ? { color: "white" } : {}}
             >
               Login

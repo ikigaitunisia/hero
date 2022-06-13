@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./CardCapsule.css";
+import AddCampaignModal from "./modals/AddCampaignModal";
+import "./MobilizerCard.css";
 
 function MobilizerCardCapsule(props) {
+  const [showAddCampaignModal, setShowAddCampaignModal] = useState(false);
   return (
     <div id="appCapsule" className="bg-g-1 cardCapsule">
       <div className="section mt-2">
@@ -90,7 +93,10 @@ function MobilizerCardCapsule(props) {
         </ul>
       </div>
       <div className="section mt-2 center-div">
-        <button type="button" class="btn btn-primary btn-lg rounded btn-width">
+        <button
+          type="button"
+          className="btn btn-primary btn-lg rounded btn-width"
+        >
           Withdraw
         </button>
         <hr
@@ -103,10 +109,14 @@ function MobilizerCardCapsule(props) {
         <h1 className="blue-text">Reporting</h1>
       </div>
       <div className="section mt-2 center-div">
-        <div class="section">
+        <div className="section">
           <div className="flex-end">
             <a href="#" style={{ color: "blue" }}>
-              <ion-icon class="add-icon" name="add"></ion-icon>
+              <ion-icon
+                class="add-icon"
+                name="add"
+                onClick={() => setShowAddCampaignModal(true)}
+              ></ion-icon>
             </a>
           </div>
           <div style={{ display: "flex" }} className="mt-2">
@@ -116,12 +126,15 @@ function MobilizerCardCapsule(props) {
                 style={{ width: "50px", height: "50px" }}
               ></ion-icon>
             </div>
-            <div class="in" style={{ textAlign: "start", marginLeft: "20px" }}>
+            <div
+              className="in"
+              style={{ textAlign: "start", marginLeft: "20px" }}
+            >
               <div>
-                <div class="mb-05">
+                <div className="mb-05">
                   <strong className="blue-text">Migrants Rights</strong>
                 </div>
-                <div class="text-small mb-05">
+                <div className="text-small mb-05">
                   Humans Rights Watch <br />
                   In progress{" "}
                   <ion-icon
@@ -129,11 +142,11 @@ function MobilizerCardCapsule(props) {
                     style={{ color: "blue" }}
                   ></ion-icon>
                 </div>
-                <div class="text-xsmall mb-2">
+                <div className="text-xsmall mb-2">
                   Drafting a new law to present to the EU Parliament to protect
                   climate refugees.
                 </div>
-                <button type="button" class="btn btn-primary rounded">
+                <button type="button" className="btn btn-primary rounded">
                   Edit
                 </button>
               </div>
@@ -146,14 +159,17 @@ function MobilizerCardCapsule(props) {
                 style={{ width: "50px", height: "50px" }}
               ></ion-icon>
             </div>
-            <div class="in" style={{ textAlign: "start", marginLeft: "20px" }}>
+            <div
+              className="in"
+              style={{ textAlign: "start", marginLeft: "20px" }}
+            >
               <div>
-                <div class="mb-05">
+                <div className="mb-05">
                   <strong className="blue-text">
                     Stop Coal Mining in Belgium
                   </strong>
                 </div>
-                <div class="text-small mb-05">
+                <div className="text-small mb-05">
                   Youth for Climate Belgium <br />
                   In progress{" "}
                   <ion-icon
@@ -161,11 +177,11 @@ function MobilizerCardCapsule(props) {
                     style={{ color: "blue" }}
                   ></ion-icon>
                 </div>
-                <div class="text-xsmall mb-2">
+                <div className="text-xsmall mb-2">
                   Organizing mobilizations to put pressure on Belgium’s
                   goberment to close coal mines.
                 </div>
-                <button type="button" class="btn btn-primary rounded">
+                <button type="button" className="btn btn-primary rounded">
                   Edit
                 </button>
               </div>
@@ -173,6 +189,10 @@ function MobilizerCardCapsule(props) {
           </div>
         </div>
       </div>
+      <AddCampaignModal
+        show={showAddCampaignModal}
+        onClose={() => setShowAddCampaignModal(false)}
+      />
     </div>
   );
 }
