@@ -17,7 +17,7 @@ function ActivistCampaignsModal(props) {
 
   return (
     <div
-      class="modal fade modalbox"
+      class="modal fade action-sheet"
       id="activistCampaigns"
       tabIndex="-1"
       role="dialog"
