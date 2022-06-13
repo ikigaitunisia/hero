@@ -21,6 +21,7 @@ function ActivistCampaignsModal(props) {
       id="activistCampaigns"
       tabIndex="-1"
       role="dialog"
+      show={props.show}
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
