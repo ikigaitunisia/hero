@@ -21,7 +21,6 @@ function ActivistCampaignsModal(props) {
       id="activistCampaigns"
       tabIndex="-1"
       role="dialog"
-      style={{zIndex: 1000 }}
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
