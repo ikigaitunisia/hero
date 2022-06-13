@@ -16,26 +16,27 @@ function FeedCapsule(props) {
       .then(function (response) {
         console.log(response.data);
         setIndex(response.data.index);
+        for (var i = 1; i <= response.data.index-1; i++) {
+          axios
+            .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
+              ID: i,
+            })
+            .then(function (response) {
+              console.log(response.data);
+    
+              setActivist([...Activist, response.data]);
+            })
+            .catch(function (error) {
+              //handle error here
+              console.log(error);
+            });
+        }
       })
       .catch(function (error) {
         //handle error here
         console.log(error);
       });
-    for (var i = 1; i <= Index-1; i++) {
-      axios
-        .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
-          ID: i,
-        })
-        .then(function (response) {
-          console.log(response.data);
-
-          setActivist([...Activist, response.data]);
-        })
-        .catch(function (error) {
-          //handle error here
-          console.log(error);
-        });
-    }
+    
   }, []);
 
   return (
