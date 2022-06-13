@@ -21,7 +21,7 @@ function FeedCapsule(props) {
         //handle error here
         console.log(error);
       });
-    for (var i = 1; i <= Index; i++) {
+    for (var i = 1; i <= Index-1; i++) {
       axios
         .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
           ID: i,
