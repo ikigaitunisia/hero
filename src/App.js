@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Login from "./screens/Login";
+import LoginAct from "./screens/LoginActv";
 import Card from "./screens/Card";
 import ActivistProfile from "./screens/ActivistProfile";
 import ActivistsLists from "./screens/ActivistsLists";
@@ -17,6 +18,7 @@ function App() {
     <div className="App">
       <Router>
         <Route path="/login" exact component={Login} />
+        <Route path="/loginAct" exact component={LoginAct} />
         <Route path="/card" exact component={Card} />
         <Route path="/activistprofile" exact component={ActivistProfile} />
         <Route path="/ActivistsLists" exact component={ActivistsLists} />
