@@ -16,14 +16,14 @@ function FeedCapsule(props) {
       .then(function (response) {
         console.log(response.data);
         setIndex(response.data.index);
-        for (var i = 1; i <= response.data.index-1; i++) {
+        for (var i = 1; i <= response.data.index - 1; i++) {
           axios
             .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
               ID: i,
             })
             .then(function (response) {
               console.log(response.data);
-    
+
               setActivist([...Activist, response.data]);
             })
             .catch(function (error) {
@@ -36,11 +36,10 @@ function FeedCapsule(props) {
         //handle error here
         console.log(error);
       });
-    
   }, []);
 
   return (
-    <div id="appCapsule" className="bg-g-1">
+    <div id="appCapsule" className="bg-g-1" style={{ minHeight: "100vh" }}>
       <div className="section mt-4">
         <h4 className="blue-text">
           Browse the first HERO Mobilizers with a verified track record on
@@ -50,42 +49,46 @@ function FeedCapsule(props) {
       </div>
       <div className="section mt-4 mb-2">
         <div className="row mt-2">
-         {Activist.map((activist) => ( 
-          <><div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
-             <div
-               className="card bg-dark text-white"
-               onClick={() => history.push("/activistprofile", activist)}
-             >
-               <img
-                 className="card-img"
-                 src="assets/img/mobilizer1.png"
-                 alt="Card image" />
-               <div className="card-img-overlay center-column-content">
-                 <div className="custom-font">
-                   <h1 className="white-text">Anuna de Wever</h1>
-                   <span className="white-text">Belgium</span>
-                 </div>
-               </div>
-             </div>
-           </div><div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
-               <div
-                 className="card bg-dark text-white"
-                 onClick={() => history.push("/activistprofile", activist)}
-               >
-                 <img
-                   className="card-img"
-                   src="assets/img/bg1.png"
-                   alt="Card image" />
-                 <div className="card-img-overlay center-column-content">
-                   <div className="custom-font">
-                     <h1 className="white-text">Anuna de Wever</h1>
-                     <span className="white-text">Belgium</span>
-                   </div>
-                 </div>
-               </div>
-             </div></>
-         ))
-          }
+          {Activist.map((activist) => (
+            <>
+              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
+                <div
+                  className="card bg-dark text-white"
+                  onClick={() => history.push("/activistprofile", activist)}
+                >
+                  <img
+                    className="card-img"
+                    src="assets/img/mobilizer1.png"
+                    alt="Card image"
+                  />
+                  <div className="card-img-overlay center-column-content">
+                    <div className="custom-font">
+                      <h1 className="white-text">Anuna de Wever</h1>
+                      <span className="white-text">Belgium</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
+                <div
+                  className="card bg-dark text-white"
+                  onClick={() => history.push("/activistprofile", activist)}
+                >
+                  <img
+                    className="card-img"
+                    src="assets/img/bg1.png"
+                    alt="Card image"
+                  />
+                  <div className="card-img-overlay center-column-content">
+                    <div className="custom-font">
+                      <h1 className="white-text">Anuna de Wever</h1>
+                      <span className="white-text">Belgium</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          ))}
         </div>
       </div>
     </div>
