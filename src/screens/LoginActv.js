@@ -17,6 +17,7 @@ function LoginAct() {
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
   const [points, setPoints] = useState("");
+  const [erroPassword,setErrorPassword] = useState(false);
   const history = useHistory();
   useEffect(() => {
     setphoneNumberError(!checkIsPhoneFormat(phoneNumber));
@@ -39,17 +40,24 @@ function LoginAct() {
     } else {
       setPoints("...");
       axios
-        .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
-          phoneNumber: phoneNumber,
+        .post("https://hegemony.donftify.digital:8080/CheckPassword/", {
+          numeroTel: phoneNumber,
           password: password,
         })
         .then(function (response) {
           console.log(response.data);
+          if (isNull(response.data.error))
+          {
           localStorage.setItem(
             "user",
-            JSON.stringify({ phoneNumber: phoneNumber, wallet: response.data })
+            JSON.stringify(response.data)
           );
           history.push("/feed");
+          }
+          else{
+            setErrorPassword(true);
+
+          }
         })
         .catch(function (error) {
           //handle error here
@@ -75,6 +83,7 @@ function LoginAct() {
       toast.error("the passwords are not the same");
       return;
     }
+
     console.log("Login successful :)");
   };
 
@@ -143,6 +152,7 @@ function LoginAct() {
                 placeholder="Type password again"
                 onChange={(e) => setRePassword(e.target.value)}
               />
+              {erroPassword && <h3>incorrect password</h3>}
               <div>
                 <div class="form-check mb-1">
                   <input
