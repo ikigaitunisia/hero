@@ -52,7 +52,7 @@ function LoginAct() {
             "user",
             JSON.stringify(response.data)
           );
-          history.push("/feed");
+          history.push("/mobilizercard");
           }
           else{
             setErrorPassword(true);
