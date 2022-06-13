@@ -21,7 +21,6 @@ function ActivistVictoriesModal(props) {
       class="modal fade modalbox"
       id="mobilizerVictories"
       tabIndex="-1"
-      role="dialog"
     >
       <div  role="document">
         <div class="modal-content">
