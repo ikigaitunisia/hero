@@ -9,10 +9,16 @@
   max-height: 50vh;
 }
 
-.bg-g{
+.bg-g {
   background: linear-gradient(0deg, rgb(162, 174, 241), blue);
 }
 
-.custom-width{
+.custom-width {
   width: 70%;
+}
+
+@media screen and (max-width: 400px) {
+  .home-img {
+    width: 200px;
+  }
 }
