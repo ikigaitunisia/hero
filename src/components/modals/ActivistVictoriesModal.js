@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Modal } from "bootstrap";
-import "../ActivistProfileCapsule.css";
+//import "../ActivistProfileCapsule.css";
 
 function ActivistVictoriesModal(props) {
   useEffect(() => {
