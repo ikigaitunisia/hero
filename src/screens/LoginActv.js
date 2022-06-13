@@ -46,7 +46,7 @@ function LoginAct() {
         })
         .then(function (response) {
           console.log(response.data);
-          if (isNull(response.data.error))
+          if (response.data.error == undefined)
           {
           localStorage.setItem(
             "user",
