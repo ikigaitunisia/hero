@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import ListOfActivists from "../components/ListOfActivists";
-import BottomMenu from "../components/CardBottomMenu";
+import BottomMenu from "../components/BottomMenu";
 import Header from "../components/Header";
 
 function ActivistProfile(props) {
@@ -9,7 +9,7 @@ function ActivistProfile(props) {
     <>
       <Header showLogo showLoginBtn showMenuBtn/>
       <ListOfActivists />
-      <BottomMenu />
+      <BottomMenu showHomeBtn showCardBtn showVoteBtn activeItem="card" />
     </>
   );
 }

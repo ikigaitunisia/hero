@@ -43,7 +43,7 @@ function MobilizerCardCapsule(props) {
       <div className="text">
         <h1 className="text-title">Transactions</h1>
       </div>
-      <div className="center-div">
+      <div className="center-div-2">
         <ul className="listview flush transparent simple-listview no-space mt-3">
           <li>
             <div
@@ -92,7 +92,7 @@ function MobilizerCardCapsule(props) {
           </li>
         </ul>
       </div>
-      <div className="section mt-2 center-div">
+      <div className="section mt-2 center-div-2">
         <button
           type="button"
           className="btn btn-primary btn-lg rounded btn-width"
@@ -106,9 +106,9 @@ function MobilizerCardCapsule(props) {
         ></hr>
       </div>
       <div className="text">
-        <h1 className="blue-text">Reporting</h1>
+        <h1 className="text-title blue-text">Reporting</h1>
       </div>
-      <div className="section mt-2 center-div">
+      <div className="mb-2 mt-2 center-div-2">
         <div className="section">
           <div className="flex-end">
             <a href="#" style={{ color: "blue" }}>

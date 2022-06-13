@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import CardBottomMenu from "../components/CardBottomMenu";
+import BottomMenu from "../components/BottomMenu";
 import CardTransactionCapsule from "../components/CardTransactionCapsule";
 import Header from "../components/Header";
 
@@ -9,7 +9,7 @@ function CardTransaction(props) {
     <>
       <Header whiteMode showCloseBtn />
       <CardTransactionCapsule />
-      <CardBottomMenu />
+      <BottomMenu showHomeBtn showCardBtn showVoteBtn activeItem="card"/>
     </>
   );
 }

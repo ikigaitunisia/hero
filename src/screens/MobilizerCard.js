@@ -2,14 +2,14 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import MobilizerCardCapsule from "../components/MobilizerCardCapsule";
 import Header from "../components/Header";
-import MobilizerCardBottomMenu from "../components/MobilizerCardBottomButton";
+import BottomMenu from "../components/BottomMenu";
 
 function MobilizerCard(props) {
   return (
     <>
       <Header showLogo showMenuBtn />
       <MobilizerCardCapsule />
-      <MobilizerCardBottomMenu />
+      <BottomMenu showCardBtn showVoteBtn activeItem="card"/>
     </>
   );
 }
