@@ -8,6 +8,11 @@ function FeedCapsule(props) {
   const history = useHistory();
   const [Index, setIndex] = useState(0);
   const [Activist, setActivist] = useState([]);
+  const updateArray = (response) => {
+    
+    setActivist([...Activist,response]);
+    
+  } 
   useEffect(() => {
     axios
       .post("https://hegemony.donftify.digital:8080/GetIndexActiv")
@@ -21,7 +26,8 @@ function FeedCapsule(props) {
             })
             .then(function (response) {
               console.log(response.data);
-              setActivist(Activist.concat([response.data]))
+              updateArray(response.data);
+              
             })
             .catch(function (error) {
               //handle error here
