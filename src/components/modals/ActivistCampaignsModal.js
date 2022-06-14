@@ -25,6 +25,7 @@ function ActivistCampaignsModal(props) {
       tabIndex="-1"
       role="dialog"
       show={isOpen}
+      style={{zIndex:9999}}
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
