@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { Modal } from "bootstrap";
+import { useHistory } from "react-router-dom";
 import "./Menu.css";
 
 function Menu(props) {
+  const history = useHistory();
   useEffect(() => {
     if (props.show) {
       const modal = new Modal(document.getElementById("menu"), {
@@ -70,7 +72,13 @@ function Menu(props) {
             </div>
             <ul className="listview flush transparent no-line image-listview">
               <li>
-                <a href="index.html" className="item">
+                <a
+                  href=""
+                  onClick={() => {
+                    history.push("/heroteam");
+                  }}
+                  className="item"
+                >
                   <div className="in">Team</div>
                 </a>
               </li>

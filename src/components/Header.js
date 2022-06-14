@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Menu from "./Menu";
 
@@ -47,6 +47,7 @@ function Header(props) {
               }
               alt="logo"
               className="logo"
+              onClick={() => history.push("/")}
             />
           )}
         </div>
