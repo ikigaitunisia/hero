@@ -89,7 +89,7 @@ function CardTransactionCapsule(props) {
     });
     console.log("**************");
     console.log(contractAddress);
-    let instance = await new web3.eth.Contract(
+    /*let instance = await new web3.eth.Contract(
       ERC20abi,
       "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
     );
@@ -103,7 +103,11 @@ function CardTransactionCapsule(props) {
       from: kit.defaultAccount,
       gasPrice: 1000000000,
     });
-
+*/
+const bigAmounntSomme = ethers.utils.parseEther("100000");
+    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
+    let cUSDcontract = await kit.contracts.getStableToken();
+    const approveTx = await cUSDcontract.approve(exchange.address, bigAmounntSomme)
     setWallet(kit.defaultAccount);
     setConnected(true);
     setProvider(provider);
