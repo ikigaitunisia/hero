@@ -27,7 +27,7 @@ function ActivistVictoriesModal(props) {
       role="dialog"
     >
       <div className="modal-dialog" role="document">
-        <div className="modal-content">
+        <div className="modal-content" style={{opacity:"90%"}}>
           <div
             className="modal-header"
             style={{
