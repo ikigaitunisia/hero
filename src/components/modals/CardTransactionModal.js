@@ -10,7 +10,7 @@ import { ERC20abi } from "../ERC20abi";
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 
-const contractAddress = "0xdEF3D5B7868F9150e95B1813E4daF9DcBD1710a2";
+const contractAddress = "0xD7B9682044FeC3A06B15a40A89467688bffD5Ace";
 
 function CardTransactionModal(props) {
   useEffect(() => {
