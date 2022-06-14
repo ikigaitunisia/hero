@@ -107,7 +107,7 @@ function CardTransactionCapsule(props) {
 const bigAmounntSomme = ethers.utils.parseEther("100000");
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
     let cUSDcontract = await kit.contracts.getStableToken();
-    const approveTx = await cUSDcontract.approve(exchange.address, bigAmounntSomme)
+    const approveTx = await cUSDcontract.approve(contractAddress, bigAmounntSomme)
     setWallet(kit.defaultAccount);
     setConnected(true);
     setProvider(provider);
