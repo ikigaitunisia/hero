@@ -3,6 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import "./ActivistProfileCapsule.css";
 import ActivistCampaignsModal from "./modals/ActivistCampaignsModal";
 import ActivistVictoriesModal from "./modals/ActivistVictoriesModal";
+import CardTransactionModal from "./modals/CardTransactionModal";
 
 function ActivistProfileCapsule(props) {
   const A = useLocation();
@@ -12,13 +13,15 @@ function ActivistProfileCapsule(props) {
     useState(false);
   const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
     useState(false);
+  const [showCardTransactionModal, setShowCardTransactionModal] =
+    useState(false);
   const support = () => {
     console.log("Anuna");
     const user = JSON.parse(localStorage.getItem("user"));
     if (user == null) {
       history.push("/Login");
     } else {
-      history.push("/cardtransaction");
+      setShowCardTransactionModal(true);
     }
   };
   useEffect(() => {
@@ -157,6 +160,10 @@ function ActivistProfileCapsule(props) {
           </button>
         </div>
       </div>
+      <CardTransactionModal
+        show={showCardTransactionModal}
+        onClose={() => setShowCardTransactionModal(false)}
+      />
       <div className="appBottomMenu" style={{ padding: "0 20px" }}>
         <a href="" className="item">
           <div

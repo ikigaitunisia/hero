@@ -2,3 +2,8 @@
     background: linear-gradient(0deg, rgb(162, 174, 241), #0000ffe5) !important;
     opacity: 90%;
   }
+
+  #cardTransaction .modal-content {
+    background: linear-gradient(0deg, rgb(162, 174, 241), #0000ffe5) !important;
+    opacity: 90%;
+  }
