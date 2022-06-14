@@ -23,6 +23,7 @@ function CardTransactionCapsule(props) {
   const [Somme,setSomme] = useState(0);
   const [Index,setIndex] = useState(0);
   const [Activist,setActivist] = useState([]);
+  const [WalletContrib,setWalletContrib] = useState("");
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
   
   const updateArray = (response) => {
@@ -32,7 +33,7 @@ function CardTransactionCapsule(props) {
   } 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user);
+    setWalletContrib(user.wallet.address);
     axios
       .post("https://hegemony.donftify.digital:8080/GetIndexActiv")
       .then(function (response) {
@@ -127,6 +128,7 @@ function CardTransactionCapsule(props) {
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
     const txObject = await instance.methods.DepositCusd(
       amountSomme,
+      WalletContrib,
       arrA,
       ArrAv
     );
