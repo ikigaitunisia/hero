@@ -24,7 +24,38 @@ function CardTransactionCapsule(props) {
   const [Activist,setActivist] = useState([]);
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
   
-
+  const updateArray = (response) => {
+    
+    setActivist(oldArray => [...oldArray,response]);
+    console.log(Activist);
+  } 
+  useEffect(() => {
+    axios
+      .post("https://hegemony.donftify.digital:8080/GetIndexActiv")
+      .then(function (response) {
+        console.log(response.data);
+        setIndex(response.data.index);
+        for (var i = 1; i < response.data.index; i++) {
+          axios
+            .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
+              ID: i,
+            })
+            .then(function (response) {
+              console.log(response.data);
+              updateArray(response.data);
+              
+            })
+            .catch(function (error) {
+              //handle error here
+              console.log(error);
+            });
+        }
+      })
+      .catch(function (error) {
+        //handle error here
+        console.log(error);
+      });
+  }, []);
   const updateSum = () => {
     var S = 0;
     document.querySelectorAll(".AmountAc").forEach((element) => {
