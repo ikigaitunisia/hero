@@ -69,7 +69,7 @@ function FeedCapsule(props) {
                 >
                   <img
                     className="card-img"
-                    src="assets/img/mobilizer1.png"
+                    src={activist.autre.Photo}
                     alt="Card image"
                   />
                   <div
@@ -89,35 +89,7 @@ function FeedCapsule(props) {
                   </div>
                 </div>
               </div>
-              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-4">
-                <div
-                  className="card bg-dark text-white"
-                  onClick={() => history.push("/activistprofile", activist)}
-                  style={{ borderRadius: "20px" }}
-                >
-                  <img
-                    className="card-img"
-                    src="assets/img/bg1.png"
-                    alt="Card image"
-                  />
-                  <div
-                    className="card-img-overlay center-column-content"
-                    style={{ borderRadius: "20px" }}
-                  >
-                    <div>
-                      <h1 className="white-text title-font">
-                        Anuna de Wever{" "}
-                        <ion-icon
-                          src="assets/img/svg/hero.svg"
-                          style={{ width: "10px" }}
-                        ></ion-icon>
-                      </h1>
-                      <span className="white-text">Belgium</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-             
+           
             </>
           ))}
         </div>
