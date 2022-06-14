@@ -39,19 +39,23 @@ function FeedCapsule(props) {
   return (
     <div id="appCapsule" className="bg-g-1" style={{ minHeight: "100vh" }}>
       <div className="section mt-4 pt-4 center-div">
-        <h4 className="blue-text title-font">
+        <h5 className="blue-text title-font">
           Browse the first HERO Mobilizers with a verified track record on
           climate action.
-        </h4>
-        <h5 className="mt-4 pt-2 title-font">
+        </h5>
+        <h6 className="mt-4 pt-2 title-font">
           <a
             href=""
             style={{ textDecoration: "underline" }}
             className="blue-text"
           >
             Discover how HERO Mobilizers are verified
+            <ion-icon
+              src="assets/img/svg/heroblue.svg"
+              style={{ width: "8.4px", marginLeft: "3px" }}
+            ></ion-icon>
           </a>
-        </h5>
+        </h6>
       </div>
       <div className="section mt-4 pt-2 mb-2">
         <div className="row mt-2 pe-3 pl-3">
@@ -73,7 +77,13 @@ function FeedCapsule(props) {
                     style={{ borderRadius: "20px" }}
                   >
                     <div className="">
-                      <h1 className="white-text title-font">Anuna de Wever</h1>
+                      <h1 className="white-text title-font">
+                        Anuna de Wever{" "}
+                        <ion-icon
+                          src="assets/img/svg/hero.svg"
+                          style={{ width: "10px" }}
+                        ></ion-icon>
+                      </h1>
                       <span className="white-text">Belgium</span>
                     </div>
                   </div>
@@ -95,7 +105,13 @@ function FeedCapsule(props) {
                     style={{ borderRadius: "20px" }}
                   >
                     <div>
-                      <h1 className="white-text title-font">Anuna de Wever</h1>
+                      <h1 className="white-text title-font">
+                        Anuna de Wever{" "}
+                        <ion-icon
+                          src="assets/img/svg/hero.svg"
+                          style={{ width: "10px" }}
+                        ></ion-icon>
+                      </h1>
                       <span className="white-text">Belgium</span>
                     </div>
                   </div>
