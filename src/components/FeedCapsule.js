@@ -14,7 +14,7 @@ function FeedCapsule(props) {
       .then(function (response) {
         console.log(response.data);
         setIndex(response.data.index);
-        for (var i = 1; i <= response.data.index - 1; i++) {
+        for (var i = 1; i <= response.data.index; i++) {
           axios
             .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
               ID: i,
@@ -61,6 +61,7 @@ function FeedCapsule(props) {
         <div className="row mt-2 pe-3 pl-3">
           {Activist.map((activist) => (
             <>
+              
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-4">
                 <div
                   className="card bg-dark text-white"
@@ -76,11 +77,11 @@ function FeedCapsule(props) {
                     className="card-img-overlay center-column-content"
                     style={{ borderRadius: "20px" }}
                   >
-                    <div className="">
+                    <div>
                       <h1 className="white-text title-font">
-                      {activist.Nom+" "+activist.Prenom}
+                        {activist.Nom+" "+activist.Prenom}
                         <ion-icon
-                          src="assets/img/svg/hero.svg"
+                          src={"assets/img/svg/hero.svg"}
                           style={{ width: "10px" }}
                         ></ion-icon>
                       </h1>
@@ -89,7 +90,7 @@ function FeedCapsule(props) {
                   </div>
                 </div>
               </div>
-           
+             
             </>
           ))}
         </div>
