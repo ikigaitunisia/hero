@@ -14,7 +14,7 @@ function FeedCapsule(props) {
       .then(function (response) {
         console.log(response.data);
         setIndex(response.data.index);
-        for (var i = 1; i <= response.data.index; i++) {
+        for (var i = 1; i < response.data.index; i++) {
           axios
             .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
               ID: i,
