@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./CardTransactionCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
@@ -9,7 +9,7 @@ import { ERC20abi } from "./ERC20abi";
 
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
-
+import axios from "axios";
 const contractAddress = "0xD7B9682044FeC3A06B15a40A89467688bffD5Ace";
 function CardTransactionCapsule(props) {
   const history = useHistory();
@@ -21,6 +21,7 @@ function CardTransactionCapsule(props) {
   const [webT,setWebT] = useState(null);
   const [Connected,setConnected] = useState(false);
   const [Somme,setSomme] = useState(0);
+  const [Index,setIndex] = useState(0);
   const [Activist,setActivist] = useState([]);
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
   
