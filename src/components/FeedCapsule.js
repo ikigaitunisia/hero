@@ -75,7 +75,7 @@ function FeedCapsule(props) {
                 >
                   <img
                     className="card-img"
-                    src={activist.autre.Photo}
+                    src={"assets/img/"+activist.autre.Photo}
                     alt="Card image"
                   />
                   <div
