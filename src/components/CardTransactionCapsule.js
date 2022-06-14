@@ -95,7 +95,7 @@ function CardTransactionCapsule(props) {
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
     const txObject = await instance.methods.approve(
       contractAddress,
-      "1000000000000000000000000000"
+      amountSomme
     );
     let tx = await kit.sendTransactionObject(txObject, {
       from: kit.defaultAccount,
