@@ -1,93 +1,109 @@
 import React, { useState } from "react";
 import "./CardTransactionCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
-import WalletConnectProvider from '@walletconnect/web3-provider';
-import Web3 from 'web3';
-import { newKitFromWeb3 } from '@celo/contractkit';
-import {abiDepositContract} from "./abiDepositContract";
-import {ERC20abi} from "./ERC20abi";
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import Web3 from "web3";
+import { newKitFromWeb3 } from "@celo/contractkit";
+import { abiDepositContract } from "./abiDepositContract";
+import { ERC20abi } from "./ERC20abi";
 
-import { useHistory,useParams } from "react-router-dom";
-import {ethers} from "ethers";
+import { useHistory, useParams } from "react-router-dom";
+import { ethers } from "ethers";
 
 const contractAddress = "0x19D466A13548408F2EA78E8d96B2721FEf191D8b";
 function CardTransactionCapsule(props) {
-  const history =useHistory();
+  const history = useHistory();
   const [showExchangeModal, setShowExchangeModal] = useState(false);
   const [content, setContent] = useState("");
-  const [provider,setProvider] = useState(null);
-  const [kit,setKit] =useState(null);
-  const [Wallet,setWallet] = useState("");
-  const [webT,setWebT] = useState(null);
-  const [Connected,setConnected] = useState(false);
-  const [Somme,setSomme] = useState(0);
-  const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
-  
+  const [provider, setProvider] = useState(null);
+  const [kit, setKit] = useState(null);
+  const [Wallet, setWallet] = useState("");
+  const [webT, setWebT] = useState(null);
+  const [Connected, setConnected] = useState(false);
+  const [Somme, setSomme] = useState(0);
+  const urlOFGateway =
+    "https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true";
+
   const updateSum = () => {
-    var S=0;
-    document.querySelectorAll(".AmountAc").forEach(element => {
-      if (parseFloat(element.value) >0 && !isNaN(parseFloat(element.value)))
-      {
-        S=S+parseFloat(element.value);
+    var S = 0;
+    document.querySelectorAll(".AmountAc").forEach((element) => {
+      if (parseFloat(element.value) > 0 && !isNaN(parseFloat(element.value))) {
+        S = S + parseFloat(element.value);
       }
-    }) 
+    });
     setSomme(S);
-  }
-  
-  
-  
-  const connect = async() => {
+  };
+
+  const connect = async () => {
     const provider = new WalletConnectProvider({
       rpc: {
         44787: "https://alfajores-forno.celo-testnet.org",
         42220: "https://forno.celo.org",
       },
     });
-  
-    await provider.enable()
+
+    await provider.enable();
     const web3 = new Web3(provider);
-    let kit = newKitFromWeb3(web3)
-  
-    kit.defaultAccount = provider.accounts[0]
+    let kit = newKitFromWeb3(web3);
+
+    kit.defaultAccount = provider.accounts[0];
     console.log(kit.defaultAccount);
     provider.on("accountsChanged", (accounts) => {
       console.log(accounts);
     });
-    let instance = await new web3.eth.Contract(ERC20abi, "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1");
+    let instance = await new web3.eth.Contract(
+      ERC20abi,
+      "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
+    );
     const bigAmounntSomme = ethers.utils.parseEther("100000");
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    const txObject = await instance.methods.approve(contractAddress, amountSomme);
-    let tx = await kit.sendTransactionObject(txObject, { from: kit.defaultAccount, gasPrice: 1000000000 });
-    
+    const txObject = await instance.methods.approve(
+      contractAddress,
+      amountSomme
+    );
+    let tx = await kit.sendTransactionObject(txObject, {
+      from: kit.defaultAccount,
+      gasPrice: 1000000000,
+    });
+
     setWallet(kit.defaultAccount);
     setConnected(true);
     setProvider(provider);
     setKit(kit);
     setWebT(web3);
-  }
-  const getElems = async() => {
-    var arrA =[];
-    var ArrAv =[];
-    document.querySelectorAll(".seletAc").forEach(element => {
-      arrA.push(element.value) ;
-    })
-    document.querySelectorAll(".AmountAc").forEach(element => {
+  };
+  const getElems = async () => {
+    var arrA = [];
+    var ArrAv = [];
+    document.querySelectorAll(".seletAc").forEach((element) => {
+      arrA.push(element.value);
+    });
+    document.querySelectorAll(".AmountAc").forEach((element) => {
       const bigAmounnt = ethers.utils.parseEther(element.value);
       var amount = ethers.BigNumber.from(bigAmounnt.toString());
-      ArrAv.push(amount) ;
-    })
-    
-    let instance = await new webT.eth.Contract(abiDepositContract, contractAddress);
+      ArrAv.push(amount);
+    });
+
+    let instance = await new webT.eth.Contract(
+      abiDepositContract,
+      contractAddress
+    );
     const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    const txObject = await instance.methods.DepositCusd(amountSomme, arrA,ArrAv);
-    let tx = await kit.sendTransactionObject(txObject, { from: kit.defaultAccount, gasPrice: 1000000000 });
+    const txObject = await instance.methods.DepositCusd(
+      amountSomme,
+      arrA,
+      ArrAv
+    );
+    let tx = await kit.sendTransactionObject(txObject, {
+      from: kit.defaultAccount,
+      gasPrice: 1000000000,
+    });
 
     const hash = await tx.getHash();
     console.log(hash);
-    history.push('/Card');
-    
- }
+    history.push("/Card");
+  };
 
   const mobilizer = (
     <>
@@ -96,10 +112,16 @@ function CardTransactionCapsule(props) {
           <label className="label" for="account2d">
             To
           </label>
-          <select className="form-control custom-select seletAc" id="account2d"  >
-            <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Anuna de Wever</option>
-            <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Julieta Martinez</option>
-            <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Vanessa Nakate</option>
+          <select className="form-control custom-select seletAc" id="account2d">
+            <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">
+              Anuna de Wever
+            </option>
+            <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">
+              Julieta Martinez
+            </option>
+            <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">
+              Vanessa Nakate
+            </option>
           </select>
           <i className="clear-input">
             <ion-icon name="close-circle"></ion-icon>
@@ -118,14 +140,13 @@ function CardTransactionCapsule(props) {
             className="form-control AmountAc"
             placeholder="Enter an amount"
             onChange={(ev) => updateSum(ev.target.value)}
-            />
+          />
         </div>
       </div>
     </>
   );
   const addContent = () => {
     setContent((current) => (
-
       <>
         {current} {mobilizer}
       </>
@@ -133,15 +154,17 @@ function CardTransactionCapsule(props) {
   };
 
   return (
-    <div id="appCapsule" className="bg-g">
+    <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
       <div className="section mt-2">
         <ion-icon
-          class="icon-title"
+          class="icon-logo"
           src="assets/img/svg/heroCardWhite.svg"
         ></ion-icon>
       </div>
       <div className="section">
-        <h4 className="white-text">Support HERO Mobilizers</h4>
+        <h4 className="text-title white-text" style={{ margin: 0 }}>
+          Support HERO Mobilizers
+        </h4>
         <span className="white-text">with a Basic Income.</span>
       </div>
       <div className="section">
@@ -160,10 +183,19 @@ function CardTransactionCapsule(props) {
               <label className="label" for="account2d">
                 To
               </label>
-              <select className="form-control custom-select seletAc" id="account2d" >
-                <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Anuna de Wever</option>
-                <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Julieta Martinez</option>
-                <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Vanessa Nakate</option>
+              <select
+                className="form-control custom-select seletAc"
+                id="account2d"
+              >
+                <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">
+                  Anuna de Wever
+                </option>
+                <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">
+                  Julieta Martinez
+                </option>
+                <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">
+                  Vanessa Nakate
+                </option>
               </select>
               <i className="clear-input">
                 <ion-icon name="close-circle"></ion-icon>
@@ -187,10 +219,10 @@ function CardTransactionCapsule(props) {
           </div>
           {content}
           <div className="form-group basic">
-            <label className="label mb-2">Type of Payment</label>
+            <label className="label mb-3">Type of Payment</label>
 
             <div className="radio-input">
-              <div class="form-check mb-1" onClick={() => connect()}    >
+              <div class="form-check mb-1" onClick={() => connect()}>
                 <input
                   class="form-check-input"
                   type="radio"
@@ -201,14 +233,19 @@ function CardTransactionCapsule(props) {
                   Crypto Payement
                 </label>
               </div>
-              <div class="form-check mb-1" onClick={() => {window.location.href = urlOFGateway;}}>
+              <div
+                class="form-check mb-1"
+                onClick={() => {
+                  window.location.href = urlOFGateway;
+                }}
+              >
                 <input
                   class="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault2"
                 />
-                <label class="form-check-label" for="flexRadioDefault2" >
+                <label class="form-check-label" for="flexRadioDefault2">
                   Credit Card
                 </label>
               </div>
@@ -265,11 +302,11 @@ function CardTransactionCapsule(props) {
               </div>
             </div>
           </div>
-  */ }
+  */}
 
-          <div className="section">
+          <div className="section mt-4 pt-2 mb-4">
             <h4 className="white-text">Transaction total</h4>
-            <h3 className="white-text">{"$"+Somme}</h3>
+            <h3 className="white-text">{"$" + Somme}</h3>
           </div>
           <div className="form-group basic">
             <button

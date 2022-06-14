@@ -44,7 +44,11 @@ function ActivistProfileCapsule(props) {
             </a>
           </div>
           <h3 className="custom-font blue-text">
-            {A.state.Nom + " " + A.state.Prenom}
+            {A.state.Nom + " " + A.state.Prenom}{" "}
+            <ion-icon
+              src="assets/img/svg/heroblue.svg"
+              style={{ width: "8.4px", marginLeft: "3px" }}
+            ></ion-icon>
           </h3>
           <span className="blue-text">{A.state.autre.Pays}</span>
           <div className="lead black-text pt-3 pb-3">
@@ -175,6 +179,7 @@ function ActivistProfileCapsule(props) {
                 fontSize: "14px",
                 marginTop: 0,
               }}
+              className="title-font"
             >
               Previous mobilizer
             </strong>
@@ -197,6 +202,7 @@ function ActivistProfileCapsule(props) {
                 fontSize: "14px",
                 marginTop: 0,
               }}
+              className="title-font"
             >
               Next mobilizer
             </strong>
