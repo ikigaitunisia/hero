@@ -333,7 +333,7 @@ function CardTransactionCapsule(props) {
           <div className="form-group basic">
             <button
               type="button"
-              class="btn btn-link rounded"
+              class="btn btn-link rounded btn-lg"
               data-bs-dismiss="modal"
               style={{
                 borderColor: "white",
