@@ -21,8 +21,9 @@ function FeedCapsule(props) {
             })
             .then(function (response) {
               console.log(response.data);
-
-              setActivist([...Activist, response.data]);
+              let A = Activist;
+              A.push(response.data);
+              setActivist(A);
             })
             .catch(function (error) {
               //handle error here
