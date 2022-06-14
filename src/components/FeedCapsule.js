@@ -10,7 +10,7 @@ function FeedCapsule(props) {
   const [Activist, setActivist] = useState([]);
   const updateArray = (response) => {
     
-    setActivist([...Activist,response]);
+    setActivist(oldArray => [...oldArray,response]);
     console.log(Activist);
   } 
   useEffect(() => {
