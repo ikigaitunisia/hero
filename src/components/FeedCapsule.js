@@ -11,7 +11,7 @@ function FeedCapsule(props) {
   const updateArray = (response) => {
     
     setActivist([...Activist,response]);
-    
+    console.log(Activist);
   } 
   useEffect(() => {
     axios
