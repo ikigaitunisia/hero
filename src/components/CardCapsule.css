@@ -90,6 +90,10 @@ li {
   height: 100px;
   width: 150px;
 }
+.icon-logo{
+  height: 50px;
+  width: 250px;
+}
 @media screen and (max-width: 600px) {
   .text-title {
     font-size: 24px;
@@ -101,6 +105,10 @@ li {
   .icon-title {
     height: 50px;
     width: 100px;
+  }
+  .icon-logo {
+    height: 50px;
+    width: 150px;
   }
   .card-number-custom strong {
     font-size: 15px;
