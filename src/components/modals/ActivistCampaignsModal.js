@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Modal } from "bootstrap";
 
 function ActivistCampaignsModal(props) {
-  const [isOpen,setisOpen] = useState(false)
+  const [isOpen,setisOpen] = useState(props.show)
   useEffect(() => {
     if (props.show) {
       const modal = new Modal(document.getElementById("activistCampaigns"), {
         keyboard: false,
       });
-      setisOpen(true);
       modal.show();
     }
 
@@ -19,12 +18,13 @@ function ActivistCampaignsModal(props) {
 
   return (
   <>
+
     <div
       class="modal fade action-sheet"
       id="activistCampaigns"
       tabIndex="-1"
       role="dialog"
-      isOpen={isOpen}
+      show={isOpen}
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
