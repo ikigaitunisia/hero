@@ -93,7 +93,7 @@ function CardTransactionCapsule(props) {
     );
     const bigAmounntSomme = ethers.utils.parseEther("100000");
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    const txObject = await instance.methods.approve(
+    const txObject = await instance.methods.increaseAllowance(
       contractAddress,
       amountSomme
     );
