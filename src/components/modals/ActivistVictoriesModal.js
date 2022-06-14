@@ -51,8 +51,8 @@ function ActivistVictoriesModal(props) {
                   />
                 </a>
               </div>
-              <h3 className="white-text">Anuna de Wever </h3>
-              <span className="white-text">Belgium</span>
+              <h3 className="white-text">{props.activist.Nom+" "+props.activist.Prenom} </h3>
+              <span className="white-text">{props.activist.autre.Pays}</span>
             </div>
 
             <div className="section center-div mt-2">
