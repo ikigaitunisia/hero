@@ -63,30 +63,13 @@ function FeedCapsule(props) {
                   />
                   <div className="card-img-overlay center-column-content">
                     <div className="custom-font">
-                      <h1 className="white-text">Anuna de Wever</h1>
-                      <span className="white-text">Belgium</span>
+                      <h1 className="white-text">{activist.Nom+" "+activist.Prenom}</h1>
+                      <span className="white-text">{activist.autre.Pays}</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-2">
-                <div
-                  className="card bg-dark text-white"
-                  onClick={() => history.push("/activistprofile", activist)}
-                >
-                  <img
-                    className="card-img"
-                    src="assets/img/bg1.png"
-                    alt="Card image"
-                  />
-                  <div className="card-img-overlay center-column-content">
-                    <div className="custom-font">
-                      <h1 className="white-text">Anuna de Wever</h1>
-                      <span className="white-text">Belgium</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+             
             </>
           ))}
         </div>
