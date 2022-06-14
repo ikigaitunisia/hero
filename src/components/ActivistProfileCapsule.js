@@ -37,34 +37,42 @@ function ActivistProfileCapsule(props) {
           <div className="avatar-section mb-2">
             <a href="#">
               <img
-                src={"assets/img/"+A.state.autre.Photo}
+                src={"assets/img/" + A.state.autre.Photo}
                 alt="avatar"
                 className="imaged w100 rounded"
               />
             </a>
           </div>
-          <h3 className="blue-text">{A.state.Nom + " " + A.state.Prenom}</h3>
+          <h3 className="custom-font blue-text">
+            {A.state.Nom + " " + A.state.Prenom}
+          </h3>
           <span className="blue-text">{A.state.autre.Pays}</span>
-          <p className="mt-2">{A.state.autre.Bio + " "}</p>
-          <a href="#" className="blue-text">
-            linktr.ee/anunadewever
-          </a>
+          <div className="lead black-text pt-3 pb-3">
+            {A.state.autre.Bio + " "}
+          </div>
+          <h5>
+            <a href="#" className="blue-text title-font">
+              linktr.ee/anunadewever
+            </a>
+          </h5>
         </div>
         <hr
           data-content="AND"
-          className="hr-text mt-2"
-          style={{ width: "70%", margin: "0 auto" }}
+          className="hr-text mt-4 mb-4"
+          style={{ width: "70%", margin: "0 auto", background: "#a9abad" }}
         ></hr>
-        <div className="section mt-2">
+        <div className="section">
           <h2 className="blue-text">Endorsed by</h2>
-          <p>Greta Thunberg , Angela Merkle , Christiana Figueres</p>
+          <div className="lead black-text pb-2">
+            Greta Thunberg , Angela Merkle , Christiana Figueres
+          </div>
         </div>
         <hr
           data-content="AND"
-          className="hr-text mt-2"
-          style={{ width: "70%", margin: "0 auto" }}
+          className="hr-text mt-4 mb-4"
+          style={{ width: "70%", margin: "0 auto", background: "#a9abad" }}
         ></hr>
-        <div className="section mt-3 mb-3">
+        <div className="section">
           <div className="row">
             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 flex-center mb-2">
               <ion-icon
@@ -88,24 +96,28 @@ function ActivistProfileCapsule(props) {
         </div>
         <ActivistCampaignsModal
           show={showMobilizerCampaignsModal}
-          activist = {A.state}
+          activist={A.state}
           onClose={() => setShowMobilizerCampaignsModal(false)}
         />
         <ActivistVictoriesModal
           show={showMobilizerVictoriesModal}
-          activist = {A.state}
+          activist={A.state}
           onClose={() => setShowMobilizerVictoriesModal(false)}
         />
         <hr
           data-content="AND"
-          className="hr-text mt-2"
-          style={{ width: "70%", margin: "0 auto" }}
+          className="hr-text mt-4 mb-4"
+          style={{ width: "70%", margin: "0 auto", background: "#a9abad" }}
         ></hr>
-        <div className="section mt-2 mb-3">
-          <div className="title blue-text">Funding Goal</div>
-          <div className="value blue-text">{"€" + A.state.autre.MaxFunds}</div>
+        <div className="section mb-4">
+          <div className="title blue-text title-font">
+            Fund a 1 year Basic Income of
+          </div>
+          <div className="value blue-text title-font">
+            {"€" + A.state.autre.MaxFunds}
+          </div>
 
-          <div className="center-div mt-3">
+          <div className="center-div mt-3 ">
             <div
               class="progress mb-2"
               style={{
@@ -117,7 +129,7 @@ function ActivistProfileCapsule(props) {
               <div
                 class="progress-bar"
                 role="progressbar"
-                style={{ width: "55%" }}
+                style={{ width: "55%", background: "blue", height: "100%" }}
                 aria-valuenow="25"
                 aria-valuemin="0"
                 aria-valuemax="100"
@@ -127,12 +139,14 @@ function ActivistProfileCapsule(props) {
               className="value"
               style={{ color: "blue", textAlign: "center" }}
             >
-              {"€ 500 of € " + A.state.autre.MaxFunds}
+              <b className="title-font">€ 500</b>
+              {" of € " + A.state.autre.MaxFunds}
             </div>
           </div>
           <button
+            id="supportMobBtn"
             type="button"
-            class="btn btn-outline-primary btn-lg rounded btn-width"
+            className="btn btn-primary btn-lg rounded btn-width"
             onClick={support}
           >
             Support Anuna
