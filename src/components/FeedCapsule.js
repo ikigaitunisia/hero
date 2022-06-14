@@ -14,7 +14,6 @@ function FeedCapsule(props) {
       .then(function (response) {
         console.log(response.data);
         setIndex(response.data.index);
-        let A =[];
         for (var i = 1; i < response.data.index; i++) {
           axios
             .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
@@ -22,16 +21,13 @@ function FeedCapsule(props) {
             })
             .then(function (response) {
               console.log(response.data);
-              A = Activist;
-              A.push(response.data);
+              setActivist(Activist.concat([response.data]))
             })
             .catch(function (error) {
               //handle error here
               console.log(error);
             });
         }
-        setActivist(A);
-
       })
       .catch(function (error) {
         //handle error here
