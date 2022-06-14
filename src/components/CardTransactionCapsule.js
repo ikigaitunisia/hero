@@ -30,6 +30,8 @@ function CardTransactionCapsule(props) {
     console.log(Activist);
   } 
   useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
     axios
       .post("https://hegemony.donftify.digital:8080/GetIndexActiv")
       .then(function (response) {
