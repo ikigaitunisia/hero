@@ -88,10 +88,12 @@ function ActivistProfileCapsule(props) {
         </div>
         <ActivistCampaignsModal
           show={showMobilizerCampaignsModal}
+          activist = {A.state}
           onClose={() => setShowMobilizerCampaignsModal(false)}
         />
         <ActivistVictoriesModal
           show={showMobilizerVictoriesModal}
+          activist = {A.state}
           onClose={() => setShowMobilizerVictoriesModal(false)}
         />
         <hr
