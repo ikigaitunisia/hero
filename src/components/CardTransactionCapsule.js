@@ -87,6 +87,7 @@ function CardTransactionCapsule(props) {
     provider.on("accountsChanged", (accounts) => {
       console.log(accounts);
     });
+    console.log(contractAddress);
     let instance = await new web3.eth.Contract(
       ERC20abi,
       "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
