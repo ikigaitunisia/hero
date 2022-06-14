@@ -17,8 +17,25 @@
   width: 70%;
 }
 
+.title-font {
+  font-family: Seravek;
+  font-weight: bold;
+}
+
+.home-video {
+  width: 80%;
+  border-radius: 20px;
+}
+
 @media screen and (max-width: 400px) {
   .home-img {
     width: 200px;
+  }
+  .font-size-btn {
+    font-size: 14px;
+  }
+  .home-video {
+    width: 100%;
+    border-radius: 20px;
   }
 }

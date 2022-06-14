@@ -10,7 +10,7 @@ function HomeCapsule(props) {
         <img className="home-img" src="assets/img/Anuna_HomePage.png" />
       </div>
       <div className="section">
-        <h1 className="text-title white-text">
+        <h1 className="text-title white-text title-font">
           Millions of Climate Mobilizers.
         </h1>
         <div className="lead white-text">Today millions of climate mobilizers around the world are advocating
@@ -18,7 +18,7 @@ function HomeCapsule(props) {
           time and it's not being paid.</div>
       </div>
       <div className="section mt-2 pb-3">
-        <h1 className="text-title white-text">
+        <h1 className="text-title white-text title-font">
           HERO Coin gives you the power to support them.
         </h1>
         <div className="lead white-text">Financing climate mobilizers is 100 times* more effective than buying
@@ -28,7 +28,7 @@ function HomeCapsule(props) {
       <div className="section pt-4">
         <button
           type="button"
-          class="btn btn-outline-secondary btn-lg rounded"
+          className="btn btn-outline-secondary btn-lg rounded font-size-btn"
           style={{ borderColor: "white", color: "#8585FF", background: "white" }}
           onClick={() => history.push("/feed")}
         >
@@ -45,13 +45,13 @@ function HomeCapsule(props) {
           src="assets/img/svg/heroCoinWhite.svg"
           class="btn-round"
         ></ion-icon>
-        <h1 className="text-title white-text mb-4">
+        <h1 className="text-title white-text mb-4 title-font">
           Learn how the HERO Coin works.
         </h1>
         <video
           controls
           src="assets/videos/short-video-for-test.mp4"
-          style={{ width: "80%", borderRadius: "20px" }}
+          className="home-video"
         ></video>
       </div>
     </div>
