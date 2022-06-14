@@ -10,7 +10,7 @@ import {ERC20abi} from "./ERC20abi";
 import { useHistory,useParams } from "react-router-dom";
 import {ethers} from "ethers";
 
-const contractAddress = "0x19D466A13548408F2EA78E8d96B2721FEf191D8b";
+const contractAddress = "0xdEF3D5B7868F9150e95B1813E4daF9DcBD1710a2";
 function CardTransactionCapsule(props) {
   const history =useHistory();
   const [showExchangeModal, setShowExchangeModal] = useState(false);
@@ -21,6 +21,7 @@ function CardTransactionCapsule(props) {
   const [webT,setWebT] = useState(null);
   const [Connected,setConnected] = useState(false);
   const [Somme,setSomme] = useState(0);
+  const [Activist,setActivist] = useState([]);
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
   
   const updateSum = () => {
@@ -33,8 +34,38 @@ function CardTransactionCapsule(props) {
     }) 
     setSomme(S);
   }
-  
-  
+  const updateArray = (response) => {
+    
+    setActivist(oldArray => [...oldArray,response]);
+    console.log(Activist);
+  } 
+  useEffect(() => {
+    axios
+      .post("https://hegemony.donftify.digital:8080/GetIndexActiv")
+      .then(function (response) {
+        console.log(response.data);
+        setIndex(response.data.index);
+        for (var i = 1; i < response.data.index; i++) {
+          axios
+            .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
+              ID: i,
+            })
+            .then(function (response) {
+              console.log(response.data);
+              updateArray(response.data);
+              
+            })
+            .catch(function (error) {
+              //handle error here
+              console.log(error);
+            });
+        }
+      })
+      .catch(function (error) {
+        //handle error here
+        console.log(error);
+      });
+  }, []);
   
   const connect = async() => {
     const provider = new WalletConnectProvider({
@@ -97,9 +128,11 @@ function CardTransactionCapsule(props) {
             To
           </label>
           <select className="form-control custom-select seletAc" id="account2d"  >
-            <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Anuna de Wever</option>
-            <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Julieta Martinez</option>
-            <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Vanessa Nakate</option>
+            { Activist.map((activist) => (
+            <option value={activist.Wallet}>{activist.Nom+" "+activist.Prenom}</option>
+          
+            ))
+            }
           </select>
           <i className="clear-input">
             <ion-icon name="close-circle"></ion-icon>
@@ -161,9 +194,11 @@ function CardTransactionCapsule(props) {
                 To
               </label>
               <select className="form-control custom-select seletAc" id="account2d" >
-                <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Anuna de Wever</option>
-                <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Julieta Martinez</option>
-                <option value="0x0DEA7CE64e3f7BBbe5910504F4aa7569c02BB211">Vanessa Nakate</option>
+              { Activist.map((activist) => (
+            <option value={activist.Wallet}>{activist.Nom+" "+activist.Prenom}</option>
+          
+            ))
+            }
               </select>
               <i className="clear-input">
                 <ion-icon name="close-circle"></ion-icon>
