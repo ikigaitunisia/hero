@@ -97,6 +97,11 @@ export const abiDepositContract = [
 				"type": "uint256"
 			},
 			{
+				"internalType": "address",
+				"name": "contributer",
+				"type": "address"
+			},
+			{
 				"internalType": "address[]",
 				"name": "activists",
 				"type": "address[]"
@@ -324,6 +329,19 @@ export const abiDepositContract = [
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "Token",
+				"type": "address"
+			}
+		],
+		"name": "updateToken",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address payable",
 				"name": "_to",
 				"type": "address"
@@ -348,7 +366,7 @@ export const abiDepositContract = [
 	{
 		"inputs": [
 			{
-				"internalType": "address payable",
+				"internalType": "address",
 				"name": "_to",
 				"type": "address"
 			}
@@ -366,7 +384,7 @@ export const abiDepositContract = [
 				"type": "uint256"
 			}
 		],
-		"stateMutability": "payable",
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
