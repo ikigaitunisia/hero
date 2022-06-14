@@ -21,7 +21,8 @@ function ActivistProfileCapsule(props) {
     if (user == null) {
       history.push("/Login");
     } else {
-      setShowCardTransactionModal(true);
+      //setShowCardTransactionModal(true);
+      history.push("/cardtransaction");
     }
   };
   useEffect(() => {
@@ -160,10 +161,10 @@ function ActivistProfileCapsule(props) {
           </button>
         </div>
       </div>
-      <CardTransactionModal
+      {/*<CardTransactionModal
         show={showCardTransactionModal}
         onClose={() => setShowCardTransactionModal(false)}
-      />
+            />*/}
       <div className="appBottomMenu" style={{ padding: "0 20px" }}>
         <a href="" className="item">
           <div
