@@ -44,7 +44,7 @@ function ActivistCampaignsModal(props) {
                 <div className="avatar-section mb-2">
                   <a href="#">
                     <img
-                      src="assets\img\img3.png"
+                      src={"assets/img/"+props.activist.autre.Photo}
                       alt="avatar"
                       className="imaged w100 rounded"
                     />
