@@ -302,9 +302,15 @@ function CardTransactionCapsule(props) {
           <div className="form-group basic">
             <button
               type="button"
-              class="btn btn-outline-secondary rounded"
+              class="btn btn-link rounded"
               data-bs-dismiss="modal"
-              style={{ borderColor: "white", color: "white", width: "200px" }}
+              style={{
+                borderColor: "white",
+                color: "#8585FF",
+                width: "200px",
+                backgroundColor: "white",
+                fontWeight: "bold",
+              }}
               onClick={() => getElems()}
             >
               Confirm
