@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Modal } from "bootstrap";
-//import "../ActivistProfileCapsule.css";
+import "../ActivistProfileCapsule.css";
 
 function ActivistVictoriesModal(props) {
   useEffect(() => {
@@ -8,7 +8,10 @@ function ActivistVictoriesModal(props) {
       const modal = new Modal(document.getElementById("mobilizerVictories"), {
         keyboard: false,
       });
-      modal.show();
+      console.log(modal);
+      if (modal) {
+        modal.show();
+      }
     }
 
     return () => {
@@ -18,14 +21,15 @@ function ActivistVictoriesModal(props) {
 
   return (
     <div
-      class="modal fade modalbox"
+      className="modal fade modalbox"
       id="mobilizerVictories"
       tabIndex="-1"
+      role="dialog"
     >
-      <div  role="document">
-        <div class="modal-content">
+      <div className="modal-dialog" role="document">
+        <div className="modal-content">
           <div
-            class="modal-header"
+            className="modal-header"
             style={{
               justifyContent: "flex-end",
               border: "unset",
@@ -36,7 +40,7 @@ function ActivistVictoriesModal(props) {
               <ion-icon name="close" style={{ color: "white" }}></ion-icon>
             </a>
           </div>
-          <div class="modal-body">
+          <div className="modal-body">
             <div className="section mt-3 text-center center-div">
               <div className="avatar-section mb-2">
                 <a href="#">
@@ -57,7 +61,7 @@ function ActivistVictoriesModal(props) {
                 className="hr-text mb-2 white-divider"
               ></hr>
               <h5 className="white-text">Victories</h5>
-              <div class="section">
+              <div className="section">
                 <div style={{ display: "flex" }} className="mt-2">
                   <div>
                     <ion-icon
@@ -66,18 +70,18 @@ function ActivistVictoriesModal(props) {
                     ></ion-icon>
                   </div>
                   <div
-                    class="in"
+                    className="in"
                     style={{ textAlign: "start", marginLeft: "20px" }}
                   >
                     <div className="white-text">
-                      <div class="mb-05">
+                      <div className="mb-05">
                         <strong>Law passed</strong>
                       </div>
-                      <div class="text-small mb-05">
+                      <div className="text-small mb-05">
                         Friday’s for Future International <br />
                         Completed
                       </div>
-                      <div class="text-xsmall">
+                      <div className="text-xsmall">
                         Protection of indigenous communities in the Amazon
                         Forest.
                       </div>
