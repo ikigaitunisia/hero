@@ -103,7 +103,7 @@ function CardTransactionCapsule(props) {
       from: kit.defaultAccount,
       gasPrice: 1000000000,
     });
-    console.log(tx);
+    console.log(tx.getHash());
     setWallet(kit.defaultAccount);
     setConnected(true);
     setProvider(provider);
