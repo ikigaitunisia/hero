@@ -9,7 +9,7 @@ function Vote(props) {
     <>
       <Header whiteMode showLogo showMenuBtn/>
       <VoteCapsule />
-      <BottomMenu showHomeBtn showCardBtn showVoteBtn activeItem="vote"/>
+      <BottomMenu showFeedBtn showCardBtn showVoteBtn activeItem="vote"/>
     </>
   );
 }

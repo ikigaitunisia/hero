@@ -9,7 +9,7 @@ function CardTransaction(props) {
     <>
       <Header whiteMode showCloseBtn />
       <CardTransactionCapsule1 />
-      <BottomMenu showHomeBtn showCardBtn showVoteBtn activeItem="card"/>
+      <BottomMenu showFeedBtn showCardBtn showVoteBtn activeItem="card"/>
     </>
   );
 }

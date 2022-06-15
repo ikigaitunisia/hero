@@ -9,7 +9,7 @@ function Card(props) {
     <>
       <Header showLogo showMenuBtn />
       <CardCapsule />
-      <BottomMenu showHomeBtn showCardBtn showVoteBtn activeItem="card" />
+      <BottomMenu showFeedBtn showCardBtn showVoteBtn activeItem="card" />
     </>
   );
 }
