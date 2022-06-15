@@ -51,7 +51,7 @@ function ActivistVictoriesModal(props) {
                   />
                 </a>
               </div>
-              <h3 className="white-text">
+              <h3 className="white-text custom-font">
                 {props.activist.Nom + " " + props.activist.Prenom}{" "}
               </h3>
               <span className="white-text">{props.activist.autre.Pays}</span>
@@ -62,7 +62,7 @@ function ActivistVictoriesModal(props) {
                 data-content="AND"
                 className="hr-text mb-4 white-divider"
               ></hr>
-              <h5 className="white-text">Victories</h5>
+              <h5 className="white-text mb-3">Victories</h5>
               <div className="section">
                 <div style={{ display: "flex" }} className="mt-2">
                   <div>

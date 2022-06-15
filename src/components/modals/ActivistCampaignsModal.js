@@ -50,7 +50,7 @@ function ActivistCampaignsModal(props) {
                     />
                   </a>
                 </div>
-                <h3 className="white-text">Anuna de Wever</h3>
+                <h3 className="white-text custom-font">Anuna de Wever</h3>
                 <span className="white-text">Belgium</span>
               </div>
 
@@ -59,7 +59,7 @@ function ActivistCampaignsModal(props) {
                   data-content="AND"
                   className="hr-text mb-4 mt-4 white-divider"
                 ></hr>
-                <h5 className="white-text">Current Campaigns</h5>
+                <h5 className="white-text mb-3">Current Campaigns</h5>
                 <div className="section">
                   <div style={{ display: "flex" }} className="mt-2">
                     <div>
@@ -121,7 +121,7 @@ function ActivistCampaignsModal(props) {
                   data-content="AND"
                   className="hr-text mb-4 mt-4 white-divider"
                 ></hr>
-                <h5 className="white-text">Upcoming Campaigns</h5>
+                <h5 className="white-text mb-3">Upcoming Campaigns</h5>
                 <div className="section ">
                   <div style={{ display: "flex" }} className="mt-2">
                     <div>
