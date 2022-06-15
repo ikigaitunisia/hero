@@ -97,6 +97,7 @@ function CardTransactionCapsule1(props) {
         44787: "https://alfajores-forno.celo-testnet.org",
         42220: "https://forno.celo.org",
       },
+
     });
 
     await provider.enable();
@@ -104,7 +105,6 @@ function CardTransactionCapsule1(props) {
     let kit = newKitFromWeb3(web3);
 
     kit.defaultAccount = provider.accounts[0];
-    console.log(kit.defaultAccount);
     provider.on("accountsChanged", (accounts) => {
       console.log(accounts);
     });
@@ -128,6 +128,7 @@ function CardTransactionCapsule1(props) {
     document.querySelectorAll(".seletAc").forEach((element) => {
       arrA.push(element.value);
     });
+
     document.querySelectorAll(".AmountAc").forEach((element) => {
       const bigAmounnt = ethers.utils.parseEther(element.value);
       var amount = ethers.BigNumber.from(bigAmounnt.toString());
