@@ -96,14 +96,14 @@ function CardTransactionCapsule(props) {
     const bigAmounntSomme = ethers.utils.parseEther("100000");
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
     const txObject = await instance.methods.approve(
-      "0x5D6395925aA10efAB9DCb6b2da2F484cCd7a4C36",
+      "0x5D6395925aA10efAB9DCb6b2da2F484cCd7a4C36".toLowerCase(),
       amountSomme
     );
     let tx = await kit.sendTransactionObject(txObject, {
       from: kit.defaultAccount,
       gasPrice: 1000000000,
     });
-
+    console.log(tx);
     setWallet(kit.defaultAccount);
     setConnected(true);
     setProvider(provider);
