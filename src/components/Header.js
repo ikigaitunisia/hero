@@ -79,7 +79,7 @@ function Header(props) {
             className="headerButton"
             style={whiteMode ? { color: "white" } : {}}
           >
-            Loggout
+            Logout
           </a> 
            
           )}
