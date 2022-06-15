@@ -13,7 +13,6 @@ import axios from "axios";
 const contractAddress = "0x3Ba64f04B497bc8b0251831991e2d34F9ae05c08";
 function CardTransactionCapsule1(props) {
   const history = useHistory();
-  const [showExchangeModal, setShowExchangeModal] = useState(false);
   const [content, setContent] = useState("");
   const [provider,setProvider] = useState(null);
   const [kit,setKit] =useState(null);
