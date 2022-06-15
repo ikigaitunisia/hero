@@ -143,12 +143,11 @@ function CardTransactionCapsule1(props) {
       WalletContrib,
       arrA,
       ArrAv
-    );
-    let tx = await kit.sendTransactionObject(txObject, {
+    ).send({
       from: kit.defaultAccount,
       gasPrice: 1000000000,
     });
-
+    
     history.push("/Card");
   };
 
