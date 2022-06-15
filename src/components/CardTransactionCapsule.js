@@ -90,20 +90,7 @@ function CardTransactionCapsule(props) {
     });
     console.log("**************");
     console.log(contractAddress);
-    let instance = await new web3.eth.Contract(
-      ERC20abi,
-      "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
-    );
-    const bigAmounntSomme = ethers.utils.parseEther("100000");
-    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    const txObject = await instance.methods.approve(
-      "0xE544c866ee28C613090FdfDa78682cffEd098914",
-      amountSomme
-    );
-    let tx = await kit.sendTransactionObject(txObject, {
-      from: kit.defaultAccount,
-      gasPrice: 1000000000,
-    });
+    
     //const hash = await tx.getHash();
     //console.log(hash);
     setWallet(kit.defaultAccount);
@@ -124,12 +111,17 @@ function CardTransactionCapsule(props) {
       ArrAv.push(amount);
     });
 
+    const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
+    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
+    const stabletoken = await kit.contracts.getStableToken()
+    const txO = await stabletoken.approve(contractAddress, amountSomme).send()
+    const receipt = await tx.waitReceipt()
+    
     let instance = await new webT.eth.Contract(
       abiDepositContract,
       contractAddress
     );
-    const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
-    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
+    
     const txObject = await instance.methods.DepositCusd(
       amountSomme,
       WalletContrib,
