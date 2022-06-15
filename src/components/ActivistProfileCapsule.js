@@ -3,7 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import "./ActivistProfileCapsule.css";
 import ActivistCampaignsModal from "./modals/ActivistCampaignsModal";
 import ActivistVictoriesModal from "./modals/ActivistVictoriesModal";
-import CardTransactionModal from "./modals/CardTransactionModal";
+//import CardTransactionModal from "./modals/CardTransactionModal";
 
 function ActivistProfileCapsule(props) {
   const A = useLocation();
