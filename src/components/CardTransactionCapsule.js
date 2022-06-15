@@ -71,7 +71,7 @@ function CardTransactionCapsule(props) {
   };
 
   const connect = async () => {
-    const web3 = null; 
+    let web3 = null; 
     const provider = new WalletConnectProvider({
       rpc: {
         44787: "https://alfajores-forno.celo-testnet.org",
