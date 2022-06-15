@@ -11,6 +11,19 @@ function Header(props) {
   const showBackBtn = props.showBackBtn;
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
+  const [loggedin,setLogedin] = useState(false);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user != null) {
+      setLogedin(true);
+    } 
+  }, []);
+  const logout = () => {
+    localStorage.removeItem('user');
+    history.push("/");
+
+  }
   return (
     <>
       <div className="appHeader no-border transparent position-absolute">
@@ -53,13 +66,22 @@ function Header(props) {
         </div>
         <div className="right">
           {showLoginBtn && (
+             loggedin ?
             <a
               onClick={() => history.push("/login")}
               className="headerButton"
               style={whiteMode ? { color: "white" } : {}}
             >
               Login
-            </a>
+            </a> :
+            <a
+            onClick={() => logout()}
+            className="headerButton"
+            style={whiteMode ? { color: "white" } : {}}
+          >
+            Loggout
+          </a> 
+           
           )}
 
           {showCloseBtn && (
