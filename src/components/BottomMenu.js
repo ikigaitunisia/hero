@@ -5,17 +5,17 @@ import { useHistory } from "react-router-dom";
 
 function BottomMenu(props) {
   const history = useHistory();
-  const showHomeBtn = props.showHomeBtn;
+  const showFeedBtn = props.showFeedBtn;
   const showCardBtn = props.showCardBtn;
   const showVoteBtn = props.showVoteBtn;
   const activeItem = props.activeItem;
   return (
     <div className="appBottomMenu">
-      {showHomeBtn && (
+      {showFeedBtn && (
         <a
           href=""
-          className={"item " + (activeItem === "home" ? "active" : "")}
-          onClick={() => history.push("/")}
+          className={"item " + (activeItem === "feed" ? "active" : "")}
+          onClick={() => history.push("/feed")}
         >
           <div className="col">
             <ion-icon src="assets/img/svg/home.svg"></ion-icon>

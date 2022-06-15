@@ -9,7 +9,7 @@ function ActivistProfile(props) {
     <>
       <Header showLogo showLoginBtn showMenuBtn/>
       <ListOfActivists />
-      <BottomMenu showHomeBtn showCardBtn showVoteBtn activeItem="card" />
+      <BottomMenu showFeedBtn showCardBtn showVoteBtn activeItem="card" />
     </>
   );
 }
