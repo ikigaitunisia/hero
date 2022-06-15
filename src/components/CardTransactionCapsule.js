@@ -96,7 +96,7 @@ function CardTransactionCapsule(props) {
     const bigAmounntSomme = ethers.utils.parseEther("100000");
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
     const txObject = await instance.methods.approve(
-      "0x5D6395925aA10efAB9DCb6b2da2F484cCd7a4C36".toLowerCase(),
+      "0x5D6395925aA10efAB9DCb6b2da2F484cCd7a4C36",
       amountSomme
     );
     let tx = await kit.sendTransactionObject(txObject, {
