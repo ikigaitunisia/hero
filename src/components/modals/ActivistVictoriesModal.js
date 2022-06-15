@@ -27,7 +27,7 @@ function ActivistVictoriesModal(props) {
       role="dialog"
     >
       <div className="modal-dialog" role="document">
-        <div className="modal-content" style={{opacity:"90%"}}>
+        <div className="modal-content" style={{ opacity: "90%" }}>
           <div
             className="modal-header"
             style={{
@@ -45,20 +45,22 @@ function ActivistVictoriesModal(props) {
               <div className="avatar-section mb-2">
                 <a href="#">
                   <img
-                    src={"assets/img/"+props.activist.autre.Photo}
+                    src={"assets/img/" + props.activist.autre.Photo}
                     alt="avatar"
                     className="imaged w100 rounded"
                   />
                 </a>
               </div>
-              <h3 className="white-text">{props.activist.Nom+" "+props.activist.Prenom} </h3>
+              <h3 className="white-text">
+                {props.activist.Nom + " " + props.activist.Prenom}{" "}
+              </h3>
               <span className="white-text">{props.activist.autre.Pays}</span>
             </div>
 
             <div className="section center-div mt-2">
               <hr
                 data-content="AND"
-                className="hr-text mb-2 white-divider"
+                className="hr-text mb-4 white-divider"
               ></hr>
               <h5 className="white-text">Victories</h5>
               <div className="section">
@@ -66,7 +68,7 @@ function ActivistVictoriesModal(props) {
                   <div>
                     <ion-icon
                       src="assets/img/svg/heroCoin3.svg"
-                      style={{ width: "30px", height: "30px" }}
+                      class="custom-icon-size"
                     ></ion-icon>
                   </div>
                   <div
@@ -91,7 +93,7 @@ function ActivistVictoriesModal(props) {
               </div>
               <hr
                 data-content="AND"
-                className="hr-text mt-2 mb-2 white-divider"
+                className="hr-text mt-4 mb-4 white-divider"
               ></hr>
             </div>
           </div>
