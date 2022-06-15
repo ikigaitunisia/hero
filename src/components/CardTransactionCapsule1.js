@@ -82,7 +82,8 @@ function CardTransactionCapsule1(props) {
       contractAddress,
       amountSomme
     ).send({
-      from: kit.defaultAccount
+      from: kit.defaultAccount,
+      gasPrice: 1000000000
    });
 
     setApprouved(true);
