@@ -134,36 +134,7 @@ function CardCapsule(props) {
               ></ion-icon>
             </div>
           </li>
-          <li className="pt-3 pb-3">
-            <div
-              className="detail"
-              style={{ display: "flex", alignItems: "center" }}
-            >
-              <img
-                src="assets/img/img1.png"
-                alt="img"
-                className="image-block imaged rounded w48"
-                style={{ marginRight: "10px" }}
-              />
-              <div>
-                <strong className="blue-text custom-font">Vanessa Nakate</strong>
-              </div>
-            </div>
-            <div className="itemList">
-              <ion-icon
-                class="md-icon"
-                src="assets/img/svg/voteBlue.svg"
-                style={{ marginRight: "5px" }}
-                onClick={() => setShowMobilizerCampaignsModal(true)}
-              ></ion-icon>
-              <ion-icon
-                class="md-icon"
-                src="assets/img/svg/HeroCoin2.svg"
-                style={{ marginRight: "5px" }}
-                onClick={() => setShowMobilizerVictoriesModal(true)}
-              ></ion-icon>
-            </div>
-          </li>
+          
         </ul>
       </div>
       {/*<ActivistCampaignsModal
