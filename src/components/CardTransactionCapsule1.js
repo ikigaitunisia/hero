@@ -108,11 +108,8 @@ function CardTransactionCapsule1(props) {
     const txObject = await instance.methods.approve(
       contractAddress,
       amountSomme
-    ).send({
-      from: kit.defaultAccount,
-      gasPrice: 1000000000
-   });
-
+    )
+   const tx = await kit.sendTransactionObject(txObject, { from: kit.defaultAccount  ,gasPrice: 1000000000,});
   };
   const getElems = async () => {
     console.log("AAAAAA");
