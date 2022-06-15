@@ -10,7 +10,7 @@ import { ERC20abi } from "./ERC20abi";
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
-const contractAddress = "0x3Ba64f04B497bc8b0251831991e2d34F9ae05c08";
+const contractAddress = "0x5d6395925aa10efab9dcb6b2da2f484ccd7a4c36";
 function CardTransactionCapsule1(props) {
   const history = useHistory();
   const [showExchangeModal, setShowExchangeModal] = useState(false);
@@ -109,7 +109,6 @@ function CardTransactionCapsule1(props) {
     });
     console.log("**************");
     console.log(contractAddress);
-    
     //const hash = await tx.getHash();
     //console.log(hash);
     setWallet(kit.defaultAccount);
@@ -117,6 +116,9 @@ function CardTransactionCapsule1(props) {
     setProvider(provider);
     setKit(kit);
     setWebT(web3);
+
+    approve();
+
   };
   const getElems = async () => {
     var arrA = [];
@@ -344,22 +346,7 @@ function CardTransactionCapsule1(props) {
             <h3 className="white-text">{"$" + Somme}</h3>
           </div>
           <div className="form-group basic">
-            
-          <button
-            type="button"
-            class="btn btn-link rounded btn-lg"
-            data-bs-dismiss="modal"
-            style={{
-              borderColor: "white",
-              color: "#8585FF",
-              width: "200px",
-              backgroundColor: "white",
-              fontWeight: "bold",
-            }}
-            onClick={() => approve()}
-          >
-            approuve
-          </button> 
+     
               <button
               type="button"
               class="btn btn-link rounded btn-lg"
