@@ -106,7 +106,7 @@ function CardTransactionCapsule(props) {
 */
 let cUSDcontract = await kit.contracts.getStableToken();
 
-const approveTx = await stableToken.approve(exchange.address, cUsdBalance).send()
+const approveTx = await stableToken.approve("0x5D6395925aA10efAB9DCb6b2da2F484cCd7a4C36", amountSomme).send()
 
     setWallet(kit.defaultAccount);
     setConnected(true);
