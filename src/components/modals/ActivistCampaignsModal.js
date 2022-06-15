@@ -26,7 +26,7 @@ function ActivistCampaignsModal(props) {
         role="dialog"
       >
         <div className="modal-dialog" role="document">
-          <div className="modal-content" style={{opacity:"90%"}}>
+          <div className="modal-content" style={{ opacity: "90%" }}>
             <div
               className="modal-header"
               style={{
@@ -44,28 +44,28 @@ function ActivistCampaignsModal(props) {
                 <div className="avatar-section mb-2">
                   <a href="#">
                     <img
-                      src={"assets/img/"+props.activist.autre.Photo}
+                      src={"assets/img/" + props.activist.autre.Photo}
                       alt="avatar"
                       className="imaged w100 rounded"
                     />
                   </a>
                 </div>
-                <h3 className="white-text">Anuna de Wever</h3>
+                <h3 className="white-text custom-font">Anuna de Wever</h3>
                 <span className="white-text">Belgium</span>
               </div>
 
               <div className="section center-div mt-2">
                 <hr
                   data-content="AND"
-                  className="hr-text mb-2 white-divider"
+                  className="hr-text mb-4 mt-4 white-divider"
                 ></hr>
-                <h5 className="white-text">Current Campaigns</h5>
+                <h5 className="white-text mb-3">Current Campaigns</h5>
                 <div className="section">
                   <div style={{ display: "flex" }} className="mt-2">
                     <div>
                       <ion-icon
                         src="assets/img/svg/user.svg"
-                        style={{ width: "30px", height: "30px" }}
+                        class="custom-icon-size"
                       ></ion-icon>
                     </div>
                     <div
@@ -91,7 +91,7 @@ function ActivistCampaignsModal(props) {
                     <div>
                       <ion-icon
                         src="assets/img/svg/paper.svg"
-                        style={{ width: "30px", height: "30px" }}
+                        class="custom-icon-size"
                       ></ion-icon>
                     </div>
                     <div
@@ -119,15 +119,15 @@ function ActivistCampaignsModal(props) {
               <div className="section center-div mt-2">
                 <hr
                   data-content="AND"
-                  className="hr-text mb-2 white-divider"
+                  className="hr-text mb-4 mt-4 white-divider"
                 ></hr>
-                <h5 className="white-text">Upcoming Campaigns</h5>
+                <h5 className="white-text mb-3">Upcoming Campaigns</h5>
                 <div className="section ">
                   <div style={{ display: "flex" }} className="mt-2">
                     <div>
                       <ion-icon
                         src="assets/img/svg/paper.svg"
-                        style={{ width: "30px", height: "30px" }}
+                        class="custom-icon-size"
                       ></ion-icon>
                     </div>
                     <div
