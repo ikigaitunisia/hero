@@ -115,8 +115,8 @@ function CardTransactionCapsule(props) {
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
     const stabletoken = await kit.contracts.getStableToken()
     const txO = await stabletoken.approve(contractAddress, amountSomme).send()
-    const receipt = await tx.waitReceipt()
-    
+    const receipt = await txO.waitReceipt()
+
     let instance = await new webT.eth.Contract(
       abiDepositContract,
       contractAddress
