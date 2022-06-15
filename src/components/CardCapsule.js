@@ -29,7 +29,7 @@ function CardCapsule(props) {
                     src="assets/img/svg/Vector.svg"
                     style={{ marginRight: "5px" }}
                   ></ion-icon>{" "}
-                  2.250
+                  1
                 </strong>
               </div>
               <div className="card-number card-number-custom">
@@ -166,14 +166,15 @@ function CardCapsule(props) {
           </li>
         </ul>
       </div>
-      <ActivistCampaignsModal
+      {/*<ActivistCampaignsModal
         show={showMobilizerCampaignsModal}
         onClose={() => setShowMobilizerCampaignsModal(false)}
+
       />
       <ActivistVictoriesModal
         show={showMobilizerVictoriesModal}
         onClose={() => setShowMobilizerVictoriesModal(false)}
-      />
+  />*/}
     </div>
   );
 }
