@@ -45,15 +45,36 @@ function CardCapsule(props) {
         show={showExchangeModal}
         onClose={() => setShowExchangeModal(false)}
       />
-      <div className="text">
-        <h1 className="text-title">HERO Mobilizers supported</h1>
-        <p className="left-right-padding">
-          <a href="#">Discover how carbon credits are calculated.</a>
-        </p>
+      <div className="text pt-4">
+        <div
+          className="lead blue-text title-font"
+          style={{ fontWeight: "500" }}
+        >
+          Each time your contribution is withdrawn by the mobilizer(s) you have
+          chosen to support, you receive the equivalent amount of HERO Coins.
+          Each HERO Coin is backed by a carbon credit* and allows you to vote on
+          the future of HERO.
+        </div>
+
+        <h5 className="pt-4">
+          <a
+            href="#"
+            className="left-right-padding blue-text title-font"
+            style={{ textDecoration: "underline" }}
+          >
+            *Discover how carbon credits are calculated.
+          </a>
+        </h5>
+        <h1 className="text-title title-font">HERO Mobilizers supported</h1>
       </div>
+      <hr
+        data-content="AND"
+        className="hr-text mt-4 mb-4"
+        style={{ width: "70%", margin: "0 auto", background: "blue" }}
+      ></hr>
       <div className="center-div">
         <ul className="listview flush transparent simple-listview no-space mt-3">
-          <li>
+          <li className="pt-3 pb-3">
             <div
               className="detail"
               style={{ display: "flex", alignItems: "center" }}
@@ -65,7 +86,7 @@ function CardCapsule(props) {
                 style={{ marginRight: "10px" }}
               />
               <div>
-                <strong>Anuna de Wever</strong>
+                <strong className="blue-text custom-font">Anuna de Wever</strong>
               </div>
             </div>
             <div className="itemList">
@@ -83,7 +104,7 @@ function CardCapsule(props) {
               ></ion-icon>
             </div>
           </li>
-          <li>
+          <li className="pt-3 pb-3">
             <div
               className="detail"
               style={{ display: "flex", alignItems: "center" }}
@@ -95,7 +116,7 @@ function CardCapsule(props) {
                 style={{ marginRight: "10px" }}
               />
               <div>
-                <strong>Julieta Martinez</strong>
+                <strong className="blue-text custom-font">Julieta Martinez</strong>
               </div>
             </div>
             <div className="itemList">
@@ -113,7 +134,7 @@ function CardCapsule(props) {
               ></ion-icon>
             </div>
           </li>
-          <li>
+          <li className="pt-3 pb-3">
             <div
               className="detail"
               style={{ display: "flex", alignItems: "center" }}
@@ -125,7 +146,7 @@ function CardCapsule(props) {
                 style={{ marginRight: "10px" }}
               />
               <div>
-                <strong>Vanessa Nakate</strong>
+                <strong className="blue-text custom-font">Vanessa Nakate</strong>
               </div>
             </div>
             <div className="itemList">
