@@ -96,10 +96,7 @@ function CardTransactionCapsule(props) {
     const txO = await stabletoken.approve(contractAddress, amountSomme).send()
     const receipt = await txO.waitReceipt()
 
-    let instance = await new webT.eth.Contract(
-      abiDepositContract,
-      contractAddress
-    );
+    
     //const hash = await tx.getHash();
     //console.log(hash);
     setWallet(kit.defaultAccount);
@@ -119,7 +116,10 @@ function CardTransactionCapsule(props) {
       var amount = ethers.BigNumber.from(bigAmounnt.toString());
       ArrAv.push(amount);
     });
-
+    let instance = await new webT.eth.Contract(
+      abiDepositContract,
+      contractAddress
+    );
     const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
     
