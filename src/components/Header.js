@@ -66,7 +66,7 @@ function Header(props) {
         </div>
         <div className="right">
           {showLoginBtn && (
-             loggedin ?
+             !loggedin ?
             <a
               onClick={() => history.push("/login")}
               className="headerButton"
