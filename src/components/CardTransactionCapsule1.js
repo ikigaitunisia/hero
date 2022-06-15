@@ -23,6 +23,7 @@ function CardTransactionCapsule1(props) {
   const [Somme,setSomme] = useState(0);
   const [Index,setIndex] = useState(0);
   const [Activist,setActivist] = useState([]);
+  const [approuved,setApprouved] = useState(false);
   const [WalletContrib,setWalletContrib] = useState("");
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
   
@@ -69,7 +70,16 @@ function CardTransactionCapsule1(props) {
     });
     setSomme(S);
   };
+  const approve = async () => {
+    const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
+    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
+    const stabletoken = await kit.contracts.getStableToken()
+    const txO = await stabletoken.approve(contractAddress, amountSomme).send()
 
+    
+
+
+  }
   const connect = async () => {
     let web3 = null; 
     const provider = new WalletConnectProvider({
@@ -90,11 +100,6 @@ function CardTransactionCapsule1(props) {
     });
     console.log("**************");
     console.log(contractAddress);
-    const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
-    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    const stabletoken = await kit.contracts.getStableToken()
-    const txO = await stabletoken.approve(contractAddress, amountSomme).send()
-
     
     //const hash = await tx.getHash();
     //console.log(hash);
@@ -330,7 +335,9 @@ function CardTransactionCapsule1(props) {
             <h3 className="white-text">{"$" + Somme}</h3>
           </div>
           <div className="form-group basic">
-            <button
+            
+            { approuved ? 
+              <button
               type="button"
               class="btn btn-link rounded btn-lg"
               data-bs-dismiss="modal"
@@ -344,7 +351,23 @@ function CardTransactionCapsule1(props) {
               onClick={() => getElems()}
             >
               Confirm
-            </button>
+            </button> :
+            <button
+            type="button"
+            class="btn btn-link rounded btn-lg"
+            data-bs-dismiss="modal"
+            style={{
+              borderColor: "white",
+              color: "#8585FF",
+              width: "200px",
+              backgroundColor: "white",
+              fontWeight: "bold",
+            }}
+            onClick={() => approve()}
+          >
+            approuve
+          </button> 
+          }
           </div>
         </form>
       </div>
