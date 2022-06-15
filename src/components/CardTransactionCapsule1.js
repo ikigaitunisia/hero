@@ -71,10 +71,19 @@ function CardTransactionCapsule1(props) {
     setSomme(S);
   };
   const approve = async () => {
+    let instance = await new webT.eth.Contract(
+      ERC20abi,
+      "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
+    );
     const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    const stabletoken = await kit.contracts.getStableToken()
-    const txO = await stabletoken.approve(contractAddress, amountSomme).send()
+    
+    const txObject = await instance.methods.approve(
+      contractAddress,
+      amountSomme
+    ).send({
+      from: kit.defaultAccount
+   });
 
     setApprouved(true);
 
@@ -336,23 +345,7 @@ function CardTransactionCapsule1(props) {
           </div>
           <div className="form-group basic">
             
-            { approuved ? 
-              <button
-              type="button"
-              class="btn btn-link rounded btn-lg"
-              data-bs-dismiss="modal"
-              style={{
-                borderColor: "white",
-                color: "#8585FF",
-                width: "200px",
-                backgroundColor: "white",
-                fontWeight: "bold",
-              }}
-              onClick={() => getElems()}
-            >
-              Confirm
-            </button> :
-            <button
+          <button
             type="button"
             class="btn btn-link rounded btn-lg"
             data-bs-dismiss="modal"
@@ -367,7 +360,23 @@ function CardTransactionCapsule1(props) {
           >
             approuve
           </button> 
-          }
+              <button
+              type="button"
+              class="btn btn-link rounded btn-lg"
+              data-bs-dismiss="modal"
+              style={{
+                borderColor: "white",
+                color: "#8585FF",
+                width: "200px",
+                backgroundColor: "white",
+                fontWeight: "bold",
+              }}
+              onClick={() => getElems()}
+            >
+              Confirm
+            </button> 
+       
+          
           </div>
         </form>
       </div>
