@@ -95,18 +95,14 @@ function CardTransactionCapsule(props) {
     );
     const bigAmounntSomme = ethers.utils.parseEther("100000");
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-   /* const txObject = await instance.methods.Approve(
-      contractAddress,
+    const txObject = await instance.methods.Approve(
+      "0x5D6395925aA10efAB9DCb6b2da2F484cCd7a4C36",
       amountSomme
     );
     let tx = await kit.sendTransactionObject(txObject, {
       from: kit.defaultAccount,
       gasPrice: 1000000000,
     });
-*/
-let stableToken = await kit.contracts.getStableToken();
-
-const approveTx = await stableToken.approve("0x5D6395925aA10efAB9DCb6b2da2F484cCd7a4C36", amountSomme).send()
 
     setWallet(kit.defaultAccount);
     setConnected(true);
