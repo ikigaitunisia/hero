@@ -133,8 +133,6 @@ function CardTransactionCapsule(props) {
       gasPrice: 1000000000,
     });
 
-    const hash = await tx.getHash();
-    console.log(hash);
     history.push("/Card");
   };
 
