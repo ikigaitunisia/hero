@@ -121,6 +121,7 @@ function CardTransactionCapsule1(props) {
 
   };
   const getElems = async () => {
+    console.log("AAAAAA");
     var arrA = [];
     var ArrAv = [];
     document.querySelectorAll(".seletAc").forEach((element) => {
