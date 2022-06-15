@@ -127,7 +127,7 @@ function ActivistProfileCapsule(props) {
 
           <div className="center-div mt-3 ">
             <div
-              class="progress mb-2"
+              className="progress mb-2"
               style={{
                 width: "200px",
                 margin: "0 auto",
@@ -135,7 +135,7 @@ function ActivistProfileCapsule(props) {
               }}
             >
               <div
-                class="progress-bar"
+                className="progress-bar"
                 role="progressbar"
                 style={{ width: "55%", background: "blue", height: "100%" }}
                 aria-valuenow="25"
