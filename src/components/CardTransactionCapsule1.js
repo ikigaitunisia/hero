@@ -76,7 +76,7 @@ function CardTransactionCapsule1(props) {
     const stabletoken = await kit.contracts.getStableToken()
     const txO = await stabletoken.approve(contractAddress, amountSomme).send()
 
-    
+    setApprouved(true);
 
 
   }
