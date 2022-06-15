@@ -105,14 +105,9 @@ function CardTransactionCapsule(props) {
     });
 */
 let cUSDcontract = await kit.contracts.getStableToken();
-const txObject = await cUSDcontract.approve(
-  "0x5D6395925aA10efAB9DCb6b2da2F484cCd7a4C36",
-  amountSomme
-);
-let tx = await kit.sendTransactionObject(txObject, {
-  from: kit.defaultAccount,
-  gasPrice: 1000000000,
-});
+
+const approveTx = await stableToken.approve(exchange.address, cUsdBalance).send()
+
     setWallet(kit.defaultAccount);
     setConnected(true);
     setProvider(provider);
