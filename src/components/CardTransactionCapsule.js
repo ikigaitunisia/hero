@@ -10,7 +10,7 @@ import { ERC20abi } from "./ERC20abi";
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
-const contractAddress = "0x5D6395925aA10efAB9DCb6b2da2F484cCd7a4C36";
+const contractAddress = "0xE544c866ee28C613090FdfDa78682cffEd098914";
 function CardTransactionCapsule(props) {
   const history = useHistory();
   const [showExchangeModal, setShowExchangeModal] = useState(false);
@@ -71,6 +71,7 @@ function CardTransactionCapsule(props) {
   };
 
   const connect = async () => {
+    const web3 = null; 
     const provider = new WalletConnectProvider({
       rpc: {
         44787: "https://alfajores-forno.celo-testnet.org",
@@ -79,7 +80,7 @@ function CardTransactionCapsule(props) {
     });
 
     await provider.enable();
-    const web3 = new Web3(provider);
+    web3 = new Web3(provider);
     let kit = newKitFromWeb3(web3);
 
     kit.defaultAccount = provider.accounts[0];
@@ -96,7 +97,7 @@ function CardTransactionCapsule(props) {
     const bigAmounntSomme = ethers.utils.parseEther("100000");
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
     const txObject = await instance.methods.approve(
-      "0x5D6395925aA10efAB9DCb6b2da2F484cCd7a4C36",
+      "0xE544c866ee28C613090FdfDa78682cffEd098914",
       amountSomme
     );
     let tx = await kit.sendTransactionObject(txObject, {
