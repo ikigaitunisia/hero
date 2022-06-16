@@ -148,7 +148,7 @@ function ActivistProfileCapsule(props) {
               style={{ color: "blue", textAlign: "center" }}
             >
               <b className="title-font">€ 500</b>
-              {" of € " + A.state.autre.MaxFunds}
+              {" of € 5000"}
             </div>
           </div>
           <button
