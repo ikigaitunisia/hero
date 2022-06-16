@@ -8,6 +8,7 @@ import ActivistVictoriesModal from "./modals/ActivistVictoriesModal";
 
 function CardCapsule(props) {
   const [showExchangeModal, setShowExchangeModal] = useState(false);
+  const [balance,setBalance] =  useState(0);
   const [showMobilizerCampaignsModal, setShowMobilizerCampaignsModal] =
     useState(false);
   const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
@@ -22,7 +23,7 @@ function CardCapsule(props) {
        Token:"0xBe2f4A20c10A8E62F97260196e60FDFb6879b974"
      })
      .then(function (response) {
-       console.log(response.data);
+      setBalance(response.data.res);
      })
      .catch(function (error) {
          //handle error here
@@ -49,7 +50,7 @@ function CardCapsule(props) {
                     src="assets/img/svg/Vector.svg"
                     style={{ marginRight: "5px" }}
                   ></ion-icon>{" "}
-                  1
+                  {balance}
                 </strong>
               </div>
               <div className="card-number card-number-custom">
