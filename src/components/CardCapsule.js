@@ -21,7 +21,7 @@ function CardCapsule(props) {
      axios
      .post("https://hegemony.donftify.digital:8080/balanceOf", {
        user: wallet,
-       Token:"0xBe2f4A20c10A8E62F97260196e60FDFb6879b974"
+       Token:"0x606EB1DA7271779Ab46C492b1e2615232C2E13d7"
      })
      .then(function (response) {
       setBalance(response.data.res);
