@@ -70,10 +70,8 @@ function ActivistProfileCapsule(props) {
           style={{ width: "70%", margin: "0 auto", background: "#a9abad" }}
         ></hr>
         <div className="section">
-          <h2 className="blue-text">Endorsed by</h2>
-          <div className="lead black-text pb-2">
-            Greta Thunberg
-          </div>
+          <h5 className="blue-text">Endorsed by</h5>
+          <div className="lead black-text pb-2">Greta Thunberg</div>
         </div>
         <hr
           data-content="AND"
@@ -151,10 +149,12 @@ function ActivistProfileCapsule(props) {
               {" of € " + A.state.autre.MaxFunds}
             </div>
           </div>
+        </div>
+        <div className="section pb-4">
           <button
             id="supportMobBtn"
             type="button"
-            className="btn btn-primary btn-lg rounded btn-width"
+            className="btn btn-primary btn-lg rounded font-size-btn"
             onClick={support}
           >
             Support {A.state.Nom}

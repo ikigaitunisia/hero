@@ -57,8 +57,8 @@ function CardCapsule(props) {
               </div>
               <div className="card-number card-number-custom">
                 <span className="label">BACKED BY</span>
-                <strong>00000</strong>
-                <span className="label">CARBON CREDITS</span>
+                <strong>5 KILOS</strong>
+                <span className="label">IN CARBON CREDITS</span>
               </div>
             </div>
           </div>
