@@ -9,10 +9,9 @@ function FeedCapsule(props) {
   const [Index, setIndex] = useState(0);
   const [Activist, setActivist] = useState([]);
   const updateArray = (response) => {
-    
-    setActivist(oldArray => [...oldArray,response]);
+    setActivist((oldArray) => [...oldArray, response]);
     console.log(Activist);
-  } 
+  };
   useEffect(() => {
     axios
       .post("https://hegemony.donftify.digital:8080/GetIndexActiv")
@@ -27,7 +26,6 @@ function FeedCapsule(props) {
             .then(function (response) {
               console.log(response.data);
               updateArray(response.data);
-              
             })
             .catch(function (error) {
               //handle error here
@@ -66,7 +64,6 @@ function FeedCapsule(props) {
         <div className="row mt-2 pe-3 pl-3">
           {Activist.map((activist) => (
             <>
-              
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-4">
                 <div
                   className="card bg-dark text-white"
@@ -75,7 +72,7 @@ function FeedCapsule(props) {
                 >
                   <img
                     className="card-img"
-                    src={"assets/img/"+activist.autre.Photo}
+                    src={"assets/img/" + activist.autre.Photo}
                     alt="Card image"
                   />
                   <div
@@ -83,19 +80,17 @@ function FeedCapsule(props) {
                     style={{ borderRadius: "20px" }}
                   >
                     <div>
-                      <h1 className="white-text title-font">
-                        {activist.Nom+" "+activist.Prenom}
-                        <ion-icon
-                          src={"assets/img/svg/hero.svg"}
-                          style={{ width: "10px" }}
-                        ></ion-icon>
+                      <h1
+                        className="white-text title-font text-title"
+                        style={{ margin: 0 }}
+                      >
+                        {activist.Nom + " " + activist.Prenom}
                       </h1>
                       <span className="white-text">{activist.autre.Pays}</span>
                     </div>
                   </div>
                 </div>
               </div>
-             
             </>
           ))}
         </div>

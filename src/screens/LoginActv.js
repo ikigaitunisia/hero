@@ -17,7 +17,7 @@ function LoginAct() {
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
   const [points, setPoints] = useState("");
-  const [erroPassword,setErrorPassword] = useState(false);
+  const [erroPassword, setErrorPassword] = useState(false);
   const history = useHistory();
   useEffect(() => {
     setphoneNumberError(!checkIsPhoneFormat(phoneNumber));
@@ -46,17 +46,11 @@ function LoginAct() {
         })
         .then(function (response) {
           console.log(response.data);
-          if (response.data.error == undefined)
-          {
-          localStorage.setItem(
-            "user",
-            JSON.stringify(response.data)
-          );
-          history.push("/mobilizercard");
-          }
-          else{
+          if (response.data.error == undefined) {
+            localStorage.setItem("user", JSON.stringify(response.data));
+            history.push("/mobilizercard");
+          } else {
             setErrorPassword(true);
-
           }
         })
         .catch(function (error) {
@@ -71,7 +65,7 @@ function LoginAct() {
 
   const validate = (e) => {
     e.preventDefault();
-    if (!password) {
+    /*if (!password) {
       toast.error("Password is requiered");
       return;
     }
@@ -82,7 +76,7 @@ function LoginAct() {
     if (password !== rePassword) {
       toast.error("the passwords are not the same");
       return;
-    }
+    }*/
 
     console.log("Login successful :)");
   };
@@ -94,7 +88,7 @@ function LoginAct() {
       {!showSmsVerification && !codeSmsValidated && (
         <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
           <div className="section mt-4 mb-4 text-center">
-            <img src="assets/img/mobilizersLogo.png" className="supporter-logo" />
+            <img src="assets/img/supporter.png" className="supporter-logo" />
           </div>
           <div className="section mt-2 text-center">
             <h4 className="white-text">Enter your phone number to log in</h4>
@@ -154,14 +148,17 @@ function LoginAct() {
               />
               {erroPassword && <h3>incorrect password</h3>}
               <div>
-                <div class="form-check mb-1">
+                <div className="form-check mb-1">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="radio"
                     name="flexRadioDefault"
                     id="flexRadioDefault1"
                   />
-                  <label class="form-check-label" for="flexRadioDefault1">
+                  <label
+                    className="form-check-label"
+                    htmlFor="flexRadioDefault1"
+                  >
                     I agree to the{" "}
                     <a href="" className="white-text">
                       HERO Terms and Conditions
