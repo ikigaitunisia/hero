@@ -2,6 +2,10 @@
     padding: 20px 30px!important;
     font-size: 20px!important;
     background-color: black!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
 
 .custom-badge-white{
@@ -9,6 +13,10 @@
     font-size: 20px!important;
     background-color: white!important;
     color: black!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
 
 .center-div-2 {

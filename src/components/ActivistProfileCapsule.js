@@ -72,7 +72,7 @@ function ActivistProfileCapsule(props) {
         <div className="section">
           <h2 className="blue-text">Endorsed by</h2>
           <div className="lead black-text pb-2">
-            Greta Thunberg , Angela Merkle , Christiana Figueres
+            Greta Thunberg
           </div>
         </div>
         <hr
@@ -157,7 +157,7 @@ function ActivistProfileCapsule(props) {
             className="btn btn-primary btn-lg rounded btn-width"
             onClick={support}
           >
-            Support Anuna
+            Support {A.state.Nom}
           </button>
         </div>
       </div>
