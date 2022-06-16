@@ -69,35 +69,8 @@ function CardTransactionCapsule1(props) {
     });
     setSomme(S);
   };
-  
-  const connect = async () => {
-    let web3 = null; 
-    const provider = new WalletConnectProvider({
-      rpc: {
-        44787: "https://alfajores-forno.celo-testnet.org",
-        42220: "https://forno.celo.org",
-      },
-
-    });
-
-    await provider.enable();
-    web3 = new Web3(provider);
-    let kit = newKitFromWeb3(web3);
-
-    kit.defaultAccount = provider.accounts[0];
-    provider.on("accountsChanged", (accounts) => {
-      console.log(accounts);
-    });
-    console.log("**************");
-    console.log(contractAddress);
-    //const hash = await tx.getHash();
-    //console.log(hash);
-    setWallet(kit.defaultAccount);
-    setConnected(true);
-    setProvider(provider);
-    setKit(kit);
-    setWebT(web3);
-
+  const approve = async () => {
+    connect();
     let instance = await new webT.eth.Contract(
       ERC20abi,
       "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
@@ -110,6 +83,36 @@ function CardTransactionCapsule1(props) {
       amountSomme
     )
    const tx = await kit.sendTransactionObject(txObject, { from: kit.defaultAccount  ,gasPrice: 1000000000,});
+
+  }
+  const connect = async () => {
+    const provider = new WalletConnectProvider({
+      rpc: {
+        44787: "https://alfajores-forno.celo-testnet.org",
+        42220: "https://forno.celo.org",
+      },
+
+    });
+
+    await provider.enable();
+    const web3 = new Web3(provider);
+    let kit1 = newKitFromWeb3(web3);
+
+    kit1.defaultAccount = provider.accounts[0];
+    provider.on("accountsChanged", (accounts) => {
+      console.log(accounts);
+    });
+    console.log("**************");
+    console.log(contractAddress);
+    //const hash = await tx.getHash();
+    //console.log(hash);
+    setWallet(kit1.defaultAccount);
+    setConnected(true);
+    setProvider(provider);
+    setKit(kit1);
+    setWebT(web3);
+
+    
   };
   const getElems = async () => {
     console.log("AAAAAA");
@@ -124,6 +127,7 @@ function CardTransactionCapsule1(props) {
       var amount = ethers.BigNumber.from(bigAmounnt.toString());
       ArrAv.push(amount);
     });
+    connect();
     let instance = await new webT.eth.Contract(
       abiDepositContract,
       contractAddress
