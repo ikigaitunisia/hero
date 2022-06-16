@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import ethers from "ethers";
 import "./CardCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 import ActivistCampaignsModal from "./modals/ActivistCampaignsModal";
@@ -10,6 +11,21 @@ function CardCapsule(props) {
     useState(false);
   const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
     useState(false);
+
+    useEffect(() => {
+      const user = JSON.parse(localStorage.getItem("user"));
+     wallet = user.wallet.address ;
+      let  AprvInst= await new kit.web3.eth.Contract(
+        ERC20abi,
+        "0xBe2f4A20c10A8E62F97260196e60FDFb6879b974"
+      );
+     const balance =  await AprvInst.methods.balanceOf(
+        wallet
+      );
+      EtherBalance = ethers.utils.formatUnits(balance, "ether")
+      console.log(EtherBalance);
+
+    }, []);
   return (
     <div id="appCapsule" className="bg-g-1 cardCapsule">
       <div className="section mt-2">
