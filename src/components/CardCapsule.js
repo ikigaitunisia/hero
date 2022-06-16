@@ -15,15 +15,18 @@ function CardCapsule(props) {
     useEffect(async () => {
       const user = JSON.parse(localStorage.getItem("user"));
      wallet = user.wallet.address ;
-      let  AprvInst= await new kit.web3.eth.Contract(
-        ERC20abi,
-        "0xBe2f4A20c10A8E62F97260196e60FDFb6879b974"
-      );
-     const balance =  await AprvInst.methods.balanceOf(
-        wallet
-      );
-      EtherBalance = ethers.utils.formatUnits(balance, "ether")
-      console.log(EtherBalance);
+     axios
+     .post("https://hegemony.donftify.digital:8080/balanceOf", {
+       user: wallet,
+       Toke:"0xBe2f4A20c10A8E62F97260196e60FDFb6879b974"
+     })
+     .then(function (response) {
+       console.log(response.data);
+     })
+     .catch(function (error) {
+         //handle error here
+         console.log(error);
+     }); 
 
     }, []);
   return (
