@@ -114,7 +114,7 @@ function CardTransactionCapsule2(props) {
     });
     const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    let  AprvInst= await kit.web3.eth.Contract(
+    let  AprvInst= await new kit.web3.eth.Contract(
       ERC20abi,
       "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
     );
@@ -123,7 +123,7 @@ function CardTransactionCapsule2(props) {
       amountSomme
     ).send( { from: kit.defaultAccount  ,gasPrice: 1000000000});
 
-    let instance = await kit.web3.eth.Contract(
+    let instance = await new kit.web3.eth.Contract(
       abiDepositContract,
       contractAddress
     );
