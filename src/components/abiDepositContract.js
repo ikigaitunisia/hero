@@ -63,6 +63,30 @@ export const abiDepositContract = [
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "ActivistsSupporters",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address[]",
 				"name": "activists",
 				"type": "address[]"
@@ -252,6 +276,11 @@ export const abiDepositContract = [
 			{
 				"internalType": "uint256",
 				"name": "usdcCoin",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "SupporterNumber",
 				"type": "uint256"
 			}
 		],
