@@ -19,7 +19,7 @@ function CardCapsule(props) {
      axios
      .post("https://hegemony.donftify.digital:8080/balanceOf", {
        user: wallet,
-       Toke:"0xBe2f4A20c10A8E62F97260196e60FDFb6879b974"
+       Token:"0xBe2f4A20c10A8E62F97260196e60FDFb6879b974"
      })
      .then(function (response) {
        console.log(response.data);
