@@ -157,7 +157,7 @@ function ActivistProfileCapsule(props) {
             className="btn btn-primary btn-lg rounded btn-width"
             onClick={support}
           >
-            Support Anuna
+            Support {A.state.Nom}
           </button>
         </div>
       </div>
