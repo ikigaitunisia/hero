@@ -15,6 +15,7 @@ function CardCapsule(props) {
     useState(false);
 
     useEffect(async () => {
+      async function fetchBalance(){
       const user = JSON.parse(localStorage.getItem("user"));
      const wallet = user.wallet.address ;
      axios
@@ -29,7 +30,8 @@ function CardCapsule(props) {
          //handle error here
          console.log(error);
      }); 
-
+    }
+    fetchBalance();
     }, []);
   return (
     <div id="appCapsule" className="bg-g-1 cardCapsule">
