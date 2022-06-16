@@ -14,7 +14,7 @@ function CardCapsule(props) {
   const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
     useState(false);
 
-    useEffect(async () => {
+    useEffect(() => {
       async function fetchBalance(){
       const user = JSON.parse(localStorage.getItem("user"));
      const wallet = user.wallet.address ;
