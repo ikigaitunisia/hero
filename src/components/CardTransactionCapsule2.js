@@ -69,22 +69,7 @@ function CardTransactionCapsule2(props) {
     });
     setSomme(S);
   };
-  const approve = async () => {
-    connect();
-    let instance = await new webT.eth.Contract(
-      ERC20abi,
-      "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
-    );
-    const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
-    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    
-    const txObject = await instance.methods.approve(
-      contractAddress,
-      amountSomme
-    )
-   const tx = await kit.sendTransactionObject(txObject, { from: kit.defaultAccount  ,gasPrice: 1000000000,});
 
-  }
   const connect = async () => {
     const provider = new WalletConnectProvider({
       rpc: {
@@ -127,22 +112,33 @@ function CardTransactionCapsule2(props) {
       var amount = ethers.BigNumber.from(bigAmounnt.toString());
       ArrAv.push(amount);
     });
-    connect();
-    let instance = await new webT.eth.Contract(
+    const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
+    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
+    let  AprvInst= await kit.web3.eth.Contract(
+      ERC20abi,
+      "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
+    );
+    await AprvInst.methods.approve(
+      contractAddress,
+      amountSomme
+    ).send( { from: kit.defaultAccount  ,gasPrice: 1000000000});
+
+    let instance = await kit.web3.eth.Contract(
       abiDepositContract,
       contractAddress
     );
-    const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
-    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-
-    const txObject = await instance.methods.DepositCusd(
+   await instance.methods.DepositCusd(
       amountSomme,
       WalletContrib,
       arrA,
       ArrAv
-    ) ;
-    const tx = await kit.sendTransactionObject(txObject, { from: kit.defaultAccount  ,gasPrice: 1000000000,});
+    ).send({ from: kit.defaultAccount  , gasPrice: 1000000000});
 
+    
+ 
+    
+    
+   
     
     history.push("/Card");
   };
