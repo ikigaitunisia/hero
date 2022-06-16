@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react";
 import { ethers } from "ethers";
+import axios from  "axios";
 import "./CardCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 import ActivistCampaignsModal from "./modals/ActivistCampaignsModal";
@@ -14,7 +15,7 @@ function CardCapsule(props) {
 
     useEffect(async () => {
       const user = JSON.parse(localStorage.getItem("user"));
-     wallet = user.wallet.address ;
+     const wallet = user.wallet.address ;
      axios
      .post("https://hegemony.donftify.digital:8080/balanceOf", {
        user: wallet,
