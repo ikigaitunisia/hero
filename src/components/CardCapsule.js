@@ -12,7 +12,7 @@ function CardCapsule(props) {
   const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
     useState(false);
 
-    useEffect(() => {
+    useEffect(async () => {
       const user = JSON.parse(localStorage.getItem("user"));
      wallet = user.wallet.address ;
       let  AprvInst= await new kit.web3.eth.Contract(
