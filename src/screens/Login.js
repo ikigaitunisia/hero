@@ -84,13 +84,18 @@ function Login() {
       <Toastbox position="top-right" pauseOnHover={true} intent="danger" />
       {!showSmsVerification && !codeSmsValidated && (
         <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
-          <div className="section mt-4 mb-4 text-center">
+          <div className="section mt-4 pt-4 pb-3 text-center">
             <img src="assets/img/supporter.png" className="supporter-logo" />
           </div>
-          <div className="section mt-2 text-center">
-            <h4 className="white-text">Enter your phone number to log in</h4>
+          <div className="section pb-3 text-center">
+            <h4
+              className="white-text text-title"
+              style={{ width: "70%", margin: "0 auto" }}
+            >
+              Enter your phone number to log in
+            </h4>
           </div>
-          <div className="section mb-5 p-2">
+          <div className="section mb-3">
             <form id="white-form" onSubmit={login} className="login-form">
               <BasicInput
                 type="text"
@@ -99,7 +104,7 @@ function Login() {
                 placeholder="(Country Code) Your phone number"
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
-              <div className="mt-3 mb-3 center-div">
+              <div className="pt-4 mt-4 center-div">
                 <button
                   type="submit"
                   className="btn btn-link btn-block btn-lg rounded"
@@ -113,19 +118,19 @@ function Login() {
         </div>
       )}
       {showSmsVerification && !codeSmsValidated && (
-        <SmsVerification onCodeValidate={onCodeValidate} />
+        <SmsVerification onCodeValidate={onCodeValidate} isMobilizer={false}/>
       )}
       {codeSmsValidated && (
         <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
-          <div className="section mt-4 mb-4 text-center">
+          <div className="section mt-4 pt-4 text-center">
             <img src="assets/img/supporter.png" className="supporter-logo" />
           </div>
-          <div className="section mt-2 text-center">
-            <h3 className="white-text">Create new password</h3>
-            <h4 className="white-text">
+          <div className="section text-center">
+            <div className="lead white-text">
+              <h4 className="white-text text-title">Create new password</h4>
               Make sure to include at least 1 capital letter and 1 number or
               symbol
-            </h4>
+            </div>
           </div>
           <div className="section mb-5 p-2">
             <form onSubmit={validate} id="white-form" className="login-form">
@@ -143,7 +148,7 @@ function Login() {
                 placeholder="Type password again"
                 onChange={(e) => setRePassword(e.target.value)}
               />
-              <div>
+              <div className="mt-2">
                 <div class="form-check mb-1">
                   <input
                     class="form-check-input"
@@ -159,7 +164,7 @@ function Login() {
                   </label>
                 </div>
               </div>
-              <div className="mt-3 mb-3 center-div">
+              <div className="pt-4 center-div">
                 <button
                   type="submit"
                   className="btn btn-link btn-block btn-lg rounded"
