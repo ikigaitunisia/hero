@@ -15,6 +15,7 @@ function BasicInput(props) {
           id={props.id}
           placeholder={props.placeholder}
           onChange={props.onChange}
+          style={{ textAlign: "center" }}
         />
         <i className="clear-input">
           <ion-icon name="close-circle"></ion-icon>

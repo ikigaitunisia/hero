@@ -15,12 +15,14 @@ function SmsVerification(props) {
   };
   return (
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
-      <div className="section mt-4 mb-4 text-center">
+      <div className="section mt-4 pt-4 pb-3 text-center">
         <img src="assets/img/supporter.png" className="supporter-logo" />
       </div>
-      <div className="section mt-2 text-center">
-        <h3 className="white-text">Enter SMS Code</h3>
-        <h4 className="white-text">Enter 4 digit sms verification code</h4>
+      <div className="section text-center">
+        <div className="lead white-text">
+          <h4 className="white-text text-title">Enter SMS Code</h4>
+          Enter 4 digit sms verification code
+        </div>
       </div>
       <div className="section mb-5 p-2">
         <form onSubmit={verfiySmsCode} className="login-form" id="white-form">
@@ -39,11 +41,11 @@ function SmsVerification(props) {
             />
           </div>
 
-          <div className="mt-3 mb-3 center-div">
+          <div className="pt-4 mt-4 center-div">
             <button
               type="submit"
               className="btn btn-link btn-block btn-lg rounded"
-              style={{ backgroundColor: "white" }}
+              style={{ backgroundColor: "white" , width: "200px", margin: "0 auto"}}
             >
               Verify
             </button>
