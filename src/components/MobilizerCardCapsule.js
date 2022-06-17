@@ -48,7 +48,7 @@ function MobilizerCardCapsule(props) {
           Transactions
         </h3>
       </div>
-      <div className="center-div-2 custom-font">
+      <div className="center-div-2 pe-2 pl-2 custom-font">
         <ul className="listview flush transparent simple-listview no-space mt-3">
           <li>
             <div
@@ -134,7 +134,7 @@ function MobilizerCardCapsule(props) {
             <div>
               <ion-icon
                 src="assets/img/svg/userBlue.svg"
-                style={{ width: "50px", height: "50px" }}
+                class="custom-icon-size"
               ></ion-icon>
             </div>
             <div
@@ -182,7 +182,7 @@ function MobilizerCardCapsule(props) {
             <div>
               <ion-icon
                 src="assets/img/svg/paperBlue.svg"
-                style={{ width: "50px", height: "50px" }}
+                class="custom-icon-size"
               ></ion-icon>
             </div>
             <div
