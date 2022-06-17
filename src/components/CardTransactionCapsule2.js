@@ -10,7 +10,7 @@ import { ERC20abi } from "./ERC20abi";
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
-const contractAddress = "0x1e0eda2d271823819b2C0A4A1DF07F212B0D3FEB";
+const contractAddress = "0x925Afa130765c7C103E4CF7dD02Dea55d6598c28";
 function CardTransactionCapsule2(props) {
   const history = useHistory();
   const [content, setContent] = useState("");
