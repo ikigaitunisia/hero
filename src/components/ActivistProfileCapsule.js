@@ -60,7 +60,7 @@ function ActivistProfileCapsule(props) {
           </div>
           <h5>
             <a href="#" className="blue-text title-font">
-              linktr.ee/anunadewever
+              linktr.ee/julietta
             </a>
           </h5>
         </div>
@@ -71,7 +71,7 @@ function ActivistProfileCapsule(props) {
         ></hr>
         <div className="section">
           <h5 className="blue-text">Endorsed by</h5>
-          <div className="lead black-text pb-2">Greta Thunberg</div>
+          <div className="lead black-text pb-2">Gabriel Boric (President de Chilie)</div>
         </div>
         <hr
           data-content="AND"
