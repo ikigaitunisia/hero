@@ -16,7 +16,7 @@ function SmsVerification(props) {
   return (
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
       <div className="section mt-4 pt-4 pb-3 text-center">
-        <img src="assets/img/supporter.png" className="supporter-logo" />
+        <img src={props.isMobilizer ? "assets/img/mobilizersLogoWhite.png": "assets/img/supporter.png"} className="supporter-logo" />
       </div>
       <div className="section text-center">
         <div className="lead white-text">

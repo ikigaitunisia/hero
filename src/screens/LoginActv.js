@@ -88,7 +88,7 @@ function LoginAct() {
       {!showSmsVerification && !codeSmsValidated && (
         <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
           <div className="section mt-4 mb-4 text-center">
-            <img src="assets/img/supporter.png" className="supporter-logo" />
+            <img src="assets/img/mobilizersLogoWhite.png" className="supporter-logo" />
           </div>
           <div className="section mt-2 text-center">
             <h4 className="white-text">Enter your phone number to log in</h4>
@@ -116,12 +116,12 @@ function LoginAct() {
         </div>
       )}
       {showSmsVerification && !codeSmsValidated && (
-        <SmsVerification onCodeValidate={onCodeValidate} />
+        <SmsVerification onCodeValidate={onCodeValidate} isMobilizer={true}/>
       )}
       {codeSmsValidated && (
         <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
           <div className="section mt-4 mb-4 text-center">
-            <img src="assets/img/supporter.png" className="supporter-logo" />
+            <img src="assets/img/mobilizersLogoWhite.png" className="supporter-logo" />
           </div>
           <div className="section mt-2 text-center">
             <h3 className="white-text">Create new password</h3>

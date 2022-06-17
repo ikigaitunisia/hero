@@ -118,7 +118,7 @@ function Login() {
         </div>
       )}
       {showSmsVerification && !codeSmsValidated && (
-        <SmsVerification onCodeValidate={onCodeValidate} />
+        <SmsVerification onCodeValidate={onCodeValidate} isMobilizer={false}/>
       )}
       {codeSmsValidated && (
         <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
