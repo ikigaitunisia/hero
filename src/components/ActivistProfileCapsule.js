@@ -60,7 +60,7 @@ function ActivistProfileCapsule(props) {
           </div>
           <h5>
             <a href={A.state.autre.twitter} className="blue-text title-font">
-              {"@" + A.state.autre.Nom}
+              {"@" + A.state.Nom}
             </a>
           </h5>
         </div>
@@ -120,7 +120,7 @@ function ActivistProfileCapsule(props) {
             Fund a 1 year Basic Income of
           </div>
           <div className="value blue-text title-font">
-            {"€" + A.state.autre.MaxFunds}
+            {"€5000"}
           </div>
 
           <div className="center-div mt-3 ">
