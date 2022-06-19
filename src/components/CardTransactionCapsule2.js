@@ -3,9 +3,10 @@ import "./CardTransactionCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from "web3";
+import {  } from "@celo/contractkit";
 import { abiDepositContract } from "./abiDepositContract";
 import { ERC20abi } from "./ERC20abi";
-import { requestTxSig, waitForSignedTxs,requestAccountAddress, waitForAccountAuth ,FeeCurrency , newKitFromWeb3,toTxResult} from "@celo/contractkit";
+import { requestTxSig, waitForSignedTxs,requestAccountAddress, waitForAccountAuth ,FeeCurrency , newKitFromWeb3,toTxResult} from "@celo/dappkit";
 
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
