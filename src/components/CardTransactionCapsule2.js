@@ -138,21 +138,21 @@ function CardTransactionCapsule2(props) {
     });
 
     document.querySelectorAll(".AmountAc").forEach((element) => {
-      var amount = ethers.BigNumber.from((parseFloat(element.value) * 10**18).toString());
+      var amount = (parseFloat(element.value) * 10**18).toString();
       ArrAv.push(amount);
     });
-    SommeBig=(Somme * 10**18).toString();
+    let SommeBig=(Somme * 10**18).toString();
     const stableToken = await kit.contracts.getStableToken();
     const txObjectIncAllow = stableToken.increaseAllowance(
       contractAddress,
-      amountSomme
+      SommeBig
     ).txo;
     let instance = await new kit.web3.eth.Contract(
       abiDepositContract,
       contractAddress
     );
    const txObjectDeposit = await instance.methods.DepositCusd(
-      amountSomme,
+     SommeBig,
       WalletContrib,
       arrA,
       ArrAv
