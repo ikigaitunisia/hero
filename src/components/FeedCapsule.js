@@ -42,8 +42,8 @@ function FeedCapsule(props) {
     <div id="appCapsule" className="bg-g-1" style={{ minHeight: "100vh" }}>
       <div className="section mt-4 pt-4 center-div">
         <h5 className="blue-text title-font">
-          Browse the first HERO Mobilizers with a<br/>verified track record on
-          climate action.
+          Browse the first HERO Mobilizers with a<br />
+          verified track record on climate action.
         </h5>
         <h6 className="mt-4 pt-2 title-font">
           <a
@@ -58,6 +58,9 @@ function FeedCapsule(props) {
             ></ion-icon>
           </a>
         </h6>
+        <div className="mt-4 pt-2 blue-text lead">
+          Click on the mobilizers to see their profiles.
+        </div>
       </div>
       <div className="section mt-4 pt-2 mb-2">
         <div className="row mt-2 pe-3 pl-3">
@@ -66,7 +69,12 @@ function FeedCapsule(props) {
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-4">
                 <div
                   className="card bg-dark text-white"
-                  onClick={() => history.push("/activistprofile", {...activist,indexMax:Index})}
+                  onClick={() =>
+                    history.push("/activistprofile", {
+                      ...activist,
+                      indexMax: Index,
+                    })
+                  }
                   style={{ borderRadius: "20px" }}
                 >
                   <img
@@ -81,11 +89,20 @@ function FeedCapsule(props) {
                     <div>
                       <h1
                         className="white-text title-font text-title"
-                        style={{ margin: 0,paddingBottom:0, fontStyle: "italic" }}
+                        style={{
+                          margin: 0,
+                          paddingBottom: 0,
+                          fontStyle: "italic",
+                        }}
                       >
                         {activist.Nom + " " + activist.Prenom}
                       </h1>
-                      <span className="white-text" style={{fontStyle: "italic" }}>{activist.autre.Pays}</span>
+                      <span
+                        className="white-text"
+                        style={{ fontStyle: "italic" }}
+                      >
+                        {activist.autre.Pays}
+                      </span>
                     </div>
                   </div>
                 </div>

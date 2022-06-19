@@ -39,3 +39,11 @@
     border-radius: 20px;
   }
 }
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:active {
+  background: transparent !important;
+  border-color: white !important;
+  border: 2px solid;
+  color: white !important;
+}
