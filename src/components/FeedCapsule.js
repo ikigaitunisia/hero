@@ -24,8 +24,8 @@ function FeedCapsule(props) {
               ID: i,
             })
             .then(function (response) {
-              console.log(response.data);
-              updateArray({...response.data},i);
+              console.log(i);
+              updateArray(response.data,i);
             })
             .catch(function (error) {
               //handle error here
