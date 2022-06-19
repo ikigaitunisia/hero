@@ -52,7 +52,7 @@ function CardCapsule(props) {
                     src="assets/img/svg/Vector.svg"
                     style={{ marginRight: "5px" }}
                   ></ion-icon>{" "}
-                  {balance}
+                  {balance == 0 ? 1 : balance}
                 </strong>
               </div>
               <div className="card-number card-number-custom">
