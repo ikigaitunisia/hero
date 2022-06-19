@@ -65,6 +65,42 @@ function ActivistProfileCapsule(props) {
       }
 
   }
+  const goBack = () => {
+    if (A.state.index-1 == 0)
+     {    console.log(A.state.index+1);
+
+       axios
+           .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
+             ID: A.state.index-1,
+           })
+           .then(function (response) {
+             console.log(response.data);
+             history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax});
+             window.location.reload(false);
+           })
+           .catch(function (error) {
+             //handle error here
+             console.log(error);
+           });
+     }
+     else
+     {
+       axios
+       .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
+         ID: A.state.index+1 ,
+       })
+       .then(function (response) {
+         console.log(response.data);
+         history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax});
+         window.location.reload(false);
+       })
+       .catch(function (error) {
+         //handle error here
+         console.log(error);
+       });
+     }
+
+ }
   return (
     <>
       <div id="appCapsule" className="bg-g-1">
@@ -202,7 +238,7 @@ function ActivistProfileCapsule(props) {
         onClose={() => setShowCardTransactionModal(false)}
             />*/}
       <div className="appBottomMenu" style={{ padding: "0 20px" }}>
-        <a href="" className="item">
+        <a  className="item" onClick={() => goBack()}>
           <div
             className="col"
             style={{
