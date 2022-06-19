@@ -197,12 +197,7 @@ const dappkitResponse = await waitForSignedTxs(requestId);
   
   return
 }
-      
-const tx0 = await kit.connection.sendSignedTransaction(
-  dappkitResponse.rawTxs[0]
-);
-     
-const receipt0 = await tx0.waitReceipt();
+
 
 
 
