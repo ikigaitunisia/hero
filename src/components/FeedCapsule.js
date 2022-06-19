@@ -67,7 +67,7 @@ function FeedCapsule(props) {
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-4">
                 <div
                   className="card bg-dark text-white"
-                  onClick={() => history.push("/activistprofile", {...activist,indexMax:Index,index:i+1})}
+                  onClick={() => history.push("/activistprofile", {...activist,indexMax:Index,index:i})}
                   style={{ borderRadius: "20px" }}
                 >
                   <img
