@@ -10,8 +10,8 @@ root.render(
   <React.StrictMode>
      <CeloProvider
     dapp={{
-      name: 'My awesome dApp',
-      description: 'My awesome description',
+      name: 'HeroCoin',
+      description: 'Hero Coin Daap',
       url: 'https://example.com',
     }}
     networks={[Alfajores]}
