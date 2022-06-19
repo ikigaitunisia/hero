@@ -49,7 +49,7 @@ function Login() {
             "user",
             JSON.stringify({ phoneNumber: phoneNumber, wallet: response.data })
           );
-          history.push("/card");
+          history.push("/cardtransaction");
         })
         .catch(function (error) {
           //handle error here

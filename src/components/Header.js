@@ -45,7 +45,7 @@ function Header(props) {
               data-bs-toggle="modal"
               data-bs-target="#sidebarPanel"
               style={whiteMode ? { color: "white" } : {}}
-              onClick={() => history.push(history.goBack())}
+              onClick={() => history.push("/")}
             >
               <ion-icon name="chevron-back-outline"></ion-icon>
             </a>
