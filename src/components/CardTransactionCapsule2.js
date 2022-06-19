@@ -1,11 +1,12 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect,useCallback } from "react";
 import "./CardTransactionCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from "web3";
-import { newKitFromWeb3 } from "@celo/contractkit";
+import { newKitFromWeb3,toTxResult } from "@celo/contractkit";
 import { abiDepositContract } from "./abiDepositContract";
 import { ERC20abi } from "./ERC20abi";
+import { requestTxSig, waitForSignedTxs,requestAccountAddress, waitForAccountAuth } from "@celo/dappkit/lib/web";
 
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
@@ -71,6 +72,26 @@ function CardTransactionCapsule2(props) {
   };
 
   const connect = async () => {
+  const requestId = "login";
+  const dappName = "HeroCoin";
+  const handleClick = useCallback(() => {    console.log('Clicked!');  }, []);
+
+  requestAccountAddress({
+    requestId,
+    dappName,
+    callback,
+  });
+
+  const dappkitResponse = await waitForAccountAuth(requestId);
+
+  // The pepper is not available in all Valora versions
+  //this.setState({
+  //  address: dappkitResponse.address,
+  //  phoneNumber: dappkitResponse.phoneNumber,
+  //  pepper: dappkitResponse.pepper,
+  //});
+    console.log(dappkitResponse.address);
+    /*
     const provider = new WalletConnectProvider({
       rpc: {
         44787: "https://alfajores-forno.celo-testnet.org",
@@ -97,7 +118,7 @@ function CardTransactionCapsule2(props) {
     setKit(kit1);
     setWebT(web3);
 
-    
+    */
   };
   const getElems = async () => {
     console.log(kit);
@@ -114,31 +135,81 @@ function CardTransactionCapsule2(props) {
     });
     const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    let  AprvInst= await new kit.web3.eth.Contract(
-      ERC20abi,
-      "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
-    );
-    await AprvInst.methods.approve(
-      contractAddress,
-      amountSomme
-    ).send( { from: kit.defaultAccount  ,gasPrice: 1000000000});
-
-    let instance = await new kit.web3.eth.Contract(
-      abiDepositContract,
-      contractAddress
-    );
-   await instance.methods.DepositCusd(
-      amountSomme,
-      WalletContrib,
-      arrA,
-      ArrAv
-    ).send({ from: kit.defaultAccount  , gasPrice: 1000000000});
-
-    
- 
-    
-    
    
+    const stableToken = await kit.contracts.getStableToken();
+    const txObjectIncAllow = stableToken.increaseAllowance(
+      exchange.address,
+      tenCUSD
+    ).txo;
+    
+    // Then we will call the Exchange contract, and attempt to buy 1 CELO with a
+    // max price of 10 cUSD (it could use less than that).
+    const txObjectExchange = exchange.buy(oneCelo, tenCUSD, true).txo;
+    
+    // Then we will call the lockedGold contract to lock our CELO
+    // (Remember that the address should be a registered Account)
+    // Later, the amount to be locked will be the parameter `value`.
+    const txObjectLock = lockedGold.lock().txo;
+    
+    // Then we use the 1 CELO to vote for a specific validator group address.
+    // Here you have to change the validator group address
+    // (At the moment of writing the tuto, the 0x5edfCe0bad47e24E30625c275457F5b4Bb619241
+    // was a valid address, but you could check the groups using the celocli)
+    const validatorGroupAddress = "<VALIDATOR_GROUP_ADDRESS>";
+    const txObjectVote = (await election.vote(validatorGroupAddress, oneCelo)).txo;
+    
+    const requestId = "signMeEverything";
+    
+    // Request the TX signature from DAppKit
+    requestTxSig(
+      kit,
+      [
+        {
+          tx: txObjectIncAllow,
+          from: this.state.address,
+          to: stableToken.address,
+          estimatedGas: 200000
+        },
+        {
+          tx: txObjectVote,
+          from: this.state.address,
+          to: contractAddress,
+          estimatedGas: 200000,
+        },
+      ],
+      { requestId, dappName, callback }
+    );
+    
+    const dappkitResponse = await waitForSignedTxs(requestId);
+    
+    const receipts = [];
+    // execute the allowance
+    console.log("execute the allowance");
+    const tx0 = await kit.connection.sendSignedTransaction(
+      dappkitResponse.rawTxs[0]
+    );
+    receipts.push(await tx0.waitReceipt());
+    
+    // execute the exchange
+    console.log("execute the exchange");
+    const tx1 = await kit.connection.sendSignedTransaction(
+      dappkitResponse.rawTxs[1]
+    );
+    receipts.push(await tx1.waitReceipt());
+    
+    // execute the lock
+    console.log("execute the lock");
+    const tx2 = await kit.connection.sendSignedTransaction(
+      dappkitResponse.rawTxs[2]
+    );
+    receipts.push(await tx2.waitReceipt());
+    
+    // execute the vote
+    console.log("execute the vote");
+    const tx3 = await kit.connection.sendSignedTransaction(
+      dappkitResponse.rawTxs[3]
+    );
+    receipts.push(await tx3.waitReceipt());
     
     history.push("/Card");
   };
