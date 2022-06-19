@@ -67,11 +67,11 @@ function ActivistProfileCapsule(props) {
   }
   const goBack = () => {
     if (A.state.index-1 == 0)
-     {    console.log(A.state.index+1);
+     {    
 
        axios
            .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
-             ID: A.state.index-1,
+             ID: A.state.indexMax-1,
            })
            .then(function (response) {
              console.log(response.data);
