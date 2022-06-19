@@ -160,7 +160,7 @@ function CardTransactionCapsule2(props) {
       WalletContrib,
       arrA,
       ArrAv
-    ).call();
+    ).send({ from: Wallet , gasPrice: 1000000000});
 
     const requestId = "signMeEverything";
 
