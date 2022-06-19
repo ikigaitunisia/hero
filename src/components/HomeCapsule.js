@@ -46,7 +46,7 @@ function HomeCapsule(props) {
           class="btn-round"
         ></ion-icon>
         <h1 className="text-title white-text mb-4 title-font">
-          Learn how the HERO Coin works.
+          Learn how the<br/>HERO Coin works.
         </h1>
         <video
           controls
