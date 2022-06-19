@@ -153,6 +153,8 @@ function CardTransactionCapsule2(props) {
     );
     console.log(arrA);
     console.log(ArrAv);
+    console.log(SommeBig);
+    console.log(WalletContrib);
    const txObjectDeposit = await instance.methods.DepositCusd(
      SommeBig,
       WalletContrib,
