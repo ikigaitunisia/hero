@@ -92,7 +92,8 @@ function Login() {
               className="white-text text-title"
               style={{ width: "70%", margin: "0 auto" }}
             >
-              Enter your phone number to log in
+             
+              this a test page,please Enter your country code and your phone number to log in
             </h4>
           </div>
           <div className="section mb-3">
