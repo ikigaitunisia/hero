@@ -122,6 +122,11 @@ function CardTransactionCapsule2(props) {
     */
   };
   const getElems = async () => {
+    const web3 = new Web3("https://alfajores-forno.celo-testnet.org");
+// mainnet -- comment out the above, uncomment below for mainnet
+// const web3 = new Web3('https://forno.celo.org');
+
+    const kit = newKitFromWeb3(web3);
     console.log(kit);
     const callback = "https://hegemony.donftify.digital:3001/card";
 
