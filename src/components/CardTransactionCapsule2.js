@@ -187,29 +187,27 @@ requestTxSig(
 
 // execute the allowance
 console.log("execute the allowance");
+let dappkitResponse;
+try {
+const dappkitResponse = await waitForSignedTxs(requestId);
+} catch (error) {
+  console.log(error)
+  
+  return
+}
+      
+const tx0 = await kit.connection.sendSignedTransaction(
+  dappkitResponse.rawTxs[0]
+);
+     
+const receipt0 = await tx0.waitReceipt();
 
-let rawTx;
-      try {
-        const dappkitResponse = await waitForSignedTxs(requestId)
-        rawTx = dappkitResponse.rawTxs[0]
-      } catch (error) {
-        console.log(error)
-        
-        return
-      }
-const tx = await kit.connection.sendSignedTransaction(rawTx);
-const receipt = await tx.waitReceipt();
 
-let rawTx1;
-      try {
-        const dappkitResponse = await waitForSignedTxs(requestId)
-        rawTx1 = dappkitResponse.rawTxs[1]
-      } catch (error) {
-        console.log(error)
-        
-        return
-      }
-      const tx1 = await kit.connection.sendSignedTransaction(rawTx1);
+
+const tx1 = await kit.connection.sendSignedTransaction(
+  dappkitResponse.rawTxs[1]
+);
+      
 const receipt1 = await tx1.waitReceipt();
 
     // Then we will call the Exchange contract, and attempt to buy 1 CELO with a
