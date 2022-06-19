@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: seravek!important;
+  font-family: seravek !important;
 }
 
 .App-logo {
@@ -38,7 +38,17 @@
   }
 }
 
-button{
-  font-weight: 700!important;
-  font-family: seravek!important;
+button {
+  font-weight: 700 !important;
+  font-family: seravek !important;
+}
+
+.appHeader .pageTitle .logo {
+  max-height: 35px;
+}
+
+@media screen and (max-width: 300px) {
+  .appHeader .pageTitle .logo {
+    max-height: 24px;
+  }
 }
