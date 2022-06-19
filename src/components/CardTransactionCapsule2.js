@@ -6,7 +6,6 @@ import Web3 from "web3";
 import { newKitFromWeb3,toTxResult } from "@celo/contractkit";
 import { abiDepositContract } from "./abiDepositContract";
 import { ERC20abi } from "./ERC20abi";
-import { CeloProvider } from '@celo/react-celo';
 import '@celo/react-celo/lib/styles.css';
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
