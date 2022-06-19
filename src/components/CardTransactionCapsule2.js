@@ -75,13 +75,13 @@ function CardTransactionCapsule2(props) {
   const connect = async () => {
   const requestId = "login";
   const dappName = "HeroCoin";
-  const callback = window.location.href;
+  const callback = window.open("https://hegemony.donftify.digital:3001/cardtransaction");
   requestAccountAddress({
     requestId,
     dappName,
     callback
   });
-
+  
   const dappkitResponse = await waitForAccountAuth(requestId);
 
   // The pepper is not available in all Valora versions
@@ -91,6 +91,7 @@ function CardTransactionCapsule2(props) {
   //  pepper: dappkitResponse.pepper,
   //});
     console.log(dappkitResponse.address);
+    setWallet(dappkitResponse.address);
     /*
     const provider = new WalletConnectProvider({
       rpc: {
@@ -122,8 +123,11 @@ function CardTransactionCapsule2(props) {
   };
   const getElems = async () => {
     console.log(kit);
+    const callback = window.open("https://hegemony.donftify.digital:3001/card");
+
     var arrA = [];
     var ArrAv = [];
+
     document.querySelectorAll(".seletAc").forEach((element) => {
       arrA.push(element.value);
     });
@@ -141,7 +145,48 @@ function CardTransactionCapsule2(props) {
       contractAddress,
       amountSomme
     ).txo;
-    
+    let instance = await new kit.web3.eth.Contract(
+      abiDepositContract,
+      contractAddress
+    );
+   const txObjectDeposit = await instance.methods.DepositCusd(
+      amountSomme,
+      WalletContrib,
+      arrA,
+      ArrAv
+    ).txo;
+
+    const requestId = "signMeEverything";
+
+// Request the TX signature from DAppKit
+requestTxSig(
+  kit,
+  [
+    {
+      tx: txObjectIncAllow,
+      from: this.state.address,
+      to: stableToken.address,
+      estimatedGas: 200000,
+    },
+    {
+      tx: txObjectDeposit,
+      from: this.state.address,
+      to: election.address,
+      estimatedGas: 200000,
+    },
+  ],
+  { requestId, dappName, callback }
+);
+
+const dappkitResponse = await waitForSignedTxs(requestId);
+
+const receipts = [];
+// execute the allowance
+console.log("execute the allowance");
+const tx0 = await kit.connection.sendSignedTransaction(
+  dappkitResponse.rawTxs[0]
+);
+
     // Then we will call the Exchange contract, and attempt to buy 1 CELO with a
     // max price of 10 cUSD (it could use less than that).
     
