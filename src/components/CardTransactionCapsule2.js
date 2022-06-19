@@ -180,15 +180,21 @@ requestTxSig(
   { requestId, dappName, callback }
 );
 
-const dappkitResponse = await waitForSignedTxs(requestId);
 
-const receipts = [];
 // execute the allowance
 console.log("execute the allowance");
-const tx0 = await kit.connection.sendSignedTransaction(
-  dappkitResponse.rawTxs[0]
-);
 
+let rawTx;
+      try {
+        const dappkitResponse = await waitForSignedTxs(requestId)
+        rawTx = dappkitResponse.rawTxs[0]
+      } catch (error) {
+        console.log(error)
+        this.setState({status: "transaction signing timed out, try again."})
+        return
+      }
+const tx = await kit.connection.sendSignedTransaction(rawTx);
+const receipt = await tx.waitReceipt();
     // Then we will call the Exchange contract, and attempt to buy 1 CELO with a
     // max price of 10 cUSD (it could use less than that).
     
