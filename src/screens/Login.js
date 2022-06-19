@@ -49,7 +49,7 @@ function Login() {
             "user",
             JSON.stringify({ phoneNumber: phoneNumber, wallet: response.data })
           );
-          history.push("/feed");
+          history.push("/card");
         })
         .catch(function (error) {
           //handle error here
@@ -117,6 +117,9 @@ function Login() {
           </div>
         </div>
       )}
+      {
+          navigate(-2)
+      }
       {showSmsVerification && !codeSmsValidated && (
         <SmsVerification onCodeValidate={onCodeValidate} isMobilizer={false}/>
       )}
