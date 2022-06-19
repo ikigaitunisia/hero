@@ -88,7 +88,6 @@ function Header(props) {
           {showCloseBtn && (
           
             <a
-              href={history.goBack()}
               className="headerButton goBack"
               style={whiteMode ? { color: "white" } : {}}
              
