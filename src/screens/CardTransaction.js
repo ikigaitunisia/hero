@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import BottomMenu from "../components/BottomMenu";
-import CardTransactionCapsule2 from "../components/CardTransactionCapsule2;
+import CardTransactionCapsule2 from "../components/CardTransactionCapsule2";
 import Header from "../components/Header";
 
 function CardTransaction(props) {
