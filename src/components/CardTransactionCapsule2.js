@@ -11,7 +11,6 @@ import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
 import { CeloProvider,useCelo,SupportedProvider } from '@celo/react-celo';
-import '@celo/react-celo/lib/styles.css';
 const contractAddress = "0xA85BEC65D8c16ecfA3D9230BB39C8adC4468dDBA";
 function CardTransactionCapsule2(props) {
   const history = useHistory();
