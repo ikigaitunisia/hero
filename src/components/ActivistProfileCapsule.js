@@ -30,9 +30,9 @@ function ActivistProfileCapsule(props) {
     console.log(A);
   }, []);
   const goNext  = () => {
-    console.log(A.state.index+1);
      if (A.state.index+1 == A.state.indexMax)
-      {
+      {    console.log(A.state.index+1);
+
         axios
             .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
               ID: 1,
