@@ -30,7 +30,7 @@ function ActivistProfileCapsule(props) {
     console.log(A);
   }, []);
   const goNext  = () => {
-     if (props.index+1 == props.indexMax)
+     if (A.state.index+1 == A.state.indexMax)
       {
         axios
             .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
@@ -38,7 +38,7 @@ function ActivistProfileCapsule(props) {
             })
             .then(function (response) {
               console.log(response.data);
-              history.push("/activistprofile", {...response.data,indexMax:props.indexMax,index:1})
+              history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax})
             })
             .catch(function (error) {
               //handle error here
@@ -49,11 +49,11 @@ function ActivistProfileCapsule(props) {
       {
         axios
         .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
-          ID: props.index+1 ,
+          ID: A.state.index+1 ,
         })
         .then(function (response) {
           console.log(response.data);
-          history.push("/activistprofile", {...response.data,indexMax:props.indexMax,index:props.index+1 })
+          history.push("/activistprofile", {...response.data,indexMax:A.state..indexMax})
         })
         .catch(function (error) {
           //handle error here

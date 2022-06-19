@@ -61,7 +61,7 @@ function FeedCapsule(props) {
       </div>
       <div className="section mt-4 pt-2 mb-2">
         <div className="row mt-2 pe-3 pl-3">
-          {Activist.map((activist,i) => (
+          {Activist.map((activist) => (
             <>
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-4">
                 <div
