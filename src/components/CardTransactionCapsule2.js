@@ -347,7 +347,6 @@ function CardTransactionCapsule2(props) {
                 color: "#8585FF",
                 width: "200px",
                 backgroundColor: "white",
-                fontWeight: "bold",
               }}
               onClick={() => getElems()}
             >
