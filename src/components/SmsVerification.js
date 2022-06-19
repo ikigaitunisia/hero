@@ -21,7 +21,7 @@ function SmsVerification(props) {
       <div className="section text-center">
         <div className="lead white-text">
           <h4 className="white-text text-title">Enter SMS Code</h4>
-          Enter 4 digit sms verification code
+         this a test page, please enter 0000 as a verification logcode
         </div>
       </div>
       <div className="section mb-5 p-2">
