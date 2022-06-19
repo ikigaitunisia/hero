@@ -22,21 +22,71 @@ root.render(
         explorer: 'https://alfajores-blockscout.celo-testnet.org',
         chainId: 44787,
       }}
-    connectModal={{
-      // This options changes the title of the modal and can be either a string or a react element
-      title: <span>Connect your Wallet</span>,
-      providersOptions: {
-        // This option hides specific wallets from the default list
-        
-  
-        // This option hides all default wallets
-        hideFromDefaults: true,
-  
-        // This option toggles on and off the searchbar
-        searchable: true,
-      },
-      
-    }}
+
+      theme={{
+        primary: '#6366f1',
+        secondary: '#eef2ff',
+        text: '#000000',
+        textSecondary: '#1f2937',
+        textTertiary: '#64748b',
+        muted: '#e2e8f0',
+        background: '#ffffff',
+        error: '#ef4444',
+      }}
+      connectModal={{
+        title: <span>Connect your ExampleWallet</span>,
+        providersOptions: {
+          hideFromDefaults: true,
+          additionalWCWallets: [
+            // see https://github.com/WalletConnect/walletconnect-registry/#schema for a schema example
+            {
+              id: 'example-wallet',
+              name: 'Example Wallet',
+              description: 'Lorem ipsum',
+              homepage: 'https://example.com',
+              chains: ['eip:4220'],
+              // IMPORTANT
+              // This is the version of WC. We only support version 1 at the moment.
+              versions: ['1'],
+              logos: {
+                sm: 'https://via.placeholder.com/40/000000/FFFFFF',
+                md: 'https://via.placeholder.com/80/000000/FFFFFF',
+                lg: 'https://via.placeholder.com/160/000000/FFFFFF',
+              },
+              app: {
+                browser: '...',
+                ios: '...',
+                android: '...',
+                mac: '...',
+                windows: '..',
+                linux: '...',
+              },
+              mobile: {
+                native: '...',
+                universal: '...',
+              },
+              desktop: {
+                native: '...',
+                universal: '...',
+              },
+              metadata: {
+                shortName: '...',
+                colors: {
+                  primary: '...',
+                  secondary: '...',
+                },
+              },
+              responsive: {
+                mobileFriendly: true,
+                browserFriendly: true,
+                mobileOnly: false,
+                browserOnly: false,
+              },
+            },
+          ],
+        },
+      }}
+    
   >
     <App />
     </CeloProvider>
