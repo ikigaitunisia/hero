@@ -88,7 +88,7 @@ function Header(props) {
             <div  onClick={() => history.push(history.goBack())}
             >
             <a
-              href="#"
+              href={history.goBack()}
               className="headerButton goBack"
               id="back"
               style={whiteMode ? { color: "white" } : {}}
