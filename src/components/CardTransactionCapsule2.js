@@ -3,14 +3,14 @@ import "./CardTransactionCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from "web3";
-import { newKitFromWeb3,toTxResult } from "@celo/contractkit";
+import { newKitFromWeb3 } from "@celo/contractkit";
 import { abiDepositContract } from "./abiDepositContract";
 import { ERC20abi } from "./ERC20abi";
 import '@celo/react-celo/lib/styles.css';
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
-import { CeloProvider,useCelo } from '@celo/react-celo';
+import { CeloProvider,useCelo,SupportedProvider } from '@celo/react-celo';
 import '@celo/react-celo/lib/styles.css';
 const contractAddress = "0xA85BEC65D8c16ecfA3D9230BB39C8adC4468dDBA";
 function CardTransactionCapsule2(props) {
