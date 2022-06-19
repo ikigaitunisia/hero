@@ -11,7 +11,7 @@ function HomeCapsule(props) {
       </div>
       <div className="section">
         <h1 className="text-title white-text title-font">
-          Millions of Climate Mobilizers.
+          Millions of Climate<br/>Mobilizers.
         </h1>
         <div className="lead white-text">Today millions of climate mobilizers around the world are advocating
           for change. This is probably one of the most important jobs of our
@@ -19,7 +19,7 @@ function HomeCapsule(props) {
       </div>
       <div className="section mt-2 pb-3">
         <h1 className="text-title white-text title-font">
-          HERO Coin gives you the power to support them.
+          HERO Coin gives you<br/> the power to support them.
         </h1>
         <div className="lead white-text">Financing climate mobilizers is 100 times* more effective than buying
           carbon credits. With no intermediaries, full transparency and a shared
