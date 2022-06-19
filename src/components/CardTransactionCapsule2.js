@@ -190,7 +190,7 @@ let rawTx;
         rawTx = dappkitResponse.rawTxs[0]
       } catch (error) {
         console.log(error)
-        this.setState({status: "transaction signing timed out, try again."})
+        
         return
       }
 const tx = await kit.connection.sendSignedTransaction(rawTx);
