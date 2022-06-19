@@ -11,7 +11,7 @@ import '@celo/react-celo/lib/styles.css';
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
-import { CeloProvider } from '@celo/react-celo';
+import { CeloProvider,useCelo } from '@celo/react-celo';
 import '@celo/react-celo/lib/styles.css';
 const contractAddress = "0xA85BEC65D8c16ecfA3D9230BB39C8adC4468dDBA";
 function CardTransactionCapsule2(props) {
@@ -27,6 +27,8 @@ function CardTransactionCapsule2(props) {
   const [Activist,setActivist] = useState([]);
   const [approuved,setApprouved] = useState(false);
   const [WalletContrib,setWalletContrib] = useState("");
+  const { connect, address } = useCelo();
+
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
   const dappName = "HeroCoin";
 
@@ -74,9 +76,7 @@ function CardTransactionCapsule2(props) {
     setSomme(S);
   };
 
-  const connect = async () => {
-    
-  };
+
   const getElems = async () => {
     const web3 = new Web3("https://alfajores-forno.celo-testnet.org");
 // mainnet -- comment out the above, uncomment below for mainnet
@@ -302,7 +302,7 @@ const receipt1 = await tx1.waitReceipt();
             <label className="label mb-3">Type of Payment</label>
 
             <div className="radio-input">
-              <div class="form-check mb-1" onClick={() => connect()}>
+              <div class="form-check mb-1" onClick={connect}>
                 <input
                   class="form-check-input"
                   type="radio"
