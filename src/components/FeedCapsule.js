@@ -25,7 +25,7 @@ function FeedCapsule(props) {
             })
             .then(function (response) {
               console.log(response.data);
-              updateArray(response.data);
+              updateArray({...response.data,index:i});
             })
             .catch(function (error) {
               //handle error here
@@ -67,7 +67,7 @@ function FeedCapsule(props) {
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-4">
                 <div
                   className="card bg-dark text-white"
-                  onClick={() => history.push("/activistprofile", {...activist,indexMax:Index,index:i})}
+                  onClick={() => history.push("/activistprofile", {...activist,indexMax:Index})}
                   style={{ borderRadius: "20px" }}
                 >
                   <img
