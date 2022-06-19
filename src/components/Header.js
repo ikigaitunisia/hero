@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Menu from "./Menu";
+import "./Header.css"
 
 function Header(props) {
   const whiteMode = props.whiteMode;
@@ -37,7 +38,7 @@ function Header(props) {
               href="#"
               className="headerButton"
               onClick={() => setShowMenu(true)}
-              style={whiteMode ? { color: "white" } : {}}
+              style={whiteMode ? { color: "white" } : { color: "#0000FF" }}
             >
               <ion-icon name="menu-outline"></ion-icon>
             </a>
@@ -48,7 +49,7 @@ function Header(props) {
               className="headerButton"
               data-bs-toggle="modal"
               data-bs-target="#sidebarPanel"
-              style={whiteMode ? { color: "white" } : {}}
+              style={whiteMode ? { color: "white" } : { color: "#0000FF" }}
               onClick={() => history.push("/")}
             >
               <ion-icon name="chevron-back-outline"></ion-icon>
@@ -74,15 +75,15 @@ function Header(props) {
              !loggedin ?
             <a
               onClick={() => history.push("/login")}
-              className="headerButton"
-              style={whiteMode ? { color: "white" } : {}}
+              className="headerButton headerCustomBtn"
+              style={whiteMode ? { color: "white" } : { color: "#0000FF" }}
             >
               Login
             </a> :
             <a
             onClick={() => logout()}
-            className="headerButton"
-            style={whiteMode ? { color: "white" } : {}}
+            className="headerButton headerCustomBtn"
+            style={whiteMode ? { color: "white" } : { color: "#0000FF" }}
           >
             Logout
           </a> 
@@ -93,7 +94,7 @@ function Header(props) {
           
             <a
               className="headerButton goBack"
-              style={whiteMode ? { color: "white" } : {}}
+              style={whiteMode ? { color: "white" } : { color: "#0000FF" }}
              onClick ={() => closeB()}
             >
               <ion-icon name="close"></ion-icon>

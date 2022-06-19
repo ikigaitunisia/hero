@@ -101,7 +101,6 @@ function MobilizerCardCapsule(props) {
         <button
           type="button"
           className="btn btn-primary btn-lg rounded btn-width blueBtn"
-          style={{ fontFamily: "Seravek" }}
         >
           Withdraw
         </button>
@@ -170,7 +169,7 @@ function MobilizerCardCapsule(props) {
                 </div>
                 <button
                   type="button"
-                  style={{ width: "80px", fontFamily: "Seravek" }}
+                  style={{ width: "80px"}}
                   className="btn btn-primary rounded blueBtn"
                 >
                   Edit
@@ -218,7 +217,7 @@ function MobilizerCardCapsule(props) {
                 </div>
                 <button
                   type="button"
-                  style={{ width: "80px", fontFamily: "Seravek" }}
+                  style={{ width: "80px"}}
                   className="btn btn-primary rounded blueBtn"
                 >
                   Edit
