@@ -28,7 +28,39 @@ function ActivistProfileCapsule(props) {
   useEffect(() => {
     console.log(A);
   }, []);
+  const goNext  = () => {
+     if (props.index+1 == props.indexMax)
+      {
+        axios
+            .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
+              ID: 1,
+            })
+            .then(function (response) {
+              console.log(response.data);
+              history.push("/activistprofile", {...response.data,indexMax:props.indexMax,index:1})
+            })
+            .catch(function (error) {
+              //handle error here
+              console.log(error);
+            });
+      }
+      else
+      {
+        axios
+        .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
+          ID: props.index+1 ,
+        })
+        .then(function (response) {
+          console.log(response.data);
+          history.push("/activistprofile", {...response.data,indexMax:props.indexMax,index:props.index+1 })
+        })
+        .catch(function (error) {
+          //handle error here
+          console.log(error);
+        });
+      }
 
+  }
   return (
     <>
       <div id="appCapsule" className="bg-g-1">
@@ -194,7 +226,7 @@ function ActivistProfileCapsule(props) {
           </div>
         </a>
 
-        <a href="" className="item">
+        <a href="" className="item" onClick={() => goNext()}>
           <div
             className="col"
             style={{

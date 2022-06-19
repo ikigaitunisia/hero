@@ -62,12 +62,12 @@ function FeedCapsule(props) {
       </div>
       <div className="section mt-4 pt-2 mb-2">
         <div className="row mt-2 pe-3 pl-3">
-          {Activist.map((activist) => (
+          {Activist.map((activist,i) => (
             <>
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-4">
                 <div
                   className="card bg-dark text-white"
-                  onClick={() => history.push("/activistprofile", activist)}
+                  onClick={() => history.push("/activistprofile", {...activist,indexMax:Index,index:i})}
                   style={{ borderRadius: "20px" }}
                 >
                   <img
