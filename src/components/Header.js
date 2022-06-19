@@ -45,6 +45,7 @@ function Header(props) {
               data-bs-toggle="modal"
               data-bs-target="#sidebarPanel"
               style={whiteMode ? { color: "white" } : {}}
+              onClick={() => history.push(history.goBack())}
             >
               <ion-icon name="chevron-back-outline"></ion-icon>
             </a>
@@ -85,18 +86,16 @@ function Header(props) {
           )}
 
           {showCloseBtn && (
-            <div  onClick={() => history.push(history.goBack())}
-            >
+          
             <a
               href={history.goBack()}
               className="headerButton goBack"
-              id="back"
               style={whiteMode ? { color: "white" } : {}}
              
             >
               <ion-icon name="close"></ion-icon>
             </a>
-            </div>
+           
           )}
         </div>
       </div>
