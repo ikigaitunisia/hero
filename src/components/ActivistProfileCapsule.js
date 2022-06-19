@@ -87,7 +87,7 @@ function ActivistProfileCapsule(props) {
      {
        axios
        .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
-         ID: A.state.index+1 ,
+         ID: A.state.index-1 ,
        })
        .then(function (response) {
          console.log(response.data);
