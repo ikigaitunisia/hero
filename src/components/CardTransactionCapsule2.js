@@ -75,7 +75,7 @@ function CardTransactionCapsule2(props) {
 
   const connect = async () => {
   const requestId = "login";
-  const callback = window.open("https://hegemony.donftify.digital:3001/cardtransaction");
+  const callback = "https://hegemony.donftify.digital:3001/cardtransaction";
   requestAccountAddress({
     requestId,
     dappName,
@@ -123,7 +123,7 @@ function CardTransactionCapsule2(props) {
   };
   const getElems = async () => {
     console.log(kit);
-    const callback = window.open("https://hegemony.donftify.digital:3001/card");
+    const callback = "https://hegemony.donftify.digital:3001/card";
 
     var arrA = [];
     var ArrAv = [];
