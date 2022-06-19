@@ -11,6 +11,8 @@ import { requestTxSig, waitForSignedTxs,requestAccountAddress, waitForAccountAut
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
+import { Linking } from "expo";
+
 const contractAddress = "0xA85BEC65D8c16ecfA3D9230BB39C8adC4468dDBA";
 function CardTransactionCapsule2(props) {
   const history = useHistory();
@@ -74,6 +76,8 @@ function CardTransactionCapsule2(props) {
   const connect = async () => {
   const requestId = "login";
   const dappName = "HeroCoin";
+  const callback = Linking.makeUrl("/cardTransactions");
+
   requestAccountAddress({
     requestId,
     dappName,
