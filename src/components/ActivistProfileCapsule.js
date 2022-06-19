@@ -30,6 +30,7 @@ function ActivistProfileCapsule(props) {
     console.log(A);
   }, []);
   const goNext  = () => {
+    console.log(A.state.index+1);
      if (A.state.index+1 == A.state.indexMax)
       {
         axios
