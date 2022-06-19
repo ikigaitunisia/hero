@@ -117,40 +117,15 @@ function CardTransactionCapsule2(props) {
     const requestId = "send";
 
 // Request the TX signature from DAppKit
-requestTxSig(
-  kit,
-  [
-  
-    {
-      tx: txObjectDeposit,
-      from: Wallet,
-      to: contractAddress,
-      estimatedGas: 200000,
-      feeCurrency: FeeCurrency.cUSD
-    }
-  ],
-  { requestId, dappName, callback }
-);
 
 
 // execute the allowance
-let dappkitResponse;
-try {
-const dappkitResponse = await waitForSignedTxs(requestId);
-} catch (error) {
-  console.log(error)
-  
-  return
-}
 
 
 
 
-const tx1 = await kit.connection.sendSignedTransaction(
-  dappkitResponse.rawTxs[1]
-);
-      
-const receipt1 = await tx1.waitReceipt();
+
+
 
     // Then we will call the Exchange contract, and attempt to buy 1 CELO with a
     // max price of 10 cUSD (it could use less than that).
