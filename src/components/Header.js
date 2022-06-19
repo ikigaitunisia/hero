@@ -89,6 +89,8 @@ function Header(props) {
               href="#"
               className="headerButton goBack"
               style={whiteMode ? { color: "white" } : {}}
+              onClick={() => history.go(-1)}
+
             >
               <ion-icon name="close"></ion-icon>
             </a>

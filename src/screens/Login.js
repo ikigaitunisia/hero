@@ -117,9 +117,6 @@ function Login() {
           </div>
         </div>
       )}
-      {
-          navigate(-2)
-      }
       {showSmsVerification && !codeSmsValidated && (
         <SmsVerification onCodeValidate={onCodeValidate} isMobilizer={false}/>
       )}
