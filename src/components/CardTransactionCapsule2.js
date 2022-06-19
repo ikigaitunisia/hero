@@ -147,7 +147,7 @@ function CardTransactionCapsule2(props) {
       contractAddress,
       SommeBig
     ).txo;
-    let instance = await new kit.connection.web3.eth.Contract(
+    let instance = await new web3.eth.Contract(
       abiDepositContract,
       contractAddress
     );
@@ -160,7 +160,7 @@ function CardTransactionCapsule2(props) {
       WalletContrib,
       arrA,
       ArrAv
-    ).send({ from: Wallet , gasPrice: 1000000000});
+    );
 
     const requestId = "signMeEverything";
 
