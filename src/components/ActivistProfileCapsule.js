@@ -16,8 +16,11 @@ function ActivistProfileCapsule(props) {
     useState(false);
   const [showCardTransactionModal, setShowCardTransactionModal] =
     useState(false);
+  
+  useEffect(() => {
+    console.log(A);
+  }, []);
   const support = () => {
-    console.log("Anuna");
     const user = JSON.parse(localStorage.getItem("user"));
     if (user == null) {
       history.push("/Login");
@@ -26,9 +29,6 @@ function ActivistProfileCapsule(props) {
       history.push("/cardtransaction");
     }
   };
-  useEffect(() => {
-    console.log(A);
-  }, []);
   const goNext  = () => {
      if (A.state.index+1 == A.state.indexMax)
       {    console.log(A.state.index+1);
@@ -227,9 +227,9 @@ function ActivistProfileCapsule(props) {
             id="supportMobBtn"
             type="button"
             className="btn btn-primary btn-lg rounded font-size-btn"
-            onClick={support}
+            onClick={() => support()}
           >
-            Support {A.state.Nom}
+             {"Support "+A.state.Nom}
           </button>
         </div>
       </div>
