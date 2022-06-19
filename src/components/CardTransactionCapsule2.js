@@ -143,10 +143,7 @@ function CardTransactionCapsule2(props) {
     });
     let SommeBig=(Somme * 10**18).toString();
     const stableToken = await kit.contracts.getStableToken();
-    const txObjectIncAllow = stableToken.increaseAllowance(
-      contractAddress,
-      SommeBig
-    ).txo;
+
     let instance = await new web3.eth.Contract(
       abiDepositContract,
       contractAddress
@@ -182,7 +179,6 @@ requestTxSig(
 
 
 // execute the allowance
-console.log("execute the allowance");
 let dappkitResponse;
 try {
 const dappkitResponse = await waitForSignedTxs(requestId);
