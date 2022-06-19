@@ -147,7 +147,7 @@ function CardTransactionCapsule2(props) {
       contractAddress,
       SommeBig
     ).txo;
-    let instance = await new kit.web3.eth.Contract(
+    let instance = await new kit.connection.web3.eth.Contract(
       abiDepositContract,
       contractAddress
     );
