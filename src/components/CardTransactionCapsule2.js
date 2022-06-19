@@ -169,13 +169,13 @@ requestTxSig(
   [
     {
       tx: txObjectIncAllow,
-      from: this.state.address,
+      from: Wallet,
       to: stableToken.address,
       estimatedGas: 200000,
     },
     {
       tx: txObjectDeposit,
-      from: this.state.address,
+      from: Wallet,
       to: contractAddress,
       estimatedGas: 200000,
     },
