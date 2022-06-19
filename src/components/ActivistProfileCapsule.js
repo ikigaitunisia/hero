@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
+import axios from "axios";
 import "./ActivistProfileCapsule.css";
 import ActivistCampaignsModal from "./modals/ActivistCampaignsModal";
 import ActivistVictoriesModal from "./modals/ActivistVictoriesModal";
