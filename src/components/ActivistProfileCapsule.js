@@ -53,7 +53,7 @@ function ActivistProfileCapsule(props) {
         })
         .then(function (response) {
           console.log(response.data);
-          history.push("/activistprofile", {...response.data,indexMax:A.state..indexMax})
+          history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax})
         })
         .catch(function (error) {
           //handle error here
