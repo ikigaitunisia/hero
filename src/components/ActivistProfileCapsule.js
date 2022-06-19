@@ -119,14 +119,14 @@ function ActivistProfileCapsule(props) {
               />
             </a>
           </div>
-          <h3 className="custom-font blue-text">
+          <h3 className="custom-font blue-text" style={{paddingBottom:0, margin:0}}>
             {A.state.Nom + " " + A.state.Prenom}{" "}
             <ion-icon
               src="assets/img/svg/heroblue.svg"
               style={{ width: "8.4px", marginLeft: "3px" }}
             ></ion-icon>
           </h3>
-          <span className="blue-text">{A.state.autre.Pays}</span>
+          <span className="blue-text" style={{fontStyle: "italic"}}>{A.state.autre.Pays}</span>
           <div className="lead black-text pt-3 pb-3">
             {A.state.autre.Bio + " "}
           </div>
