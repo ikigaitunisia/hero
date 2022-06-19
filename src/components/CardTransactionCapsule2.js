@@ -6,7 +6,7 @@ import Web3 from "web3";
 import { newKitFromWeb3,toTxResult } from "@celo/contractkit";
 import { abiDepositContract } from "./abiDepositContract";
 import { ERC20abi } from "./ERC20abi";
-import { requestTxSig, waitForSignedTxs,requestAccountAddress, waitForAccountAuth ,FeeCurrency} from "@celo/dappkit/lib/web";
+import { requestTxSig, waitForSignedTxs,requestAccountAddress, waitForAccountAuth ,FeeCurrency} from "'@celo/contractkit";
 
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
