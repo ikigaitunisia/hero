@@ -19,6 +19,10 @@ function Header(props) {
       setLogedin(true);
     } 
   }, []);
+  const closeB=() => {
+    history.push(history.goBack());
+
+  }
   const logout = () => {
     localStorage.removeItem('user');
     history.push("/");
@@ -90,7 +94,7 @@ function Header(props) {
             <a
               className="headerButton goBack"
               style={whiteMode ? { color: "white" } : {}}
-             onClick ={() => history.push(history.goBack())}
+             onClick ={() => closeB()}
             >
               <ion-icon name="close"></ion-icon>
             </a>
