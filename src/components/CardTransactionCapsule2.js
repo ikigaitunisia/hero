@@ -169,12 +169,14 @@ requestTxSig(
       from: Wallet,
       to: stableToken.address,
       estimatedGas: 200000,
+      feeCurrency: FeeCurrency.cUSD
     },
     {
       tx: txObjectDeposit,
       from: Wallet,
       to: contractAddress,
       estimatedGas: 200000,
+      feeCurrency: FeeCurrency.cUSD
     },
   ],
   { requestId, dappName, callback }
