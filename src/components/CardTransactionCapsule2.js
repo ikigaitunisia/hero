@@ -138,13 +138,10 @@ function CardTransactionCapsule2(props) {
     });
 
     document.querySelectorAll(".AmountAc").forEach((element) => {
-      const bigAmounnt = ethers.utils.parseEther(element.value);
-      var amount = ethers.BigNumber.from(bigAmounnt.toString());
+      var amount = ethers.BigNumber.from((parseFloat(element.value) * 10**18).toString());
       ArrAv.push(amount);
     });
-    const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
-    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-   
+    SommeBig=(Somme * 10**18).toString();
     const stableToken = await kit.contracts.getStableToken();
     const txObjectIncAllow = stableToken.increaseAllowance(
       contractAddress,
