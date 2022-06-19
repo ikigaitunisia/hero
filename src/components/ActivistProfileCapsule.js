@@ -39,7 +39,7 @@ function ActivistProfileCapsule(props) {
             })
             .then(function (response) {
               console.log(response.data);
-              //history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax})
+              history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax})
             })
             .catch(function (error) {
               //handle error here
@@ -228,7 +228,7 @@ function ActivistProfileCapsule(props) {
           </div>
         </a>
 
-        <a href="" className="item" onClick={() => goNext()}>
+        <a  className="item" onClick={() => goNext()}>
           <div
             className="col"
             style={{
