@@ -14,17 +14,20 @@ root.render(
       description: 'My awesome description',
       url: 'https://example.com',
     }}
+    networks={[Alfajores]}
+      network={{
+        name: NetworkNames.Alfajores,
+        rpcUrl: 'https://alfajores-forno.celo-testnet.org',
+        graphQl: 'https://alfajores-blockscout.celo-testnet.org/graphiql',
+        explorer: 'https://alfajores-blockscout.celo-testnet.org',
+        chainId: 44787,
+      }}
     connectModal={{
       // This options changes the title of the modal and can be either a string or a react element
       title: <span>Connect your Wallet</span>,
       providersOptions: {
         // This option hides specific wallets from the default list
-        hideFromDefaults: [
-          SupportedProvider.MetaMask,
-          SupportedProvider.PrivateKey,
-          SupportedProvider.CeloExtensionWallet,
-          SupportedProvider.Valora,
-        ],
+        
   
         // This option hides all default wallets
         hideFromDefaults: true,
@@ -32,6 +35,7 @@ root.render(
         // This option toggles on and off the searchbar
         searchable: true,
       },
+      
     }}
   >
     <App />
