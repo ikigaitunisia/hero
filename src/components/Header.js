@@ -85,16 +85,18 @@ function Header(props) {
           )}
 
           {showCloseBtn && (
+            <div  onClick={() => history.push(history.goBack())}
+            >
             <a
               href="#"
               className="headerButton goBack"
               id="back"
               style={whiteMode ? { color: "white" } : {}}
-              onClick={() => history.push(history.goBack())}
-
+             
             >
               <ion-icon name="close"></ion-icon>
             </a>
+            </div>
           )}
         </div>
       </div>
