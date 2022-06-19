@@ -81,11 +81,11 @@ function FeedCapsule(props) {
                     <div>
                       <h1
                         className="white-text title-font text-title"
-                        style={{ margin: 0 }}
+                        style={{ margin: 0,paddingBottom:0, fontStyle: "italic" }}
                       >
                         {activist.Nom + " " + activist.Prenom}
                       </h1>
-                      <span className="white-text">{activist.autre.Pays}</span>
+                      <span className="white-text" style={{fontStyle: "italic" }}>{activist.autre.Pays}</span>
                     </div>
                   </div>
                 </div>

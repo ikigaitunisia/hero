@@ -6,7 +6,7 @@ function HomeCapsule(props) {
   const history = useHistory();
   return (
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
-      <div className="section mt-4">
+      <div className="section mt-4 pt-4">
         <img className="home-img" src="assets/img/Anuna_HomePage.png" />
       </div>
       <div className="section">
