@@ -74,10 +74,11 @@ function CardTransactionCapsule2(props) {
   const connect = async () => {
   const requestId = "login";
   const dappName = "HeroCoin";
-
+  const handleClick = useCallback(() =&gt; {    console.log('Clicked!');  }, []);
   requestAccountAddress({
     requestId,
     dappName,
+    handleClick
   });
 
   const dappkitResponse = await waitForAccountAuth(requestId);
