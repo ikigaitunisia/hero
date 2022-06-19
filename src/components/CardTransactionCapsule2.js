@@ -6,12 +6,13 @@ import Web3 from "web3";
 import { newKitFromWeb3,toTxResult } from "@celo/contractkit";
 import { abiDepositContract } from "./abiDepositContract";
 import { ERC20abi } from "./ERC20abi";
-import { requestTxSig, waitForSignedTxs,requestAccountAddress, waitForAccountAuth ,FeeCurrency } from "@celo/dappkit/lib/web";
-
+import { CeloProvider } from '@celo/react-celo';
+import '@celo/react-celo/lib/styles.css';
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
-
+import { CeloProvider } from '@celo/react-celo';
+import '@celo/react-celo/lib/styles.css';
 const contractAddress = "0xA85BEC65D8c16ecfA3D9230BB39C8adC4468dDBA";
 function CardTransactionCapsule2(props) {
   const history = useHistory();
@@ -74,52 +75,7 @@ function CardTransactionCapsule2(props) {
   };
 
   const connect = async () => {
-  const requestId = "login";
-  const callback = "https://hegemony.donftify.digital:3001/cardtransaction";
-  requestAccountAddress({
-    requestId,
-    dappName,
-    callback
-  });
-  
-  const dappkitResponse = await waitForAccountAuth(requestId);
-
-  // The pepper is not available in all Valora versions
-  //this.setState({
-  //  address: dappkitResponse.address,
-  //  phoneNumber: dappkitResponse.phoneNumber,
-  //  pepper: dappkitResponse.pepper,
-  //});
-    console.log(dappkitResponse.address);
-    setWallet(dappkitResponse.address);
-    /*
-    const provider = new WalletConnectProvider({
-      rpc: {
-        44787: "https://alfajores-forno.celo-testnet.org",
-        42220: "https://forno.celo.org",
-      },
-
-    });
-
-    await provider.enable();
-    const web3 = new Web3(provider);
-    let kit1 = newKitFromWeb3(web3);
-
-    kit1.defaultAccount = provider.accounts[0];
-    provider.on("accountsChanged", (accounts) => {
-      console.log(accounts);
-    });
-    console.log("**************");
-    console.log(contractAddress);
-    //const hash = await tx.getHash();
-    //console.log(hash);
-    setWallet(kit1.defaultAccount);
-    setConnected(true);
-    setProvider(provider);
-    setKit(kit1);
-    setWebT(web3);
-
-    */
+    
   };
   const getElems = async () => {
     const web3 = new Web3("https://alfajores-forno.celo-testnet.org");
@@ -214,6 +170,7 @@ const receipt1 = await tx1.waitReceipt();
 
   const mobilizer = (
     <>
+   
       <div className="form-group basic">
         <div className="input-wrapper">
           <label className="label" for="account2d">
@@ -258,6 +215,32 @@ const receipt1 = await tx1.waitReceipt();
   };
 
   return (
+    <CeloProvider
+    dapp={{
+      name: 'My awesome dApp',
+      description: 'My awesome description',
+      url: 'https://example.com',
+    }}
+    connectModal={{
+      // This options changes the title of the modal and can be either a string or a react element
+      title: <span>Connect your Wallet</span>,
+      providersOptions: {
+        // This option hides specific wallets from the default list
+        hideFromDefaults: [
+          SupportedProvider.MetaMask,
+          SupportedProvider.PrivateKey,
+          SupportedProvider.CeloExtensionWallet,
+          SupportedProvider.Valora,
+        ],
+  
+        // This option hides all default wallets
+        hideFromDefaults: true,
+  
+        // This option toggles on and off the searchbar
+        searchable: true,
+      },
+    }}
+  >
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
       <div className="section mt-2">
         <ion-icon
@@ -421,12 +404,15 @@ const receipt1 = await tx1.waitReceipt();
             >
               Confirm
             </button> 
-       
+              
           
           </div>
         </form>
+            
       </div>
     </div>
+
+    </CeloProvider>
   );
 }
 
