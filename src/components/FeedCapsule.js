@@ -8,8 +8,8 @@ function FeedCapsule(props) {
   const history = useHistory();
   const [Index, setIndex] = useState(0);
   const [Activist, setActivist] = useState([]);
-  const updateArray = (response) => {
-    setActivist((oldArray) => [...oldArray, response]);
+  const updateArray = (response,ind) => {
+    setActivist((oldArray) => [...oldArray, {...response,index:ind}]);
     console.log(Activist);
   };
   useEffect(() => {
@@ -25,7 +25,7 @@ function FeedCapsule(props) {
             })
             .then(function (response) {
               console.log(response.data);
-              updateArray({...response.data,index:i});
+              updateArray({...response.data},i);
             })
             .catch(function (error) {
               //handle error here
