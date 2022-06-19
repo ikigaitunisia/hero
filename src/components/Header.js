@@ -88,6 +88,7 @@ function Header(props) {
             <a
               href="#"
               className="headerButton goBack"
+              id="back"
               style={whiteMode ? { color: "white" } : {}}
               onClick={() => history.push(history.goBack())}
 
