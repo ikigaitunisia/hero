@@ -39,8 +39,8 @@ function ActivistProfileCapsule(props) {
             })
             .then(function (response) {
               console.log(response.data);
-              history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax})
-              window.location.reload(false)
+              history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax});
+              window.location.reload(false);
             })
             .catch(function (error) {
               //handle error here
@@ -55,7 +55,8 @@ function ActivistProfileCapsule(props) {
         })
         .then(function (response) {
           console.log(response.data);
-          history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax})
+          history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax});
+          window.location.reload(false);
         })
         .catch(function (error) {
           //handle error here
