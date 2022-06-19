@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { CeloProvider,useCelo,SupportedProvider } from '@celo/react-celo';
+import { CeloProvider,useCelo, Alfajores, NetworkNames } from '@celo/react-celo';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
