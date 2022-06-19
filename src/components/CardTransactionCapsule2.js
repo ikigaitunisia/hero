@@ -189,32 +189,7 @@ function CardTransactionCapsule2(props) {
   };
 
   return (
-    <CeloProvider
-    dapp={{
-      name: 'My awesome dApp',
-      description: 'My awesome description',
-      url: 'https://example.com',
-    }}
-    connectModal={{
-      // This options changes the title of the modal and can be either a string or a react element
-      title: <span>Connect your Wallet</span>,
-      providersOptions: {
-        // This option hides specific wallets from the default list
-        hideFromDefaults: [
-          SupportedProvider.MetaMask,
-          SupportedProvider.PrivateKey,
-          SupportedProvider.CeloExtensionWallet,
-          SupportedProvider.Valora,
-        ],
-  
-        // This option hides all default wallets
-        hideFromDefaults: true,
-  
-        // This option toggles on and off the searchbar
-        searchable: true,
-      },
-    }}
-  >
+   
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
       <div className="section mt-2">
         <ion-icon
@@ -386,7 +361,6 @@ function CardTransactionCapsule2(props) {
       </div>
     </div>
 
-    </CeloProvider>
   );
 }
 
