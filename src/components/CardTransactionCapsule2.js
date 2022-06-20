@@ -198,7 +198,7 @@ dappkitResponse = await waitForSignedTxs(requestId);
 }
 let tx0;
 try {
-tx1 = await kit.connection.sendSignedTransaction(
+tx0 = await kit.connection.sendSignedTransaction(
   dappkitResponse.rawTxs[0]
 );
 } catch (error) {
