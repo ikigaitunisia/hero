@@ -121,7 +121,7 @@ function ExchangeModal(props) {
                   <label className="label">Amount</label>
                   <div className="input-group mb-2">
                     <span className="input-group-text" id="basic-addonb1">
-                      $
+                    €
                     </span>
                     <input
                       type="text"

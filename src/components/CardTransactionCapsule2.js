@@ -261,7 +261,7 @@ const receipt1 = await tx1.waitReceipt();
         <label className="label">Enter Amount</label>
         <div className="input-group mb-2">
           <span className="input-group-text" id="basic-addonb1">
-            $
+            €
           </span>
           <input
             type="text"
@@ -328,7 +328,7 @@ const receipt1 = await tx1.waitReceipt();
             <label className="label">Enter Amount</label>
             <div className="input-group mb-2">
               <span className="input-group-text" id="basic-addonb1">
-                $
+                €
               </span>
               <input
                 type="text"
@@ -427,7 +427,7 @@ const receipt1 = await tx1.waitReceipt();
 
           <div className="section mt-4 pt-2 mb-4">
             <h4 className="white-text">Transaction total</h4>
-            <h3 className="white-text">{"$" + Somme}</h3>
+            <h3 className="white-text">{"€" + Somme}</h3>
           </div>
           <div className="form-group basic">
      

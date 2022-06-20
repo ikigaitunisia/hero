@@ -22,7 +22,7 @@ function MobilizerCardCapsule(props) {
             <div className="in in-custom">
               <div className="card-number card-number-custom mb-3">
                 <span className="label">YOUR CARD BALANCE</span>
-                <strong>$US 2,250</strong>
+                <strong>cEUR 2, 250</strong>
               </div>
               <div className="card-number card-number-custom mb-3">
                 <span className="label">YOUR HERO COIN BALANCE</span>
@@ -61,7 +61,7 @@ function MobilizerCardCapsule(props) {
               </div>
             </div>
             <div className="itemList">
-              <strong>$100</strong>
+              <strong>€ 100</strong>
             </div>
           </li>
           <li>
@@ -76,7 +76,7 @@ function MobilizerCardCapsule(props) {
               </div>
             </div>
             <div className="itemList">
-              <strong>$200</strong>
+              <strong>€ 200</strong>
             </div>
           </li>
           <li>
@@ -92,7 +92,7 @@ function MobilizerCardCapsule(props) {
               </div>
             </div>
             <div className="itemList">
-              <strong>-$100</strong>
+              <strong>-€ 100</strong>
             </div>
           </li>
         </ul>

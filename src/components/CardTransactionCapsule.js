@@ -10,9 +10,10 @@ import { ERC20abi } from "./ERC20abi";
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
-const contractAddress = "0xA85BEC65D8c16ecfA3D9230BB39C8adC4468dDBA";
-function CardTransactionCapsule2(props) {
+const contractAddress = "0x1f78Fd2b3C9a93Adfc5D09F7d2E09D8c821112dE";
+function CardTransactionCapsule(props) {
   const history = useHistory();
+  const [showExchangeModal, setShowExchangeModal] = useState(false);
   const [content, setContent] = useState("");
   const [provider,setProvider] = useState(null);
   const [kit,setKit] =useState(null);
@@ -22,7 +23,6 @@ function CardTransactionCapsule2(props) {
   const [Somme,setSomme] = useState(0);
   const [Index,setIndex] = useState(0);
   const [Activist,setActivist] = useState([]);
-  const [approuved,setApprouved] = useState(false);
   const [WalletContrib,setWalletContrib] = useState("");
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
   
@@ -71,75 +71,68 @@ function CardTransactionCapsule2(props) {
   };
 
   const connect = async () => {
+    let web3 = null; 
     const provider = new WalletConnectProvider({
       rpc: {
         44787: "https://alfajores-forno.celo-testnet.org",
         42220: "https://forno.celo.org",
       },
-
     });
 
     await provider.enable();
-    const web3 = new Web3(provider);
-    let kit1 = newKitFromWeb3(web3);
+    web3 = new Web3(provider);
+    let kit = newKitFromWeb3(web3);
 
-    kit1.defaultAccount = provider.accounts[0];
+    kit.defaultAccount = provider.accounts[0];
+    console.log(kit.defaultAccount);
     provider.on("accountsChanged", (accounts) => {
       console.log(accounts);
     });
     console.log("**************");
     console.log(contractAddress);
-    //const hash = await tx.getHash();
-    //console.log(hash);
-    setWallet(kit1.defaultAccount);
-    setConnected(true);
-    setProvider(provider);
-    setKit(kit1);
-    setWebT(web3);
+    const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
+    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
+    const stabletoken = await kit.contracts.getStableToken()
+    const txO = await stabletoken.approve(contractAddress, amountSomme).send()
 
     
+    //const hash = await tx.getHash();
+    //console.log(hash);
+    setWallet(kit.defaultAccount);
+    setConnected(true);
+    setProvider(provider);
+    setKit(kit);
+    setWebT(web3);
   };
   const getElems = async () => {
-    console.log(kit);
     var arrA = [];
     var ArrAv = [];
     document.querySelectorAll(".seletAc").forEach((element) => {
       arrA.push(element.value);
     });
-
     document.querySelectorAll(".AmountAc").forEach((element) => {
       const bigAmounnt = ethers.utils.parseEther(element.value);
       var amount = ethers.BigNumber.from(bigAmounnt.toString());
       ArrAv.push(amount);
     });
-    const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
-    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    let  AprvInst= await new kit.web3.eth.Contract(
-      ERC20abi,
-      "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
-    );
-    await AprvInst.methods.approve(
-      contractAddress,
-      amountSomme
-    ).send( { from: kit.defaultAccount  ,gasPrice: 1000000000});
-
-    let instance = await new kit.web3.eth.Contract(
+    let instance = await new webT.eth.Contract(
       abiDepositContract,
       contractAddress
     );
-   await instance.methods.DepositCusd(
+    const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
+    var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
+    
+    const txObject = await instance.methods.DepositCusd(
       amountSomme,
       WalletContrib,
       arrA,
       ArrAv
-    ).send({ from: kit.defaultAccount  , gasPrice: 1000000000});
+    );
+    let tx = await kit.sendTransactionObject(txObject, {
+      from: kit.defaultAccount,
+      gasPrice: 1000000000,
+    });
 
-    
- 
-    
-    
-   
-    
     history.push("/Card");
   };
 
@@ -337,8 +330,7 @@ function CardTransactionCapsule2(props) {
             <h3 className="white-text">{"€" + Somme}</h3>
           </div>
           <div className="form-group basic">
-     
-              <button
+            <button
               type="button"
               class="btn btn-link rounded btn-lg"
               data-bs-dismiss="modal"
@@ -351,9 +343,7 @@ function CardTransactionCapsule2(props) {
               onClick={() => getElems()}
             >
               Confirm
-            </button> 
-       
-          
+            </button>
           </div>
         </form>
       </div>
@@ -361,4 +351,4 @@ function CardTransactionCapsule2(props) {
   );
 }
 
-export default CardTransactionCapsule2;
+export default CardTransactionCapsule;
