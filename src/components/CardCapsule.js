@@ -70,12 +70,13 @@ function CardCapsule(props) {
       />
       <div className="text pt-4">
         <div
-          className="lead blue-text title-font"
-          style={{ fontWeight: "500" }}
+          className="lead blue-text title-font custom-font-size"
+          style={{ fontWeight: "normal" }}
         >
-          Each time your contribution is withdrawn by the mobilizer(s) you have
+          You recieve 1 HERO Coin for being a first time Contributor. Then, each
+          time your contribution is withdrawn by the mobilizer(s) you have
           chosen to support, you receive the equivalent amount of HERO Coins.
-          Each HERO Coin is backed by a carbon credit* and allows you to vote on
+          Each HERO Coin is backed by a <b>carbon credit*</b> and allows you to vote on
           the future of HERO.
         </div>
 

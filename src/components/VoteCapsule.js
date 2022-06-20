@@ -13,9 +13,10 @@ function VoteCapsule(props) {
           forward.
         </p>
         <a
-          href=""
+          href="https://herolabsco.notion.site/Discover-how-voting-works-2ed93de2afd34131b4603f693773c696"
           className="white-text"
           style={{ textDecoration: "underline" }}
+          target="_blank"
         >
           Discover how voting works.
         </a>
