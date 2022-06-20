@@ -191,12 +191,6 @@ function CardTransactionCapsule2(props) {
   return (
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
       <div className="section mt-2">
-        <ion-icon
-          class="icon-logo"
-          src="assets/img/svg/heroCardWhite.svg"
-        ></ion-icon>
-      </div>
-      <div className="section">
         <h4 className="text-title white-text" style={{ margin: 0 }}>
           Support HERO Mobilizers
         </h4>
