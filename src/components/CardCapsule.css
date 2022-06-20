@@ -8,7 +8,8 @@
 .card-number-custom {
   display: flex !important;
   flex-direction: column !important;
-  align-items: flex-start !important;
+  align-items: center !important;
+  color: #EDEDED;
 }
 
 .wallet-card-custom {
@@ -32,6 +33,7 @@
   align-items: center;
   font-size: 28px;
   padding-bottom: 5px;
+  color: #FFFFFF;
 }
 
 .icon-wrapper-custom {
@@ -131,7 +133,7 @@ li {
     width: 150px;
   }
   .card-number-custom strong {
-    font-size: 15px;
+    font-size: 25px;
     padding-bottom: 5px;
   }
   .card-main-custom {

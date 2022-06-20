@@ -38,12 +38,6 @@ function CardCapsule(props) {
       <div className="section mt-2">
         <div className="card-block mb-2 bg-g">
           <div className="card-main card-main-custom">
-            <div>
-              <ion-icon
-                class="icon-title"
-                src="assets/img/svg/heroCardWhite.svg"
-              ></ion-icon>
-            </div>
             <div className="in in-custom">
               <div className="card-number card-number-custom mb-3">
                 <span className="label">YOUR HERO COIN BALANCE</span>

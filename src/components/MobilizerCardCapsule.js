@@ -13,12 +13,6 @@ function MobilizerCardCapsule(props) {
             className="card-main card-main-custom"
             style={{ fontFamily: "Seravek" }}
           >
-            <div>
-              <ion-icon
-                class="icon-title"
-                src="assets/img/svg/heroCardWhite.svg"
-              ></ion-icon>
-            </div>
             <div className="in in-custom">
               <div className="card-number card-number-custom mb-3">
                 <span className="label">YOUR CARD BALANCE</span>
