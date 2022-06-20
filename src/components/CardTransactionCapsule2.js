@@ -4,13 +4,14 @@ import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from "web3";
 import { newKitFromWeb3 } from "@celo/contractkit";
+import { useContractKit } from '@celo-tools/use-contractkit';
+
 import { abiDepositContract } from "./abiDepositContract";
 import { ERC20abi } from "./ERC20abi";
 import '@celo/react-celo/lib/styles.css';
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
-import { CeloProvider,useCelo,SupportedProvider } from '@celo/react-celo';
 const contractAddress = "0xA85BEC65D8c16ecfA3D9230BB39C8adC4468dDBA";
 function CardTransactionCapsule2(props) {
   const history = useHistory();
@@ -25,7 +26,7 @@ function CardTransactionCapsule2(props) {
   const [Activist,setActivist] = useState([]);
   const [approuved,setApprouved] = useState(false);
   const [WalletContrib,setWalletContrib] = useState("");
-  const { connect, address } = useCelo();
+  const { connect, address } = useContractKit();
 
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
   const dappName = "HeroCoin";
