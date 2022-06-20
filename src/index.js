@@ -3,21 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ContractKitProvider } from '@celo-tools/use-contractkit';
-import '@celo-tools/use-contractkit/lib/styles.css';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <ContractKitProvider
-      dapp={{
-          name: "My awesome dApp",
-          description: "My awesome description",
-          url: "https://example.com",
-        }}
-    >
+   
       <App />
-    </ContractKitProvider>
    
   </React.StrictMode>
 );

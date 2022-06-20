@@ -3,15 +3,15 @@ import "./CardTransactionCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from "web3";
-import { newKitFromWeb3 } from "@celo/contractkit";
-import { useContractKit } from '@celo-tools/use-contractkit';
-
+import { newKitFromWeb3,toTxResult } from "@celo/contractkit";
 import { abiDepositContract } from "./abiDepositContract";
 import { ERC20abi } from "./ERC20abi";
-import '@celo/react-celo/lib/styles.css';
+import { requestTxSig, waitForSignedTxs,requestAccountAddress, waitForAccountAuth ,FeeCurrency } from "@celo/dappkit/lib/web";
+
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
+
 const contractAddress = "0xA85BEC65D8c16ecfA3D9230BB39C8adC4468dDBA";
 function CardTransactionCapsule2(props) {
   const history = useHistory();
@@ -26,8 +26,6 @@ function CardTransactionCapsule2(props) {
   const [Activist,setActivist] = useState([]);
   const [approuved,setApprouved] = useState(false);
   const [WalletContrib,setWalletContrib] = useState("");
-  const { connect, address } = useContractKit();
-
   const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
   const dappName = "HeroCoin";
 
@@ -75,7 +73,54 @@ function CardTransactionCapsule2(props) {
     setSomme(S);
   };
 
+  const connect = async () => {
+  const requestId = "login";
+  const callback = "https://hegemony.donftify.digital:3001/cardtransaction";
+  requestAccountAddress({
+    requestId,
+    dappName,
+    callback
+  });
+  
+  const dappkitResponse = await waitForAccountAuth(requestId);
 
+  // The pepper is not available in all Valora versions
+  //this.setState({
+  //  address: dappkitResponse.address,
+  //  phoneNumber: dappkitResponse.phoneNumber,
+  //  pepper: dappkitResponse.pepper,
+  //});
+    console.log(dappkitResponse.address);
+    setWallet(dappkitResponse.address);
+    /*
+    const provider = new WalletConnectProvider({
+      rpc: {
+        44787: "https://alfajores-forno.celo-testnet.org",
+        42220: "https://forno.celo.org",
+      },
+
+    });
+
+    await provider.enable();
+    const web3 = new Web3(provider);
+    let kit1 = newKitFromWeb3(web3);
+
+    kit1.defaultAccount = provider.accounts[0];
+    provider.on("accountsChanged", (accounts) => {
+      console.log(accounts);
+    });
+    console.log("**************");
+    console.log(contractAddress);
+    //const hash = await tx.getHash();
+    //console.log(hash);
+    setWallet(kit1.defaultAccount);
+    setConnected(true);
+    setProvider(provider);
+    setKit(kit1);
+    setWebT(web3);
+
+    */
+  };
   const getElems = async () => {
     const web3 = new Web3("https://alfajores-forno.celo-testnet.org");
 // mainnet -- comment out the above, uncomment below for mainnet
@@ -107,25 +152,52 @@ function CardTransactionCapsule2(props) {
     console.log(ArrAv);
     console.log(SommeBig);
     console.log(WalletContrib);
+
    const txObjectDeposit = await instance.methods.DepositCusd(
      SommeBig,
       WalletContrib,
       arrA,
       ArrAv
     );
+    const txx = await kit.sendTransactionObject(txObjectDeposit, { from: myAddress })
 
     const requestId = "send";
 
 // Request the TX signature from DAppKit
+requestTxSig(
+  kit,
+  [
+  
+    {
+      tx: txx,
+      from: Wallet,
+      to: contractAddress,
+      estimatedGas: 200000,
+      feeCurrency: FeeCurrency.cUSD
+    }
+  ],
+  { requestId, dappName, callback }
+);
 
 
 // execute the allowance
+let dappkitResponse;
+try {
+const dappkitResponse = await waitForSignedTxs(requestId);
+} catch (error) {
+  console.log(error)
+  
+  return
+}
 
 
 
 
-
-
+const tx1 = await kit.connection.sendSignedTransaction(
+  dappkitResponse.rawTxs[1]
+);
+      
+const receipt1 = await tx1.waitReceipt();
 
     // Then we will call the Exchange contract, and attempt to buy 1 CELO with a
     // max price of 10 cUSD (it could use less than that).
@@ -144,7 +216,6 @@ function CardTransactionCapsule2(props) {
 
   const mobilizer = (
     <>
-   
       <div className="form-group basic">
         <div className="input-wrapper">
           <label className="label" for="account2d">
@@ -189,7 +260,6 @@ function CardTransactionCapsule2(props) {
   };
 
   return (
-   
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
       <div className="section mt-2">
         <ion-icon
@@ -251,7 +321,7 @@ function CardTransactionCapsule2(props) {
             <label className="label mb-3">Type of Payment</label>
 
             <div className="radio-input">
-              <div class="form-check mb-1" onClick={connect}>
+              <div class="form-check mb-1" onClick={() => connect()}>
                 <input
                   class="form-check-input"
                   type="radio"
@@ -353,14 +423,12 @@ function CardTransactionCapsule2(props) {
             >
               Confirm
             </button> 
-              
+       
           
           </div>
         </form>
-            
       </div>
     </div>
-
   );
 }
 
