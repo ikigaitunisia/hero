@@ -99,3 +99,9 @@
 #supportMobBtn {
   background-color: blue !important;
 }
+
+.profil-img{
+  width: 100px!important;
+  height: 100px;
+  object-fit: cover;
+}

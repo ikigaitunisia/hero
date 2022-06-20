@@ -46,7 +46,7 @@ function ActivistCampaignsModal(props) {
                     <img
                       src={"assets/img/" + props.activist.autre.Photo}
                       alt="avatar"
-                      className="imaged w100 rounded"
+                      className="imaged w100 rounded profil-img"
                     />
                   </a>
                 </div>

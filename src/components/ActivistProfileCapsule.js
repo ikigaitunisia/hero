@@ -119,7 +119,7 @@ function ActivistProfileCapsule(props) {
               <img
                 src={"assets/img/" + A.state.autre.Photo}
                 alt="avatar"
-                className="imaged w100 rounded"
+                className="imaged w100 rounded profil-img"
               />
             </a>
           </div>
