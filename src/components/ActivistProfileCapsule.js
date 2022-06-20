@@ -165,7 +165,7 @@ function ActivistProfileCapsule(props) {
         ></hr>
         <div className="section">
           <div className="row">
-            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 flex-center mb-2">
+            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 flex-center mb-2">
               <ion-icon
                 class="md-icon"
                 src="assets/img/svg/voteBlue.svg"
@@ -174,7 +174,7 @@ function ActivistProfileCapsule(props) {
               ></ion-icon>
               <strong className="blue-text">Campaigns</strong>
             </div>
-            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 flex-center  mb-2">
+            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 flex-center  mb-2">
               <ion-icon
                 class="md-icon"
                 src="assets/img/svg/HeroCoin2.svg"
@@ -201,10 +201,10 @@ function ActivistProfileCapsule(props) {
           style={{ width: "70%", margin: "0 auto", background: "#a9abad" }}
         ></hr>
         <div className="section mb-4">
-          <div className="title blue-text title-font">
-            Fund a 1 year Basic Income of
+          <div className="title blue-text">
+            <span>Fund a 1 year Basic Income of</span>
           </div>
-          <div className="value blue-text title-font">{"€5000"}</div>
+          <h5 className="value blue-text title-font">{"€5, 000"}</h5>
 
           <div className="center-div mt-3 ">
             <div
@@ -237,7 +237,7 @@ function ActivistProfileCapsule(props) {
           <button
             id="supportMobBtn"
             type="button"
-            className="btn btn-primary btn-lg rounded font-size-btn"
+            className="btn btn-primary rounded font-size-btn"
             onClick={() => support()}
           >
             {"Support " + A.state.Nom}
