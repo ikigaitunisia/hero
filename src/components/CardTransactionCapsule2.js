@@ -191,10 +191,15 @@ const dappkitResponse = await waitForSignedTxs(requestId);
 
 
 
-
-const tx1 = await kit.connection.sendSignedTransaction(
+let tx1;
+try {
+tx1 = await kit.connection.sendSignedTransaction(
   dappkitResponse.rawTxs[1]
 );
+} catch (error) {
+  // Catch and handle possible timeout errors
+  return
+}
       
 const receipt1 = await tx1.waitReceipt();
 
