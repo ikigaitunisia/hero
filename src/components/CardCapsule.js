@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import axios from  "axios";
+import axios from "axios";
 import "./CardCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 import ActivistCampaignsModal from "./modals/ActivistCampaignsModal";
@@ -8,31 +8,31 @@ import ActivistVictoriesModal from "./modals/ActivistVictoriesModal";
 
 function CardCapsule(props) {
   const [showExchangeModal, setShowExchangeModal] = useState(false);
-  const [balance,setBalance] =  useState(0);
+  const [balance, setBalance] = useState(0);
   const [showMobilizerCampaignsModal, setShowMobilizerCampaignsModal] =
     useState(false);
   const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
     useState(false);
 
-    useEffect(() => {
-      async function fetchBalance(){
+  useEffect(() => {
+    async function fetchBalance() {
       const user = JSON.parse(localStorage.getItem("user"));
-     const wallet = user.wallet.address ;
-     axios
-     .post("https://hegemony.donftify.digital:8080/balanceOf", {
-       user: wallet,
-       Token:"0x606EB1DA7271779Ab46C492b1e2615232C2E13d7"
-     })
-     .then(function (response) {
-      setBalance(response.data.res);
-     })
-     .catch(function (error) {
-         //handle error here
-         console.log(error);
-     }); 
+      const wallet = user.wallet.address;
+      axios
+        .post("https://hegemony.donftify.digital:8080/balanceOf", {
+          user: wallet,
+          Token: "0x606EB1DA7271779Ab46C492b1e2615232C2E13d7",
+        })
+        .then(function (response) {
+          setBalance(response.data.res);
+        })
+        .catch(function (error) {
+          //handle error here
+          console.log(error);
+        });
     }
     fetchBalance();
-    }, []);
+  }, []);
   return (
     <div id="appCapsule" className="bg-g-1 cardCapsule">
       <div className="section mt-2">
@@ -79,15 +79,16 @@ function CardCapsule(props) {
           the future of HERO.
         </div>
 
-        <h5 className="pt-4">
+        <span className="pt-4">
           <a
-            href="#"
-            className="left-right-padding blue-text title-font"
+            href="https://herolabsco.notion.site/Discover-carbon-credits-are-Calculated-7069545cfff94df7b1fd2a3831a49f2f"
+            className=" blue-text title-font link-size"
             style={{ textDecoration: "underline" }}
+            target="_blank"
           >
             *Discover how carbon credits are calculated.
           </a>
-        </h5>
+        </span>
         <h1 className="text-title title-font">HERO Mobilizers supported</h1>
       </div>
       <hr
@@ -109,7 +110,9 @@ function CardCapsule(props) {
                 style={{ marginRight: "10px" }}
               />
               <div>
-                <strong className="blue-text custom-font">Anuna de Wever</strong>
+                <strong className="blue-text custom-font">
+                  Anuna de Wever
+                </strong>
               </div>
             </div>
             <div className="itemList">
@@ -139,7 +142,9 @@ function CardCapsule(props) {
                 style={{ marginRight: "10px" }}
               />
               <div>
-                <strong className="blue-text custom-font">Julieta Martinez</strong>
+                <strong className="blue-text custom-font">
+                  Julieta Martinez
+                </strong>
               </div>
             </div>
             <div className="itemList">
@@ -157,7 +162,6 @@ function CardCapsule(props) {
               ></ion-icon>
             </div>
           </li>
-          
         </ul>
       </div>
       {/*<ActivistCampaignsModal
