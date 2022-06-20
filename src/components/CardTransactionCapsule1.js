@@ -177,7 +177,12 @@ function CardTransactionCapsule2(props) {
   return (
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
       <div className="section mt-2">
-        <img alt="logo" className="logo" src="assets/img/heroLogo.png" style={{width: "145px"}}/>
+        <img
+          alt="logo"
+          className="logo"
+          src="assets/img/heroLogo.png"
+          style={{ width: "145px" }}
+        />
       </div>
       <div className="section">
         <h4 className="text-title white-text" style={{ margin: 0 }}>
@@ -236,7 +241,7 @@ function CardTransactionCapsule2(props) {
             <label className="label mb-3">Type of Payment</label>
 
             <div className="radio-input">
-              <div class="form-check mb-1" onClick={() => connect()}>
+              <div class="form-check mb-1 no-padding" onClick={() => connect()}>
                 <input
                   class="form-check-input"
                   type="radio"
@@ -244,11 +249,11 @@ function CardTransactionCapsule2(props) {
                   id="flexRadioDefault1"
                 />
                 <label class="form-check-label" for="flexRadioDefault1">
-                  Crypto Payement
+                  Digitial Currency Payment
                 </label>
               </div>
               <div
-                class="form-check mb-1"
+                class="form-check mb-1 no-padding"
                 onClick={() => {
                   window.location.href = urlOFGateway;
                 }}
