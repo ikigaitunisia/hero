@@ -167,7 +167,11 @@ function LoginAct() {
                     style={{ fontSize: "14px" }}
                   >
                     I agree to the{" "}
-                    <a href="" className="white-text">
+                    <a
+                      href="https://herolabsco.notion.site/Private-Policy-3da3d0ebdd3849dfa7d48fb13cf27564"
+                      className="white-text"
+                      target="_blank"
+                    >
                       HERO Terms and Conditions
                     </a>
                   </label>

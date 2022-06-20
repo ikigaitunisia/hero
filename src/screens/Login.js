@@ -92,8 +92,8 @@ function Login() {
               className="white-text text-title"
               style={{ width: "70%", margin: "0 auto" }}
             >
-             
-              this a test page,please Enter your country code and your phone number to log in
+              this a test page,please Enter your country code and your phone
+              number to log in
             </h4>
           </div>
           <div className="section mb-3">
@@ -119,7 +119,7 @@ function Login() {
         </div>
       )}
       {showSmsVerification && !codeSmsValidated && (
-        <SmsVerification onCodeValidate={onCodeValidate} isMobilizer={false}/>
+        <SmsVerification onCodeValidate={onCodeValidate} isMobilizer={false} />
       )}
       {codeSmsValidated && (
         <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
@@ -157,9 +157,17 @@ function Login() {
                     name="flexRadioDefault"
                     id="flexRadioDefault1"
                   />
-                  <label class="form-check-label" for="flexRadioDefault1" style={{fontSize: "14px"}}>
+                  <label
+                    class="form-check-label"
+                    for="flexRadioDefault1"
+                    style={{ fontSize: "14px" }}
+                  >
                     I agree to the{" "}
-                    <a href="" className="white-text">
+                    <a
+                      href="https://herolabsco.notion.site/Private-Policy-3da3d0ebdd3849dfa7d48fb13cf27564"
+                      className="white-text"
+                      target="_blank"
+                    >
                       HERO Terms and Conditions
                     </a>
                   </label>
