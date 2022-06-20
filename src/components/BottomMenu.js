@@ -18,7 +18,13 @@ function BottomMenu(props) {
           onClick={() => history.push("/feed")}
         >
           <div className="col">
-            <ion-icon src="assets/img/svg/home.svg"></ion-icon>
+            <ion-icon
+              src={
+                activeItem === "feed"
+                  ? "assets/img/svg/feedFill.svg"
+                  : "assets/img/svg/feed.svg"
+              }
+            ></ion-icon>
           </div>
         </a>
       )}
@@ -30,7 +36,11 @@ function BottomMenu(props) {
         >
           <div className="col">
             <ion-icon
-              src="assets/img/svg/card.svg"
+              src={
+                activeItem === "card"
+                  ? "assets/img/svg/transactionFill.svg"
+                  : "assets/img/svg/transaction.svg"
+              }
               style={{ color: "bule" }}
             ></ion-icon>
           </div>
@@ -43,7 +53,13 @@ function BottomMenu(props) {
           onClick={() => history.push("/vote")}
         >
           <div className="col">
-            <ion-icon src="assets/img/svg/vote.svg"></ion-icon>
+            <ion-icon
+              src={
+                activeItem === "vote"
+                  ? "assets/img/svg/voteFill.svg"
+                  : "assets/img/svg/vote.svg"
+              }
+            ></ion-icon>
           </div>
         </a>
       )}
