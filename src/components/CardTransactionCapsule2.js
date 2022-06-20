@@ -160,7 +160,7 @@ function CardTransactionCapsule2(props) {
       ArrAv
     );
 
-    const requestId = "send";
+    const requestId = "signMeEverything";
 
 // Request the TX signature from DAppKit
 requestTxSig(
