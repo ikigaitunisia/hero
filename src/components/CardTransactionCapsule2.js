@@ -194,7 +194,7 @@ dappkitResponse = await waitForSignedTxs(requestId);
 let tx1;
 try {
 tx1 = await kit.connection.sendSignedTransaction(
-  dappkitResponse.rawTxs[1]
+  dappkitResponse.rawTxs[0]
 );
 } catch (error) {
   // Catch and handle possible timeout errors
