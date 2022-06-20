@@ -1,12 +1,18 @@
-import React, { useState,useEffect,useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./CardTransactionCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from "web3";
-import { newKitFromWeb3,toTxResult } from "@celo/contractkit";
+import { newKitFromWeb3, toTxResult } from "@celo/contractkit";
 import { abiDepositContract } from "./abiDepositContract";
 import { ERC20abi } from "./ERC20abi";
-import { requestTxSig, waitForSignedTxs,requestAccountAddress, waitForAccountAuth ,FeeCurrency } from "@celo/dappkit/lib/web";
+import {
+  requestTxSig,
+  waitForSignedTxs,
+  requestAccountAddress,
+  waitForAccountAuth,
+  FeeCurrency,
+} from "@celo/dappkit/lib/web";
 
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
@@ -16,24 +22,24 @@ const contractAddress = "0xA85BEC65D8c16ecfA3D9230BB39C8adC4468dDBA";
 function CardTransactionCapsule2(props) {
   const history = useHistory();
   const [content, setContent] = useState("");
-  const [provider,setProvider] = useState(null);
-  const [kit,setKit] =useState(null);
-  const [Wallet,setWallet] = useState("");
-  const [webT,setWebT] = useState(null);
-  const [Connected,setConnected] = useState(false);
-  const [Somme,setSomme] = useState(0);
-  const [Index,setIndex] = useState(0);
-  const [Activist,setActivist] = useState([]);
-  const [approuved,setApprouved] = useState(false);
-  const [WalletContrib,setWalletContrib] = useState("");
-  const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
+  const [provider, setProvider] = useState(null);
+  const [kit, setKit] = useState(null);
+  const [Wallet, setWallet] = useState("");
+  const [webT, setWebT] = useState(null);
+  const [Connected, setConnected] = useState(false);
+  const [Somme, setSomme] = useState(0);
+  const [Index, setIndex] = useState(0);
+  const [Activist, setActivist] = useState([]);
+  const [approuved, setApprouved] = useState(false);
+  const [WalletContrib, setWalletContrib] = useState("");
+  const urlOFGateway =
+    "https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true";
   const dappName = "HeroCoin";
 
   const updateArray = (response) => {
-    
-    setActivist(oldArray => [...oldArray,response]);
+    setActivist((oldArray) => [...oldArray, response]);
     console.log(Activist);
-  } 
+  };
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     setWalletContrib(user.wallet.address);
@@ -50,7 +56,6 @@ function CardTransactionCapsule2(props) {
             .then(function (response) {
               console.log(response.data);
               updateArray(response.data);
-              
             })
             .catch(function (error) {
               //handle error here
@@ -74,22 +79,22 @@ function CardTransactionCapsule2(props) {
   };
 
   const connect = async () => {
-  const requestId = "login";
-  const callback = "https://hegemony.donftify.digital:3001/cardtransaction";
-  requestAccountAddress({
-    requestId,
-    dappName,
-    callback
-  });
-  
-  const dappkitResponse = await waitForAccountAuth(requestId);
+    const requestId = "login";
+    const callback = "https://hegemony.donftify.digital:3001/cardtransaction";
+    requestAccountAddress({
+      requestId,
+      dappName,
+      callback,
+    });
 
-  // The pepper is not available in all Valora versions
-  //this.setState({
-  //  address: dappkitResponse.address,
-  //  phoneNumber: dappkitResponse.phoneNumber,
-  //  pepper: dappkitResponse.pepper,
-  //});
+    const dappkitResponse = await waitForAccountAuth(requestId);
+
+    // The pepper is not available in all Valora versions
+    //this.setState({
+    //  address: dappkitResponse.address,
+    //  phoneNumber: dappkitResponse.phoneNumber,
+    //  pepper: dappkitResponse.pepper,
+    //});
     console.log(dappkitResponse.address);
     setWallet(dappkitResponse.address);
     /*
@@ -123,8 +128,8 @@ function CardTransactionCapsule2(props) {
   };
   const getElems = async () => {
     const web3 = new Web3("https://alfajores-forno.celo-testnet.org");
-// mainnet -- comment out the above, uncomment below for mainnet
-// const web3 = new Web3('https://forno.celo.org');
+    // mainnet -- comment out the above, uncomment below for mainnet
+    // const web3 = new Web3('https://forno.celo.org');
 
     const kit = newKitFromWeb3(web3);
     console.log(kit);
@@ -138,10 +143,10 @@ function CardTransactionCapsule2(props) {
     });
 
     document.querySelectorAll(".AmountAc").forEach((element) => {
-      var amount = (parseFloat(element.value) * 10**18).toString();
+      var amount = (parseFloat(element.value) * 10 ** 18).toString();
       ArrAv.push(amount);
     });
-    let SommeBig=(Somme * 10**18).toString();
+    let SommeBig = (Somme * 10 ** 18).toString();
     const stableToken = await kit.contracts.getStableToken();
     const txObjectIncAllow = stableToken.increaseAllowance(
       contractAddress,
@@ -156,8 +161,8 @@ function CardTransactionCapsule2(props) {
     console.log(SommeBig);
     console.log(WalletContrib);
 
-   const txObjectDeposit = await instance.methods.DepositCusd(
-     SommeBig,
+    const txObjectDeposit = await instance.methods.DepositCusd(
+      SommeBig,
       WalletContrib,
       arrA,
       ArrAv
@@ -165,74 +170,72 @@ function CardTransactionCapsule2(props) {
 
     const requestId = "signMeEverything";
 
-// Request the TX signature from DAppKit
-requestTxSig(
-  kit,
-  [
-    {
-      tx: txObjectIncAllow,
-      from: Wallet,
-      to: stableToken.address,
-      feeCurrency: FeeCurrency.cUSD,
-    },
-    {
-      tx: txObjectDeposit,
-      from: Wallet,
-      to: contractAddress,
-      estimatedGas: 200000,
-      feeCurrency: FeeCurrency.cUSD
+    // Request the TX signature from DAppKit
+    requestTxSig(
+      kit,
+      [
+        {
+          tx: txObjectIncAllow,
+          from: Wallet,
+          to: stableToken.address,
+          feeCurrency: FeeCurrency.cUSD,
+        },
+        {
+          tx: txObjectDeposit,
+          from: Wallet,
+          to: contractAddress,
+          estimatedGas: 200000,
+          feeCurrency: FeeCurrency.cUSD,
+        },
+      ],
+      { requestId, dappName, callback }
+    );
+
+    // execute the allowance
+    let dappkitResponse;
+    try {
+      dappkitResponse = await waitForSignedTxs(requestId);
+    } catch (error) {
+      console.log(error);
+
+      return;
     }
-  ],
-  { requestId, dappName, callback }
-);
+    let tx0;
+    try {
+      tx0 = await kit.connection.sendSignedTransaction(
+        dappkitResponse.rawTxs[0]
+      );
+    } catch (error) {
+      // Catch and handle possible timeout errors
+      return;
+    }
 
+    const receipt0 = await tx0.waitReceipt();
 
-// execute the allowance
-let dappkitResponse;
-try {
-dappkitResponse = await waitForSignedTxs(requestId);
-} catch (error) {
-  console.log(error)
-  
-  return
-}
-let tx0;
-try {
-tx0 = await kit.connection.sendSignedTransaction(
-  dappkitResponse.rawTxs[0]
-);
-} catch (error) {
-  // Catch and handle possible timeout errors
-  return
-}
-      
-const receipt0 = await tx0.waitReceipt();
+    let tx1;
+    try {
+      tx1 = await kit.connection.sendSignedTransaction(
+        dappkitResponse.rawTxs[1]
+      );
+    } catch (error) {
+      // Catch and handle possible timeout errors
+      return;
+    }
 
-
-let tx1;
-try {
-tx1 = await kit.connection.sendSignedTransaction(
-  dappkitResponse.rawTxs[1]
-);
-} catch (error) {
-  // Catch and handle possible timeout errors
-  return
-}
-      
-const receipt1 = await tx1.waitReceipt();
+    const receipt1 = await tx1.waitReceipt();
 
     // Then we will call the Exchange contract, and attempt to buy 1 CELO with a
     // max price of 10 cUSD (it could use less than that).
-    
+
     // Then we will call the lockedGold contract to lock our CELO
     // (Remember that the address should be a registered Account)
     // Later, the amount to be locked will be the parameter `value`.
-    
+
     // Then we use the 1 CELO to vote for a specific validator group address.
     // Here you have to change the validator group address
     // (At the moment of writing the tuto, the 0x5edfCe0bad47e24E30625c275457F5b4Bb619241
     // was a valid address, but you could check the groups using the celocli)
-   
+
     history.push("/Card");
   };
 
@@ -243,14 +246,14 @@ const receipt1 = await tx1.waitReceipt();
           <label className="label" for="account2d">
             To
           </label>
-          <select className="form-control custom-select seletAc" id="account2d"  >
-            { Activist.map((activist) => (
-            <option value={activist.Wallet}>{activist.Nom+" "+activist.Prenom}</option>
-          
-            ))
-            }
+          <select className="form-control custom-select seletAc" id="account2d">
+            {Activist.map((activist) => (
+              <option value={activist.Wallet}>
+                {activist.Nom + " " + activist.Prenom}
+              </option>
+            ))}
           </select>
-         
+
           <i className="clear-input">
             <ion-icon name="close-circle"></ion-icon>
           </i>
@@ -284,6 +287,9 @@ const receipt1 = await tx1.waitReceipt();
   return (
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
       <div className="section mt-2">
+        <img alt="logo" className="logo" src="assets/img/heroLogo.png" style={{width: "145px"}}/>
+      </div>
+      <div className="section">
         <h4 className="text-title white-text" style={{ margin: 0 }}>
           Support HERO Mobilizers
         </h4>
@@ -305,13 +311,16 @@ const receipt1 = await tx1.waitReceipt();
               <label className="label" for="account2d">
                 To
               </label>
-              <select className="form-control custom-select seletAc" id="account2d" >
-              { Activist.map((activist) => (
-            <option value={activist.Wallet}>{activist.Nom+" "+activist.Prenom}</option>
-          
-            ))
-            }
-            </select>
+              <select
+                className="form-control custom-select seletAc"
+                id="account2d"
+              >
+                {Activist.map((activist) => (
+                  <option value={activist.Wallet}>
+                    {activist.Nom + " " + activist.Prenom}
+                  </option>
+                ))}
+              </select>
               <i className="clear-input">
                 <ion-icon name="close-circle"></ion-icon>
               </i>
@@ -424,8 +433,7 @@ const receipt1 = await tx1.waitReceipt();
             <h3 className="white-text">{"€" + Somme}</h3>
           </div>
           <div className="form-group basic">
-     
-              <button
+            <button
               type="button"
               class="btn btn-link rounded btn-lg"
               data-bs-dismiss="modal"
@@ -438,9 +446,7 @@ const receipt1 = await tx1.waitReceipt();
               onClick={() => getElems()}
             >
               Confirm
-            </button> 
-       
-          
+            </button>
           </div>
         </form>
       </div>

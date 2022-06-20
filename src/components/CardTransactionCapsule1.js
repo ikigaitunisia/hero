@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./CardTransactionCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
@@ -14,23 +14,23 @@ const contractAddress = "0xA85BEC65D8c16ecfA3D9230BB39C8adC4468dDBA";
 function CardTransactionCapsule2(props) {
   const history = useHistory();
   const [content, setContent] = useState("");
-  const [provider,setProvider] = useState(null);
-  const [kit,setKit] =useState(null);
-  const [Wallet,setWallet] = useState("");
-  const [webT,setWebT] = useState(null);
-  const [Connected,setConnected] = useState(false);
-  const [Somme,setSomme] = useState(0);
-  const [Index,setIndex] = useState(0);
-  const [Activist,setActivist] = useState([]);
-  const [approuved,setApprouved] = useState(false);
-  const [WalletContrib,setWalletContrib] = useState("");
-  const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
-  
+  const [provider, setProvider] = useState(null);
+  const [kit, setKit] = useState(null);
+  const [Wallet, setWallet] = useState("");
+  const [webT, setWebT] = useState(null);
+  const [Connected, setConnected] = useState(false);
+  const [Somme, setSomme] = useState(0);
+  const [Index, setIndex] = useState(0);
+  const [Activist, setActivist] = useState([]);
+  const [approuved, setApprouved] = useState(false);
+  const [WalletContrib, setWalletContrib] = useState("");
+  const urlOFGateway =
+    "https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true";
+
   const updateArray = (response) => {
-    
-    setActivist(oldArray => [...oldArray,response]);
+    setActivist((oldArray) => [...oldArray, response]);
     console.log(Activist);
-  } 
+  };
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     setWalletContrib(user.wallet.address);
@@ -47,7 +47,6 @@ function CardTransactionCapsule2(props) {
             .then(function (response) {
               console.log(response.data);
               updateArray(response.data);
-              
             })
             .catch(function (error) {
               //handle error here
@@ -76,7 +75,6 @@ function CardTransactionCapsule2(props) {
         44787: "https://alfajores-forno.celo-testnet.org",
         42220: "https://forno.celo.org",
       },
-
     });
 
     await provider.enable();
@@ -96,8 +94,6 @@ function CardTransactionCapsule2(props) {
     setProvider(provider);
     setKit(kit1);
     setWebT(web3);
-
-    
   };
   const getElems = async () => {
     console.log(kit);
@@ -114,32 +110,22 @@ function CardTransactionCapsule2(props) {
     });
     const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    let  AprvInst= await new kit.web3.eth.Contract(
+    let AprvInst = await new kit.web3.eth.Contract(
       ERC20abi,
       "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
     );
-    await AprvInst.methods.approve(
-      contractAddress,
-      amountSomme
-    ).send( { from: kit.defaultAccount  ,gasPrice: 1000000000});
+    await AprvInst.methods
+      .approve(contractAddress, amountSomme)
+      .send({ from: kit.defaultAccount, gasPrice: 1000000000 });
 
     let instance = await new kit.web3.eth.Contract(
       abiDepositContract,
       contractAddress
     );
-   await instance.methods.DepositCusd(
-      amountSomme,
-      WalletContrib,
-      arrA,
-      ArrAv
-    ).send({ from: kit.defaultAccount  , gasPrice: 1000000000});
+    await instance.methods
+      .DepositCusd(amountSomme, WalletContrib, arrA, ArrAv)
+      .send({ from: kit.defaultAccount, gasPrice: 1000000000 });
 
-    
- 
-    
-    
-   
-    
     history.push("/Card");
   };
 
@@ -150,14 +136,14 @@ function CardTransactionCapsule2(props) {
           <label className="label" for="account2d">
             To
           </label>
-          <select className="form-control custom-select seletAc" id="account2d"  >
-            { Activist.map((activist) => (
-            <option value={activist.Wallet}>{activist.Nom+" "+activist.Prenom}</option>
-          
-            ))
-            }
+          <select className="form-control custom-select seletAc" id="account2d">
+            {Activist.map((activist) => (
+              <option value={activist.Wallet}>
+                {activist.Nom + " " + activist.Prenom}
+              </option>
+            ))}
           </select>
-         
+
           <i className="clear-input">
             <ion-icon name="close-circle"></ion-icon>
           </i>
@@ -191,6 +177,9 @@ function CardTransactionCapsule2(props) {
   return (
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
       <div className="section mt-2">
+        <img alt="logo" className="logo" src="assets/img/heroLogo.png" style={{width: "145px"}}/>
+      </div>
+      <div className="section">
         <h4 className="text-title white-text" style={{ margin: 0 }}>
           Support HERO Mobilizers
         </h4>
@@ -212,13 +201,16 @@ function CardTransactionCapsule2(props) {
               <label className="label" for="account2d">
                 To
               </label>
-              <select className="form-control custom-select seletAc" id="account2d" >
-              { Activist.map((activist) => (
-            <option value={activist.Wallet}>{activist.Nom+" "+activist.Prenom}</option>
-          
-            ))
-            }
-            </select>
+              <select
+                className="form-control custom-select seletAc"
+                id="account2d"
+              >
+                {Activist.map((activist) => (
+                  <option value={activist.Wallet}>
+                    {activist.Nom + " " + activist.Prenom}
+                  </option>
+                ))}
+              </select>
               <i className="clear-input">
                 <ion-icon name="close-circle"></ion-icon>
               </i>
@@ -331,8 +323,7 @@ function CardTransactionCapsule2(props) {
             <h3 className="white-text">{"€" + Somme}</h3>
           </div>
           <div className="form-group basic">
-     
-              <button
+            <button
               type="button"
               class="btn btn-link rounded btn-lg"
               data-bs-dismiss="modal"
@@ -345,9 +336,7 @@ function CardTransactionCapsule2(props) {
               onClick={() => getElems()}
             >
               Confirm
-            </button> 
-       
-          
+            </button>
           </div>
         </form>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./CardTransactionCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
@@ -15,22 +15,22 @@ function CardTransactionCapsule(props) {
   const history = useHistory();
   const [showExchangeModal, setShowExchangeModal] = useState(false);
   const [content, setContent] = useState("");
-  const [provider,setProvider] = useState(null);
-  const [kit,setKit] =useState(null);
-  const [Wallet,setWallet] = useState("");
-  const [webT,setWebT] = useState(null);
-  const [Connected,setConnected] = useState(false);
-  const [Somme,setSomme] = useState(0);
-  const [Index,setIndex] = useState(0);
-  const [Activist,setActivist] = useState([]);
-  const [WalletContrib,setWalletContrib] = useState("");
-  const urlOFGateway ="https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true" ;
-  
+  const [provider, setProvider] = useState(null);
+  const [kit, setKit] = useState(null);
+  const [Wallet, setWallet] = useState("");
+  const [webT, setWebT] = useState(null);
+  const [Connected, setConnected] = useState(false);
+  const [Somme, setSomme] = useState(0);
+  const [Index, setIndex] = useState(0);
+  const [Activist, setActivist] = useState([]);
+  const [WalletContrib, setWalletContrib] = useState("");
+  const urlOFGateway =
+    "https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true";
+
   const updateArray = (response) => {
-    
-    setActivist(oldArray => [...oldArray,response]);
+    setActivist((oldArray) => [...oldArray, response]);
     console.log(Activist);
-  } 
+  };
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     setWalletContrib(user.wallet.address);
@@ -47,7 +47,6 @@ function CardTransactionCapsule(props) {
             .then(function (response) {
               console.log(response.data);
               updateArray(response.data);
-              
             })
             .catch(function (error) {
               //handle error here
@@ -71,7 +70,7 @@ function CardTransactionCapsule(props) {
   };
 
   const connect = async () => {
-    let web3 = null; 
+    let web3 = null;
     const provider = new WalletConnectProvider({
       rpc: {
         44787: "https://alfajores-forno.celo-testnet.org",
@@ -92,10 +91,9 @@ function CardTransactionCapsule(props) {
     console.log(contractAddress);
     const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    const stabletoken = await kit.contracts.getStableToken()
-    const txO = await stabletoken.approve(contractAddress, amountSomme).send()
+    const stabletoken = await kit.contracts.getStableToken();
+    const txO = await stabletoken.approve(contractAddress, amountSomme).send();
 
-    
     //const hash = await tx.getHash();
     //console.log(hash);
     setWallet(kit.defaultAccount);
@@ -121,7 +119,7 @@ function CardTransactionCapsule(props) {
     );
     const bigAmounntSomme = ethers.utils.parseEther(Somme.toString());
     var amountSomme = ethers.BigNumber.from(bigAmounntSomme.toString());
-    
+
     const txObject = await instance.methods.DepositCusd(
       amountSomme,
       WalletContrib,
@@ -143,14 +141,14 @@ function CardTransactionCapsule(props) {
           <label className="label" for="account2d">
             To
           </label>
-          <select className="form-control custom-select seletAc" id="account2d"  >
-            { Activist.map((activist) => (
-            <option value={activist.Wallet}>{activist.Nom+" "+activist.Prenom}</option>
-          
-            ))
-            }
+          <select className="form-control custom-select seletAc" id="account2d">
+            {Activist.map((activist) => (
+              <option value={activist.Wallet}>
+                {activist.Nom + " " + activist.Prenom}
+              </option>
+            ))}
           </select>
-         
+
           <i className="clear-input">
             <ion-icon name="close-circle"></ion-icon>
           </i>
@@ -184,6 +182,14 @@ function CardTransactionCapsule(props) {
   return (
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
       <div className="section mt-2">
+        <img
+          alt="logo"
+          className="logo"
+          src="assets/img/heroLogo.png"
+          style={{ width: "145px" }}
+        />
+      </div>
+      <div className="section">
         <h4 className="text-title white-text" style={{ margin: 0 }}>
           Support HERO Mobilizers
         </h4>
@@ -205,13 +211,16 @@ function CardTransactionCapsule(props) {
               <label className="label" for="account2d">
                 To
               </label>
-              <select className="form-control custom-select seletAc" id="account2d" >
-              { Activist.map((activist) => (
-            <option value={activist.Wallet}>{activist.Nom+" "+activist.Prenom}</option>
-          
-            ))
-            }
-            </select>
+              <select
+                className="form-control custom-select seletAc"
+                id="account2d"
+              >
+                {Activist.map((activist) => (
+                  <option value={activist.Wallet}>
+                    {activist.Nom + " " + activist.Prenom}
+                  </option>
+                ))}
+              </select>
               <i className="clear-input">
                 <ion-icon name="close-circle"></ion-icon>
               </i>
