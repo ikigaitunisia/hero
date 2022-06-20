@@ -102,7 +102,7 @@ function Login() {
                 type="text"
                 label=""
                 id="phone"
-                placeholder="(Country Code) Your phone number"
+                placeholder="Your local phone number : 01 02 03 04 05"
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
               <div className="pt-4 mt-4 center-div">
