@@ -185,10 +185,10 @@ function CardTransactionCapsule2(props) {
         />
       </div>
       <div className="section">
-        <h4 className="text-title white-text" style={{ margin: 0 }}>
+        <h4 className="text-title white-text" style={{ margin: 0 , fontWeight: "900"}}>
           Support HERO Mobilizers
         </h4>
-        <span className="white-text">with a Basic Income.</span>
+        <h4 className="white-text" style={{fontWeight: "100"}}>with a Basic Income.</h4>
       </div>
       <div className="section">
         <form id="white-form">
