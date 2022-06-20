@@ -137,7 +137,7 @@ function ActivistProfileCapsule(props) {
             {A.state.autre.Pays}
           </span>
           <div className="black-text pt-3 pb-3">
-            <span>{A.state.autre.Bio + " "}</span>
+            <span style={{fontFamily: "Serabic!important"}}>{A.state.autre.Bio + " "}</span>
           </div>
           <h5>
             <a href={A.state.autre.twitter} className="blue-text title-font">
