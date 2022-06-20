@@ -159,7 +159,6 @@ function CardTransactionCapsule2(props) {
       arrA,
       ArrAv
     );
-    const txx = await kit.sendTransactionObject(txObjectDeposit, { from: Wallet })
 
     const requestId = "send";
 
@@ -169,7 +168,7 @@ requestTxSig(
   [
   
     {
-      tx: txx,
+      tx: txObjectDeposit,
       from: Wallet,
       to: contractAddress,
       estimatedGas: 200000,
