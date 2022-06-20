@@ -27,6 +27,12 @@
   border-radius: 20px;
 }
 
+@media screen and (max-width: 600px) {
+  .custom-font-size {
+    font-size: 16px;
+  }
+}
+
 @media screen and (max-width: 400px) {
   .home-img {
     width: 200px;
