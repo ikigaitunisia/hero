@@ -11,25 +11,36 @@ function HomeCapsule(props) {
       </div>
       <div className="section">
         <h1 className="text-title white-text title-font">
-          Millions of Climate<br/>Mobilizers.
+          Millions of Climate
+          <br />
+          Mobilizers.
         </h1>
-        <div className="lead white-text">Today millions of climate mobilizers around the world are advocating
+        <div className="lead white-text custom-font-size">
+          Today millions of climate mobilizers around the world are advocating
           for change. This is probably one of the most important jobs of our
-          time and it's not being paid.</div>
+          time and it's not being paid.
+        </div>
       </div>
       <div className="section mt-2 pb-3">
         <h1 className="text-title white-text title-font">
-          HERO Coin gives you<br/> the power to support them.
+          HERO Coin gives you
+          <br /> the power to support them.
         </h1>
-        <div className="lead white-text">Financing climate mobilizers is 100 times* more effective than buying
+        <div className="lead white-text custom-font-size">
+          Financing climate mobilizers is 100 times* more effective than buying
           carbon credits. With no intermediaries, full transparency and a shared
-          governance.</div>
+          governance.
+        </div>
       </div>
       <div className="section pt-4">
         <button
           type="button"
           className="btn btn-outline-secondary btn-lg rounded font-size-btn"
-          style={{ borderColor: "white", color: "#8585FF", background: "white" }}
+          style={{
+            borderColor: "white",
+            color: "#8585FF",
+            background: "white",
+          }}
           onClick={() => history.push("/feed")}
         >
           Meet the first HERO Mobilizers
@@ -46,7 +57,9 @@ function HomeCapsule(props) {
           class="btn-round"
         ></ion-icon>
         <h1 className="text-title white-text mb-4 title-font">
-          Learn how the<br/>HERO Coin works.
+          Learn how the
+          <br />
+          HERO Coin works.
         </h1>
         <video
           controls
