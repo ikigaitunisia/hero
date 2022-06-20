@@ -159,7 +159,7 @@ function CardTransactionCapsule2(props) {
       arrA,
       ArrAv
     );
-    const txx = await kit.sendTransactionObject(txObjectDeposit, { from: myAddress })
+    const txx = await kit.sendTransactionObject(txObjectDeposit, { from: Wallet })
 
     const requestId = "send";
 
