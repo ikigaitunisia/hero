@@ -9,7 +9,7 @@ function HomeCapsule(props) {
       <div className="section mt-4 pt-4">
         <img className="home-img" src="assets/img/Anuna_HomePage.png" />
       </div>
-      <div className="section">
+      <div className="section center-div" style={{ marginBottom: 0 }}>
         <h1 className="text-title white-text title-font">
           Millions of Climate
           <br />
@@ -21,7 +21,7 @@ function HomeCapsule(props) {
           time and it's not being paid.
         </div>
       </div>
-      <div className="section mt-2 pb-3">
+      <div className="section center-div mt-2 pb-3" style={{ marginBottom: 0 }}>
         <h1 className="text-title white-text title-font">
           HERO Coin gives you
           <br /> the power to support them.
