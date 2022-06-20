@@ -143,7 +143,10 @@ function CardTransactionCapsule2(props) {
     });
     let SommeBig=(Somme * 10**18).toString();
     const stableToken = await kit.contracts.getStableToken();
-
+    const txObjectIncAllow = stableToken.increaseAllowance(
+      contractAddress,
+      SommeBig
+    ).txo;
     let instance = await new web3.eth.Contract(
       abiDepositContract,
       contractAddress
@@ -166,7 +169,12 @@ function CardTransactionCapsule2(props) {
 requestTxSig(
   kit,
   [
-  
+    {
+      tx: txObjectIncAllow,
+      from: Wallet,
+      to: stableToken.address,
+      feeCurrency: FeeCurrency.cUSD,
+    },
     {
       tx: txObjectDeposit,
       from: Wallet,
@@ -188,13 +196,23 @@ dappkitResponse = await waitForSignedTxs(requestId);
   
   return
 }
-
+let tx0;
+try {
+tx1 = await kit.connection.sendSignedTransaction(
+  dappkitResponse.rawTxs[0]
+);
+} catch (error) {
+  // Catch and handle possible timeout errors
+  return
+}
+      
+const receipt0 = await tx0.waitReceipt();
 
 
 let tx1;
 try {
 tx1 = await kit.connection.sendSignedTransaction(
-  dappkitResponse.rawTxs[0]
+  dappkitResponse.rawTxs[1]
 );
 } catch (error) {
   // Catch and handle possible timeout errors
