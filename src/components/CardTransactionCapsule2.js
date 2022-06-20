@@ -182,7 +182,7 @@ requestTxSig(
 // execute the allowance
 let dappkitResponse;
 try {
-const dappkitResponse = await waitForSignedTxs(requestId);
+dappkitResponse = await waitForSignedTxs(requestId);
 } catch (error) {
   console.log(error)
   
