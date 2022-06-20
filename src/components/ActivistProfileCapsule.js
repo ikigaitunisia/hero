@@ -16,7 +16,7 @@ function ActivistProfileCapsule(props) {
     useState(false);
   const [showCardTransactionModal, setShowCardTransactionModal] =
     useState(false);
-  
+
   useEffect(() => {
     console.log(A);
   }, []);
@@ -29,78 +29,82 @@ function ActivistProfileCapsule(props) {
       history.push("/cardtransaction");
     }
   };
-  const goNext  = () => {
-     if (A.state.index+1 == A.state.indexMax)
-      {    console.log(A.state.index+1);
+  const goNext = () => {
+    if (A.state.index + 1 == A.state.indexMax) {
+      console.log(A.state.index + 1);
 
-        axios
-            .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
-              ID: 1,
-            })
-            .then(function (response) {
-              console.log(response.data);
-              history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax});
-              window.location.reload(false);
-            })
-            .catch(function (error) {
-              //handle error here
-              console.log(error);
-            });
-      }
-      else
-      {
-        axios
+      axios
         .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
-          ID: A.state.index+1 ,
+          ID: 1,
         })
         .then(function (response) {
           console.log(response.data);
-          history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax});
+          history.push("/activistprofile", {
+            ...response.data,
+            indexMax: A.state.indexMax,
+          });
           window.location.reload(false);
         })
         .catch(function (error) {
           //handle error here
           console.log(error);
         });
-      }
-
-  }
+    } else {
+      axios
+        .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
+          ID: A.state.index + 1,
+        })
+        .then(function (response) {
+          console.log(response.data);
+          history.push("/activistprofile", {
+            ...response.data,
+            indexMax: A.state.indexMax,
+          });
+          window.location.reload(false);
+        })
+        .catch(function (error) {
+          //handle error here
+          console.log(error);
+        });
+    }
+  };
   const goBack = () => {
-    if (A.state.index-1 == 0)
-     {    
-
-       axios
-           .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
-             ID: A.state.indexMax-1,
-           })
-           .then(function (response) {
-             console.log(response.data);
-             history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax});
-             window.location.reload(false);
-           })
-           .catch(function (error) {
-             //handle error here
-             console.log(error);
-           });
-     }
-     else
-     {
-       axios
-       .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
-         ID: A.state.index-1 ,
-       })
-       .then(function (response) {
-         console.log(response.data);
-         history.push("/activistprofile", {...response.data,indexMax:A.state.indexMax});
-         window.location.reload(false);
-       })
-       .catch(function (error) {
-         //handle error here
-         console.log(error);
-       });
-     }
-
- }
+    if (A.state.index - 1 == 0) {
+      axios
+        .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
+          ID: A.state.indexMax - 1,
+        })
+        .then(function (response) {
+          console.log(response.data);
+          history.push("/activistprofile", {
+            ...response.data,
+            indexMax: A.state.indexMax,
+          });
+          window.location.reload(false);
+        })
+        .catch(function (error) {
+          //handle error here
+          console.log(error);
+        });
+    } else {
+      axios
+        .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
+          ID: A.state.index - 1,
+        })
+        .then(function (response) {
+          console.log(response.data);
+          history.push("/activistprofile", {
+            ...response.data,
+            indexMax: A.state.indexMax,
+          });
+          window.location.reload(false);
+        })
+        .catch(function (error) {
+          //handle error here
+          console.log(error);
+        });
+    }
+  };
   return (
     <>
       <div id="appCapsule" className="bg-g-1">
@@ -119,16 +123,21 @@ function ActivistProfileCapsule(props) {
               />
             </a>
           </div>
-          <h3 className="custom-font blue-text" style={{paddingBottom:0, margin:0}}>
+          <h3
+            className="custom-font blue-text"
+            style={{ paddingBottom: 0, margin: 0 }}
+          >
             {A.state.Nom + " " + A.state.Prenom}{" "}
             <ion-icon
               src="assets/img/svg/heroblue.svg"
               style={{ width: "8.4px", marginLeft: "3px" }}
             ></ion-icon>
           </h3>
-          <span className="blue-text" style={{fontStyle: "italic"}}>{A.state.autre.Pays}</span>
-          <div className="lead black-text pt-3 pb-3">
-            {A.state.autre.Bio + " "}
+          <span className="blue-text" style={{ fontStyle: "italic" }}>
+            {A.state.autre.Pays}
+          </span>
+          <div className="black-text pt-3 pb-3">
+            <span>{A.state.autre.Bio + " "}</span>
           </div>
           <h5>
             <a href={A.state.autre.twitter} className="blue-text title-font">
@@ -142,8 +151,12 @@ function ActivistProfileCapsule(props) {
           style={{ width: "70%", margin: "0 auto", background: "#a9abad" }}
         ></hr>
         <div className="section">
-          <h5 className="blue-text">Endorsed by</h5>
-          <div className="lead black-text pb-2">{A.state.autre.Endorser}</div>
+          <span className="blue-text">
+            <strong>Endorsed by</strong>
+          </span>
+          <div className="black-text pb-2">
+            <span>{A.state.autre.Endorser}</span>
+          </div>
         </div>
         <hr
           data-content="AND"
@@ -191,9 +204,7 @@ function ActivistProfileCapsule(props) {
           <div className="title blue-text title-font">
             Fund a 1 year Basic Income of
           </div>
-          <div className="value blue-text title-font">
-            {"€5000"}
-          </div>
+          <div className="value blue-text title-font">{"€5000"}</div>
 
           <div className="center-div mt-3 ">
             <div
@@ -229,7 +240,7 @@ function ActivistProfileCapsule(props) {
             className="btn btn-primary btn-lg rounded font-size-btn"
             onClick={() => support()}
           >
-             {"Support "+A.state.Nom}
+            {"Support " + A.state.Nom}
           </button>
         </div>
       </div>
@@ -238,7 +249,7 @@ function ActivistProfileCapsule(props) {
         onClose={() => setShowCardTransactionModal(false)}
             />*/}
       <div className="appBottomMenu" style={{ padding: "0 20px" }}>
-        <a  className="item" onClick={() => goBack()}>
+        <a className="item" onClick={() => goBack()}>
           <div
             className="col"
             style={{
@@ -266,7 +277,7 @@ function ActivistProfileCapsule(props) {
           </div>
         </a>
 
-        <a  className="item" onClick={() => goNext()}>
+        <a className="item" onClick={() => goNext()}>
           <div
             className="col"
             style={{
