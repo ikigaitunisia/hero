@@ -16,12 +16,19 @@ function SmsVerification(props) {
   return (
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
       <div className="section mt-4 pt-4 pb-3 text-center">
-        <img src={props.isMobilizer ? "assets/img/mobilizersLogoWhite.png": "assets/img/supporter.png"} className="supporter-logo" />
+        <img
+          src={
+            props.isMobilizer
+              ? "assets/img/mobilizersLogoWhite.png"
+              : "assets/img/supporter.png"
+          }
+          className="supporter-logo"
+        />
       </div>
       <div className="section text-center">
         <div className="lead white-text">
           <h4 className="white-text text-title">Enter SMS Code</h4>
-         this is a test page: please enter 0000 as a verification code
+          this is a test page: please enter 0000 as a verification code
         </div>
       </div>
       <div className="section mb-5 p-2">
@@ -45,16 +52,20 @@ function SmsVerification(props) {
             <button
               type="submit"
               className="btn btn-link btn-block btn-lg rounded"
-              style={{ backgroundColor: "white" , width: "200px", margin: "0 auto"}}
+              style={{
+                backgroundColor: "white",
+                width: "200px",
+                margin: "0 auto",
+              }}
             >
               Verify
             </button>
           </div>
-          <div>
+          {/*<div>
             <a href="" className="white-text">
               Resend SMS
             </a>
-          </div>
+            </div>*/}
         </form>
       </div>
     </div>

@@ -64,11 +64,11 @@ function Login() {
   const validate = (e) => {
     e.preventDefault();
     if (!password) {
-      toast.error("Password is requiered");
+      toast.error("Password is required");
       return;
     }
     if (password.length < 8) {
-      toast.error("Password must contain at least 8 characters long");
+      toast.error("Make sure to include at least 8 characters");
       return;
     }
     if (password !== rePassword) {
@@ -157,7 +157,7 @@ function Login() {
                     name="flexRadioDefault"
                     id="flexRadioDefault1"
                   />
-                  <label class="form-check-label" for="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1" style={{fontSize: "14px"}}>
                     I agree to the{" "}
                     <a href="" className="white-text">
                       HERO Terms and Conditions

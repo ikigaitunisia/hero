@@ -66,11 +66,11 @@ function LoginAct() {
   const validate = (e) => {
     e.preventDefault();
     /*if (!password) {
-      toast.error("Password is requiered");
+      toast.error("Password is required");
       return;
     }
     if (password.length < 8) {
-      toast.error("Password must contain at least 8 characters long");
+      toast.error("Make sure to include at least 8 characters");
       return;
     }
     if (password !== rePassword) {
@@ -88,7 +88,10 @@ function LoginAct() {
       {!showSmsVerification && !codeSmsValidated && (
         <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
           <div className="section mt-4 mb-4 text-center">
-            <img src="assets/img/mobilizersLogoWhite.png" className="supporter-logo" />
+            <img
+              src="assets/img/mobilizersLogoWhite.png"
+              className="supporter-logo"
+            />
           </div>
           <div className="section mt-2 text-center">
             <h4 className="white-text">Enter your phone number to log in</h4>
@@ -116,12 +119,15 @@ function LoginAct() {
         </div>
       )}
       {showSmsVerification && !codeSmsValidated && (
-        <SmsVerification onCodeValidate={onCodeValidate} isMobilizer={true}/>
+        <SmsVerification onCodeValidate={onCodeValidate} isMobilizer={true} />
       )}
       {codeSmsValidated && (
         <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
           <div className="section mt-4 mb-4 text-center">
-            <img src="assets/img/mobilizersLogoWhite.png" className="supporter-logo" />
+            <img
+              src="assets/img/mobilizersLogoWhite.png"
+              className="supporter-logo"
+            />
           </div>
           <div className="section mt-2 text-center">
             <h3 className="white-text">Create new password</h3>
@@ -158,6 +164,7 @@ function LoginAct() {
                   <label
                     className="form-check-label"
                     htmlFor="flexRadioDefault1"
+                    style={{ fontSize: "14px" }}
                   >
                     I agree to the{" "}
                     <a href="" className="white-text">
