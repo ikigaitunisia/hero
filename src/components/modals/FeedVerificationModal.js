@@ -60,7 +60,7 @@ function FeedVerificationModal(props) {
                 </h6>
                 <p className="pb-2">
                   HERO identifies publicly recognised climate movement leaders,
-                  such as Anuna De Wever, whom are nominated by public figures
+                  such as Anuna De Wever, whom are endorsed by public figures
                   and organizations such as Greta Thunberg, UNICEF and Amnesty
                   International.
                 </p>
