@@ -4,7 +4,7 @@ import "./VoteCapsule.css";
 function VoteCapsule(props) {
   return (
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
-      <div className="section custom-width center-div-2 white-text mb-4">
+      <div className="section custom-width center-div-2 white-text mb-4 mt-4">
         <h2 className="white-text text-title">
           You have the power to vote on the future of HERO.
         </h2>

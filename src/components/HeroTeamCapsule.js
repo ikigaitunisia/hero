@@ -4,7 +4,7 @@ function HeroTeamCapsule(props) {
   return (
     <>
       <div id="appCapsule" className="bg-g-1" style={{ minHeight: "100vh" }}>
-        <div className="section center-div mt-4">
+        <div className="section center-div mt-4 pt-4">
           <h1 className="blue-text">Founders</h1>
           <h4 className="blue-text">
             Meet the team on a mission to connect supporters and mobilizers

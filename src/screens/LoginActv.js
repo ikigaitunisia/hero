@@ -87,7 +87,7 @@ function LoginAct() {
       <Toastbox position="top-right" pauseOnHover={true} intent="danger" />
       {!showSmsVerification && !codeSmsValidated && (
         <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
-          <div className="section mt-4 mb-4 text-center">
+          <div className="section mt-4 pt-4 mb-4 text-center">
             <img
               src="assets/img/mobilizersLogoWhite.png"
               className="supporter-logo"
@@ -123,7 +123,7 @@ function LoginAct() {
       )}
       {codeSmsValidated && (
         <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
-          <div className="section mt-4 mb-4 text-center">
+          <div className="section mt-4 pt-4 mb-4 text-center">
             <img
               src="assets/img/mobilizersLogoWhite.png"
               className="supporter-logo"
