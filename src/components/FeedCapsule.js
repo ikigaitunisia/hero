@@ -3,11 +3,14 @@ import { useHistory } from "react-router-dom";
 
 import axios from "axios";
 import "./FeedCapsule.css";
+import FeedVerificationModal from "./modals/FeedVerificationModal";
 
 function FeedCapsule(props) {
   const history = useHistory();
   const [Index, setIndex] = useState(0);
   const [Activist, setActivist] = useState([]);
+  const [showFeedVerificationModal, setShowFeedVerificationModal] =
+    useState(false);
   const updateArray = (response) => {
     setActivist((oldArray) => [...oldArray, response]);
     console.log(Activist);
@@ -45,23 +48,25 @@ function FeedCapsule(props) {
           Browse the first HERO Mobilizers with a<br />
           verified track record on climate action.
         </h5>
-        <h6 className="mt-4 pt-2 title-font">
-          <a
-            href=""
-            style={{ textDecoration: "underline" }}
-            className="blue-text"
-          >
-            Discover how HERO Mobilizers are verified
-            <ion-icon
-              src="assets/img/svg/heroblue.svg"
-              style={{ width: "8.4px", marginLeft: "3px" }}
-            ></ion-icon>
-          </a>
+        <h6
+          className="mt-4 pt-2 title-font blue-text"
+          onClick={() => setShowFeedVerificationModal(true)}
+          style={{ textDecoration: "underline" }}
+        >
+          Discover how HERO Mobilizers are verified
+          <ion-icon
+            src="assets/img/svg/heroblue.svg"
+            style={{ width: "8.4px", marginLeft: "3px" }}
+          ></ion-icon>
         </h6>
         <div className="mt-4 pt-2 blue-text lead">
           Click on the mobilizers to see their profiles.
         </div>
       </div>
+      <FeedVerificationModal
+        show={showFeedVerificationModal}
+        onClose={() => setShowFeedVerificationModal(false)}
+      />
       <div className="section mt-4 pt-2 mb-2">
         <div className="row mt-2 pe-3 pl-3">
           {Activist.map((activist) => (

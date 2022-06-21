@@ -47,7 +47,7 @@ function HomeCapsule(props) {
         </button>
         <div className="mt-3">
           <span className="white-text" style={{ fontSize: "14px" }}>
-            *Source: Standford Social Innovation Review
+            *Source: Stanford Social Innovation Review
           </span>
         </div>
       </div>
