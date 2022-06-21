@@ -94,7 +94,7 @@ function LoginAct() {
             />
           </div>
           <div className="section mt-2 text-center">
-            <h4 className="white-text">Enter your phone number to log in</h4>
+            <h4 className="white-text">Please entrer your phone number</h4>
           </div>
           <div className="section mb-5 p-2">
             <form id="white-form" onSubmit={login} className="login-form">
