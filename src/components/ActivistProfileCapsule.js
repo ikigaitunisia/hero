@@ -137,7 +137,9 @@ function ActivistProfileCapsule(props) {
             {A.state.autre.Pays}
           </span>
           <div className="black-text pt-3 pb-3">
-            <span style={{fontFamily: "Serabic!important"}}>{A.state.autre.Bio + " "}</span>
+            <span style={{ fontFamily: "Serabic!important" }}>
+              {A.state.autre.Bio + " "}
+            </span>
           </div>
           <h5>
             <a href={A.state.autre.twitter} className="blue-text title-font">
@@ -243,67 +245,72 @@ function ActivistProfileCapsule(props) {
             {"Support " + A.state.Nom}
           </button>
         </div>
+        <hr
+          data-content="AND"
+          className="hr-text mt-4"
+          style={{ width: "100%", margin: "0 auto", background: "#a9abad" }}
+        ></hr>
+        <div className="next-previous">
+          <a className="item" onClick={() => goBack()}>
+            <div
+              className="col"
+              style={{
+                display: "flex",
+                justifyContent: "flex-start",
+                alignItems: "center",
+              }}
+            >
+              <ion-icon
+                src="assets/img/svg/previous.svg"
+                style={{ margin: 0 }}
+              ></ion-icon>
+
+              <strong
+                style={{
+                  color: "blue",
+                  marginLeft: "10px",
+                  fontSize: "14px",
+                  marginTop: 0,
+                }}
+                className="title-font"
+              >
+                Previous mobilizer
+              </strong>
+            </div>
+          </a>
+
+          <a className="item" onClick={() => goNext()}>
+            <div
+              className="col"
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                alignItems: "center",
+              }}
+            >
+              <strong
+                style={{
+                  color: "blue",
+                  marginRight: "10px",
+                  fontSize: "14px",
+                  marginTop: 0,
+                }}
+                className="title-font"
+              >
+                Next mobilizer
+              </strong>
+              <ion-icon
+                src="assets/img/svg/next.svg"
+                style={{ margin: 0 }}
+              ></ion-icon>
+            </div>
+          </a>
+        </div>
       </div>
       {/*<CardTransactionModal
         show={showCardTransactionModal}
         onClose={() => setShowCardTransactionModal(false)}
             />*/}
-      <div className="appBottomMenu" style={{ padding: "0 20px" }}>
-        <a className="item" onClick={() => goBack()}>
-          <div
-            className="col"
-            style={{
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
-            <ion-icon
-              src="assets/img/svg/previous.svg"
-              style={{ margin: 0 }}
-            ></ion-icon>
-
-            <strong
-              style={{
-                color: "blue",
-                marginLeft: "10px",
-                fontSize: "14px",
-                marginTop: 0,
-              }}
-              className="title-font"
-            >
-              Previous mobilizer
-            </strong>
-          </div>
-        </a>
-
-        <a className="item" onClick={() => goNext()}>
-          <div
-            className="col"
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
-            }}
-          >
-            <strong
-              style={{
-                color: "blue",
-                marginRight: "10px",
-                fontSize: "14px",
-                marginTop: 0,
-              }}
-              className="title-font"
-            >
-              Next mobilizer
-            </strong>
-            <ion-icon
-              src="assets/img/svg/next.svg"
-              style={{ margin: 0 }}
-            ></ion-icon>
-          </div>
-        </a>
-      </div>
     </>
   );
 }

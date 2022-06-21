@@ -100,8 +100,19 @@
   background-color: blue !important;
 }
 
-.profil-img{
-  width: 100px!important;
+.profil-img {
+  width: 100px !important;
   height: 100px;
   object-fit: cover;
+}
+
+.next-previous {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 20px 0;
+}
+.next-previous a {
+  flex-grow: 1;
 }
