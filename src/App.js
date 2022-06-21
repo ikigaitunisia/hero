@@ -12,6 +12,7 @@ import CardTransaction from "./screens/CardTransaction";
 import Vote from "./screens/Vote";
 import HeroTeam from "./screens/HeroTeam";
 import MobilizerCard from "./screens/MobilizerCard";
+import ChangePassword from "./screens/ChangePassword";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/vote" exact component={Vote} />
         <Route path="/heroteam" exact component={HeroTeam} />
         <Route path="/mobilizercard" exact component={MobilizerCard} />
+        <Route path="/changepassword" exact component={ChangePassword} />
       </Router>
     </div>
   );
