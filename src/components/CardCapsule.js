@@ -70,8 +70,8 @@ function CardCapsule(props) {
           You recieve 1 HERO Coin for being a first time Contributor. Then, each
           time your contribution is withdrawn by the mobilizer(s) you have
           chosen to support, you receive the equivalent amount of HERO Coins.
-          Each HERO Coin is backed by a <b>carbon credit*</b> and allows you to vote on
-          the future of HERO.
+          HERO Coin is backed by <b>carbon credits*</b> and allows you to vote
+          on the future of HERO.
         </div>
 
         <span className="pt-4">
