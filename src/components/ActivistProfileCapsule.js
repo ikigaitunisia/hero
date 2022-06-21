@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
-import axios from "axios";
 import "./ActivistProfileCapsule.css";
 import ActivistCampaignsModal from "./modals/ActivistCampaignsModal";
 import ActivistVictoriesModal from "./modals/ActivistVictoriesModal";
@@ -9,14 +8,20 @@ import ActivistVictoriesModal from "./modals/ActivistVictoriesModal";
 function ActivistProfileCapsule(props) {
   const A = useLocation();
   const history = useHistory();
-  const [load, setLoad] = useState({});
   const [showMobilizerCampaignsModal, setShowMobilizerCampaignsModal] =
     useState(false);
   const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
     useState(false);
   const [showCardTransactionModal, setShowCardTransactionModal] =
     useState(false);
+  const [loggedin, setLogedin] = useState(false);
 
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user != null) {
+      setLogedin(true);
+    }
+  }, []);
   useEffect(() => {
     console.log(A);
   }, []);
@@ -29,85 +34,14 @@ function ActivistProfileCapsule(props) {
       history.push("/cardtransaction");
     }
   };
-  const goNext = () => {
-    if (A.state.index + 1 == A.state.indexMax) {
-      console.log(A.state.index + 1);
 
-      axios
-        .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
-          ID: 1,
-        })
-        .then(function (response) {
-          console.log(response.data);
-          history.push("/activistprofile", {
-            ...response.data,
-            indexMax: A.state.indexMax,
-          });
-          window.location.reload(false);
-        })
-        .catch(function (error) {
-          //handle error here
-          console.log(error);
-        });
-    } else {
-      axios
-        .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
-          ID: A.state.index + 1,
-        })
-        .then(function (response) {
-          console.log(response.data);
-          history.push("/activistprofile", {
-            ...response.data,
-            indexMax: A.state.indexMax,
-          });
-          window.location.reload(false);
-        })
-        .catch(function (error) {
-          //handle error here
-          console.log(error);
-        });
-    }
-  };
-  const goBack = () => {
-    if (A.state.index - 1 == 0) {
-      axios
-        .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
-          ID: A.state.indexMax - 1,
-        })
-        .then(function (response) {
-          console.log(response.data);
-          history.push("/activistprofile", {
-            ...response.data,
-            indexMax: A.state.indexMax,
-          });
-          window.location.reload(false);
-        })
-        .catch(function (error) {
-          //handle error here
-          console.log(error);
-        });
-    } else {
-      axios
-        .post("https://hegemony.donftify.digital:8080/GetActivistByID", {
-          ID: A.state.index - 1,
-        })
-        .then(function (response) {
-          console.log(response.data);
-          history.push("/activistprofile", {
-            ...response.data,
-            indexMax: A.state.indexMax,
-          });
-          window.location.reload(false);
-        })
-        .catch(function (error) {
-          //handle error here
-          console.log(error);
-        });
-    }
-  };
   return (
     <>
-      <div id="appCapsule" className="bg-g-1">
+      <div
+        id="appCapsule"
+        className="bg-g-1"
+        style={loggedin ? { paddingBottom: "100px" } : {}}
+      >
         <div className="section full">
           <video id="background-video" autoPlay loop muted>
             <source src={A.state.autre.Video} type="video/mp4" />
@@ -235,7 +169,7 @@ function ActivistProfileCapsule(props) {
             </div>
           </div>
         </div>
-        <div className="section pb-4">
+        <div className="section pb-4 mb-4">
           <button
             id="supportMobBtn"
             type="button"
@@ -244,67 +178,6 @@ function ActivistProfileCapsule(props) {
           >
             {"Support " + A.state.Nom}
           </button>
-        </div>
-        <hr
-          data-content="AND"
-          className="hr-text mt-4"
-          style={{ width: "100%", margin: "0 auto", background: "#a9abad" }}
-        ></hr>
-        <div className="next-previous">
-          <a className="item" onClick={() => goBack()}>
-            <div
-              className="col"
-              style={{
-                display: "flex",
-                justifyContent: "flex-start",
-                alignItems: "center",
-              }}
-            >
-              <ion-icon
-                src="assets/img/svg/previous.svg"
-                style={{ margin: 0 }}
-              ></ion-icon>
-
-              <strong
-                style={{
-                  color: "blue",
-                  marginLeft: "10px",
-                  fontSize: "14px",
-                  marginTop: 0,
-                }}
-                className="title-font"
-              >
-                Previous mobilizer
-              </strong>
-            </div>
-          </a>
-
-          <a className="item" onClick={() => goNext()}>
-            <div
-              className="col"
-              style={{
-                display: "flex",
-                justifyContent: "flex-end",
-                alignItems: "center",
-              }}
-            >
-              <strong
-                style={{
-                  color: "blue",
-                  marginRight: "10px",
-                  fontSize: "14px",
-                  marginTop: 0,
-                }}
-                className="title-font"
-              >
-                Next mobilizer
-              </strong>
-              <ion-icon
-                src="assets/img/svg/next.svg"
-                style={{ margin: 0 }}
-              ></ion-icon>
-            </div>
-          </a>
         </div>
       </div>
       {/*<CardTransactionModal
