@@ -63,7 +63,7 @@ function ActivistVictoriesModal(props) {
                 className="hr-text mb-4 white-divider"
               ></hr>
               <h5 className="white-text mb-3">Victories</h5>
-              <div className="section">
+              <div>
                 <div style={{ display: "flex" }} className="mt-2">
                   <div>
                     <ion-icon
