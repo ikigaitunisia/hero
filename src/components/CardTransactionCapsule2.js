@@ -435,7 +435,7 @@ function CardTransactionCapsule2(props) {
 
           <div className="section mt-4 pt-2 mb-4">
             <h4 className="white-text">Transaction total</h4>
-            <h3 className="white-text">{"€" + Somme}</h3>
+            <h3 className="white-text">{"€" + Somme.toFixed(2)}</h3>
           </div>
           <div className="form-group basic">
             <button
