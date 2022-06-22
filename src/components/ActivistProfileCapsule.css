@@ -1,7 +1,7 @@
 #background-video {
   height: 40vh;
-  width: 100%;
-  object-fit: contain;
+  width: auto;
+  object-fit: unset;
 }
 
 @media screen and (max-width: 800px) {
