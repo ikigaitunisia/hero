@@ -43,7 +43,7 @@ function ActivistProfileCapsule(props) {
         style={loggedin ? { paddingBottom: "100px" } : {}}
       >
         <div className="section full">
-          <video id="background-video" autoPlay loop muted>
+          <video id="background-video" controls>
             <source src={A.state.autre.Video} type="video/mp4" />
           </video>
         </div>
