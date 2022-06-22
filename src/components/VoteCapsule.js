@@ -41,6 +41,7 @@ function VoteCapsule(props) {
 
       for (var i=1;i < response.data.index ;i++)
       {
+        console.log("ok");
       axios
       .post("https://hegemony.donftify.digital:8080/GetProposal", {
         id: i
