@@ -33,7 +33,7 @@ function Header(props) {
     <>
       <div className="appHeader no-border transparent position-absolute">
         <div className="left">
-          {showMenuBtn && (
+          {loggedin && showMenuBtn && (
             <a
               href="#"
               className="headerButton"

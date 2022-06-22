@@ -1,7 +1,15 @@
 #background-video {
-  height: 100%;
+  height: 40vh;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 800px) {
+  #background-video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .text-box {
