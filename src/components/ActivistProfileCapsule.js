@@ -100,24 +100,40 @@ function ActivistProfileCapsule(props) {
           style={{ width: "70%", margin: "0 auto", background: "#a9abad" }}
         ></hr>
         <div className="section">
-          <div className="row">
-            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 flex-center mb-2">
+          <div style={{ display: "flex" }}>
+            <div
+              className="col-lg-6 col-md-6 col-sm-6 col-xs-6 flex-center mb-2"
+              style={{ flexDirection: "column" }}
+            >
               <ion-icon
                 class="md-icon"
                 src="assets/img/svg/voteBlue.svg"
                 style={{ marginRight: "5px" }}
                 onClick={() => setShowMobilizerCampaignsModal(true)}
               ></ion-icon>
-              <strong className="blue-text">Campaigns</strong>
+              <span
+                className="blue-text"
+                style={{ fontSize: "14px", fontWeight: "bold" }}
+              >
+                Campaigns
+              </span>
             </div>
-            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 flex-center  mb-2">
+            <div
+              className="col-lg-6 col-md-6 col-sm-6 col-xs-6 flex-center  mb-2"
+              style={{ flexDirection: "column" }}
+            >
               <ion-icon
                 class="md-icon"
                 src="assets/img/svg/HeroCoin2.svg"
                 style={{ marginRight: "5px" }}
                 onClick={() => setShowMobilizerVictoriesModal(true)}
               ></ion-icon>
-              <strong className="blue-text">Victories</strong>
+              <span
+                className="blue-text"
+                style={{ fontSize: "14px", fontWeight: "bold" }}
+              >
+                Victories
+              </span>
             </div>
           </div>
         </div>
