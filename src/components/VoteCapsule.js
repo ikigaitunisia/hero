@@ -43,11 +43,11 @@ function VoteCapsule(props) {
       {
       axios
       .post("https://hegemony.donftify.digital:8080/GetProposal", {
-        ID: i
+        id: i
       })
       .then(function (response) {
         console.log(response.data);
-  
+        
         setProposal([...proposal,response.data]);
       })
       .catch(function (error) {
