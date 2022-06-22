@@ -1,7 +1,69 @@
-import React from "react";
+import React,{useEffect,useReducer,useState} from "react";
 import "./VoteCapsule.css";
-
+import axios from 'axios';
 function VoteCapsule(props) {
+  const [proposal,setProposal] = useState([]);
+  const [nbVotes,setnbVotes] = useState(0);
+  const [yesPercent,setyesPercent] = useState(0);
+  const [noPercent,setnoPercent] = useState(0);
+  const [voted,setVoted] = useState(false);
+  const [priv, setPriv] =  useState("");
+  const voteOnproposal = (_id,vote) => {
+
+    axios
+    .post("https://hegemony.donftify.digital:8080/VoteProp", 
+      {
+        "privKey" : priv,
+        "id" : _id,
+        "vote" : vote
+    
+    }
+    )
+    .then(function (response) {
+      console.log(response.data);
+
+      setVoted(true);
+    })
+    .catch(function (error) {
+        //handle error here
+        console.log(error);
+    }); 
+  }
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
+    setPriv (user.wallet.autre.privateKey);
+    axios
+    .post("https://hegemony.donftify.digital:8080/GetIndexProp")
+    .then(function (response) {
+      console.log(response.data);
+      setnbVotes(parseInt(response.data));
+
+      for (var i=1;i < response.data ;i++)
+      {
+        console.log("ok");
+      axios
+      .post("https://hegemony.donftify.digital:8080/GetProposal", {
+        id: i
+      })
+      .then(function (response) {
+        console.log(response.data);
+        
+        setProposal([...proposal,response.data]);
+      })
+      .catch(function (error) {
+          //handle error here
+          console.log(error);
+      }); 
+      }
+    })
+    .catch(function (error) {
+        //handle error here
+        console.log(error);
+    }); 
+  
+
+  }, []);
   return (
     <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
       <div className="section custom-width center-div-2 white-text mb-4 mt-4">
@@ -21,12 +83,13 @@ function VoteCapsule(props) {
           Discover how voting works.
         </a>
       </div>
+
+      { proposal.map((prop,i) => (
+      <>
       <div className="section center-div-2 mb-4">
         <div className="wallet-card">
           <p style={{ color: "black", fontWeight: "bold" }}>
-            Would you like, in addition of having the possibility of funding a
-            mobilizer for 1 year, to also be able to contribute directly to a
-            campaign that the mobilizer is launching?
+            {prop.Description}
           </p>
         </div>
       </div>
@@ -41,12 +104,15 @@ function VoteCapsule(props) {
                 width: "50px",
                 height: "50px",
               }}
+              onClick = {()=>voteOnproposal(i+1,true)}
+
             >
               <ion-icon
                 name="close"
                 style={{ color: "white", display: "flex" }}
               ></ion-icon>
             </button>
+            {voted &&
             <div>
               <span
                 className="badge badge-dark custom-badge"
@@ -55,6 +121,7 @@ function VoteCapsule(props) {
                 20%
               </span>
             </div>
+            }
           </div>
           <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 flex-center mb-2">
             <button
@@ -65,20 +132,24 @@ function VoteCapsule(props) {
                 width: "50px",
                 height: "50px",
               }}
+              onClick = {()=>voteOnproposal(i+1,true)}
             >
               <ion-icon
                 name="checkmark-outline"
                 style={{ color: "black", display: "flex" }}
               ></ion-icon>
             </button>
+            {voted &&
             <div>
               <span
-                className="badge custom-badge-white"
+                className="badge badge-dark custom-badge"
                 style={{ borderRadius: "30px" }}
               >
                 80%
               </span>
             </div>
+            }
+           
           </div>
         </div>
       </div>
@@ -116,7 +187,10 @@ function VoteCapsule(props) {
           </div>
         </div>
       </div>
+      </>
+      ))}
     </div>
+    
   );
 }
 
