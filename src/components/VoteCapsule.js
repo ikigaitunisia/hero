@@ -37,9 +37,9 @@ function VoteCapsule(props) {
     .post("https://hegemony.donftify.digital:8080/GetIndexProp")
     .then(function (response) {
       console.log(response.data);
-      setnbVotes(parseInt(response.data.index));
-      let i = 1;
-      while (i != response.data.index)
+      setnbVotes(parseInt(response.data));
+
+      for (var i=1;i < response.data ;i++)
       {
         console.log("ok");
       axios
@@ -50,7 +50,6 @@ function VoteCapsule(props) {
         console.log(response.data);
         
         setProposal([...proposal,response.data]);
-        i++;
       })
       .catch(function (error) {
           //handle error here
