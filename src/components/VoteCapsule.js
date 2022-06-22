@@ -31,7 +31,7 @@ function VoteCapsule(props) {
   }
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user);
+    setPriv (user.autre.privateKey);
     axios
     .post("https://hegemony.donftify.digital:8080/GetIndexProp")
     .then(function (response) {
@@ -42,7 +42,7 @@ function VoteCapsule(props) {
         //handle error here
         console.log(error);
     }); 
-    for (var i=0;i<=nbVotes;i++)
+    for (var i=0;i< nbVotes ;i++)
     {
     axios
     .post("https://hegemony.donftify.digital:8080/GetProposal", {
