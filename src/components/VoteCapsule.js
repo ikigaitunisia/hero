@@ -31,6 +31,7 @@ function VoteCapsule(props) {
   }
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user.autre);
     setPriv (user.autre.privateKey);
     axios
     .post("https://hegemony.donftify.digital:8080/GetIndexProp")
