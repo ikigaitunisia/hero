@@ -38,8 +38,8 @@ function VoteCapsule(props) {
     .then(function (response) {
       console.log(response.data);
       setnbVotes(parseInt(response.data.index));
-
-      for (var i=1;i < response.data.index ;i++)
+      let i = 1;
+      while (i != response.data.index)
       {
         console.log("ok");
       axios
@@ -50,6 +50,7 @@ function VoteCapsule(props) {
         console.log(response.data);
         
         setProposal([...proposal,response.data]);
+        i++;
       })
       .catch(function (error) {
           //handle error here
