@@ -38,27 +38,29 @@ function VoteCapsule(props) {
     .then(function (response) {
       console.log(response.data);
       setnbVotes(parseInt(response.data.index));
-    })
-    .catch(function (error) {
-        //handle error here
-        console.log(error);
-    }); 
-    for (var i=0;i< nbVotes ;i++)
-    {
-    axios
-    .post("https://hegemony.donftify.digital:8080/GetProposal", {
-      ID: i
-    })
-    .then(function (response) {
-      console.log(response.data);
 
-      setProposal([...proposal,response.data]);
+      for (var i=0;i< parseInt(response.data.index) ;i++)
+      {
+      axios
+      .post("https://hegemony.donftify.digital:8080/GetProposal", {
+        ID: i
+      })
+      .then(function (response) {
+        console.log(response.data);
+  
+        setProposal([...proposal,response.data]);
+      })
+      .catch(function (error) {
+          //handle error here
+          console.log(error);
+      }); 
+    }
     })
     .catch(function (error) {
         //handle error here
         console.log(error);
     }); 
-  }
+  
 
   }, []);
   return (
