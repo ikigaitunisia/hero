@@ -39,7 +39,7 @@ function VoteCapsule(props) {
       console.log(response.data);
       setnbVotes(parseInt(response.data.index));
 
-      for (var i=0;i< parseInt(response.data.index) ;i++)
+      for (var i=1;i< parseInt(response.data.index) ;i++)
       {
       axios
       .post("https://hegemony.donftify.digital:8080/GetProposal", {
