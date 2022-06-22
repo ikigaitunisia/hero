@@ -5,21 +5,24 @@ function HeroTeamCapsule(props) {
     <>
       <div id="appCapsule" className="bg-g-1" style={{ minHeight: "100vh" }}>
         <div className="section center-div mt-4 pt-4">
-          <h1 className="blue-text">Founders</h1>
-          <h4 className="blue-text">
+          <h4 className="blue-text" style={{ fontWeight: "900" }}>
+            Founders
+          </h4>
+          <p className="blue-text">
             Meet the team on a mission to connect supporters and mobilizers
             around the world to accelerate climate action.
-          </h4>
+          </p>
           <hr data-content="AND" className="hr-text mb-2 "></hr>
         </div>
         <div className="section center-div mt-4">
           <img
+            className="mb-3"
             src="assets/img/Sylvain.png"
             style={{ width: "120px", height: "120px" }}
           />
-          <h3 className="blue-text" style={{ margin: 0 }}>
+          <h5 className="blue-text" style={{ margin: 0, fontWeight: 700 }}>
             Sylvain Ferrière
-          </h3>
+          </h5>
           <span className="blue-text">Investment & Funding</span>
           <p className="mt-2">
             Boston Consulting Group. CIO of Yunus Social Business Fund. General
@@ -29,12 +32,13 @@ function HeroTeamCapsule(props) {
         </div>
         <div className="section center-div mt-4">
           <img
+            className="mb-3"
             src="assets/img/Mauricio.png"
             style={{ width: "120px", height: "120px" }}
           />
-          <h3 className="blue-text" style={{ margin: 0 }}>
+          <h5 className="blue-text" style={{ margin: 0, fontWeight: 700 }}>
             Mauricio Porras
-          </h3>
+          </h5>
           <span className="blue-text">
             Key Mobilizer Relationships & Marketing
           </span>
@@ -48,12 +52,13 @@ function HeroTeamCapsule(props) {
         </div>
         <div className="section center-div mt-4">
           <img
+            className="mb-3"
             src="assets/img/Mohamed.png"
             style={{ width: "120px", height: "120px" }}
           />
-          <h3 className="blue-text" style={{ margin: 0 }}>
+          <h5 className="blue-text" style={{ margin: 0, fontWeight: 700 }}>
             Mohamed Mnif
-          </h3>
+          </h5>
           <span className="blue-text">Blockchain & Web3</span>
 
           <p className="mt-2">
