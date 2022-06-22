@@ -11,7 +11,7 @@ function VoteCapsule(props) {
   const voteOnproposal = (_id,vote) => {
 
     axios
-    .post("https://hegemony.donftify.digital:8080/voteOnProposal", 
+    .post("https://hegemony.donftify.digital:8080/VoteProp", 
       {
         "privKey" : priv,
         "id" : _id,
