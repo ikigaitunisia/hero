@@ -1,6 +1,6 @@
 import React,{useEffect,useReducer,useState} from "react";
 import "./VoteCapsule.css";
-
+import axios from 'axios';
 function VoteCapsule(props) {
   const [proposal,setProposal] = useState([]);
   const [nbVotes,setnbVotes] = useState(0);
