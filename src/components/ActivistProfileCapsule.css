@@ -82,6 +82,10 @@
   opacity: unset;
 }
 
+.light-divider {
+  background-color: #EEEEEE !important;
+}
+
 #mobilizerVictories .modal-content {
   background-color: #0000ffe5 !important;
   opacity: 90%;
