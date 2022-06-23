@@ -39,6 +39,10 @@ function CardCapsule(props) {
     let ArrAmnt = (new URLSearchParams(window.location.search)).get("ArrAmnt")
 
     console.log(OrderID,fiatAmount);
+    console.log(arrA);
+    console.log(ArrAmnt);
+
+
   }, []);
   return (
     <div id="appCapsule" className="bg-g-1 cardCapsule">
