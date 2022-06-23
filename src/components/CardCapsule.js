@@ -32,6 +32,11 @@ function CardCapsule(props) {
         });
     }
     fetchBalance();
+
+    let OrderID = (new URLSearchParams(window.location.search)).get("orderId")
+    let fiatAmount = (new URLSearchParams(window.location.search)).get("fiatAmount")
+
+    console.log(OrderID,fiatAmount);
   }, []);
   return (
     <div id="appCapsule" className="bg-g-1 cardCapsule">
