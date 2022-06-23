@@ -149,7 +149,7 @@ function CardTransactionCapsule2(props) {
     });
     let SommeBig = (Somme * 10 ** 18).toString();
     const stableToken = await kit.contracts.getStableToken();
-    const txObjectIncAllow = stableToken.increaseAllowance(
+    const txObjectIncAllow = stableToken.approve(
       contractAddress,
       SommeBig
     ).txo;
