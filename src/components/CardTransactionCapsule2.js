@@ -33,8 +33,7 @@ function CardTransactionCapsule2(props) {
   const [Activist, setActivist] = useState([]);
   const [approuved, setApprouved] = useState(false);
   const [WalletContrib, setWalletContrib] = useState("");
-  const urlOFGateway =
-    "https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true";
+  const [type, setType] = useState("");
   const dappName = "HeroCoin";
   const [
     showTransactionDigitalCurrencyModal,
@@ -130,6 +129,14 @@ function CardTransactionCapsule2(props) {
     setWebT(web3);
 
     */
+  };
+  const getElemsCredit = async () => {
+
+    const urlOFGateway =
+    "https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true&"+"fiatAmount="+Somme+"&fiatCurrency=EUR"
+    ;
+    window.location.href = urlOFGateway;
+
   };
   const getElems = async () => {
     const web3 = new Web3("https://alfajores-forno.celo-testnet.org");
@@ -363,7 +370,7 @@ function CardTransactionCapsule2(props) {
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
-                  onClick={() => setShowTransactionDigitalCurrencyModal(true)}
+                  onClick={() => setType("Crypto")}
                 />
                 <label class="form-check-label" for="flexRadioDefault1">
                   Digital Currency Payment
@@ -371,9 +378,8 @@ function CardTransactionCapsule2(props) {
               </div>
               <div
                 class="form-check mb-1 no-padding"
-                onClick={() => {
-                  window.location.href = urlOFGateway;
-                }}
+                onClick={() => setType("CreditCard")}
+
               >
                 <input
                   class="form-check-input"
@@ -455,7 +461,7 @@ function CardTransactionCapsule2(props) {
                 width: "200px",
                 backgroundColor: "white",
               }}
-              onClick={() => getElems()}
+              onClick={() =>  type=="Crypto" ? getElems() : getElemsCredit() } 
             >
               Confirm
             </button>
