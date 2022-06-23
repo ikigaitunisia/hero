@@ -18,7 +18,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
 
-const contractAddress = "0xA85BEC65D8c16ecfA3D9230BB39C8adC4468dDBA";
+const contractAddress = "0x44db22610D8b17e51D145A18dc8C809d4cE68c66";
 function CardTransactionCapsule2(props) {
   const history = useHistory();
   const [content, setContent] = useState("");

@@ -105,7 +105,6 @@ function VoteCapsule(props) {
                 height: "50px",
               }}
               onClick = {()=>voteOnproposal(i+1,true)}
-
             >
               <ion-icon
                 name="close"
