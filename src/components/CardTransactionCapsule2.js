@@ -42,6 +42,7 @@ function CardTransactionCapsule2(props) {
   };
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
     setWalletContrib(user.wallet.address);
     axios
       .post("https://hegemony.donftify.digital:8080/GetIndexActiv")
