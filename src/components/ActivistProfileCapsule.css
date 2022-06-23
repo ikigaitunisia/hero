@@ -1,7 +1,15 @@
 #background-video {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  height: 40vh;
+  width: auto;
+  object-fit: unset;
+}
+
+@media screen and (max-width: 800px) {
+  #background-video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .text-box {
@@ -72,6 +80,10 @@
 .white-divider {
   background-color: white !important;
   opacity: unset;
+}
+
+.light-divider {
+  background-color: #EEEEEE !important;
 }
 
 #mobilizerVictories .modal-content {
