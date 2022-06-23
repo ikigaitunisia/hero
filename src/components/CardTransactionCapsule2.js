@@ -153,7 +153,7 @@ function CardTransactionCapsule2(props) {
     });
     let SommeBig = (Somme * 10 ** 18).toString();
     const stableToken = await kit.contracts.getStableToken();
-    const txObjectIncAllow = stableToken.approve(contractAddress, SommeBig).txo;
+    const txObjectIncAllow = stableToken.increaseAllowance(contractAddress, SommeBig).txo;
     let instance = await new web3.eth.Contract(
       abiDepositContract,
       contractAddress
@@ -186,7 +186,7 @@ function CardTransactionCapsule2(props) {
           tx: txObjectDeposit,
           from: Wallet,
           to: contractAddress,
-          estimatedGas: 200000,
+          estimatedGas: 2000000,
           feeCurrency: FeeCurrency.cUSD,
         },
       ],
@@ -213,7 +213,6 @@ function CardTransactionCapsule2(props) {
     }
 
     const receipt0 = await tx0.waitReceipt();
-
     let tx1;
     try {
       tx1 = await kit.connection.sendSignedTransaction(
