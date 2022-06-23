@@ -35,7 +35,7 @@ function CardCapsule(props) {
 
     let OrderID = (new URLSearchParams(window.location.search)).get("orderId")
     let fiatAmount = (new URLSearchParams(window.location.search)).get("fiatAmount")
-
+    
     console.log(OrderID,fiatAmount);
   }, []);
   return (
