@@ -17,6 +17,7 @@ import {
 import { useHistory, useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import axios from "axios";
+import TransactionDigitalCurrencyModal from "./modals/TransactionDigitalCurrencyModal";
 
 const contractAddress = "0xf3a14077724AF661466cc24bf0bE31Fb9b1D2FD8";
 function CardTransactionCapsule2(props) {
@@ -35,7 +36,10 @@ function CardTransactionCapsule2(props) {
   const urlOFGateway =
     "https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true";
   const dappName = "HeroCoin";
-
+  const [
+    showTransactionDigitalCurrencyModal,
+    setShowTransactionDigitalCurrencyModal,
+  ] = useState(false);
   const updateArray = (response) => {
     setActivist((oldArray) => [...oldArray, response]);
     console.log(Activist);
@@ -149,10 +153,7 @@ function CardTransactionCapsule2(props) {
     });
     let SommeBig = (Somme * 10 ** 18).toString();
     const stableToken = await kit.contracts.getStableToken();
-    const txObjectIncAllow = stableToken.approve(
-      contractAddress,
-      SommeBig
-    ).txo;
+    const txObjectIncAllow = stableToken.approve(contractAddress, SommeBig).txo;
     let instance = await new web3.eth.Contract(
       abiDepositContract,
       contractAddress
@@ -296,10 +297,15 @@ function CardTransactionCapsule2(props) {
         />
       </div>
       <div className="section">
-        <h4 className="text-title white-text" style={{ margin: 0 , fontWeight: "900"}}>
+        <h4
+          className="text-title white-text"
+          style={{ margin: 0, fontWeight: "900" }}
+        >
           Support HERO Mobilizers
         </h4>
-        <h4 className="white-text" style={{fontWeight: "100"}}>with a Basic Income.</h4>
+        <h4 className="white-text" style={{ fontWeight: "100" }}>
+          with a Basic Income.
+        </h4>
       </div>
       <div className="section">
         <form id="white-form">
@@ -358,9 +364,10 @@ function CardTransactionCapsule2(props) {
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
+                  onClick={() => setShowTransactionDigitalCurrencyModal(true)}
                 />
                 <label class="form-check-label" for="flexRadioDefault1">
-                  Digitial Currency Payment
+                  Digital Currency Payment
                 </label>
               </div>
               <div
@@ -456,6 +463,10 @@ function CardTransactionCapsule2(props) {
           </div>
         </form>
       </div>
+      <TransactionDigitalCurrencyModal
+        show={showTransactionDigitalCurrencyModal}
+        onClose={() => setShowTransactionDigitalCurrencyModal(false)}
+      />
     </div>
   );
 }
