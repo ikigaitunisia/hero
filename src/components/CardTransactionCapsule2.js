@@ -3,7 +3,7 @@ import "./CardTransactionCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from "web3";
-const browser = require("webextension-polyfill");
+import browser from "webextension-polyfill";
 
 import { newKitFromWeb3, toTxResult } from "@celo/contractkit";
 import { abiDepositContract } from "./abiDepositContract";
