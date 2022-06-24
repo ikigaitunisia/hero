@@ -65,7 +65,8 @@ function CardCapsule(props) {
     
   })
   .then(function (response) {
-    setTxs([...Txs,response.data]);
+    console.log(response.data);
+    setTxs(response.data);
   })
   .catch(function (error) {
     //handle error here
@@ -147,7 +148,7 @@ function CardCapsule(props) {
               />
               <div>
                 <strong className="blue-text custom-font">
-                  {activist.Nom+" "+activist.Prenom}
+                  {activist.Nom+" "+activist.Prenom+" "+activist.contribution+"€"}
                 </strong>
               </div>
             </div>
