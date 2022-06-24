@@ -101,7 +101,6 @@ function VoteCapsule(props) {
         setnbVotes(parseInt(response.data));
 
         for (var i = 1; i < response.data; i++) {
-          console.log"ok");
           axios
             .post("https://hegemony.donftify.digital:8080/GetProposal", {
               id: i,
