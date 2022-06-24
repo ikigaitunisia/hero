@@ -101,7 +101,7 @@ function VoteCapsule(props) {
         setnbVotes(parseInt(response.data));
 
         for (var i = 1; i < response.data; i++) {
-          console.log("ok");
+          console.log"ok");
           axios
             .post("https://hegemony.donftify.digital:8080/GetProposal", {
               id: i,
@@ -161,7 +161,7 @@ function VoteCapsule(props) {
                     width: "50px",
                     height: "50px",
                   }}
-                  onClick={() => {voteOnproposal(i + 1, true);update(prop.ID)}}
+                  onClick={() => {voteOnproposal(i + 1, true)}}
                 >
                   <ion-icon
                     name="close"
@@ -174,7 +174,7 @@ function VoteCapsule(props) {
                       className="badge badge-dark custom-badge"
                       style={{ borderRadius: "30px" }}
                     >
-                      {PercentageYes+"%"}
+                      {"80%"}
                     </span>
                   </div>
                 )}
@@ -188,7 +188,7 @@ function VoteCapsule(props) {
                     width: "50px",
                     height: "50px",
                   }}
-                  onClick={() => {voteOnproposal(i + 1, true);update(prop.ID)}}
+                  onClick={() => {voteOnproposal(i + 1, true)}}
                 >
                   <ion-icon
                     name="checkmark-outline"
@@ -201,7 +201,7 @@ function VoteCapsule(props) {
                       className="badge badge-dark custom-badge"
                       style={{ borderRadius: "30px" }}
                     >
-                      {PercentageNo+"%"}
+                      {"20%"}
                     </span>
                   </div>
                 )}
