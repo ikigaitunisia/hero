@@ -21,6 +21,11 @@
   font-family: Seravek;
   font-weight: bold;
 }
+.home-video-desktop {
+  width: 100%;
+  border-radius: 20px;
+  height: 300px;
+}
 
 .home-video {
   width: 80%;

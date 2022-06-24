@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./FeedCapsule.css";
 import FeedVerificationModal from "./modals/FeedVerificationModal";
+import { isMobile } from "react-device-detect";
 
 function FeedCapsule(props) {
   const history = useHistory();
@@ -67,7 +68,13 @@ function FeedCapsule(props) {
         show={showFeedVerificationModal}
         onClose={() => setShowFeedVerificationModal(false)}
       />
-      <div className="section mt-4 pt-2 mb-2">
+      <div
+        className={
+          isMobile
+            ? "section mt-4 pt-2 mb-2"
+            : "section center-div mt-4 pt-2 mb-2"
+        }
+      >
         <div className="row mt-2 pe-3 pl-3">
           {Activist.map((activist) => (
             <>
