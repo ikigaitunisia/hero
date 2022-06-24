@@ -37,7 +37,8 @@ function CardCapsule(props) {
     let fiatAmount = (new URLSearchParams(window.location.search)).get("fiatAmount")
     let arrA = (new URLSearchParams(window.location.search)).get("ArrAct")
     let ArrAmnt = (new URLSearchParams(window.location.search)).get("ArrAmnt")
-
+    const user = JSON.parse(localStorage.getItem("user"));
+      const wallet = user.wallet.address;
     console.log(OrderID,fiatAmount);
     console.log(arrA);
     console.log(ArrAmnt);
