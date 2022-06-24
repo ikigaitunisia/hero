@@ -71,6 +71,8 @@ function VoteCapsule(props) {
       });
   };
   const update=(_id) => {
+    console.log("********");
+
         console.log(_id);
         axios
           .post("https://hegemony.donftify.digital:8080/GetProposal", {
