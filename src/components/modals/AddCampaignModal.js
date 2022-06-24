@@ -19,7 +19,7 @@ function AddCampaignModal(props) {
     console.log(user);
     axios
     .post("https://hegemony.donftify.digital:8080/widhdraw", {
-      activist : user.Wallet
+      activist : user.address
     })
     .then(function (response) {
       console.log(response.data);
