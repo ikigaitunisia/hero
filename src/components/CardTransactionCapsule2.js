@@ -45,6 +45,7 @@ function CardTransactionCapsule2(props) {
     console.log(Activist);
   };
   useEffect(() => {
+
     const user = JSON.parse(localStorage.getItem("user"));
     console.log(user);
     setWalletContrib(user.wallet.address);
@@ -84,6 +85,12 @@ function CardTransactionCapsule2(props) {
   };
 
   const connect = async () => {
+    const currentTabId = await browser.tabs.getCurrentTab();
+    console.log(currentTabId);
+    localStorage.setItem(
+      "Browse",
+      JSON.stringify({ tabId: currentTabId })
+    );
     const requestId = "login";
     const callback = "https://hegemony.donftify.digital:3001/cardtransaction";
     requestAccountAddress({
