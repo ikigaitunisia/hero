@@ -70,15 +70,15 @@ function VoteCapsule(props) {
         console.log(error);
       });
   };
-  const update=(id) => {
+  const update=(_id) => {
    
         axios
           .post("https://hegemony.donftify.digital:8080/GetProposal", {
-            id: id,
+            id: _id,
           })
           .then(function (response) {
             console.log(response.data);
-
+          
             setPercentageYes(response.data.Yes);
             setPercentageNo(response.data.No);
           })
