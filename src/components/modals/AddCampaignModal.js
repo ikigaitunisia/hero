@@ -16,6 +16,7 @@ function AddCampaignModal(props) {
   }, [props.show]);
   const witdhrawl = () => {
     const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
     axios
     .post("https://hegemony.donftify.digital:8080/widhdraw", {
       activist : user.Wallet
