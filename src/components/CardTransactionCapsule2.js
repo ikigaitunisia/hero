@@ -86,14 +86,9 @@ function CardTransactionCapsule2(props) {
   };
 
   const connect = async () => {
-    const currentTabId = await chrome.getCurrentTab();
-    console.log(currentTabId);
-    localStorage.setItem(
-      "Browse",
-      JSON.stringify({ tabId: currentTabId })
-    );
+    
     const requestId = "login";
-    const callback = "https://hegemony.donftify.digital:3001/cardtransaction";
+    const callback = window.location.href;
     requestAccountAddress({
       requestId,
       dappName,
@@ -166,7 +161,7 @@ function CardTransactionCapsule2(props) {
 
     const kit = newKitFromWeb3(web3);
     console.log(kit);
-    const callback = "https://hegemony.donftify.digital:3001/card";
+    const callback = window.location.href;
 
     var arrA = [];
     var ArrAv = [];
