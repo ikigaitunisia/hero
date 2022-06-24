@@ -72,7 +72,6 @@ function VoteCapsule(props) {
   };
   const update=(_id) => {
     console.log("********");
-        ethers.utils.parseEther(amount)
         console.log(_id);
         axios
           .post("https://hegemony.donftify.digital:8080/GetProposal", {
