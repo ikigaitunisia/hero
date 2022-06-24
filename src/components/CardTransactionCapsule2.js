@@ -49,6 +49,8 @@ function CardTransactionCapsule2(props) {
 
     const user = JSON.parse(localStorage.getItem("user"));
     console.log(user);
+    const redirection = JSON.parse(localStorage.getItem("ValoraAlfajores"));
+    console.log(redirection);
     setWalletContrib(user.wallet.address);
     axios
       .post("https://hegemony.donftify.digital:8080/GetIndexActiv")
@@ -88,7 +90,7 @@ function CardTransactionCapsule2(props) {
   const connect = async () => {
     
     const requestId = "login";
-    const callback = window.location.href;
+    const callback = "https://hegemony.donftify.digital:3001/RedirectToTransaction";
     requestAccountAddress({
       requestId,
       dappName,
@@ -103,8 +105,21 @@ function CardTransactionCapsule2(props) {
     //  phoneNumber: dappkitResponse.phoneNumber,
     //  pepper: dappkitResponse.pepper,
     //});
+
     console.log(dappkitResponse.address);
     setWallet(dappkitResponse.address);
+    var arrA = [];
+    var ArrAv = [];
+    document.querySelectorAll(".seletAc").forEach((element) => {
+      arrA.push(element.value.toString());
+    });
+    document.querySelectorAll(".AmountAc").forEach((element) => {
+      ArrAv.push(element.value.toString());
+    });
+    localStorage.setItem(
+      "ValoraAlfajores",
+      JSON.stringify({Redirect : true, dappkitResponse : dappkitResponse , arrOF:arrA,arrAmount:ArrAv ,Somme:Somme })
+    );
     /*
     const provider = new WalletConnectProvider({
       rpc: {
