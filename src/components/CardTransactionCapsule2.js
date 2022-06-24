@@ -134,10 +134,10 @@ function CardTransactionCapsule2(props) {
     var arrA = [];
     var ArrAv = [];
     document.querySelectorAll(".seletAc").forEach((element) => {
-      arrA.push(element.value);
+      arrA.push(element.value.toString());
     });
     document.querySelectorAll(".AmountAc").forEach((element) => {
-      ArrAv.push(element.value);
+      ArrAv.push((element.value * 10**18).toString());
     });
     const urlOFGateway =
     "https://staging-global.transak.com/?apiKey=0d9d5931-ed0d-4f9e-979b-fb6fa87658a0&redirectURL=https://hegemony.donftify.digital:3001/Card?ArrAct="+arrA.toString()+"%ArrAmnt="+ArrAv.toString()+"&cryptoCurrencyList=CUSD&defaultCryptoCurrency=CUSD&walletAddress=0x0ffc0e4E81441F5caBe78148b75F3CC8fee58dAb&disableWalletAddressForm=true&exchangeScreenTitle=Hero%20Payement%20Credit%20Card%20&isFeeCalculationHidden=true&"+"fiatAmount="+Somme+"&fiatCurrency=EUR"
