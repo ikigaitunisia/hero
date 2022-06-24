@@ -65,7 +65,8 @@ function CardCapsule(props) {
     
   })
   .then(function (response) {
-    setTxs([...Txs,response.data]);
+    console.log(response.data);
+    setTxs([response.data]);
   })
   .catch(function (error) {
     //handle error here
