@@ -71,17 +71,10 @@ function VoteCapsule(props) {
       });
   };
   const update=(id) => {
-    axios
-    .post("https://hegemony.donftify.digital:8080/GetIndexProp")
-    .then(function (response) {
-      console.log(response.data);
-      setnbVotes(parseInt(response.data));
-
-      for (var i = 1; i < response.data; i++) {
-        console.log("ok");
+   
         axios
           .post("https://hegemony.donftify.digital:8080/GetProposal", {
-            id: i,
+            id: id,
           })
           .then(function (response) {
             console.log(response.data);
@@ -93,12 +86,7 @@ function VoteCapsule(props) {
             //handle error here
             console.log(error);
           });
-      }
-    })
-    .catch(function (error) {
-      //handle error here
-      console.log(error);
-    });
+   
 
   }
   useEffect(() => {
