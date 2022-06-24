@@ -43,7 +43,7 @@ function CardCapsule(props) {
     console.log(arrA);
     console.log(ArrAmnt);
   if (OrderID != undefined)
-  {
+  { 
     axios
     .post("https://hegemony.donftify.digital:8080/DepositCusdCredit", {
       contributer: wallet,
