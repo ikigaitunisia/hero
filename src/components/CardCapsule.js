@@ -173,7 +173,7 @@ function CardCapsule(props) {
           
         </ul>
       </div>
-      <ActivistCampaignsModal
+      {/*<ActivistCampaignsModal
         show={showMobilizerCampaignsModal}
         onClose={() => setShowMobilizerCampaignsModal(false)}
 
@@ -181,7 +181,7 @@ function CardCapsule(props) {
       <ActivistVictoriesModal
         show={showMobilizerVictoriesModal}
         onClose={() => setShowMobilizerVictoriesModal(false)}
-  />
+  />*/}
     </div>
   );
 }
