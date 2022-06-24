@@ -1,3 +1,30 @@
+Welcome to the Hero Github Readme !
+
+To all testers
+
+Main Contributor flow :  we have done our best to make this test user friendly, but we are on the testnet, so you will need to bear in mind the following 
+To contribute in Digital Currency you will need to have the Valora Alfajoles app on your phone, with at least 1 CEUR in faucets : if you need faucets, click here : https://celo.org/developers/faucet
+To contribute in credit card, you will need to add a credit card in Transak, with any address and phone number in Europe or Canada and the following credit card number : 4111 1111 1111 1111, expiring 10/23, and CVV code 123
+
+Mobilizers Flow (allowing Mobilizers to update their campaigns and to withdraw funds) : this can be accessed via the following link: https://hegemony.donftify.digital:3001/loginAct and logging in with  Phone Number: +22123456789, SMS code 000 and then using this password: HeroCoin112.
+You can update campaigns and withdraw funds on a Valora Wallet.
+
+For all developers : 
+We have built on Celo, but to allow our reserves to generate yields, we have built a bridge with Compound protocol.
+Our reserves will aim to hold 50% CUSD and CEUR, and 50% MOSS Carbon tokens, ie CMCO2.
+We have encountered the following challenge on Alfajoles which is already documented on celo docs: we give the possibility of contributing to Hero in crypto, so contributors are then redirected to the Valora Alfajores app, they then validate the transaction in CUSD or CEUR in the Valora App, but even though the transaction is approved and indeed on the testnet blockchain, Valora closes but the connection between the Valora App and our webpage is interrupted, and instead of returning on the webpage where we were in the browser, it returns on the last webpage open in our browser. Whenthe userI then returns to our webpage in our app, we are stuck in the "transaction page" (ie the one where we were before) instead landing on the next web page in the flow.
+
+Structure of the repository 
+We have two branch : 
+    -New-Branch our api created with node js
+    -master branch our view
+
+
+Main contributor flow : url here : https://hegemony.donftify.digital:3001/
+Mobilizer flow : you can find the url here : https://hegemony.donftify.digital:3001/loginAct
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
