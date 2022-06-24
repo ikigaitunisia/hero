@@ -150,6 +150,7 @@ function AddCampaignModal(props) {
                       width: "200px",
                       background: "white"
                     }}
+                    onClick={() => witdhrawl()}
                   >
                     Publish
                   </button>
