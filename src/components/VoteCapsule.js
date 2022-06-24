@@ -162,7 +162,7 @@ function VoteCapsule(props) {
                     width: "50px",
                     height: "50px",
                   }}
-                  onClick={() => {voteOnproposal(i + 1, true);update(prop.ID.toString())}}
+                  onClick={() => {voteOnproposal(i + 1, true);update(prop.ID)}}
                 >
                   <ion-icon
                     name="close"
@@ -189,7 +189,7 @@ function VoteCapsule(props) {
                     width: "50px",
                     height: "50px",
                   }}
-                  onClick={() => {voteOnproposal(i + 1, true);update(prop.ID.toString())}}
+                  onClick={() => {voteOnproposal(i + 1, true);update(prop.ID)}}
                 >
                   <ion-icon
                     name="checkmark-outline"
