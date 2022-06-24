@@ -10,7 +10,7 @@ class RedirectToTransaction extends Component {
       }
 
     componentDidMount() {
-       window.addEventListener("beforeunload", this.onUnload);
+       window.addEventListener("beforeload", this.onUnload);
     }
 
     componentWillUnmount() {
