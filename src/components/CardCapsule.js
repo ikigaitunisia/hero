@@ -9,6 +9,7 @@ import ActivistVictoriesModal from "./modals/ActivistVictoriesModal";
 function CardCapsule(props) {
   const [showExchangeModal, setShowExchangeModal] = useState(false);
   const [balance, setBalance] = useState(0);
+  const [Txs, setTxs] = useState([]);
   const [showMobilizerCampaignsModal, setShowMobilizerCampaignsModal] =
     useState(false);
   const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
@@ -58,7 +59,18 @@ function CardCapsule(props) {
       console.log(error);
     });
   }
-
+  axios
+  .post("https://hegemony.donftify.digital:8080/HistoryTransactions", {
+    User: wallet,
+    
+  })
+  .then(function (response) {
+    setTxs([...Txs,response.data]);
+  })
+  .catch(function (error) {
+    //handle error here
+    console.log(error);
+  }); 
   }, []);
   return (
     <div id="appCapsule" className="bg-g-1 cardCapsule">
@@ -120,20 +132,22 @@ function CardCapsule(props) {
       ></hr>
       <div className="center-div">
         <ul className="listview flush transparent simple-listview no-space mt-3">
+        {Txs.map((activist) => (
+
           <li className="pt-3 pb-3">
             <div
               className="detail"
               style={{ display: "flex", alignItems: "center" }}
             >
               <img
-                src="assets/img/img3.png"
+                src={"assets/img/"+activist.autre.Photo}
                 alt="img"
                 className="image-block imaged rounded w48"
                 style={{ marginRight: "10px" }}
               />
               <div>
                 <strong className="blue-text custom-font">
-                  Anuna de Wever
+                  {activist.Nom+" "+activist.Prenom}
                 </strong>
               </div>
             </div>
@@ -151,39 +165,11 @@ function CardCapsule(props) {
                 onClick={() => setShowMobilizerVictoriesModal(true)}
               ></ion-icon>
             </div>
+          
+          
           </li>
-          <li className="pt-3 pb-3">
-            <div
-              className="detail"
-              style={{ display: "flex", alignItems: "center" }}
-            >
-              <img
-                src="assets/img/img2.png"
-                alt="img"
-                className="image-block imaged rounded w48"
-                style={{ marginRight: "10px" }}
-              />
-              <div>
-                <strong className="blue-text custom-font">
-                  Julieta Martinez
-                </strong>
-              </div>
-            </div>
-            <div className="itemList">
-              <ion-icon
-                class="md-icon"
-                src="assets/img/svg/voteBlue.svg"
-                style={{ marginRight: "5px" }}
-                onClick={() => setShowMobilizerCampaignsModal(true)}
-              ></ion-icon>
-              <ion-icon
-                class="md-icon"
-                src="assets/img/svg/HeroCoin2.svg"
-                style={{ marginRight: "5px" }}
-                onClick={() => setShowMobilizerVictoriesModal(true)}
-              ></ion-icon>
-            </div>
-          </li>
+       )) }
+          
         </ul>
       </div>
       {/*<ActivistCampaignsModal
