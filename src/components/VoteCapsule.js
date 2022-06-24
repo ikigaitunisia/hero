@@ -54,6 +54,8 @@ function VoteCapsule(props) {
     }
   };
   const voteOnproposal = (_id, vote) => {
+    setVoted(true);
+
     axios
       .post("https://hegemony.donftify.digital:8080/VoteProp", {
         privKey: priv,
@@ -173,7 +175,7 @@ function VoteCapsule(props) {
                       className="badge badge-dark custom-badge"
                       style={{ borderRadius: "30px" }}
                     >
-                      {"80%"}
+                      {"20%"}
                     </span>
                   </div>
                 )}
@@ -200,7 +202,7 @@ function VoteCapsule(props) {
                       className="badge badge-dark custom-badge"
                       style={{ borderRadius: "30px" }}
                     >
-                      {"20%"}
+                      {"80%"}
                     </span>
                   </div>
                 )}
