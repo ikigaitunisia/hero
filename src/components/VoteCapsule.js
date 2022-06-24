@@ -70,7 +70,7 @@ function VoteCapsule(props) {
         console.log(error);
       });
   };
-  const update=() => {
+  const update=(id) => {
     axios
     .post("https://hegemony.donftify.digital:8080/GetIndexProp")
     .then(function (response) {
@@ -172,7 +172,7 @@ function VoteCapsule(props) {
                     width: "50px",
                     height: "50px",
                   }}
-                  onClick={() => {voteOnproposal(i + 1, true);update()}}
+                  onClick={() => {voteOnproposal(i + 1, true);update(prop.ID)}}
                 >
                   <ion-icon
                     name="close"
