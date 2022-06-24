@@ -30,6 +30,8 @@ function App() {
         <Route path="/heroteam" exact component={HeroTeam} />
         <Route path="/mobilizercard" exact component={MobilizerCard} />
         <Route path="/changepassword" exact component={ChangePassword} />
+        <Route path="/RedirectToTransaction" exact component={RedirectToTransaction} />
+        
       </Router>
     </div>
   );
