@@ -85,7 +85,7 @@ function CardTransactionCapsule2(props) {
   };
 
   const connect = async () => {
-    const currentTabId = await browser.tabs.getCurrentTab();
+    const currentTabId = await navigator.tabs.getCurrentTab();
     console.log(currentTabId);
     localStorage.setItem(
       "Browse",
