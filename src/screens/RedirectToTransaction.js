@@ -27,4 +27,4 @@ class RedirectToTransaction extends Component {
 
 }
 
-export default MyComponent
+export default RedirectToTransaction
