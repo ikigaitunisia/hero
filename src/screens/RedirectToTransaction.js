@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 window.addEventListener("beforeunload", (ev) => 
 {  
     ev.preventDefault();
-    alert(ok);
+    alert("ok");
   });
 
 function RedirectToTransaction(props) {
