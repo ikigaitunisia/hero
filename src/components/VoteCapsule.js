@@ -87,7 +87,6 @@ function VoteCapsule(props) {
           .then(function (response) {
             console.log(response.data);
 
-            setProposal([...proposal, response.data]);
             setPercentageYes(response.data.Yes);
             setPercentageNo(response.data.No);
           })
