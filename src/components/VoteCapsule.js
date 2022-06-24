@@ -71,7 +71,6 @@ function VoteCapsule(props) {
       });
   };
   const update=() => {
-    setProposal([]);
     axios
     .post("https://hegemony.donftify.digital:8080/GetIndexProp")
     .then(function (response) {
