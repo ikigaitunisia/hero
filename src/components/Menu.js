@@ -49,13 +49,13 @@ function Menu(props) {
                 />
               </div>
             </div>
-            <div className="listview-title mt-1">
+            {/*<div className="listview-title mt-1">
               <h2 style={{ textAlign: "start", color: "blue" }}>
                 Account Settings
               </h2>
-            </div>
+            </div>*/}
             <ul className="listview flush transparent no-line image-listview">
-              <li>
+              {/*<li>
                 <a
                   href=""
                   onClick={() => {
@@ -65,7 +65,7 @@ function Menu(props) {
                 >
                   <div className="in">Change password</div>
                 </a>
-              </li>
+                </li>*/}
             </ul>
             <div className="listview-title mt-1">
               <h2 style={{ textAlign: "start", color: "blue" }}>About HERO</h2>
