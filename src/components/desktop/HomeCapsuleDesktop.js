@@ -74,12 +74,13 @@ function HomeCapsuleDesktop(props) {
             </div>
           </div>
           <div className="col-6 flex-center">
-            {" "}
-            <video
-              controls
-              src="assets/videos/short-video-for-test.mp4"
-              className="home-video"
-            ></video>
+            <iframe
+              className="home-video mb-4"
+              src="https://www.youtube.com/embed/cy44_lAZcVs"
+              title="HERO Coin - How it works"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
           </div>
         </div>
       </div>
