@@ -41,7 +41,22 @@ function CardCapsule(props) {
     console.log(OrderID,fiatAmount);
     console.log(arrA);
     console.log(ArrAmnt);
-
+  if (OrderID != undefined)
+  {
+    axios
+    .post("https://hegemony.donftify.digital:8080/DepositCusdCredit", {
+      contributer: wallet,
+      amount: (parseInt(fiatAmount) * 10**18).toString(),
+      array:ArrAmnt.toString()
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      //handle error here
+      console.log(error);
+    });
+  }
 
   }, []);
   return (

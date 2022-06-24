@@ -19,7 +19,7 @@ import { ethers } from "ethers";
 import axios from "axios";
 import TransactionDigitalCurrencyModal from "./modals/TransactionDigitalCurrencyModal";
 
-const contractAddress = "0x3324EF6f016c0cC1cbB1d548a47B42F0f22957B6";
+const contractAddress = "0x2a8169036d5551539581C2904Ea98D188588DeF0";
 function CardTransactionCapsule2(props) {
   const history = useHistory();
   const [content, setContent] = useState("");
