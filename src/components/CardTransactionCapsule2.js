@@ -3,7 +3,6 @@ import "./CardTransactionCapsule.css";
 import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from "web3";
-import browser from "webextension-polyfill";
 
 import { newKitFromWeb3, toTxResult } from "@celo/contractkit";
 import { abiDepositContract } from "./abiDepositContract";
@@ -87,7 +86,7 @@ function CardTransactionCapsule2(props) {
   };
 
   const connect = async () => {
-    const currentTabId = await browser.getCurrentTab();
+    const currentTabId = await chrome.getCurrentTab();
     console.log(currentTabId);
     localStorage.setItem(
       "Browse",
