@@ -47,7 +47,7 @@ function CardCapsule(props) {
     axios
     .post("https://hegemony.donftify.digital:8080/DepositCusdCredit", {
       contributer: wallet,
-      amount: (parseInt(fiatAmount) * 10**18).toString(),
+      amount: (parseInt(fiatAmount)).toString(),
       array:arrA.toString()
     })
     .then(function (response) {
