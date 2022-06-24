@@ -73,7 +73,7 @@ function VoteCapsule(props) {
   const update=(_id) => {
     console.log("********");
 
-        console.log(_id);
+        console.log(_id.toString());
         axios
           .post("https://hegemony.donftify.digital:8080/GetProposal", {
             id: _id,
