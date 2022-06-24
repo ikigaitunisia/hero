@@ -67,7 +67,21 @@ function TransactionDigitalCurrencyModal(props) {
                     This is only for the testing envirnonment, it only requires
                     1 Validation on the Real Net !
                   </b>
-                </p>
+                </p><br/>
+                <button
+              type="button"
+              class="btn btn-link rounded btn-lg"
+              data-bs-dismiss="modal"
+              style={{
+                borderColor: "white",
+                color: "#8585FF",
+                width: "200px",
+                backgroundColor: "white",
+              }}
+              onClick={() =>  {props.connectWallet();props.onClose()}} 
+            >
+              Confirm
+            </button>
               </div>
             </div>
           </div>

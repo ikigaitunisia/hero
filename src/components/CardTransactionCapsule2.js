@@ -34,6 +34,7 @@ function CardTransactionCapsule2(props) {
   const [approuved, setApprouved] = useState(false);
   const [WalletContrib, setWalletContrib] = useState("");
   const [type, setType] = useState("");
+  const [Approved,setApproved] = useState("");
   const dappName = "HeroCoin";
   const [
     showTransactionDigitalCurrencyModal,
@@ -146,6 +147,7 @@ function CardTransactionCapsule2(props) {
 
   };
   const getElems = async () => {
+
     const web3 = new Web3("https://alfajores-forno.celo-testnet.org");
     // mainnet -- comment out the above, uncomment below for mainnet
     // const web3 = new Web3('https://forno.celo.org');
@@ -371,7 +373,7 @@ function CardTransactionCapsule2(props) {
             <label className="label mb-3">Type of Payment</label>
 
             <div className="radio-input">
-              <div class="form-check mb-1 no-padding" onClick={() => connect()}>
+              <div class="form-check mb-1 no-padding" onClick={() => setShowTransactionDigitalCurrencyModal(true)}>
                 <input
                   class="form-check-input"
                   type="radio"
@@ -477,6 +479,7 @@ function CardTransactionCapsule2(props) {
       </div>
       <TransactionDigitalCurrencyModal
         show={showTransactionDigitalCurrencyModal}
+        connectWallet={connect}
         onClose={() => setShowTransactionDigitalCurrencyModal(false)}
       />
     </div>
