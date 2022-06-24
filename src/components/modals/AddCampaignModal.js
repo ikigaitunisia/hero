@@ -14,7 +14,21 @@ function AddCampaignModal(props) {
       props.onClose();
     };
   }, [props.show]);
+  const witdhrawl = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    axios
+    .post("https://hegemony.donftify.digital:8080/widhdraw", {
+      activist : user.Wallet
+    })
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      //handle error here
+      console.log(error);
+    });
 
+  }
   return (
     <div
       className="modal fade modalbox"
