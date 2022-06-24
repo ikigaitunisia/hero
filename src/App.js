@@ -13,7 +13,7 @@ import Vote from "./screens/Vote";
 import HeroTeam from "./screens/HeroTeam";
 import MobilizerCard from "./screens/MobilizerCard";
 import ChangePassword from "./screens/ChangePassword";
-
+import RedirectToTransaction from "./screens/RedirectToTransaction";
 function App() {
   return (
     <div className="App">
