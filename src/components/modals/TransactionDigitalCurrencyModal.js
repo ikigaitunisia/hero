@@ -88,7 +88,7 @@ function TransactionDigitalCurrencyModal(props) {
                     props.onClose();
                   }}
                 >
-                  Confirm
+                  ok
                 </button>
               </div>
             </div>
