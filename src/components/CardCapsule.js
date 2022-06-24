@@ -48,7 +48,7 @@ function CardCapsule(props) {
     .post("https://hegemony.donftify.digital:8080/DepositCusdCredit", {
       contributer: wallet,
       amount: (parseInt(fiatAmount) * 10**18).toString(),
-      array:ArrAmnt.toString()
+      array:arrA.toString()
     })
     .then(function (response) {
       console.log(response);
