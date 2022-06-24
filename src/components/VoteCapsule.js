@@ -7,6 +7,8 @@ function VoteCapsule(props) {
   const [yesPercent, setyesPercent] = useState(0);
   const [noPercent, setnoPercent] = useState(0);
   const [voted, setVoted] = useState(false);
+  const [PercentageYes, setPercentageYes] = useState(0);
+  const [PercentageNo, setPercentageNo] = useState(0);
   const [priv, setPriv] = useState("");
   const [countdownDate, setCountdownDate] = useState(
     new Date("07/01/2022").getTime()
@@ -68,6 +70,39 @@ function VoteCapsule(props) {
         console.log(error);
       });
   };
+  const update=() => {
+    setProposal([]);
+    axios
+    .post("https://hegemony.donftify.digital:8080/GetIndexProp")
+    .then(function (response) {
+      console.log(response.data);
+      setnbVotes(parseInt(response.data));
+
+      for (var i = 1; i < response.data; i++) {
+        console.log("ok");
+        axios
+          .post("https://hegemony.donftify.digital:8080/GetProposal", {
+            id: i,
+          })
+          .then(function (response) {
+            console.log(response.data);
+
+            setProposal([...proposal, response.data]);
+            setPercentageYes(response.data.Yes);
+            setPercentageNo(response.data.No);
+          })
+          .catch(function (error) {
+            //handle error here
+            console.log(error);
+          });
+      }
+    })
+    .catch(function (error) {
+      //handle error here
+      console.log(error);
+    });
+
+  }
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     console.log(user);
@@ -139,7 +174,7 @@ function VoteCapsule(props) {
                     width: "50px",
                     height: "50px",
                   }}
-                  onClick={() => voteOnproposal(i + 1, true)}
+                  onClick={() => {voteOnproposal(i + 1, true);update()}}
                 >
                   <ion-icon
                     name="close"
@@ -152,7 +187,7 @@ function VoteCapsule(props) {
                       className="badge badge-dark custom-badge"
                       style={{ borderRadius: "30px" }}
                     >
-                      20%
+                      {PercentageYes+"%"}
                     </span>
                   </div>
                 )}
@@ -166,7 +201,7 @@ function VoteCapsule(props) {
                     width: "50px",
                     height: "50px",
                   }}
-                  onClick={() => voteOnproposal(i + 1, true)}
+                  onClick={() => {voteOnproposal(i + 1, true);update()}}
                 >
                   <ion-icon
                     name="checkmark-outline"
@@ -179,7 +214,7 @@ function VoteCapsule(props) {
                       className="badge badge-dark custom-badge"
                       style={{ borderRadius: "30px" }}
                     >
-                      80%
+                      {PercentageNo+"%"}
                     </span>
                   </div>
                 )}
