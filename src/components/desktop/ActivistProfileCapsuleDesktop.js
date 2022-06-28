@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import "../ActivistProfileCapsule.css";
-import ActivistCampaignsModal from "../modals/ActivistCampaignsModal";
-import ActivistVictoriesModal from "../modals/ActivistVictoriesModal";
+import ActivistCampaignsDesktopModal from "../modals/ActivistCampaignsDesktopModal";
+import ActivistVictoriesDesktopModal from "../modals/ActivistVictoriesDesktopModal";
 //import CardTransactionModal from "./modals/CardTransactionModal";
 
 function ActivistProfileCapsuleDesktop(props) {
@@ -221,12 +221,12 @@ function ActivistProfileCapsuleDesktop(props) {
             </div>
           </div>
         </div>
-        <ActivistCampaignsModal
+        <ActivistCampaignsDesktopModal
           show={showMobilizerCampaignsModal}
           activist={A.state}
           onClose={() => setShowMobilizerCampaignsModal(false)}
         />
-        <ActivistVictoriesModal
+        <ActivistVictoriesDesktopModal
           show={showMobilizerVictoriesModal}
           activist={A.state}
           onClose={() => setShowMobilizerVictoriesModal(false)}
