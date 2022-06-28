@@ -56,6 +56,10 @@
   align-items: center;
 }
 
+.fw-4{
+  font-weight: 400!important;
+}
+
 .fw-7 {
   font-weight: 700;
 }
