@@ -56,3 +56,7 @@ button {
     max-height: 24px;
   }
 }
+
+#appCapsule{
+  min-height: 100vh!important;
+}

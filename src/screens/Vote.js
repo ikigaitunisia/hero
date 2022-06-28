@@ -7,9 +7,9 @@ import BottomMenu from "../components/BottomMenu";
 function Vote(props) {
   return (
     <>
-      <Header whiteMode showLogo showMenuBtn/>
+      <Header whiteMode showLogo showMenuBtn />
       <VoteCapsule />
-      <BottomMenu showFeedBtn showCardBtn showVoteBtn activeItem="vote"/>
+      <BottomMenu showFeedBtn showCardBtn showVoteBtn activeItem="vote" />
     </>
   );
 }

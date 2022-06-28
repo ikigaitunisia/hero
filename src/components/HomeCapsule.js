@@ -5,11 +5,11 @@ import "./HomeCapsule.css";
 function HomeCapsule(props) {
   const history = useHistory();
   return (
-    <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
+    <div id="appCapsule" className="bg-g">
       <div className="section mt-4 pt-4">
         <img className="home-img" src="assets/img/Anuna_HomePage.png" />
       </div>
-      <div className="section center-div" style={{ marginBottom: 0 }}>
+      <div className="section center-div mb-0">
         <h1 className="text-title white-text title-font">
           Millions of Climate
           <br />
@@ -21,7 +21,7 @@ function HomeCapsule(props) {
           time and it's not being paid.
         </div>
       </div>
-      <div className="section center-div mt-2 pb-3" style={{ marginBottom: 0 }}>
+      <div className="section center-div mt-2 pb-3 mb-0">
         <h1 className="text-title white-text title-font">
           HERO Coin gives you
           <br /> the power to support them.
@@ -35,18 +35,13 @@ function HomeCapsule(props) {
       <div className="section pt-4">
         <button
           type="button"
-          className="btn btn-outline-secondary btn-lg rounded font-size-btn"
-          style={{
-            borderColor: "white",
-            color: "#8585FF",
-            background: "white",
-          }}
+          className="btn btn-outline-secondary btn-lg rounded font-size-btn home-btn"
           onClick={() => history.push("/feed")}
         >
           Meet the first HERO Mobilizers
         </button>
         <div className="mt-3">
-          <span className="white-text" style={{ fontSize: "14px" }}>
+          <span className="white-text link-size">
             *Source: Stanford Social Innovation Review
           </span>
         </div>
