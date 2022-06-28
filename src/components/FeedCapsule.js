@@ -43,21 +43,20 @@ function FeedCapsule(props) {
   }, []);
 
   return (
-    <div id="appCapsule" className="bg-g-1" style={{ minHeight: "100vh" }}>
+    <div id="appCapsule" className="bg-g-1">
       <div className="section mt-4 pt-4 center-div">
         <h5 className="blue-text title-font">
           Browse the first HERO Mobilizers with a<br />
           verified track record on climate action.
         </h5>
         <h6
-          className="mt-4 pt-2 title-font blue-text"
+          className="mt-4 pt-2 title-font blue-text underline"
           onClick={() => setShowFeedVerificationModal(true)}
-          style={{ textDecoration: "underline" }}
         >
           Discover how HERO Mobilizers are verified
           <ion-icon
             src="assets/img/svg/heroblue.svg"
-            style={{ width: "8.4px", marginLeft: "3px" }}
+            class="small-icon"
           ></ion-icon>
         </h6>
         <div className="mt-4 pt-2 blue-text lead">
@@ -80,39 +79,25 @@ function FeedCapsule(props) {
             <>
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-4">
                 <div
-                  className="card bg-dark text-white"
+                  className="card bg-dark text-white br-20"
                   onClick={() =>
                     history.push("/activistprofile", {
                       ...activist,
                       indexMax: Index,
                     })
                   }
-                  style={{ borderRadius: "20px" }}
                 >
                   <img
                     className="card-img"
                     src={"assets/img/" + activist.autre.Photo}
                     alt="Card image"
                   />
-                  <div
-                    className="card-img-overlay center-column-content"
-                    style={{ borderRadius: "20px" }}
-                  >
+                  <div className="card-img-overlay center-column-content br-20">
                     <div>
-                      <h1
-                        className="white-text title-font text-title"
-                        style={{
-                          margin: 0,
-                          paddingBottom: 0,
-                          fontStyle: "italic",
-                        }}
-                      >
+                      <h1 className="white-text title-font text-title m-0 pb-0 fs-italic">
                         {activist.Nom + " " + activist.Prenom}
                       </h1>
-                      <span
-                        className="white-text"
-                        style={{ fontStyle: "italic" }}
-                      >
+                      <span className="white-text fs-italic">
                         {activist.autre.Pays}
                       </span>
                     </div>

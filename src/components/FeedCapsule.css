@@ -70,3 +70,20 @@ b {
 .bg-g-1{
   background: linear-gradient(0deg, white, #EDEDF5);
 }
+
+.underline{
+  text-decoration: underline!important;
+}
+
+.small-icon{
+  width: 8.4px;
+  margin-left: 3px;
+}
+
+.br-20{
+  border-radius: 20px;
+}
+
+.fs-italic{
+  font-style: italic;
+}
