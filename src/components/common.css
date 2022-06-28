@@ -1,0 +1,10 @@
+.submit-btn {
+  background-color: white;
+  width: 200px;
+  margin: 0 auto;
+}
+
+#smscode {
+  background: transparent !important;
+  color: white !important;
+}

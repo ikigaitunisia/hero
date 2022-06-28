@@ -14,7 +14,7 @@ function SmsVerification(props) {
     props.onCodeValidate();
   };
   return (
-    <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
+    <div id="appCapsule" className="bg-g">
       <div className="section mt-4 pt-4 pb-3 text-center">
         <img
           src={
@@ -36,10 +36,6 @@ function SmsVerification(props) {
           <div className="form-group basic">
             <input
               type="text"
-              style={{
-                background: "transparent!important",
-                color: "white!important",
-              }}
               className="form-control verification-input"
               id="smscode"
               placeholder="••••"
@@ -51,12 +47,7 @@ function SmsVerification(props) {
           <div className="pt-4 mt-4 center-div">
             <button
               type="submit"
-              className="btn btn-link btn-block btn-lg rounded"
-              style={{
-                backgroundColor: "white",
-                width: "200px",
-                margin: "0 auto",
-              }}
+              className="btn btn-link btn-block btn-lg rounded submit-btn"
             >
               Verify
             </button>
