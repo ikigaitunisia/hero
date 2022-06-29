@@ -1,7 +1,7 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Menu from "./Menu";
-import "./Header.css"
+import "./Header.css";
 
 function Header(props) {
   const whiteMode = props.whiteMode;
@@ -12,23 +12,23 @@ function Header(props) {
   const showBackBtn = props.showBackBtn;
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
-  const [loggedin,setLogedin] = useState(false);
+  const [loggedin, setLogedin] = useState(false);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user != null) {
       setLogedin(true);
-    } 
+    }
   }, []);
-  const closeB=() => {
+  const closeB = () => {
     history.push(history.goBack());
-
-  }
+  };
   const logout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem("user");
     history.push("/");
+  };
 
-  }
+  const colorClass = whiteMode ? "white-text" : "blue-text";
   return (
     <>
       <div className="appHeader no-border transparent position-absolute">
@@ -36,9 +36,8 @@ function Header(props) {
           {loggedin && showMenuBtn && (
             <a
               href="#"
-              className="headerButton"
+              className={"headerButton " + colorClass}
               onClick={() => setShowMenu(true)}
-              style={whiteMode ? { color: "white" } : { color: "#0000FF" }}
             >
               <ion-icon name="menu-outline"></ion-icon>
             </a>
@@ -46,10 +45,9 @@ function Header(props) {
           {showBackBtn && (
             <a
               href="#"
-              className="headerButton"
+              className={"headerButton " + colorClass}
               data-bs-toggle="modal"
               data-bs-target="#sidebarPanel"
-              style={whiteMode ? { color: "white" } : { color: "#0000FF" }}
               onClick={() => history.push("/")}
             >
               <ion-icon name="chevron-back-outline"></ion-icon>
@@ -71,35 +69,30 @@ function Header(props) {
           )}
         </div>
         <div className="right">
-          {showLoginBtn && (
-             !loggedin ?
-            <a
-              onClick={() => history.push("/login")}
-              className="headerButton headerCustomBtn"
-              style={whiteMode ? { color: "white" } : { color: "#0000FF" }}
-            >
-              Login
-            </a> :
-            <a
-            onClick={() => logout()}
-            className="headerButton headerCustomBtn"
-            style={whiteMode ? { color: "white" } : { color: "#0000FF" }}
-          >
-            Logout
-          </a> 
-           
-          )}
+          {showLoginBtn &&
+            (!loggedin ? (
+              <a
+                onClick={() => history.push("/login")}
+                className={"headerButton headerCustomBtn " + colorClass}
+              >
+                Login
+              </a>
+            ) : (
+              <a
+                onClick={() => logout()}
+                className={"headerButton headerCustomBtn " + colorClass}
+              >
+                Logout
+              </a>
+            ))}
 
           {showCloseBtn && (
-          
             <a
-              className="headerButton goBack"
-              style={whiteMode ? { color: "white" } : { color: "#0000FF" }}
-             onClick ={() => closeB()}
+              className={"headerButton goBack " + colorClass}
+              onClick={() => closeB()}
             >
               <ion-icon name="close"></ion-icon>
             </a>
-           
           )}
         </div>
       </div>
