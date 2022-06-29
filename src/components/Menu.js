@@ -132,11 +132,7 @@ function Menu(props) {
             </ul>
             <div className="listview-title mt-1">
               <h2 className="text-start blue-text">
-                <a
-                  href=""
-                  onClick={logout}
-                  className="blue-text td-0"
-                >
+                <a href="" onClick={logout} className="blue-text td-0">
                   Log out
                 </a>
               </h2>
