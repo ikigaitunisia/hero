@@ -50,7 +50,7 @@ function Menu(props) {
               </div>
             </div>
             {/*<div className="listview-title mt-1">
-              <h2 style={{ textAlign: "start", color: "blue" }}>
+              <h2 className="text-start blue-text">
                 Account Settings
               </h2>
             </div>*/}
@@ -68,7 +68,7 @@ function Menu(props) {
                 </li>*/}
             </ul>
             <div className="listview-title mt-1">
-              <h2 style={{ textAlign: "start", color: "blue" }}>About HERO</h2>
+              <h2 className="text-start blue-text">About HERO</h2>
             </div>
             <ul className="listview flush transparent no-line image-listview">
               <li>
@@ -131,11 +131,11 @@ function Menu(props) {
               </li>
             </ul>
             <div className="listview-title mt-1">
-              <h2 style={{ textAlign: "start", color: "blue" }}>
+              <h2 className="text-start blue-text">
                 <a
                   href=""
                   onClick={logout}
-                  style={{ textDecoration: "unset", color: "blue" }}
+                  className="blue-text td-0"
                 >
                   Log out
                 </a>
