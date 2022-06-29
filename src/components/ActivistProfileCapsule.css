@@ -76,14 +76,17 @@
   width: 40px;
   height: 40px;
 }
-
+.blue-divider {
+  background: blue;
+  opacity: unset;
+}
 .white-divider {
   background-color: white !important;
   opacity: unset;
 }
 
 .light-divider {
-  background-color: #EEEEEE !important;
+  background-color: #eeeeee !important;
 }
 
 #mobilizerVictories .modal-content {

@@ -74,6 +74,10 @@
   font-weight: bold;
 }
 
+.fw-normal {
+  font-weight: normal !important;
+}
+
 .flex {
   display: flex;
 }
