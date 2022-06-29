@@ -47,8 +47,8 @@ button {
   max-height: 35px;
 }
 
-.no-padding{
-  padding: 0!important;
+.no-padding {
+  padding: 0 !important;
 }
 
 @media screen and (max-width: 300px) {
@@ -57,6 +57,10 @@ button {
   }
 }
 
-#appCapsule{
-  min-height: 100vh!important;
+#appCapsule {
+  min-height: 100vh !important;
+}
+
+.center-text {
+  text-align: center !important;
 }
