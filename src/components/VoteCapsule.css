@@ -55,9 +55,11 @@
   justify-content: center;
   align-items: center;
 }
-
-.fw-4{
-  font-weight: 400!important;
+.fw-1 {
+  font-weight: 100 !important;
+}
+.fw-4 {
+  font-weight: 400 !important;
 }
 
 .fw-7 {
