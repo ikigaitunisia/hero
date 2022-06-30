@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import axios from "axios";
 import "./CardCapsule.css";
-import ExchangeModal from "./modals/ExchangeModal";
 import ActivistCampaignsModal from "./modals/ActivistCampaignsModal";
 import ActivistVictoriesModal from "./modals/ActivistVictoriesModal";
 
 function CardCapsule(props) {
-  const [showExchangeModal, setShowExchangeModal] = useState(false);
   const [balance, setBalance] = useState(0);
   const [Txs, setTxs] = useState([]);
   const [showMobilizerCampaignsModal, setShowMobilizerCampaignsModal] =
@@ -98,10 +96,6 @@ function CardCapsule(props) {
           </div>
         </div>
       </div>
-      <ExchangeModal
-        show={showExchangeModal}
-        onClose={() => setShowExchangeModal(false)}
-      />
       <div className="text pt-4">
         <div className="lead blue-text title-font custom-font-size fw-normal">
           You recieve 1 HERO Coin for being a first time Contributor. Then, each

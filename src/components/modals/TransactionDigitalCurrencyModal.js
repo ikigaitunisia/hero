@@ -26,43 +26,33 @@ function TransactionDigitalCurrencyModal(props) {
         role="dialog"
       >
         <div className="modal-dialog" role="document">
-          <div className="modal-content" style={{ opacity: "90%" }}>
-            <div
-              className="modal-header"
-              style={{
-                justifyContent: "flex-end",
-                border: "unset",
-                background: "transparent",
-              }}
-            >
+          <div className="modal-content opacity-9">
+            <div className="modal-header">
               <a href="#" data-bs-dismiss="modal">
-                <ion-icon name="close" style={{ color: "white" }}></ion-icon>
+                <ion-icon name="close" class="white-text"></ion-icon>
               </a>
             </div>
             <div className="modal-body">
-              <div
-                className="section center-div mt-4 pt-4 white-text"
-                style={{ textAlign: "start" }}
-              >
-                <p className="pb-2" style={{ margin: 0 }}>
+              <div className="section center-div mt-4 pt-4 white-text text-start">
+                <p className="pb-2 m-0">
                   <b>
                     Since we are working on the Valora Alfajoles Testnet, you
                     will need to
                   </b>
                 </p>
                 <ul className="white-text pb-2">
-                  <li className="no-padding">
+                  <li className="p-0">
                     Click a <b>first</b> time on “Confirm” to proceed to Valora
                     Alfajoles and Approve in Valora the connection with Hero
                     Coin
                   </li>
-                  <li className="no-padding">
+                  <li className="p-0">
                     Return to this same Transaction page, wait a few seconds for
                     the first operation to clear and Click a second time on{" "}
                     <b>“Confirm”</b> to proceed again to Valora and validate the
                     transaction this time
                   </li>
-                  <li className="no-padding">
+                  <li className="p-0">
                     On iphones, you even need to do this 3 times:)
                   </li>
                 </ul>
@@ -75,14 +65,8 @@ function TransactionDigitalCurrencyModal(props) {
                 <br />
                 <button
                   type="button"
-                  class="btn btn-link rounded btn-lg"
+                  className="btn btn-link rounded btn-lg submit-btn"
                   data-bs-dismiss="modal"
-                  style={{
-                    borderColor: "white",
-                    color: "#8585FF",
-                    width: "200px",
-                    backgroundColor: "white",
-                  }}
                   onClick={() => {
                     props.connectWallet();
                     props.onClose();

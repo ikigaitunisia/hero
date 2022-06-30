@@ -8,3 +8,13 @@
   background: transparent !important;
   color: white !important;
 }
+
+.opacity-9 {
+  opacity: 90% !important;
+}
+
+.modal-header {
+  justify-content: flex-end !important;
+  border: unset !important;
+  background: transparent !important;
+}

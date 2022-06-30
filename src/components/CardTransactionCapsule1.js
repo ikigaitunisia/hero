@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./CardTransactionCapsule.css";
-import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from "web3";
 import { newKitFromWeb3 } from "@celo/contractkit";

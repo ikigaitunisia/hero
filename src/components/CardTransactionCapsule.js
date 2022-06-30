@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./CardTransactionCapsule.css";
-import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from "web3";
 import { newKitFromWeb3 } from "@celo/contractkit";
@@ -13,7 +12,6 @@ import axios from "axios";
 const contractAddress = "0x1f78Fd2b3C9a93Adfc5D09F7d2E09D8c821112dE";
 function CardTransactionCapsule(props) {
   const history = useHistory();
-  const [showExchangeModal, setShowExchangeModal] = useState(false);
   const [content, setContent] = useState("");
   const [provider, setProvider] = useState(null);
   const [kit, setKit] = useState(null);
