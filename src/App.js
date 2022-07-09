@@ -15,6 +15,9 @@ import HeroTeam from "./screens/HeroTeam";
 import MobilizerCard from "./screens/MobilizerCard";
 import ChangePassword from "./screens/ChangePassword";
 import RedirectToTransaction from "./screens/RedirectToTransaction";
+import Expectation1 from "./screens/Expectation1";
+import Expectation2 from "./screens/Expectation2";
+import Expectation4 from "./screens/Expectation4";
 function App() {
   return (
     <div className="App">
@@ -32,7 +35,11 @@ function App() {
         <Route path="/mobilizercard" exact component={MobilizerCard} />
         <Route path="/changepassword" exact component={ChangePassword} />
         <Route path="/RedirectToTransaction" exact component={RedirectToTransaction} />
-        
+
+        <Route path="/survey" exact component={Expectation1} />
+        <Route path="/survey-feed" exact component={Expectation2} />
+        <Route path="/survey-activist-profile" exact component={Expectation4} />
+
       </Router>
     </div>
   );

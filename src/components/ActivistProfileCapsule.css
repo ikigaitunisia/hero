@@ -150,3 +150,9 @@
 .fs-14 {
   font-size: 14px !important;
 }
+
+.chip-primary {
+  background: blue !important;
+  color: #fff;
+  font-size: 18px;
+}
