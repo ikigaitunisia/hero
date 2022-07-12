@@ -45,14 +45,14 @@ function ActivistProfileCapsuleDesktop(props) {
         <div className="container" style={{ marginBottom: "50px" }}>
           <div className="row mt-4 pt-4">
             <div className="col-6 flex-center">
-              <video
+              <iframe
                 id="background-video"
-                controls={true}
-                playsInline
-                style={{ borderRadius: "30px", width: "100%", height: "auto" }}
-              >
-                <source src={A.state.autre.Video} type="video/mp4" />
-              </video>
+                src={A.state.autre.Video}
+                title="HERO Coin - How it works"
+                frameborder="0"
+                allow="accelerometer;autoplay=false; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                style={{ borderRadius: "30px", width: "100%", height: "40vh" }}
+              ></iframe>
             </div>
             <div className="col-6">
               <div

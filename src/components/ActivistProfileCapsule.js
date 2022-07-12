@@ -43,9 +43,13 @@ function ActivistProfileCapsule(props) {
         style={loggedin ? { paddingBottom: "100px" } : {}}
       >
         <div className="section full">
-          <video id="background-video" controls={true} playsInline>
-            <source src={A.state.autre.Video} type="video/mp4" />
-          </video>
+          <iframe
+            id="background-video"
+            src={A.state.autre.Video}
+            title="HERO Coin - How it works"
+            frameborder="0"
+            allow="accelerometer;autoplay=false; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          ></iframe>
         </div>
         <div className="section mt-3 text-center center-div">
           <div className="avatar-section mb-2">
