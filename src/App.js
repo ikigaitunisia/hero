@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
+import "./components/common.css"
 import Login from "./screens/Login";
 import LoginAct from "./screens/LoginActv";
 import Card from "./screens/Card";

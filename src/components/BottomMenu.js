@@ -41,7 +41,6 @@ function BottomMenu(props) {
                   ? "assets/img/svg/transactionFill.svg"
                   : "assets/img/svg/transaction.svg"
               }
-              style={{ color: "bule" }}
             ></ion-icon>
           </div>
         </a>

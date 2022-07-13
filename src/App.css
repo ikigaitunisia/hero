@@ -47,12 +47,36 @@ button {
   max-height: 35px;
 }
 
-.no-padding{
-  padding: 0!important;
+.no-padding {
+  padding: 0 !important;
 }
 
 @media screen and (max-width: 300px) {
   .appHeader .pageTitle .logo {
     max-height: 24px;
   }
+}
+
+#appCapsule {
+  min-height: 100vh !important;
+}
+
+.center-text {
+  text-align: center !important;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

@@ -16,7 +16,7 @@
 }
 
 .white-text {
-  color: white!important;
+  color: white !important;
 }
 
 .center-content {
@@ -67,6 +67,27 @@ b {
   }
 }
 
-.bg-g-1{
-  background: linear-gradient(0deg, white, #EDEDF5);
+.bg-g-1 {
+  background: linear-gradient(0deg, white, #ededf5);
+}
+
+.underline {
+  text-decoration: underline !important;
+}
+
+.td-0 {
+  text-decoration: unset;
+}
+
+.small-icon {
+  width: 8.4px;
+  margin-left: 3px;
+}
+
+.br-20 {
+  border-radius: 20px;
+}
+
+.fs-italic {
+  font-style: italic;
 }

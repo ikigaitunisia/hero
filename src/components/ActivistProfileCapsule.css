@@ -1,6 +1,6 @@
 #background-video {
   height: 40vh;
-  width: auto;
+  width: 60%;
   object-fit: unset;
 }
 
@@ -76,14 +76,19 @@
   width: 40px;
   height: 40px;
 }
-
+.blue-divider {
+  background: blue;
+  opacity: unset;
+}
 .white-divider {
   background-color: white !important;
   opacity: unset;
 }
-
+.grey-divider {
+  background-color: #a9abad !important;
+}
 .light-divider {
-  background-color: #EEEEEE !important;
+  background-color: #eeeeee !important;
 }
 
 #mobilizerVictories .modal-content {
@@ -128,4 +133,20 @@
 }
 .next-previous a {
   flex-grow: 1;
+}
+
+.progress-bar {
+  width: 55%;
+  background: blue;
+  height: 100%;
+}
+
+.progress {
+  width: 200px;
+  margin: 0 auto;
+  background-color: #dcdce9;
+}
+
+.fs-14 {
+  font-size: 14px !important;
 }

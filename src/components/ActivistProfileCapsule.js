@@ -43,9 +43,13 @@ function ActivistProfileCapsule(props) {
         style={loggedin ? { paddingBottom: "100px" } : {}}
       >
         <div className="section full">
-          <video id="background-video" controls={true} playsInline>
-            <source src={A.state.autre.Video} type="video/mp4" />
-          </video>
+          <iframe
+            id="background-video"
+            src={A.state.autre.Video}
+            title="HERO Coin - How it works"
+            frameborder="0"
+            allow="accelerometer;autoplay=false; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          ></iframe>
         </div>
         <div className="section mt-3 text-center center-div">
           <div className="avatar-section mb-2">
@@ -57,23 +61,16 @@ function ActivistProfileCapsule(props) {
               />
             </a>
           </div>
-          <h3
-            className="custom-font blue-text"
-            style={{ paddingBottom: 0, margin: 0 }}
-          >
+          <h3 className="custom-font blue-text pb-0 m-0">
             {A.state.Nom + " " + A.state.Prenom}{" "}
             <ion-icon
               src="assets/img/svg/heroblue.svg"
-              style={{ width: "8.4px", marginLeft: "3px" }}
+              class="small-icon"
             ></ion-icon>
           </h3>
-          <span className="blue-text" style={{ fontStyle: "italic" }}>
-            {A.state.autre.Pays}
-          </span>
+          <span className="blue-text fs-italic">{A.state.autre.Pays}</span>
           <div className="black-text pt-3 pb-3">
-            <span style={{ fontFamily: "Serabic!important" }}>
-              {A.state.autre.Bio + " "}
-            </span>
+            <span>{A.state.autre.Bio + " "}</span>
           </div>
           <h5>
             <a href={A.state.autre.twitter} className="blue-text title-font">
@@ -83,8 +80,7 @@ function ActivistProfileCapsule(props) {
         </div>
         <hr
           data-content="AND"
-          className="hr-text mt-4 mb-4"
-          style={{ width: "70%", margin: "0 auto", background: "#a9abad" }}
+          className="hr-text mt-4 mb-4 grey-divider center-div"
         ></hr>
         <div className="section">
           <span className="blue-text">
@@ -96,44 +92,25 @@ function ActivistProfileCapsule(props) {
         </div>
         <hr
           data-content="AND"
-          className="hr-text mt-4 mb-4"
-          style={{ width: "70%", margin: "0 auto", background: "#a9abad" }}
+          className="hr-text mt-4 mb-4 grey-divider center-div"
         ></hr>
         <div className="section">
-          <div style={{ display: "flex" }}>
-            <div
-              className="col-lg-6 col-md-6 col-sm-6 col-xs-6 flex-center mb-2"
-              style={{ flexDirection: "column" }}
-            >
+          <div className="flex">
+            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 mb-2 center-content">
               <ion-icon
-                class="md-icon"
+                class="md-icon me-1"
                 src="assets/img/svg/voteBlue.svg"
-                style={{ marginRight: "5px" }}
                 onClick={() => setShowMobilizerCampaignsModal(true)}
               ></ion-icon>
-              <span
-                className="blue-text"
-                style={{ fontSize: "14px", fontWeight: "bold" }}
-              >
-                Campaigns
-              </span>
+              <span className="blue-text fw-bold fs-14">Campaigns</span>
             </div>
-            <div
-              className="col-lg-6 col-md-6 col-sm-6 col-xs-6 flex-center  mb-2"
-              style={{ flexDirection: "column" }}
-            >
+            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 center-content mb-2">
               <ion-icon
-                class="md-icon"
+                class="md-icon me-1"
                 src="assets/img/svg/HeroCoin2.svg"
-                style={{ marginRight: "5px" }}
                 onClick={() => setShowMobilizerVictoriesModal(true)}
               ></ion-icon>
-              <span
-                className="blue-text"
-                style={{ fontSize: "14px", fontWeight: "bold" }}
-              >
-                Victories
-              </span>
+              <span className="blue-text fw-bold fs-14">Victories</span>
             </div>
           </div>
         </div>
@@ -149,8 +126,7 @@ function ActivistProfileCapsule(props) {
         />
         <hr
           data-content="AND"
-          className="hr-text mt-4 mb-4"
-          style={{ width: "70%", margin: "0 auto", background: "#a9abad" }}
+          className="hr-text mt-4 mb-4 grey-divider center-div"
         ></hr>
         <div className="section mb-4">
           <div className="title blue-text">
@@ -159,27 +135,16 @@ function ActivistProfileCapsule(props) {
           <h5 className="value blue-text title-font">{"€5, 000"}</h5>
 
           <div className="center-div mt-3 ">
-            <div
-              className="progress mb-2"
-              style={{
-                width: "200px",
-                margin: "0 auto",
-                backgroundColor: "#dcdce9",
-              }}
-            >
+            <div className="progress mb-2">
               <div
                 className="progress-bar"
                 role="progressbar"
-                style={{ width: "55%", background: "blue", height: "100%" }}
                 aria-valuenow="25"
                 aria-valuemin="0"
                 aria-valuemax="100"
               ></div>
             </div>
-            <div
-              className="value"
-              style={{ color: "blue", textAlign: "center" }}
-            >
+            <div className="value blue-text center-text">
               <b className="title-font">€ 500</b>
               {" of € 5000"}
             </div>

@@ -9,7 +9,7 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  color: #EDEDED;
+  color: #ededed;
 }
 
 .wallet-card-custom {
@@ -33,7 +33,7 @@
   align-items: center;
   font-size: 28px;
   padding-bottom: 5px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .icon-wrapper-custom {
@@ -171,4 +171,20 @@ li {
   .link-size {
     font-size: 10px;
   }
+}
+
+.card-block {
+  height: 280px !important;
+}
+
+.blue-divider {
+  background: blue !important;
+}
+
+.grey-text {
+  color: #958d9e !important;
+}
+
+.w-8 {
+  width: 80% !important;
 }

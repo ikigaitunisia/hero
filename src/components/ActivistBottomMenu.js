@@ -95,68 +95,29 @@ function ActivistBottomMenu(props) {
     }
   };
   return (
-    <div
-      className="appBottomMenu"
-      style={{ display: "flex", flexDirection: "column" }}
-    >
+    <div className="appBottomMenu center-content">
       <div className="next-previous">
         <a className="item" onClick={() => goBack()}>
-          <div
-            className="col"
-            style={{
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
-            <ion-icon
-              src="assets/img/svg/previous.svg"
-              style={{ margin: 0 }}
-            ></ion-icon>
+          <div className="col flex-start">
+            <ion-icon src="assets/img/svg/previous.svg" class="m-0"></ion-icon>
 
-            <strong
-              style={{
-                color: "blue",
-                marginLeft: "10px",
-                fontSize: "14px",
-                marginTop: 0,
-              }}
-              className="title-font"
-            >
+            <strong className="title-font mt-0 blue-text fs-14 ml-2">
               Previous mobilizer
             </strong>
           </div>
         </a>
 
         <a className="item" onClick={() => goNext()}>
-          <div
-            className="col"
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
-            }}
-          >
-            <strong
-              style={{
-                color: "blue",
-                marginRight: "10px",
-                fontSize: "14px",
-                marginTop: 0,
-              }}
-              className="title-font"
-            >
+          <div className="col flex-end">
+            <strong className="title-font mt-0 blue-text fs-14 me-2">
               Next mobilizer
             </strong>
-            <ion-icon
-              src="assets/img/svg/next.svg"
-              style={{ margin: 0 }}
-            ></ion-icon>
+            <ion-icon src="assets/img/svg/next.svg" class="m-0"></ion-icon>
           </div>
         </a>
       </div>
       {loggedin && (
-        <div style={{ display: "flex", width: "100%" }}>
+        <div className="flex full-width">
           {showFeedBtn && (
             <a
               href=""
@@ -187,7 +148,6 @@ function ActivistBottomMenu(props) {
                       ? "assets/img/svg/transactionFill.svg"
                       : "assets/img/svg/transaction.svg"
                   }
-                  style={{ color: "bule" }}
                 ></ion-icon>
               </div>
             </a>

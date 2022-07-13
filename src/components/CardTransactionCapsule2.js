@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./CardTransactionCapsule.css";
-import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from "web3";
 
@@ -46,7 +45,6 @@ function CardTransactionCapsule2(props) {
     console.log(Activist);
   };
   useEffect(() => {
-
     const user = JSON.parse(localStorage.getItem("user"));
     console.log(user);
     const redirection = JSON.parse(localStorage.getItem("ValoraAlfajores"));
@@ -88,9 +86,9 @@ function CardTransactionCapsule2(props) {
   };
 
   const connect = async () => {
-    
     const requestId = "login";
-    const callback = "https://hegemony.donftify.digital:3001/RedirectToTransaction";
+    const callback =
+      "https://hegemony.donftify.digital:3001/RedirectToTransaction";
     requestAccountAddress({
       requestId,
       dappName,
@@ -118,7 +116,13 @@ function CardTransactionCapsule2(props) {
     });
     localStorage.setItem(
       "ValoraAlfajores",
-      JSON.stringify({Redirect : true, dappkitResponse : dappkitResponse , arrOF:arrA,arrAmount:ArrAv ,Somme:Somme })
+      JSON.stringify({
+        Redirect: true,
+        dappkitResponse: dappkitResponse,
+        arrOF: arrA,
+        arrAmount: ArrAv,
+        Somme: Somme,
+      })
     );
     /*
     const provider = new WalletConnectProvider({
@@ -327,30 +331,24 @@ function CardTransactionCapsule2(props) {
   };
 
   return (
-    <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
+    <div id="appCapsule" className="bg-g">
       <div className="section mt-2">
         <img
           alt="logo"
-          className="logo"
+          className="logo supporter-logo"
           src="assets/img/heroLogo.png"
-          style={{ width: "145px" }}
         />
       </div>
       <div className="section">
-        <h4
-          className="text-title white-text"
-          style={{ margin: 0, fontWeight: "900" }}
-        >
+        <h4 className="text-title white-text m-0 fw-9">
           Support HERO Mobilizers
         </h4>
-        <h4 className="white-text" style={{ fontWeight: "100" }}>
-          with a Basic Income.
-        </h4>
+        <h4 className="white-text fw-1">with a Basic Income.</h4>
       </div>
       <div className="section">
         <form id="white-form">
           <div className="flex-end">
-            <a href="#" style={{ color: "white" }}>
+            <a href="#" className="white-text">
               <ion-icon
                 class="add-icon"
                 name="add"
@@ -399,47 +397,41 @@ function CardTransactionCapsule2(props) {
 
             <div className="radio-input">
               <div
-                class="form-check mb-1 no-padding"
+                className="form-check mb-1 no-padding"
                 onClick={() => setShowTransactionDigitalCurrencyModal(true)}
               >
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
                   onClick={() => setType("Crypto")}
                 />
                 <label
-                  class="form-check-label"
+                  className="form-check-label text-start"
                   for="flexRadioDefault1"
-                  style={{ textAlign: "start" }}
                 >
                   Digital Currency Payment
                   <br />
-                  <span style={{ fontSize: "12px" }}>
-                    (€ 0.1 - € 1 maximum)
-                  </span>
+                  <span className="xsmall-font">(€ 0.1 - € 1 maximum)</span>
                 </label>
               </div>
               <div
-                class="form-check mb-1 no-padding"
+                className="form-check mb-1 no-padding"
                 onClick={() => setType("CreditCard")}
               >
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault2"
                 />
                 <label
-                  class="form-check-label"
+                  className="form-check-label text-start"
                   for="flexRadioDefault2"
-                  style={{ textAlign: "start" }}
                 >
                   Credit Card <br />
-                  <span style={{ fontSize: "12px" }}>
-                    (€ 30 - € 50 maximum)
-                  </span>
+                  <span className="xsmall-font">(€ 30 - € 50 maximum)</span>
                 </label>
               </div>
             </div>
@@ -504,14 +496,8 @@ function CardTransactionCapsule2(props) {
           <div className="form-group basic">
             <button
               type="button"
-              class="btn btn-link rounded btn-lg"
+              className="btn btn-link rounded btn-lg submit-btn"
               data-bs-dismiss="modal"
-              style={{
-                borderColor: "white",
-                color: "#8585FF",
-                width: "200px",
-                backgroundColor: "white",
-              }}
               onClick={() => (type == "Crypto" ? getElems() : getElemsCredit())}
             >
               Confirm

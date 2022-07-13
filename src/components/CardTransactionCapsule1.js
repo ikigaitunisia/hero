@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./CardTransactionCapsule.css";
-import ExchangeModal from "./modals/ExchangeModal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from "web3";
 import { newKitFromWeb3 } from "@celo/contractkit";
@@ -175,25 +174,24 @@ function CardTransactionCapsule2(props) {
   };
 
   return (
-    <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
+    <div id="appCapsule" className="bg-g">
       <div className="section mt-2">
         <img
           alt="logo"
-          className="logo"
+          className="logo supporter-logo"
           src="assets/img/heroLogo.png"
-          style={{ width: "145px" }}
         />
       </div>
       <div className="section">
-        <h4 className="text-title white-text" style={{ margin: 0 , fontWeight: "900"}}>
+        <h4 className="text-title white-text m-0 fw-9">
           Support HERO Mobilizers
         </h4>
-        <h4 className="white-text" style={{fontWeight: "100"}}>with a Basic Income.</h4>
+        <h4 className="white-text fw-1">with a Basic Income.</h4>
       </div>
       <div className="section">
         <form id="white-form">
           <div className="flex-end">
-            <a href="#" style={{ color: "white" }}>
+            <a href="#" className="white-text">
               <ion-icon
                 class="add-icon"
                 name="add"
@@ -241,30 +239,33 @@ function CardTransactionCapsule2(props) {
             <label className="label mb-3">Type of Payment</label>
 
             <div className="radio-input">
-              <div class="form-check mb-1 no-padding" onClick={() => connect()}>
+              <div
+                className="form-check mb-1 no-padding"
+                onClick={() => connect()}
+              >
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
                 />
-                <label class="form-check-label" for="flexRadioDefault1">
+                <label className="form-check-label" for="flexRadioDefault1">
                   Digitial Currency Payment
                 </label>
               </div>
               <div
-                class="form-check mb-1 no-padding"
+                className="form-check mb-1 no-padding"
                 onClick={() => {
                   window.location.href = urlOFGateway;
                 }}
               >
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault2"
                 />
-                <label class="form-check-label" for="flexRadioDefault2">
+                <label className="form-check-label" for="flexRadioDefault2">
                   Credit Card
                 </label>
               </div>
@@ -330,14 +331,8 @@ function CardTransactionCapsule2(props) {
           <div className="form-group basic">
             <button
               type="button"
-              class="btn btn-link rounded btn-lg"
+              className="btn btn-link rounded btn-lg submit-btn"
               data-bs-dismiss="modal"
-              style={{
-                borderColor: "white",
-                color: "#8585FF",
-                width: "200px",
-                backgroundColor: "white",
-              }}
               onClick={() => getElems()}
             >
               Confirm
