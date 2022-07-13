@@ -19,15 +19,27 @@ function Login() {
   const [points, setPoints] = useState("");
   const history = useHistory();
   useEffect(() => {
-    setphoneNumberError(!checkIsPhoneFormat(phoneNumber));
+    //setphoneNumberError(!checkIsPhoneFormat(phoneNumber));
   }, [phoneNumber]);
 
   const login = (e) => {
     e.preventDefault();
     if (!phoneNumberError) {
-      setShowSmsVerification(true);
+      axios
+      .post("https://hegemony.donftify.digital:8080/sendEmail/", {
+        Email: phoneNumber,
+        
+      })
+      .then(function (response) {
+        setShowSmsVerification(true);
+        
+      })
+      .catch(function (error) {
+        //handle error here
+        console.log(error);
+      });
     } else {
-      toast.error("Invalid phone number!");
+      toast.error("Invalid Email");
       return;
     }
   };
