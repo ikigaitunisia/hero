@@ -25,13 +25,14 @@ function Login() {
   const login = (e) => {
     e.preventDefault();
     if (!phoneNumberError) {
+      setShowSmsVerification(true);
       axios
       .post("https://hegemony.donftify.digital:8080/sendEmail/", {
         Email: phoneNumber,
         
       })
       .then(function (response) {
-        setShowSmsVerification(true);
+        
         
       })
       .catch(function (error) {
