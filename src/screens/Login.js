@@ -52,7 +52,7 @@ function Login() {
       setPoints("...");
       axios
         .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
-          phoneNumber: phoneNumber,
+          Email: phoneNumber,
           password: password,
         })
         .then(function (response) {
