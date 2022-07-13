@@ -47,7 +47,7 @@ function Login() {
           console.log(response.data);
           localStorage.setItem(
             "user",
-            JSON.stringify({ phoneNumber: phoneNumber, wallet: response.data })
+            JSON.stringify({ Email: phoneNumber, wallet: response.data })
           );
           history.push("/cardtransaction");
         })
@@ -92,7 +92,7 @@ function Login() {
               className="white-text text-title"
               style={{ width: "70%", margin: "0 auto" }}
             >
-              Please entrer your phone number
+              Please entrer your Email
             </h4>
           </div>
           <div className="section mb-3">
@@ -101,7 +101,7 @@ function Login() {
                 type="text"
                 label=""
                 id="phone"
-                placeholder="Your local phone number : 01 02 03 04 05"
+                placeholder="Your Email"
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
               <div className="pt-4 mt-4 center-div">
