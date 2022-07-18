@@ -1,0 +1,32 @@
+.home {
+  background-image: url("/assets/img/homebg.png");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eae8e1;
+}
+
+.home-logo {
+  margin-top: 250px !important;
+  width: 200px;
+}
+
+.home-text {
+  color: #0000ff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22.09px;
+  font-family: Seravek;
+}
+
+.btn-outline-secondary {
+  background: transparent !important;
+  border-color: #0000ff !important;
+  border: 2px solid;
+  color: #0000ff !important;
+  padding: 10px 30px !important;
+}
