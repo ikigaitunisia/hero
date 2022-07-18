@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: seravek !important;
+  font-family: 'Seravek';
 }
 
 .App-logo {
@@ -40,7 +40,7 @@
 
 button {
   font-weight: 700 !important;
-  font-family: seravek !important;
+  font-family: 'Seravek';
 }
 
 .appHeader .pageTitle .logo {
