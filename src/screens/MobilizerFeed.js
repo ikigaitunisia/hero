@@ -24,9 +24,9 @@ function MobilizerFeed(props) {
   };
   const playVideo = (id) => {
     var v = document.getElementById(id);
-    if(v.paused){
+    if (v.paused) {
       v.play();
-    }else{
+    } else {
       v.pause();
     }
   };
@@ -51,13 +51,15 @@ function MobilizerFeed(props) {
                   className="logo mt-4"
                 />
                 <div className="mt-4">
-                  <span className="p-3">
-                    Following
-                  </span>
+                  <span className="p-3">Following</span>
                   <span className="p-3">Discover</span>
                 </div>
 
-                <button type="button" className="btn btn-primary rounded play-btn" onClick={() => playVideo(index)}>
+                <button
+                  type="button"
+                  className="btn btn-primary rounded play-btn"
+                  onClick={() => playVideo(index)}
+                >
                   <ion-icon name="play" class="m-0"></ion-icon>
                 </button>
 
@@ -83,12 +85,20 @@ function MobilizerFeed(props) {
                       alt="image"
                       class="imaged w32 rounded"
                     />
-                    <span>Join <br/> Club</span>
+                    <span>
+                      Join <br /> Club
+                    </span>
                   </div>
                 </div>
                 <div className="bottom mt-4">
-                  <span className="p-3">@anunadewever</span>
-                  <p className="mt-2" style={{width: "unset"}}>
+                  <span className="p-3">
+                    @anunadewever{" "}
+                    <ion-icon
+                      class="icon"
+                      src="assets/img/svg/icon.svg"
+                    ></ion-icon>
+                  </span>
+                  <p className="mt-2" style={{ width: "unset" }}>
                     We need to keep showing them that we can take care of our
                     future.{" "}
                   </p>
