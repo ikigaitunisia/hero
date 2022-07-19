@@ -9,8 +9,13 @@ function MobilizerFeed(props) {
   };
 
   const [items, setItems] = useState(Array.from({ length: 2 }));
+  const [hasMore, setHasMore] = useState(true);
 
   const fetchMoreData = () => {
+    if (items.length >= 6) {
+      setHasMore(false);
+      return;
+    }
     // a fake async api call like which sends
     // 20 more records in 1.5 secs
     setTimeout(() => {
@@ -19,14 +24,18 @@ function MobilizerFeed(props) {
   };
   const playVideo = (id) => {
     var v = document.getElementById(id);
-    v.play();
+    if(v.paused){
+      v.play();
+    }else{
+      v.pause();
+    }
   };
   return (
     <>
       <InfiniteScroll
         dataLength={items.length}
         next={fetchMoreData}
-        hasMore={true}
+        hasMore={hasMore}
         loader={<h4>Loading...</h4>}
       >
         {items.map((i, index) => (
@@ -79,7 +88,7 @@ function MobilizerFeed(props) {
                 </div>
                 <div className="bottom mt-4">
                   <span className="p-3">@anunadewever</span>
-                  <p className="mt-2">
+                  <p className="mt-2" style={{width: "unset"}}>
                     We need to keep showing them that we can take care of our
                     future.{" "}
                   </p>
