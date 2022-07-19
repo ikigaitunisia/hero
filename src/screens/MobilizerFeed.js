@@ -1,9 +1,9 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import "./MobilizerClub.css";
+import "./MobilizerFeed.css";
 
-function MobilizerClub(props) {
+function MobilizerFeed(props) {
   return <></>;
 }
 
-export default withRouter(MobilizerClub);
+export default withRouter(MobilizerFeed);
