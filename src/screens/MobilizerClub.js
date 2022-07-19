@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import "./MobilizerFeed.css";
+import "./MobilizerClub.css";
 import Logo from "../Assets/LogowithText.svg"
 import midLogo from "../Assets/MidLogo.svg"
 function MobilizerClub(props) {
