@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import "./MobilizerClub.css";
 import Logo from "../Assets/LogowithText.svg"
 import midLogo from "../Assets/MidLogo.svg"
+import ClubSelectMembershipModal from "../components/ClubSelectMembershipModal";
 function MobilizerClub(props) {
   console.log("hola")
+  const [showClubSelectMembershipModal, setShowClubSelectMembershipModal] = useState(false);
+
   return (<div id="MobilizerClubProfile">
 
 
 
-  <nav className="mt-5 navbar-expand-lg navbar-light">
+  {/*<nav className="mt-5 navbar-expand-lg navbar-light">
   <a className="navbar-brand" href="#">
   <img src={Logo} />
   </a>
@@ -48,7 +51,7 @@ function MobilizerClub(props) {
       <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
-  </nav>
+</nav>*/}
   
 
 
@@ -61,12 +64,12 @@ function MobilizerClub(props) {
     <p className="mx-auto mb-3">Join <b>Anuna's Club</b> to support
     her climate work and gain access
     to exclusive content.</p>
-    <b className="bd-bold-text">See Club Memberships</b><br/>
-    <button className="btn-mb mt-4">See Club Memberships</button>
+    <button className="btn-mb mt-2" onClick={() => setShowClubSelectMembershipModal(true)}>See Club Memberships</button>
   </div>
 
 
 
+  <ClubSelectMembershipModal show={showClubSelectMembershipModal} onClose={() => setShowClubSelectMembershipModal(false)} />
 
 
 

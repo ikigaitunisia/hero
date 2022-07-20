@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import "./MobilizerFeed.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import EchoModal from "../components/EchoModal";
 
 function MobilizerFeed(props) {
+  const history = useHistory();
+
   const [items, setItems] = useState(Array.from({ length: 2 }));
   const [showEchoModal, setShowEchoModal] = useState(false);
   const [hasMore, setHasMore] = useState(true);
@@ -77,7 +79,10 @@ function MobilizerFeed(props) {
                     ></ion-icon>
                     <span className="text-2">Echo</span>
                   </div>
-                  <div className="mb-3">
+                  <div
+                    className="mb-3"
+                    onClick={() => history.push("/mobilizer-club")}
+                  >
                     <img
                       src="assets/img/club.png"
                       alt="image"
@@ -107,10 +112,7 @@ function MobilizerFeed(props) {
           </div>
         ))}
       </InfiniteScroll>
-      <EchoModal
-        show={showEchoModal}
-        onClose={() => setShowEchoModal(false)}
-      />
+      <EchoModal show={showEchoModal} onClose={() => setShowEchoModal(false)} />
     </>
   );
 }
