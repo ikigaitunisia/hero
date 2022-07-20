@@ -4,11 +4,8 @@ import "./MobilizerFeed.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 function MobilizerFeed(props) {
-  const state = {
-    items: Array.from({ length: 20 }),
-  };
-
   const [items, setItems] = useState(Array.from({ length: 2 }));
+  console.log(items);
   const [hasMore, setHasMore] = useState(true);
 
   const fetchMoreData = () => {
@@ -51,8 +48,8 @@ function MobilizerFeed(props) {
                   className="logo mt-4"
                 />
                 <div className="mt-4">
-                  <span className="p-3">Following</span>
-                  <span className="p-3">Discover</span>
+                  <span className="p-3 text-2">Following</span>
+                  <span className="p-3 text-3">Discover</span>
                 </div>
 
                 <button
@@ -64,45 +61,45 @@ function MobilizerFeed(props) {
                 </button>
 
                 <div className="button-container">
-                  <div className="mb-2">
+                  <div className="mb-3">
                     <img
                       src="assets/img/annunaPicture.png"
                       alt="image"
                       className="imaged w32 rounded"
                     />
                   </div>
-                  <div className="mb-2">
+                  <div className="mb-3">
                     <ion-icon
                       class="icon"
                       src="assets/img/svg/echo.svg"
                       style={{ width: "32px", height: "32px" }}
                     ></ion-icon>
-                    <span>Echo</span>
+                    <span className="text-2">Echo</span>
                   </div>
-                  <div className="mb-2">
+                  <div className="mb-3">
                     <img
                       src="assets/img/club.png"
                       alt="image"
                       class="imaged w32 rounded"
                     />
-                    <span>
+                    <span className="text-2">
                       Join <br /> Club
                     </span>
                   </div>
                 </div>
                 <div className="bottom mt-4">
-                  <span className="p-3">
+                  <span className="p-3 text-2">
                     @anunadewever{" "}
                     <ion-icon
                       class="icon"
                       src="assets/img/svg/icon.svg"
                     ></ion-icon>
                   </span>
-                  <p className="mt-2" style={{ width: "unset" }}>
-                    We need to keep showing them that we can take care of our
-                    future.{" "}
+                  <p className="mt-2 activist-text">
+                    We need to keep showing them that
+                    <br /> we can take care of our future.{" "}
                   </p>
-                  <span className="mt-2">1 day ago</span>
+                  <span className="mt-2 text-1">1 day ago</span>
                 </div>
               </div>
             </div>

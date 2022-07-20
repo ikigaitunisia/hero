@@ -4,13 +4,16 @@
   width: 100%;
   height: 95vh;
   padding: 0 !important;
-  min-height: 95vh!important;
+  min-height: 95vh !important;
 }
 
 video {
-  min-width: 100%;
-  min-height: 100vh;
+  /*min-width: 100%;*/
+  /*min-height: 100vh;*/
   z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 .feed-content {
@@ -52,14 +55,46 @@ video {
   align-items: center;
 }
 
-.play-btn, .play-btn:active, .play-btn:focus{
-    width: 50px;
-    height: 50px;
-    display: flex;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background: #ffffff61!important;
-    border: unset;
+.play-btn,
+.play-btn:active,
+.play-btn:focus {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff61 !important;
+  border: unset;
+}
+
+.text-2 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17.18px;
+  font-family: "Seravek";
+}
+
+.text-3 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17.18px;
+  font-family: "Seravek";
+}
+
+.activist-text {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18.4px;
+  font-family: "Seravek";
+  margin-bottom: 0;
+  width: unset;
+}
+
+.text-1 {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 12.27px;
+  font-family: "Seravek";
 }
