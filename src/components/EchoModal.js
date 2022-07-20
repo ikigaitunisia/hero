@@ -93,7 +93,7 @@ function EchoModal(props) {
             <div className="form-group basic p-0">
               <button
                 type="button"
-                className="btn btn-dark btn-block btn-lg"
+                className="btn btn-dark btn-block btn-lg no-border-radius"
                 data-bs-dismiss="modal"
               >
                 Cancel
