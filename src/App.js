@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./screens/Home";
 import MobilizerClub from "./screens/MobilizerClub";
 import MobilizerFeed from "./screens/MobilizerFeed";
+import Profile from "./screens/Profile/Profile";
 function App() {
   return (
     <div className="App">
@@ -11,6 +12,8 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/mobilizer-club" exact component={MobilizerClub} />
         <Route path="/mobilizer-feed" exact component={MobilizerFeed} />
+        <Route path="/profile" exact component={Profile} />
+
       </Router>
     </div>
   );
