@@ -51,7 +51,10 @@ function ClubSelectMembershipModal(props) {
                 <br /> Membership
               </p>
               <div className="button-wrapper mt-4">
-                <button type="button" class="btn btn-outline-primary custom-btn me-1 mb-1">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary custom-btn me-1 mb-1"
+                >
                   <sup>€</sup>10<span>/mo</span>
                 </button>
                 <span className="mt-1">HERO Starter</span>
@@ -60,7 +63,10 @@ function ClubSelectMembershipModal(props) {
                 </a>
               </div>
               <div className="button-wrapper mt-4">
-                <button type="button" class="btn btn-outline-primary custom-btn me-1 mb-1">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary custom-btn me-1 mb-1"
+                >
                   <sup>€</sup>20<span>/mo</span>
                 </button>
                 <span className="mt-1">HERO Supporter</span>
@@ -69,7 +75,10 @@ function ClubSelectMembershipModal(props) {
                 </a>
               </div>
               <div className="button-wrapper mt-4">
-                <button type="button" class="btn btn-outline-primary custom-btn me-1 mb-1">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary custom-btn me-1 mb-1"
+                >
                   <sup>€</sup>50<span>/mo</span>
                 </button>
                 <span className="mt-1">HERO Changer</span>
@@ -81,7 +90,10 @@ function ClubSelectMembershipModal(props) {
                 type="button"
                 className="btn btn-icon rounded btn-primary submit-btn me-1 mb-1 mt-4"
               >
-                <ion-icon src="assets/img/svg/next2.svg" style={{color: "blue"}}></ion-icon>
+                <ion-icon
+                  src="assets/img/svg/next2.svg"
+                  style={{ color: "blue" }}
+                ></ion-icon>
               </button>
             </div>
           </div>

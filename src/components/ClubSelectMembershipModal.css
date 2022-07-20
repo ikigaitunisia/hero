@@ -21,6 +21,12 @@
   width: 160px;
 }
 
+#clubSelectMembership .custom-btn:active,
+.custom-btn:focus {
+  background: white !important;
+  color: blue !important;
+}
+
 #clubSelectMembership span,
 a {
   color: white !important;
@@ -40,7 +46,7 @@ a {
   align-items: center;
 }
 
-#clubSelectMembership .custom-btn span {
+#clubSelectMembership .custom-btn p {
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
@@ -59,10 +65,10 @@ a {
   text-decoration: underline;
 }
 
-#clubSelectMembership .submit-btn{
-    background: white!important;
-    border: unset!important;
-    color: blue!important;
-    line-height: 1em !important;
-    padding: 0!important;
+#clubSelectMembership .submit-btn {
+  background: white !important;
+  border: unset !important;
+  color: blue !important;
+  line-height: 1em !important;
+  padding: 0 !important;
 }
