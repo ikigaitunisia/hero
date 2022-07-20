@@ -33,3 +33,7 @@
 .modal-header {
   border: unset !important;
 }
+
+.no-border-radius{
+    border-radius: unset!important;
+}
