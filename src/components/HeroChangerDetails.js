@@ -18,6 +18,7 @@ function HeroChangerDetails(props) {
       <button
         type="button"
         className="btn btn-icon rounded btn-primary submit-btn me-1 mb-1 mt-4"
+        onClick={props.onClose}
       >
         <ion-icon src="assets/img/svg/left.svg"></ion-icon>
       </button>

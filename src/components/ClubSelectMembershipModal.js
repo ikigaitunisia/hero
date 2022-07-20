@@ -115,17 +115,17 @@ function ClubSelectMembershipModal(props) {
               )}
             {showHeroStarterDetails && (
               <div className="modal-body">
-                <HeroStarterDetails />
+                <HeroStarterDetails onClose={() => setShowHeroStarterDetails(false)}/>
               </div>
             )}
             {showHeroSupporterDetails && (
               <div className="modal-body">
-                <HeroSupporterDetails />
+                <HeroSupporterDetails onClose={() => setShowHeroSupporterDetails(false)}/>
               </div>
             )}
             {showHeroChangerDetails && (
               <div className="modal-body">
-                <HeroChangerDetails />
+                <HeroChangerDetails onClose={() => setShowHeroChangerDetails(false)}/>
               </div>
             )}
           </div>
