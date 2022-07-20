@@ -14,13 +14,15 @@ import VideoContent3 from "./ProfileAssets/Video Content 3.png"
 import VideoContent4 from "./ProfileAssets/Video Content 4.png"
 import VideoContent5 from "./ProfileAssets/Video Content 5.png"
 import VideoContent6 from "./ProfileAssets/Video Content 6.png"
-
+import "./Profile.css"
 
 const Profile = () => {
   return (
     <div className='Profile h-100 d-flex flex-column justify-content-center'>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">
+      
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+          <a class="navbar-brand mx-auto" href="#">
           <img src={Logo} />
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,9 +52,9 @@ const Profile = () => {
             </ul>
           </div>
         </nav>
-        <div>
-          <div className='d-flex flex-column justify-content-center '>
-              <div className='Profile-About'>
+
+          <div className='d-flex flex-column justify-content-center'>
+              <div className='Profile-About d-flex flex-column justify-content-center align-items-center'>
                 <img src={profileImage} className='ProfileImage'/>
                 <title className='ProfileTitle'>Anuna de Wever</title>
                 <span className='d-flex'>
@@ -61,6 +63,9 @@ const Profile = () => {
                 </span>
                 <small className='Profilelocation'>Brussels, Belgium</small>
                 <p className='ProfileDesc'>
+                  Climate & Social Justice Mobilizer
+                  Co-founder Youth for Climate Belgium
+                  Member of Friday’s for Future Global
                 </p>
                 <ul className='socialMediaIcons d-flex'>
                 <li className='scoial-icon'>
@@ -74,24 +79,22 @@ const Profile = () => {
                 </li> 
                 </ul>
               </div>
-              <div>
-                <div className='switch'>
-                  <button className='switch'><img className='switch-btn-icon' src={switchIconO} /> Public Content</button>
-                  <button className='switch' ><img className='switch-btn-icon' src={switchIconT}/>Club Acess</button>
-                </div>
-                  <img src={VideoContent1}/>
-                  <img src={VideoContent2}/>
-                  <img src={VideoContent3}/>
-                  <img src={VideoContent4}/>
-                  <img src={VideoContent5}/>
-                  <img src={VideoContent6}/>
-              </div>
-
-
-
 
           </div>
-        </div>
+          </header>
+
+          <div>
+          <div className='switchContainer row justify-content-around'>
+            <button className='switch col-5'><img className='switch-btn-icon' src={switchIconO} /> Public Content</button>
+            <button className='switch col-5' ><img className='switch-btn-icon' src={switchIconT}/>Club Acess</button>
+          </div>
+            <img className='col-4 VideoContent' src={VideoContent1}/>
+            <img className='col-4 VideoContent' src={VideoContent2}/>
+            <img className='col-4 VideoContent' src={VideoContent3}/>
+            <img className='col-4 VideoContent'src={VideoContent4}/>
+            <img className='col-4 VideoContent' src={VideoContent5}/>
+            <img className='col-4 VideoContent' src={VideoContent6}/>
+          </div>
     
     
     

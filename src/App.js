@@ -5,6 +5,7 @@ import Home from "./screens/Home";
 import MobilizerClub from "./screens/MobilizerClub";
 import MobilizerFeed from "./screens/MobilizerFeed";
 import Profile from "./screens/Profile/Profile";
+import ProfileClub from "./screens/Profile/ProfileClub/ProfileClub";
 function App() {
   return (
     <div className="App">
@@ -13,7 +14,7 @@ function App() {
         <Route path="/mobilizer-club" exact component={MobilizerClub} />
         <Route path="/mobilizer-feed" exact component={MobilizerFeed} />
         <Route path="/profile" exact component={Profile} />
-
+        <Route path="/ProfileClub" exact component={ProfileClub} />
       </Router>
     </div>
   );

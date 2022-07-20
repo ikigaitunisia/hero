@@ -1,0 +1,44 @@
+header {
+    background: linear-gradient(180deg, #0000FF 0%, #FFFFFF 137.53%);
+} 
+
+.VideoContent {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+
+.switchContainer {
+    background-color: white;
+    height: 58px;
+}
+
+.switch {
+    background-color: transparent;
+    border: none;
+}
+
+.card-1 {
+    background: #0000FF;
+    color: white;
+
+}
+
+.card .more-btn {
+    background-color: white;
+    border-radius: 3050px;
+    border: 1px solid #FFFFFF;
+    width: 285px;
+    height: 66px;
+    color: #0000FF;
+}
+
+.more-btn {
+    margin-bottom: 29px;
+    margin-top: 29px;
+}
+
+.mid-btn {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
