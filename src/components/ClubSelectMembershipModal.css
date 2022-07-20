@@ -46,7 +46,7 @@ a {
   align-items: center;
 }
 
-#clubSelectMembership .custom-btn p {
+#clubSelectMembership .custom-btn span {
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;

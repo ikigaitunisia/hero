@@ -1,0 +1,25 @@
+#starter p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.63px;
+  width: unset;
+}
+
+#starter sup {
+  top: -15px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-right: 5px;
+  color: white;
+}
+#starter strong {
+  font-size: 30px;
+  color: white;
+}
+#starter span {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-left: 5px;
+}

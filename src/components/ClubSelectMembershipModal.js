@@ -1,6 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal } from "bootstrap";
 import "./ClubSelectMembershipModal.css";
+import HeroStarterDetails from "./HeroStarterDetails";
+import HeroSupporterDetails from "./HeroSupporterDetails";
+import HeroChangerDetails from "./HeroChangerDetails";
 
 function ClubSelectMembershipModal(props) {
   useEffect(() => {
@@ -15,8 +18,15 @@ function ClubSelectMembershipModal(props) {
 
     return () => {
       props.onClose();
+      setShowHeroStarterDetails(false);
+      setShowHeroSupporterDetails(false);
+      setShowHeroChangerDetails(false);
     };
   }, [props.show]);
+  const [showHeroStarterDetails, setShowHeroStarterDetails] = useState(false);
+  const [showHeroSupporterDetails, setShowHeroSupporterDetails] =
+    useState(false);
+  const [showHeroChangerDetails, setShowHeroChangerDetails] = useState(false);
 
   return (
     <>
@@ -40,62 +50,84 @@ function ClubSelectMembershipModal(props) {
                 <ion-icon name="close" style={{ color: "white" }}></ion-icon>
               </a>
             </div>
-            <div className="modal-body">
-              <img
-                src={"assets/img/heroLogo2.png"}
-                alt="logo"
-                className="logo"
-              />
-              <p className="header-text mt-4">
-                Choose your HERO Club
-                <br /> Membership
-              </p>
-              <div className="button-wrapper mt-4">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary custom-btn me-1 mb-1"
-                >
-                  <sup>€</sup>10<span>/mo</span>
-                </button>
-                <span className="mt-1">HERO Starter</span>
-                <a href="" className="mt-1">
-                  Click here to see what’s included.
-                </a>
+            {!showHeroStarterDetails &&
+              !showHeroSupporterDetails &&
+              !showHeroChangerDetails && (
+                <div className="modal-body">
+                  <img
+                    src={"assets/img/heroLogo2.png"}
+                    alt="logo"
+                    className="logo"
+                  />
+                  <p className="header-text mt-4">
+                    Choose your HERO Club
+                    <br /> Membership
+                  </p>
+                  <div className="button-wrapper mt-4">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary custom-btn me-1 mb-1"
+                      onClick={() => setShowHeroStarterDetails(true)}
+                    >
+                      <sup>€</sup>10<span>/mo</span>
+                    </button>
+                    <span className="mt-1">HERO Starter</span>
+                    <a href="" className="mt-1">
+                      Click here to see what’s included.
+                    </a>
+                  </div>
+                  <div className="button-wrapper mt-4">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary custom-btn me-1 mb-1"
+                      onClick={() => setShowHeroSupporterDetails(true)}
+                    >
+                      <sup>€</sup>20<span>/mo</span>
+                    </button>
+                    <span className="mt-1">HERO Supporter</span>
+                    <a href="" className="mt-1">
+                      Click here to see what’s included.
+                    </a>
+                  </div>
+                  <div className="button-wrapper mt-4">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary custom-btn me-1 mb-1"
+                      onClick={() => setShowHeroChangerDetails(true)}
+                    >
+                      <sup>€</sup>50<span>/mo</span>
+                    </button>
+                    <span className="mt-1">HERO Changer</span>
+                    <a href="" className="mt-1">
+                      Click here to see what’s included.
+                    </a>
+                  </div>
+                  <button
+                    type="button"
+                    className="btn btn-icon rounded btn-primary submit-btn me-1 mb-1 mt-4"
+                  >
+                    <ion-icon
+                      src="assets/img/svg/next2.svg"
+                      style={{ color: "blue" }}
+                    ></ion-icon>
+                  </button>
+                </div>
+              )}
+            {showHeroStarterDetails && (
+              <div className="modal-body">
+                <HeroStarterDetails />
               </div>
-              <div className="button-wrapper mt-4">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary custom-btn me-1 mb-1"
-                >
-                  <sup>€</sup>20<span>/mo</span>
-                </button>
-                <span className="mt-1">HERO Supporter</span>
-                <a href="" className="mt-1">
-                  Click here to see what’s included.
-                </a>
+            )}
+            {showHeroSupporterDetails && (
+              <div className="modal-body">
+                <HeroSupporterDetails />
               </div>
-              <div className="button-wrapper mt-4">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary custom-btn me-1 mb-1"
-                >
-                  <sup>€</sup>50<span>/mo</span>
-                </button>
-                <span className="mt-1">HERO Changer</span>
-                <a href="" className="mt-1">
-                  Click here to see what’s included.
-                </a>
+            )}
+            {showHeroChangerDetails && (
+              <div className="modal-body">
+                <HeroChangerDetails />
               </div>
-              <button
-                type="button"
-                className="btn btn-icon rounded btn-primary submit-btn me-1 mb-1 mt-4"
-              >
-                <ion-icon
-                  src="assets/img/svg/next2.svg"
-                  style={{ color: "blue" }}
-                ></ion-icon>
-              </button>
-            </div>
+            )}
           </div>
         </div>
       </div>
