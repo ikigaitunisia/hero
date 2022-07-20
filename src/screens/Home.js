@@ -1,9 +1,12 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import "./Home.css";
 
 function Home(props) {
-  const join = () => {};
+  const history = useHistory();
+  const join = () => {
+    history.push("/mobilizer-feed");
+  };
   return (
     <>
       <div class="appHeader no-border transparent position-absolute">

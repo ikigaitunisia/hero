@@ -1,0 +1,35 @@
+.social-btn {
+  padding: 0 !important;
+  background-color: blue !important;
+  line-height: 1em !important;
+}
+.social-btn-title {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14.72px;
+}
+
+.top-border-radius {
+  border-radius: 20px 20px 0 0 !important;
+}
+
+.close-modal-btn {
+  color: blue;
+  width: 17px;
+  height: 17px;
+}
+
+.flex-end {
+  justify-content: flex-end;
+  display: flex;
+}
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.modal-header {
+  border: unset !important;
+}

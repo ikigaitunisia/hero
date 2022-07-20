@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import "./MobilizerFeed.css";
 import InfiniteScroll from "react-infinite-scroll-component";
+import EchoModal from "../components/EchoModal";
 
 function MobilizerFeed(props) {
   const [items, setItems] = useState(Array.from({ length: 2 }));
-  console.log(items);
+  const [showEchoModal, setShowEchoModal] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
   const fetchMoreData = () => {
@@ -68,7 +69,7 @@ function MobilizerFeed(props) {
                       className="imaged w32 rounded"
                     />
                   </div>
-                  <div className="mb-3">
+                  <div className="mb-3" onClick={() => setShowEchoModal(true)}>
                     <ion-icon
                       class="icon"
                       src="assets/img/svg/echo.svg"
@@ -106,6 +107,10 @@ function MobilizerFeed(props) {
           </div>
         ))}
       </InfiniteScroll>
+      <EchoModal
+        show={showEchoModal}
+        onClose={() => setShowEchoModal(false)}
+      />
     </>
   );
 }
