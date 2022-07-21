@@ -29,6 +29,23 @@ function ClubSelectMembershipModal(props) {
     useState(false);
   const [showHeroChangerDetails, setShowHeroChangerDetails] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [amount, setAmount] = useState(null);
+
+  const chooseAmount = (a) => {
+    setAmount(a);
+    if (a === 10) {
+      setShowHeroStarterDetails(true);
+      return;
+    }
+    if (a === 20) {
+      setShowHeroSupporterDetails(true);
+      return;
+    }
+    if (a === 50) {
+      setShowHeroChangerDetails(true);
+      return;
+    }
+  };
 
   return (
     <>
@@ -69,8 +86,12 @@ function ClubSelectMembershipModal(props) {
                   <div className="button-wrapper mt-4">
                     <button
                       type="button"
-                      class="btn btn-outline-primary custom-btn me-1 mb-1"
-                      onClick={() => setShowHeroStarterDetails(true)}
+                      className={
+                        amount === 10
+                          ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
+                          : "btn btn-outline-primary custom-btn me-1 mb-1"
+                      }
+                      onClick={() => chooseAmount(10)}
                     >
                       <sup>€</sup>10<span>/mo</span>
                     </button>
@@ -82,8 +103,12 @@ function ClubSelectMembershipModal(props) {
                   <div className="button-wrapper mt-4">
                     <button
                       type="button"
-                      class="btn btn-outline-primary custom-btn me-1 mb-1"
-                      onClick={() => setShowHeroSupporterDetails(true)}
+                      className={
+                        amount === 20
+                          ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
+                          : "btn btn-outline-primary custom-btn me-1 mb-1"
+                      }
+                      onClick={() => chooseAmount(20)}
                     >
                       <sup>€</sup>20<span>/mo</span>
                     </button>
@@ -95,8 +120,12 @@ function ClubSelectMembershipModal(props) {
                   <div className="button-wrapper mt-4">
                     <button
                       type="button"
-                      class="btn btn-outline-primary custom-btn me-1 mb-1"
-                      onClick={() => setShowHeroChangerDetails(true)}
+                      className={
+                        amount === 50
+                          ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
+                          : "btn btn-outline-primary custom-btn me-1 mb-1"
+                      }
+                      onClick={() => chooseAmount(50)}
                     >
                       <sup>€</sup>50<span>/mo</span>
                     </button>
