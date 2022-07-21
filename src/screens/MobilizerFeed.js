@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import "./MobilizerFeed.css";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -87,6 +87,7 @@ function MobilizerFeed(props) {
         loader={<h4>Loading...</h4>}
       >
         {items.map((i, index) => (
+          
           <div key={index}>
             <div className="feed" style={{ minHeight: "90vh!important" }}>
               <video id={index} playsInline>
@@ -113,6 +114,7 @@ function MobilizerFeed(props) {
 
                 <div className="button-container">
                   <div className="mb-3">
+
                     <img
                       src="assets/img/annunaPicture.png"
                       alt="image"
