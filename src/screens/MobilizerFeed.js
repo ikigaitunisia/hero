@@ -91,7 +91,7 @@ function MobilizerFeed(props) {
           <div key={index}>
             <div className="feed" style={{ minHeight: "90vh!important" }}>
               <video id={index} playsInline>
-                <source src={"videos/"+i.Video} type="video/mp4" />
+                <source src={"videos/"+i.video} type="video/mp4" />
               </video>
               <div className="feed-content">
                 <img
