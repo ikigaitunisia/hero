@@ -1,0 +1,73 @@
+.according {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.ProfileClubHeader {
+    position: absolute;
+    background: url("../ProfileAssets/Profile Info Background1.png") ,linear-gradient(rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.34));
+    background-repeat: no-repeat;
+    background-size: cover; 
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 53px;
+}
+
+
+
+.according .card-header {
+    min-height: 106px;
+}
+
+.card-2 {
+    background-color: #3333FF;
+    color: white;
+
+}
+.card-1 {
+    background: #0000FF;
+    color: white;
+
+}
+
+.card-3 {
+    background: #6666FF;
+    color: white;
+
+}
+
+.card-4 {
+    background: #B8B8FF;
+    color: white;
+
+}
+
+.card-header button.btn-link {
+    color: white!important;
+
+}
+
+.returnIconClub {
+    width: 28px;
+    height: 28px;
+}
+
+.ActiviestName {
+    font-family: 'Seravek';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 22px;
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.navClubBtn {
+    background-color: white;
+    border-radius: 30px;
+    color:#0000FF;
+    width: 80px;
+    height: 26px;
+    border: none;
+}
