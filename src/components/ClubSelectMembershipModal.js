@@ -4,7 +4,7 @@ import "./ClubSelectMembershipModal.css";
 import HeroStarterDetails from "./HeroStarterDetails";
 import HeroSupporterDetails from "./HeroSupporterDetails";
 import HeroChangerDetails from "./HeroChangerDetails";
-
+import axios from "axios";
 function ClubSelectMembershipModal(props) {
   useEffect(() => {
     if (props.show) {
@@ -67,9 +67,23 @@ function ClubSelectMembershipModal(props) {
 
   const validate = () => {
     if (!name || !email || !birthDate || !city) {
-      return;
+      axios.post(`https://hegemony.donftify.digital:8080/InserData`,
+      {Full_Name:name,
+  Email:email,
+  Birth_date:birthDate,
+  City:city,
+  ExitesYouHero:[],
+  climatesChanges:[],
+  MonthlySubs:amount,
+  source:"pledge2"
+      }
+
+      ).then(res => {
+        setShowWelcomeToClub(true);
+      }).catch(err => {
+        console.log(err)
+      }) 
     }
-    setShowWelcomeToClub(true);
   };
 
   return (
