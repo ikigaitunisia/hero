@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import Logo from "./ProfileAssets/HERO Logo.svg"
 import Play from "./ProfileAssets/Play_Button.svg"
 import profileImage from "./ProfileAssets/ProfileImage.svg"
@@ -17,15 +17,22 @@ import VideoContent6 from "./ProfileAssets/Video Content 6.png"
 import "./Profile.css"
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom';
-
+import { MobilizerData } from "../../data/data.js"
 
 const Profile = () => {
 
-  const { id } = useParams()
+  const { id } = useParams();
+  const [profile, setProfile] = useState({});
+  useEffect(() => {
+      console.log(id.substring(1))
+      MobilizerData.map((value, index) => {
+      if (index === 4) {return}
+      if (value.id === id.substring(1)) {
+          setProfile(value)
+        }
+      })
+  })
 
-  const clickHandler = () => {
-    window.location.replace("/Profile" + id.substring(1))
-  }
 
 
   return (
@@ -67,16 +74,14 @@ const Profile = () => {
           <div className='d-flex flex-column justify-content-center'>
               <div className='Profile-About d-flex flex-column justify-content-center align-items-center'>
                 <img src={profileImage} className='ProfileImage'/>
-                <p className='ProfileTitle'>Anuna de Wever</p>
+                <p className='ProfileTitle'>{profile.name}</p>
                 <span className='d-flex'>
-                <small className='Profilesubtitle'>@anunadewever</small>
+                <small className='Profilesubtitle'>{profile.sm}</small>
                 <img src={VerifyLogo} className="" id='profilesubicon'/>
                 </span>
-                <small className='Profilelocation'>Brussels, Belgium</small>
+                <small className='Profilelocation'>{profile.location}</small>
                 <p className='ProfileDesc mb-3'>
-                  Climate & Social Justice Mobilizer<br/>
-                  Co-founder Youth for Climate Belgium<br/>
-                  Member of Friday’s for Future Global<br/>
+                  {profile.profileDescription}
                 </p>
                 <ul className='socialMediaIcons p-0 d-flex mx-auto'>
                   <li className='scoial-icon'>
@@ -97,8 +102,8 @@ const Profile = () => {
           <div>
           <div className='switchContainer d-flex justify-content-center'>
             <button className='switch '><img className='switch-btn-icon' src={switchIconO} /> Public Content</button>
-            { /* className='align-self-center ml-f' to={"/ProfileClub"}> */ }
-            <button onClick={clickHandler} className='switch switch-r' ><img className='switch-btn-icon' src={switchIconT}/>Club Access</button>
+            { /* className='align-self-center ml-f' to={"/ProfileClub"}>   onClick={clickHandler} */ }
+            <button className='switch switch-r' ><img className='switch-btn-icon' src={switchIconT}/>Club Access</button>
 
           </div>
             <img className='col-4 VideoContent' src={VideoContent1}/>

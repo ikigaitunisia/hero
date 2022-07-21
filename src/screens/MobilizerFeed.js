@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import "./MobilizerFeed.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import EchoModal from "../components/EchoModal";
+import {MobilizerData} from "../data/data.js";
 const SCROLL_UP = "up";
 const SCROLL_DOWN = "down";
 
@@ -86,12 +87,11 @@ function MobilizerFeed(props) {
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
       >
-        {items.map((i, index) => (
-          
+        {MobilizerData.map((i, index) => (
           <div key={index}>
             <div className="feed" style={{ minHeight: "90vh!important" }}>
               <video id={index} playsInline>
-                <source src="assets/videos/test.mp4" type="video/mp4" />
+                <source src={"videos/"+i.video} type="video/mp4" />
               </video>
               <div className="feed-content">
                 <img
