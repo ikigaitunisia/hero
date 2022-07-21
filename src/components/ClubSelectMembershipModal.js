@@ -115,17 +115,43 @@ function ClubSelectMembershipModal(props) {
               )}
             {showHeroStarterDetails && (
               <div className="modal-body">
-                <HeroStarterDetails onClose={() => setShowHeroStarterDetails(false)}/>
+                <HeroStarterDetails
+                  onClose={() => setShowHeroStarterDetails(false)}
+                />
               </div>
             )}
             {showHeroSupporterDetails && (
               <div className="modal-body">
-                <HeroSupporterDetails onClose={() => setShowHeroSupporterDetails(false)}/>
+                <HeroSupporterDetails
+                  onClose={() => setShowHeroSupporterDetails(false)}
+                />
               </div>
             )}
             {showHeroChangerDetails && (
               <div className="modal-body">
-                <HeroChangerDetails onClose={() => setShowHeroChangerDetails(false)}/>
+                <HeroChangerDetails
+                  onClose={() => setShowHeroChangerDetails(false)}
+                />
+              </div>
+            )}
+            {false && (
+              <div id="welcomeClub" className="modal-body">
+                <img
+                  src={"assets/img/heroLogo2.png"}
+                  alt="logo"
+                  className="logo"
+                />
+                <p className="header-text mt-4">Welcome to the club, John!</p>
+                <p className="mt-4">
+                  You are now supporting <b>Anuna</b> and
+                  <br /> will have access to exlusive content.
+                </p>
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary btn-lg rounded"
+                >
+                  Go to Club
+                </button>
               </div>
             )}
           </div>
