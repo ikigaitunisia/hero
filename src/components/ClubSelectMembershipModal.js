@@ -66,7 +66,7 @@ function ClubSelectMembershipModal(props) {
   };
 
   const validate = () => {
-    if (!name || !email || !birthDate || !city) {
+   // if (!name || !email || !birthDate || !city) {
       axios.post(`https://hegemony.donftify.digital:8080/InserData`,
       {Full_Name:name,
   Email:email,
@@ -83,7 +83,7 @@ function ClubSelectMembershipModal(props) {
       }).catch(err => {
         console.log(err)
       }) 
-    }
+  //  }
   };
 
   return (
