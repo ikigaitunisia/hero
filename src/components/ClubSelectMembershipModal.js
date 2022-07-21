@@ -33,6 +33,11 @@ function ClubSelectMembershipModal(props) {
   const [showWelcomeToClub, setShowWelcomeToClub] = useState(false);
   const [amount, setAmount] = useState(null);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [birthDate, setBirthDate] = useState("");
+  const [city, setCity] = useState("");
+
   const chooseAmount = (a) => {
     if (amount) {
       setAmount(null);
@@ -61,6 +66,9 @@ function ClubSelectMembershipModal(props) {
   };
 
   const validate = () => {
+    if (!name || !email || !birthDate || !city) {
+      return;
+    }
     setShowWelcomeToClub(true);
   };
 
@@ -207,6 +215,7 @@ function ClubSelectMembershipModal(props) {
                           type="text"
                           className="form-control AmountAc"
                           placeholder="John Doe"
+                          onChange={(e) => setName(e.target.value)}
                         />
                       </div>
                     </div>
@@ -217,6 +226,7 @@ function ClubSelectMembershipModal(props) {
                           type="text"
                           className="form-control AmountAc"
                           placeholder="john@doe.com"
+                          onChange={(e) => setEmail(e.target.value)}
                         />
                       </div>
                     </div>
@@ -227,6 +237,7 @@ function ClubSelectMembershipModal(props) {
                           type="text"
                           className="form-control AmountAc"
                           placeholder="24/10/2022"
+                          onChange={(e) => setBirthDate(e.target.value)}
                         />
                       </div>
                     </div>
@@ -237,6 +248,7 @@ function ClubSelectMembershipModal(props) {
                           type="text"
                           className="form-control AmountAc"
                           placeholder="Amsterdam"
+                          onChange={(e) => setCity(e.target.value)}
                         />
                       </div>
                     </div>
