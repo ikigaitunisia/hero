@@ -8,7 +8,7 @@ export const MobilizerData = [
         LocationHighlight: "UK",
         location: "London, UK",
         phone: "57 (300) 7189525",
-        sm: "IG: @elijahmckenziejackson",
+        sm: "@elijahmckenziejackson",
         mainMovements: "Fridays for Future UK",
         video: "elijahVideo.mp4",
         TopCampaigns:
