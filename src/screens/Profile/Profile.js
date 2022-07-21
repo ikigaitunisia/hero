@@ -73,7 +73,7 @@ const Profile = () => {
 
           <div className='d-flex flex-column justify-content-center'>
               <div className='Profile-About d-flex flex-column justify-content-center align-items-center'>
-                <img src={profileImage} className='ProfileImage'/>
+                <div className={'ProfileImage' + profile.id}></div>
                 <p className='ProfileTitle'>{profile.name}</p>
                 <span className='d-flex'>
                 <small className='Profilesubtitle'>{profile.sm}</small>
