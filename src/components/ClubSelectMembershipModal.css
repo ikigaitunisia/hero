@@ -1,5 +1,5 @@
-#clubSelectMembership .modal-content {
-  background: linear-gradient(0deg, rgb(162, 174, 241), #0000ffe5) !important;
+.clubSelectMembership .modal-content {
+  background: linear-gradient(0deg, rgb(162, 174, 241), #0000ffe5);
   opacity: 90%;
 }
 
@@ -93,4 +93,98 @@ a {
   font-size: 16px !important;
   font-weight: 700 !important;
   line-height: 15px !important;
+}
+
+
+#white-form {
+  padding: 30px 40px;
+  padding-top: 10px;
+}
+
+#white-form label {
+color: white;
+}
+
+#white-form .custom-select {
+color: white;
+}
+#white-form option {
+color: blue;
+}
+#white-form .input-group-text {
+color: white;
+}
+
+#white-form ::placeholder {
+/* Chrome, Firefox, Opera, Safari 10.1+ */
+color: white;
+}
+
+#white-form :-ms-input-placeholder {
+/* Internet Explorer 10-11 */
+color: white;
+}
+
+#white-form .form-check-input:checked ~ .form-check-label:after{
+  background-color: #6236FF;
+  border-color: white !important;
+}
+#white-form .form-group.basic .form-control, .form-group.basic .custom-select {
+  border-bottom: 1px solid #DCDCE9;
+  color:white;
+}
+
+#white-form ::-ms-input-placeholder {
+/* Microsoft Edge */
+color: white;
+}
+.radio-input{
+  display: flex; 
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.flex-end{
+  display: flex;
+  justify-content: flex-end;
+}
+.add-icon{
+  width: 25px;
+  height: 25px;
+}
+@media screen and (max-width: 400px) {
+  #white-form {
+      padding: 30px 5px;
+      padding-top: 10px;
+  }
+  .radio-input{
+      display: flex; 
+      flex-direction: column;
+  }
+}
+
+
+#form p{
+  width: unset;
+}
+
+#form input{
+  text-align: center;
+  padding: 0;
+}
+
+#form label{
+  text-align: center;
+}
+
+#form button{
+  width: 264px!important;
+  height: 53px!important;
+  border-radius: 50px!important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 22.09px !important;
+  color: #8585FF!important;
+  background-color: white!important;
+  border: unset!important;
 }

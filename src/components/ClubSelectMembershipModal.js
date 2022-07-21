@@ -21,17 +21,19 @@ function ClubSelectMembershipModal(props) {
       setShowHeroStarterDetails(false);
       setShowHeroSupporterDetails(false);
       setShowHeroChangerDetails(false);
+      setShowForm(false);
     };
   }, [props.show]);
   const [showHeroStarterDetails, setShowHeroStarterDetails] = useState(false);
   const [showHeroSupporterDetails, setShowHeroSupporterDetails] =
     useState(false);
   const [showHeroChangerDetails, setShowHeroChangerDetails] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   return (
     <>
       <div
-        className="modal fade modalbox"
+        className="modal fade modalbox clubSelectMembership"
         id="clubSelectMembership"
         tabIndex="-1"
         role="dialog"
@@ -52,7 +54,8 @@ function ClubSelectMembershipModal(props) {
             </div>
             {!showHeroStarterDetails &&
               !showHeroSupporterDetails &&
-              !showHeroChangerDetails && (
+              !showHeroChangerDetails &&
+              !showForm && (
                 <div className="modal-body">
                   <img
                     src={"assets/img/heroLogo2.png"}
@@ -105,6 +108,7 @@ function ClubSelectMembershipModal(props) {
                   <button
                     type="button"
                     className="btn btn-icon rounded btn-primary submit-btn me-1 mb-1 mt-4"
+                    onClick={() => setShowForm(true)}
                   >
                     <ion-icon
                       src="assets/img/svg/next2.svg"
@@ -132,6 +136,90 @@ function ClubSelectMembershipModal(props) {
                 <HeroChangerDetails
                   onClose={() => setShowHeroChangerDetails(false)}
                 />
+              </div>
+            )}
+            {showForm && (
+              <div id="form" className="modal-body">
+                <img
+                  src={"assets/img/heroLogo.png"}
+                  alt="logo"
+                  className="logo"
+                />
+                <p className="header-text mt-4 mb-1">Action is your power!</p>
+                <p>
+                  Please leave us your details so that we
+                  <br />
+                  can send you a link for our launch!*
+                </p>
+                <div className="section">
+                  <form id="white-form">
+                    <div className="form-group basic">
+                      <label className="label">Your Name</label>
+                      <div className="input-group mb-2">
+                        <input
+                          type="text"
+                          className="form-control AmountAc"
+                          placeholder="John Doe"
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group basic">
+                      <label className="label">Email</label>
+                      <div className="input-group mb-2">
+                        <input
+                          type="text"
+                          className="form-control AmountAc"
+                          placeholder="john@doe.com"
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group basic">
+                      <label className="label">Birth Date</label>
+                      <div className="input-group mb-2">
+                        <input
+                          type="text"
+                          className="form-control AmountAc"
+                          placeholder="24/10/2022"
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group basic">
+                      <label className="label">City</label>
+                      <div className="input-group mb-2">
+                        <input
+                          type="text"
+                          className="form-control AmountAc"
+                          placeholder="Amsterdam"
+                        />
+                      </div>
+                    </div>
+                    <div className="mt-2 mb-4">
+                      <div class="form-check mb-1">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label
+                          class="form-check-label"
+                          for="flexRadioDefault1"
+                          style={{ fontSize: "14px" }}
+                        >
+                          I accept to receive emails from HERO.
+                        </label>
+                      </div>
+                    </div>
+                    <div className="form-group basic">
+                      <button
+                        type="button"
+                        className="btn btn-link rounded btn-lg"
+                      >
+                        Become a HERO Supporter
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             )}
             {false && (
