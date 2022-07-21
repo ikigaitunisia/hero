@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,UseEffect } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import "./MobilizerFeed.css";
 import InfiniteScroll from "react-infinite-scroll-component";
