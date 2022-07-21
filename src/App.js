@@ -13,8 +13,8 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/mobilizer-club" exact component={MobilizerClub} />
         <Route path="/mobilizer-feed" exact component={MobilizerFeed} />
-        <Route path="/profile" exact component={Profile} />
-        <Route path="/ProfileClub" exact component={ProfileClub} />
+        <Route path="/profile:id" exact component={Profile} />
+        <Route path="/ProfileClub:id" exact component={ProfileClub} />
       </Router>
     </div>
   );

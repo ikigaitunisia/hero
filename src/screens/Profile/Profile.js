@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import Logo from "./ProfileAssets/HERO Logo.svg"
 import Play from "./ProfileAssets/Play_Button.svg"
 import profileImage from "./ProfileAssets/ProfileImage.svg"
@@ -15,38 +15,56 @@ import VideoContent4 from "./ProfileAssets/Video Content 4.png"
 import VideoContent5 from "./ProfileAssets/Video Content 5.png"
 import VideoContent6 from "./ProfileAssets/Video Content 6.png"
 import "./Profile.css"
+import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom';
+import { MobilizerData } from "../../data/data.js"
+
 const Profile = () => {
+
+  const { id } = useParams();
+  const [profile, setProfile] = useState({});
+  useEffect(() => {
+      console.log(id.substring(1))
+      MobilizerData.map((value, index) => {
+      if (index === 4) {return}
+      if (value.id === id.substring(1)) {
+          setProfile(value)
+        }
+      })
+  })
+
+
+
   return (
     <div id="profile" className='Profile d-flex flex-column'>
       
     <header>
-    <nav class="navbar navbar-expand-lg navbar-light py-3 px-3">
-          <a class="navbar-brand mx-auto logo" href="#">
+    <nav  className="navbar navbar-expand-lg navbar-light py-3 px-3">
+          <a className="navbar-brand mx-auto logo" href="#">
           <img src={Logo} />
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul className="navbar-nav">
+              <li className="nav-item active">
+                <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Features</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Pricing</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Dropdown link
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a className="dropdown-item" href="#">Action</a>
+                  <a className="dropdown-item" href="#">Another action</a>
+                  <a className="dropdown-item" href="#">Something else here</a>
                 </div>
               </li>
             </ul>
@@ -56,16 +74,14 @@ const Profile = () => {
           <div className='d-flex flex-column justify-content-center'>
               <div className='Profile-About d-flex flex-column justify-content-center align-items-center'>
                 <img src={profileImage} className='ProfileImage'/>
-                <p className='ProfileTitle'>Anuna de Wever</p>
+                <p className='ProfileTitle'>{profile.name}</p>
                 <span className='d-flex'>
-                <small className='Profilesubtitle'>@anunadewever</small>
+                <small className='Profilesubtitle'>{profile.sm}</small>
                 <img src={VerifyLogo} className="" id='profilesubicon'/>
                 </span>
-                <small className='Profilelocation'>Brussels, Belgium</small>
+                <small className='Profilelocation'>{profile.location}</small>
                 <p className='ProfileDesc mb-3'>
-                  Climate & Social Justice Mobilizer<br/>
-                  Co-founder Youth for Climate Belgium<br/>
-                  Member of Friday’s for Future Global<br/>
+                  {profile.profileDescription}
                 </p>
                 <ul className='socialMediaIcons p-0 d-flex mx-auto'>
                   <li className='scoial-icon'>
@@ -86,7 +102,9 @@ const Profile = () => {
           <div>
           <div className='switchContainer d-flex justify-content-center'>
             <button className='switch '><img className='switch-btn-icon' src={switchIconO} /> Public Content</button>
-            <Link className='align-self-center ml-f' to={"/ProfileClub"}><button className='switch switch-r' ><img className='switch-btn-icon' src={switchIconT}/>Club Acess</button></Link>
+            { /* className='align-self-center ml-f' to={"/ProfileClub"}>   onClick={clickHandler} */ }
+            <button className='switch switch-r' ><img className='switch-btn-icon' src={switchIconT}/>Club Access</button>
+
           </div>
             <img className='col-4 VideoContent' src={VideoContent1}/>
             <img className='col-4 VideoContent' src={VideoContent2}/>

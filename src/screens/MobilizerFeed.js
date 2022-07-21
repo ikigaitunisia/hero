@@ -114,6 +114,7 @@ function MobilizerFeed(props) {
 
                 <div className="button-container">
                   <div className="mb-3">
+
                     <img
                       src="assets/img/annunaPicture.png"
                       alt="image"
