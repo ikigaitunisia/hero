@@ -1,3 +1,7 @@
+.Profile {
+    min-height: 100vh;
+}
+
 header {
     background: linear-gradient(180deg, #0000FF 0%, #FFFFFF 137.53%);
 } 
@@ -41,4 +45,107 @@ header {
 .mid-btn {
     margin-top: 0px;
     margin-bottom: 0px;
+}
+.logo {
+    padding-left: 50px;
+}
+
+.navbar {
+    margin-bottom: 13px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.ProfileTitle {
+    font-family: 'Seravek';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 22px;
+text-align: center;
+color: #FFFFFF;
+margin-bottom: 8px;
+margin-top: 5.28px;
+}
+
+.Profilesubtitle {
+    font-family: 'Seravek';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-right: 6.25px;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+
+}
+
+.Profilelocation {
+    font-family: 'Seravek';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 15px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+margin-bottom: 8px;
+
+
+}
+
+.ProfileDesc {
+    font-family: 'Seravek';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 203px;
+    color: #FFFFFF;
+    
+}
+
+#profilesubicon {
+    margin-top: -8px;
+}
+
+ul.socialMediaIcons {
+    list-style: none;
+}
+
+.socialIcon.mid {
+    margin-left: 25.42px;
+    margin-right: 25.42px;
+}
+
+.ml-f {
+    margin-left: 40px;
+}
+
+.switch {
+    font-family: 'Seravek';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.switch-r {
+    color: #0000FF;
+    
+}
+
+
+.switch-btn-icon {
+    margin-right: 8px;
 }
