@@ -3,7 +3,7 @@ import { withRouter, useHistory } from "react-router-dom";
 import "./MobilizerFeed.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import EchoModal from "../components/EchoModal";
-import MobilizerData from "../data/data.js";
+import {MobilizerData} from "../data/data.js";
 const SCROLL_UP = "up";
 const SCROLL_DOWN = "down";
 
