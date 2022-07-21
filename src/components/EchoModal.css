@@ -9,7 +9,7 @@
 .social-btn-dark:focus {
   padding: 0 !important;
   background-color: #191919 !important;
-  opacity: 90%;
+  opacity: 90%!important;
   line-height: 1em !important;
   border: unset !important;
 }
