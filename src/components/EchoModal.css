@@ -3,6 +3,17 @@
   background-color: blue !important;
   line-height: 1em !important;
 }
+
+.social-btn-dark,
+.social-btn-dark:hover,
+.social-btn-dark:focus {
+  padding: 0 !important;
+  background-color: #191919 !important;
+  opacity: 90%;
+  line-height: 1em !important;
+  border: unset !important;
+}
+
 .social-btn-title {
   font-size: 12px;
   font-weight: 700;
@@ -34,6 +45,6 @@
   border: unset !important;
 }
 
-.no-border-radius{
-    border-radius: unset!important;
+.no-border-radius {
+  border-radius: unset !important;
 }
