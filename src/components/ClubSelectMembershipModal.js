@@ -22,6 +22,7 @@ function ClubSelectMembershipModal(props) {
       setShowHeroSupporterDetails(false);
       setShowHeroChangerDetails(false);
       setShowForm(false);
+      setShowWelcomeToClub(false);
     };
   }, [props.show]);
   const [showHeroStarterDetails, setShowHeroStarterDetails] = useState(false);
@@ -29,9 +30,14 @@ function ClubSelectMembershipModal(props) {
     useState(false);
   const [showHeroChangerDetails, setShowHeroChangerDetails] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [showWelcomeToClub, setShowWelcomeToClub] = useState(false);
   const [amount, setAmount] = useState(null);
 
   const chooseAmount = (a) => {
+    if (amount) {
+      setAmount(null);
+      return;
+    }
     setAmount(a);
     if (a === 10) {
       setShowHeroStarterDetails(true);
@@ -45,6 +51,17 @@ function ClubSelectMembershipModal(props) {
       setShowHeroChangerDetails(true);
       return;
     }
+  };
+
+  const confirmAmount = () => {
+    if (!amount) {
+      return;
+    }
+    setShowForm(true);
+  };
+
+  const validate = () => {
+    setShowWelcomeToClub(true);
   };
 
   return (
@@ -72,7 +89,8 @@ function ClubSelectMembershipModal(props) {
             {!showHeroStarterDetails &&
               !showHeroSupporterDetails &&
               !showHeroChangerDetails &&
-              !showForm && (
+              !showForm &&
+              !showWelcomeToClub && (
                 <div className="modal-body">
                   <img
                     src={"assets/img/heroLogo2.png"}
@@ -137,7 +155,7 @@ function ClubSelectMembershipModal(props) {
                   <button
                     type="button"
                     className="btn btn-icon rounded btn-primary submit-btn me-1 mb-1 mt-4"
-                    onClick={() => setShowForm(true)}
+                    onClick={confirmAmount}
                   >
                     <ion-icon
                       src="assets/img/svg/next2.svg"
@@ -167,7 +185,7 @@ function ClubSelectMembershipModal(props) {
                 />
               </div>
             )}
-            {showForm && (
+            {showForm && !showWelcomeToClub && (
               <div id="form" className="modal-body">
                 <img
                   src={"assets/img/heroLogo.png"}
@@ -243,6 +261,7 @@ function ClubSelectMembershipModal(props) {
                       <button
                         type="button"
                         className="btn btn-link rounded btn-lg"
+                        onClick={validate}
                       >
                         Become a HERO Supporter
                       </button>
@@ -251,7 +270,7 @@ function ClubSelectMembershipModal(props) {
                 </div>
               </div>
             )}
-            {false && (
+            {showWelcomeToClub && (
               <div id="welcomeClub" className="modal-body">
                 <img
                   src={"assets/img/heroLogo2.png"}
