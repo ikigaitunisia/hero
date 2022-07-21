@@ -18,7 +18,7 @@ import "./Profile.css"
 import { Link } from 'react-router-dom';
 const Profile = () => {
   return (
-    <div className='Profile d-flex flex-column'>
+    <div id="profile" className='Profile d-flex flex-column'>
       
     <header>
     <nav class="navbar navbar-expand-lg navbar-light py-3 px-3">
