@@ -20,6 +20,7 @@ export const MobilizerData = [
         location: "London, UK",
         phone: "57 (300) 7189525",
         sm: "@elijahmckenziejackson",
+        videoBG: ["callum-shaw-7SE389kUVGw-unsplash.jpg", "2020-05-07_global_climate_strike.jpg", "elijahmckenzee.jpg", "li-an-lim-ycW4YxhrWHM-unsplash.jpg", "markus-spiske-dYZumbs8f_E-unsplash.jpg"],
         mainMovements: "Fridays for Future UK",
         video: "elijahVideo.mp4",
         TopCampaigns:
@@ -63,6 +64,7 @@ export const MobilizerData = [
         profileDescription: "Founder Tremendas | Cofounder Latinas for climate | Activist UN Women",
         Email :"julieta@tremendas.cl",
         LocationHighlight: "Chile",
+        videoBG: ["matt-palmer-kbTp7dBzHyY-unsplash.jpg", "matt-palmer-K5KmnZHv1Pg-unsplash.jpg", "markus-spiske-TknRspuNTJs-unsplash.jpg", "markus-spiske-r1BS0pzlr1M-unsplash.jpg", "4"],
         location: "Santiago, Chile",
         phone: "",
         sm: "linktr.ee/julietamartinez",
@@ -104,6 +106,7 @@ export const MobilizerData = [
         // For Jessica:  for all campaigns
         id: "Jessica",
         name: "Jessica Kleczka",
+        videoBG: ["callum-shaw-7SE389kUVGw-unsplash.jpg", "callum-shaw-7SE389kUVGw-unsplash.jpg", "callum-shaw-7SE389kUVGw-unsplash.jpg", "callum-shaw-7SE389kUVGw-unsplash.jpg", "callum-shaw-7SE389kUVGw-unsplash.jpg"],
         profileDescription: "Climate Psychology and Communication Researcher | Independent Advocate and Writer",
         Email :"hello@jessicakleczka.com",
         LocationHighlight: "UK",
@@ -156,6 +159,7 @@ export const MobilizerData = [
     {
         id: "Juan",
         name: "Juan Sierra",
+        videoBG: ["li-an-lim-ycW4YxhrWHM-unsplash.jpg", "li-an-lim-ycW4YxhrWHM-unsplash.jpg", "callum-shaw-7SE389kUVGw-unsplash.jpg", "callum-shaw-7SE389kUVGw-unsplash.jpg", "callum-shaw-7SE389kUVGw-unsplash.jpg"],
         profileDescription: "Co-Director, Pacto X El Clima | Young Climate Expert at Building Bridges for Climate Action",
         Email :"juanpablosierrasuarez@gmail.com",
         LocationHighlight: "Colombia",

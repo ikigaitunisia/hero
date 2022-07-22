@@ -113,16 +113,26 @@ const Profile = () => {
 
 
             </div>
-            {profile.id === "Anuna"  && 
-            <>
-              <img className='col-4 VideoContent' src={VideoContent1}/>
-              <img className='col-4 VideoContent' src={VideoContent2}/>
-              <img className='col-4 VideoContent' src={VideoContent3}/>
-              <img className='col-4 VideoContent'src={VideoContent4}/>
-              <img className='col-4 VideoContent' src={VideoContent5}/>
-              <img className='col-4 VideoContent' src={VideoContent6}/>
-            </>
+            
+            { profile.id == "Anuna"  && 
+            <div>
+                <img className='col-4 VideoContent' src={VideoContent1}/>
+                <img className='col-4 VideoContent' src={VideoContent2}/>
+                <img className='col-4 VideoContent' src={VideoContent3}/>
+                <img className='col-4 VideoContent' src={VideoContent4}/>
+                <img className='col-4 VideoContent' src={VideoContent5}/>
+              </div>
+
             }
+            { profile.videoBG &&
+              <>
+              {profile.videoBG.map((value) => <img className='col-4 VideoContent' src={ "/videos/profileVideosBg/" + value }/>)}  
+              </>          
+            }
+
+            
+
+
 
           </div>
     
