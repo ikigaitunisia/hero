@@ -1,11 +1,11 @@
 .clubSelectMembership .modal-content-custom {
   background: linear-gradient(0deg, rgb(162, 174, 241), #0000ffe5);
-  opacity: 90%;
+  /*opacity: 90%!important;*/
 }
 
 .clubSelectMembership .modal-content-custom-white {
   background: white;
-  opacity: unset;
+  opacity: unset!important;
 }
 
 .header-text {
@@ -314,4 +314,5 @@ a {
   padding: 0 40px 0 16px;
   border: unset;
   height: 42px;
+  width: 100%;
 }

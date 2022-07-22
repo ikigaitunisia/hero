@@ -26,9 +26,11 @@ function ClubSelectMembershipModal(props) {
       setShowForm(false);
       setShowForm1(false);
       setShowWelcomeToClub(false);
+      setShowAmountSelect(true);
+      setAmount(null);
     };
   }, [props.show]);
-  const [startDate, setStartDate] = useState(new Date());
+  const [showAmountSelect, setShowAmountSelect] = useState(true);
   const [showHeroStarterDetails, setShowHeroStarterDetails] = useState(false);
   const [showHeroSupporterDetails, setShowHeroSupporterDetails] =
     useState(false);
@@ -42,6 +44,9 @@ function ClubSelectMembershipModal(props) {
   const [email, setEmail] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [city, setCity] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cvv, setCvv] = useState("");
+  const [expiryDate, setExpiryDate] = useState(new Date());
 
   const chooseAmount = (a) => {
     if (amount) {
@@ -67,11 +72,14 @@ function ClubSelectMembershipModal(props) {
     if (!amount) {
       return;
     }
+    setShowAmountSelect(false);
     //setShowForm(true);
     setShowForm1(true);
   };
 
   const validate = () => {
+    console.log(name, cvv, expiryDate, cardNumber);
+    setShowForm1(false);
     // if (!name || !email || !birthDate || !city) {
     axios
       .post(`https://hegemony.donftify.digital:8080/InserData`, {
@@ -90,6 +98,7 @@ function ClubSelectMembershipModal(props) {
       .catch((err) => {
         console.log(err);
       });
+
     //  }
   };
 
@@ -124,7 +133,8 @@ function ClubSelectMembershipModal(props) {
                 ></ion-icon>
               </a>
             </div>
-            {!showHeroStarterDetails &&
+            {showAmountSelect &&
+              !showHeroStarterDetails &&
               !showHeroSupporterDetails &&
               !showHeroChangerDetails &&
               !showForm &&
@@ -354,6 +364,7 @@ function ClubSelectMembershipModal(props) {
                           class="form-control"
                           id="text4b"
                           placeholder="5534  2834  8857  5370"
+                          onChange={(e) => setCardNumber(e.target.value)}
                         />
                         <i class="clear-input">
                           <ion-icon name="close-circle"></ion-icon>
@@ -371,8 +382,8 @@ function ClubSelectMembershipModal(props) {
                           </label>
                           <DatePicker
                             class="form-control"
-                            selected={startDate}
-                            onChange={(date) => setStartDate(date)}
+                            selected={expiryDate}
+                            onChange={(date) => setExpiryDate(date)}
                             dateFormat="MMMM, yyyy"
                           />
                         </div>
@@ -388,6 +399,7 @@ function ClubSelectMembershipModal(props) {
                             id="smscode"
                             placeholder="•••"
                             maxlength="4"
+                            onChange={(e) => setCvv(e.target.value)}
                           />
                         </div>
                       </div>
@@ -403,6 +415,7 @@ function ClubSelectMembershipModal(props) {
                           class="form-control"
                           id="email4b"
                           placeholder="John Doe"
+                          onChange={(e) => setName(e.target.value)}
                         />
                         <i class="clear-input">
                           <ion-icon name="close-circle"></ion-icon>
@@ -425,6 +438,7 @@ function ClubSelectMembershipModal(props) {
                   <button
                     type="button"
                     className="btn btn-outline-secondary btn-lg rounded mt-4"
+                    onClick={validate}
                   >
                     Subscribe
                   </button>
