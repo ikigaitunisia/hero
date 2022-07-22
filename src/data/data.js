@@ -152,17 +152,7 @@ export const MobilizerData = [
                     desc: "Shares very popular positive climate news every week on her Instagram account, emphasising the importance of mental health, psychology and communication in addressing the climate crisis."
                 }
         ],
-    },
-
-
-
-
-
-
-
-
-
-    
+    },    
     {
         id: "Juan",
         name: "Juan Sierra",

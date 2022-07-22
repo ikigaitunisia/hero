@@ -31,7 +31,6 @@ const Profile = () => {
   useEffect(() => {
       console.log(id.substring(1))
       MobilizerData.map((value, index) => {
-      if (index === 4) {return}
       if (value.id === id.substring(1)) {
           setProfile(value)
         }
