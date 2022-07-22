@@ -2,6 +2,60 @@
     min-height: 100vh;
 }
 
+
+
+.ProfileImage-Elijah {
+    position: relative;
+    width: 64.07px;
+    height: 64.07px;
+    background: url("../../screens/Profile/ProfileAssets/ProfileImage.svg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.ProfileImage-Julieta {
+    position: relative;
+    width: 64.07px;
+    height: 64.07px;
+    background: url("../../screens/Profile/ProfileAssets/ProfileImage.svg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.ProfileImage-Jessica {
+    position: relative;
+    width: 64.07px;
+    height: 64.07px;
+    background: url("../../screens/Profile/ProfileAssets/ProfileImage.svg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.ProfileImage-Juan {
+    position: relative;
+    width: 64.07px;
+    height: 64.07px;
+    background: url("../../screens/Profile/ProfileAssets/ProfileImage.svg");
+    background-size: cover;
+    background-position: center;
+}
+
+.ProfileImage-Anuna {
+    position: relative;
+    width: 64.07px;
+    height: 64.07px;
+    background: url("../../screens/Profile/ProfileAssets/ProfileImage.svg");
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+
+
 header {
     background: linear-gradient(180deg, #0000FF 0%, #FFFFFF 137.53%);
 } 

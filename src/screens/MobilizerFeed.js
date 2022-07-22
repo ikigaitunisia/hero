@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { withRouter, useHistory } from "react-router-dom";
+import { withRouter, useHistory, Link } from "react-router-dom";
 import "./MobilizerFeed.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import EchoModal from "../components/EchoModal";
@@ -114,12 +114,16 @@ function MobilizerFeed(props) {
 
                 <div className="button-container">
                   <div className="mb-3">
-
-                    <img
-                      src="assets/img/annunaPicture.png"
-                      alt="image"
-                      className="imaged w32 rounded"
-                    />
+                {/* 
+                    Changes the Profile Image based on the current activiest index
+                    Link to the profile by the user ID
+              */}
+                    <Link to={"/profile:" + i.id}>
+                    <div
+                      className={"profileIcon-" + i.id}
+                    >
+                    </div>
+                    </Link>
                   </div>
                   <div className="mb-3" onClick={() => setShowEchoModal(true)}>
                     <ion-icon

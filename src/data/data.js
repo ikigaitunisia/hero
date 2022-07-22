@@ -1,5 +1,16 @@
 export const MobilizerData = [
     {
+        id: 'Anuna',
+        name: "Anuna de Wever",
+        profileDescription: "Climate & Social Justice Mobilizer Co-founder Youth for Climate Belgium Member of Friday’s for Future Global",
+        Email :"juanpablosierrasuarez@gmail.com",
+        LocationHighlight: "Belgium",
+        location: "Brussels, Belgium",
+        sm: "@anunadewever",
+        video: "elijahVideo.mp4",
+    },
+
+    {
         // re form this pls
         id: "Elijah",
         name: "Elijah McKenzie",

@@ -98,3 +98,47 @@ video {
   line-height: 12.27px;
   font-family: "Seravek";
 }
+
+
+.profileIcon-Elijah {
+  position: relative;
+  width: 38.1px;
+  height: 38.1px;
+  background: red;
+  background-size: cover;
+  background-position: center;
+}
+
+.profileIcon-Julieta {
+  position: relative;
+  width: 38.1px;
+  height: 38.1px;
+  background: blue;
+  background-size: cover;
+  background-position: center;
+}
+.profileIcon-Jessica {
+  position: relative;
+  width: 38.1px;
+  height: 38.1px;
+  background: green;
+  background-size: cover;
+  background-position: center;
+}
+.profileIcon-Juan {
+  position: relative;
+  width: 38.1px;
+  height: 38.1px;
+  background: yellow;
+  background-size: cover;
+  background-position: center;
+}
+
+.profileIcon-Anuna {
+  position: relative;
+  width: 38.1px;
+  height: 38.1px;
+  background: url("../screens/Profile/ProfileAssets/ProfileImage.svg");
+  background-size: cover;
+  background-position: center;
+}

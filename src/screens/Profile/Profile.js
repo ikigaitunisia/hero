@@ -19,7 +19,12 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import { MobilizerData } from "../../data/data.js"
 
+
+
+
+
 const Profile = () => {
+
 
   const { id } = useParams();
   const [profile, setProfile] = useState({});
@@ -73,7 +78,9 @@ const Profile = () => {
 
           <div className='d-flex flex-column justify-content-center'>
               <div className='Profile-About d-flex flex-column justify-content-center align-items-center'>
-                <div className={'ProfileImage' + profile.id}></div>
+                <div className={'ProfileImage-' + profile.id}>
+                
+                </div>
                 <p className='ProfileTitle'>{profile.name}</p>
                 <span className='d-flex'>
                 <small className='Profilesubtitle'>{profile.sm}</small>
