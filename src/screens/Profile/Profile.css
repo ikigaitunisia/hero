@@ -11,6 +11,8 @@
     background: url("../Profile/ProfileAssets/ProfileImage.svg");
     background-size: cover;
     background-position: center;
+    border-radius: 50%;
+    border: solid 3px white;
 }
 
 
@@ -21,6 +23,8 @@
     background: url("../Profile/ProfileAssets/Julieta.jpg");
     background-size: cover;
     background-position: center;
+    border-radius: 50%;
+    border: solid 3px white;
 }
 
 
@@ -31,6 +35,8 @@
     background: url("../Profile/ProfileAssets/jessica.jpg");
     background-size: cover;
     background-position: center;
+    border-radius: 50%;
+    border: solid 3px white;
 }
 
 
@@ -41,6 +47,8 @@
     background: url("../Profile/ProfileAssets/ProfileImage.svg");
     background-size: cover;
     background-position: center;
+    border-radius: 50%;
+    border: solid 3px white;
 }
 
 .ProfileImage-Anuna {

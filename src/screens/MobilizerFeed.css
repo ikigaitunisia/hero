@@ -107,6 +107,9 @@ video {
   background: url("./Profile/ProfileAssets/elijahmckenzee.jpg");
   background-size: cover;
   background-position: center;
+  border-radius: 50%;
+  border: solid 3px white;
+
 }
 
 .profileIcon-Julieta {
@@ -115,6 +118,10 @@ video {
   height: 38.1px;
   background: url("./Profile/ProfileAssets/Julieta.jpg");
   background-size: cover;
+  border-radius: 50%;
+  border: solid 3px white;
+
+
   background-position: center;
 }
 .profileIcon-Jessica {
@@ -124,6 +131,10 @@ video {
   background: url("./Profile/ProfileAssets/jessica.jpg");
   background-size: cover;
   background-position: center;
+  border-radius: 50%;
+  border: solid 3px white;
+
+
 }
 .profileIcon-Juan {
   position: relative;
@@ -132,6 +143,9 @@ video {
   background: url("./Profile/ProfileAssets/elijahmckenzee.jpg");
   background-size: cover;
   background-position: center;
+  border-radius: 50%;
+  border: solid 3px white;
+
 }
 
 .profileIcon-Anuna {
@@ -141,4 +155,5 @@ video {
   background: url("../screens/Profile/ProfileAssets/ProfileImage.svg");
   background-size: cover;
   background-position: center;
+
 }
