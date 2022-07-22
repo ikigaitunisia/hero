@@ -104,7 +104,7 @@ video {
   position: relative;
   width: 38.1px;
   height: 38.1px;
-  background: red;
+  background: url("./Profile/ProfileAssets/elijahmckenzee.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -113,7 +113,7 @@ video {
   position: relative;
   width: 38.1px;
   height: 38.1px;
-  background: blue;
+  background: url("./Profile/ProfileAssets/Julieta.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -121,7 +121,7 @@ video {
   position: relative;
   width: 38.1px;
   height: 38.1px;
-  background: green;
+  background: url("./Profile/ProfileAssets/jessica.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -129,7 +129,7 @@ video {
   position: relative;
   width: 38.1px;
   height: 38.1px;
-  background: yellow;
+  background: url("./Profile/ProfileAssets/elijahmckenzee.jpg");
   background-size: cover;
   background-position: center;
 }

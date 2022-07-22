@@ -8,7 +8,7 @@
     position: relative;
     width: 64.07px;
     height: 64.07px;
-    background: url("../../screens/Profile/ProfileAssets/ProfileImage.svg");
+    background: url("../Profile/ProfileAssets/ProfileImage.svg");
     background-size: cover;
     background-position: center;
 }
@@ -18,7 +18,7 @@
     position: relative;
     width: 64.07px;
     height: 64.07px;
-    background: url("../../screens/Profile/ProfileAssets/ProfileImage.svg");
+    background: url("../Profile/ProfileAssets/Julieta.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -28,7 +28,7 @@
     position: relative;
     width: 64.07px;
     height: 64.07px;
-    background: url("../../screens/Profile/ProfileAssets/ProfileImage.svg");
+    background: url("../Profile/ProfileAssets/jessica.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -38,7 +38,7 @@
     position: relative;
     width: 64.07px;
     height: 64.07px;
-    background: url("../../screens/Profile/ProfileAssets/ProfileImage.svg");
+    background: url("../Profile/ProfileAssets/ProfileImage.svg");
     background-size: cover;
     background-position: center;
 }
@@ -47,10 +47,9 @@
     position: relative;
     width: 64.07px;
     height: 64.07px;
-    background: url("../../screens/Profile/ProfileAssets/ProfileImage.svg");
+    background: url("../Profile/ProfileAssets/ProfileImage.svg");
     background-size: cover;
     background-position: center;
-
 }
 
 
