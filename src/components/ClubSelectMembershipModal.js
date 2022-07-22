@@ -5,6 +5,8 @@ import HeroStarterDetails from "./HeroStarterDetails";
 import HeroSupporterDetails from "./HeroSupporterDetails";
 import HeroChangerDetails from "./HeroChangerDetails";
 import axios from "axios";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 function ClubSelectMembershipModal(props) {
   useEffect(() => {
     if (props.show) {
@@ -22,14 +24,17 @@ function ClubSelectMembershipModal(props) {
       setShowHeroSupporterDetails(false);
       setShowHeroChangerDetails(false);
       setShowForm(false);
+      setShowForm1(false);
       setShowWelcomeToClub(false);
     };
   }, [props.show]);
+  const [startDate, setStartDate] = useState(new Date());
   const [showHeroStarterDetails, setShowHeroStarterDetails] = useState(false);
   const [showHeroSupporterDetails, setShowHeroSupporterDetails] =
     useState(false);
   const [showHeroChangerDetails, setShowHeroChangerDetails] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [showForm1, setShowForm1] = useState(false);
   const [showWelcomeToClub, setShowWelcomeToClub] = useState(false);
   const [amount, setAmount] = useState(null);
 
@@ -45,15 +50,15 @@ function ClubSelectMembershipModal(props) {
     }
     setAmount(a);
     if (a === 10) {
-      setShowHeroStarterDetails(true);
+      //setShowHeroStarterDetails(true);
       return;
     }
     if (a === 20) {
-      setShowHeroSupporterDetails(true);
+      //setShowHeroSupporterDetails(true);
       return;
     }
     if (a === 50) {
-      setShowHeroChangerDetails(true);
+      //setShowHeroChangerDetails(true);
       return;
     }
   };
@@ -62,28 +67,30 @@ function ClubSelectMembershipModal(props) {
     if (!amount) {
       return;
     }
-    setShowForm(true);
+    //setShowForm(true);
+    setShowForm1(true);
   };
 
   const validate = () => {
-   // if (!name || !email || !birthDate || !city) {
-      axios.post(`https://hegemony.donftify.digital:8080/InserData`,
-      {Full_Name:name,
-  Email:email,
-  Birth_date:birthDate,
-  City:city,
-  ExitesYouHero:[],
-  climatesChanges:[],
-  MonthlySubs:amount,
-  source:"pledge2"
-      }
-
-      ).then(res => {
+    // if (!name || !email || !birthDate || !city) {
+    axios
+      .post(`https://hegemony.donftify.digital:8080/InserData`, {
+        Full_Name: name,
+        Email: email,
+        Birth_date: birthDate,
+        City: city,
+        ExitesYouHero: [],
+        climatesChanges: [],
+        MonthlySubs: amount,
+        source: "pledge2",
+      })
+      .then((res) => {
         setShowWelcomeToClub(true);
-      }).catch(err => {
-        console.log(err)
-      }) 
-  //  }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    //  }
   };
 
   return (
@@ -95,7 +102,13 @@ function ClubSelectMembershipModal(props) {
         role="dialog"
       >
         <div className="modal-dialog" role="document">
-          <div className="modal-content" style={{ opacity: "90%" }}>
+          <div
+            className={
+              !showForm1
+                ? "modal-content modal-content-custom"
+                : "modal-content modal-content-custom-white"
+            }
+          >
             <div
               className="modal-header"
               style={{
@@ -105,14 +118,18 @@ function ClubSelectMembershipModal(props) {
               }}
             >
               <a href="#" data-bs-dismiss="modal">
-                <ion-icon name="close" style={{ color: "white" }}></ion-icon>
+                <ion-icon
+                  name="close"
+                  style={!showForm1 ? { color: "white" } : { color: "blue" }}
+                ></ion-icon>
               </a>
             </div>
             {!showHeroStarterDetails &&
               !showHeroSupporterDetails &&
               !showHeroChangerDetails &&
               !showForm &&
-              !showWelcomeToClub && (
+              !showWelcomeToClub &&
+              !showForm1 && (
                 <div className="modal-body">
                   <img
                     src={"assets/img/heroLogo2.png"}
@@ -314,6 +331,110 @@ function ClubSelectMembershipModal(props) {
                 >
                   Go to Club
                 </button>
+              </div>
+            )}
+
+            {showForm1 && !showWelcomeToClub && (
+              <div id="form1" className="modal-body">
+                <img
+                  src={"assets/img/minLogoBlue.png"}
+                  alt="logo"
+                  className="logo"
+                />
+                <p className="header-text mt-4">Payment Details</p>
+                <div className="section center">
+                  <form>
+                    <div class="form-group boxed">
+                      <div class="input-wrapper">
+                        <label class="label" for="text4b">
+                          Card Number
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="text4b"
+                          placeholder="5534  2834  8857  5370"
+                        />
+                        <i class="clear-input">
+                          <ion-icon name="close-circle"></ion-icon>
+                        </i>
+                      </div>
+                    </div>
+                    <div className="row section">
+                      <div class="form-group boxed col me-1">
+                        <div
+                          class="input-wrapper"
+                          style={{ minWidth: "129px" }}
+                        >
+                          <label class="label" for="select4b">
+                            Expiry date
+                          </label>
+                          <DatePicker
+                            class="form-control"
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                            dateFormat="MMMM, yyyy"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group col boxed">
+                        <div class="input-wrapper">
+                          <label class="label" for="email4b">
+                            CVV
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control verification-input"
+                            id="smscode"
+                            placeholder="•••"
+                            maxlength="4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group boxed">
+                      <div class="input-wrapper">
+                        <label class="label" for="email4b">
+                          Name
+                        </label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="email4b"
+                          placeholder="John Doe"
+                        />
+                        <i class="clear-input">
+                          <ion-icon name="close-circle"></ion-icon>
+                        </i>
+                      </div>
+                    </div>
+                  </form>
+                  <p className="header-text mt-4">Support the HERO Team</p>
+                  <div className="flex-center amount-container">
+                    <div className="coin">€</div>
+                    <div className="amount">{amount}</div>
+                  </div>
+                  <p className="mt-4 mb-0">
+                    Consider giving an extra amount if you like our platform.
+                    <br /> Your contribution will help us to keep supporting
+                    <br /> mobilizers around the world with trainings, legal
+                    advice,
+                    <br /> partnerships and communication strategies.
+                  </p>
+                  <button
+                    type="button"
+                    className="btn btn-outline-secondary btn-lg rounded mt-4"
+                  >
+                    Subscribe
+                  </button>
+                  <p className="mt-4">
+                    You can cancel at anytime.
+                    <br /> Your membership renews automatically on November 7th.
+                    <br /> By subscribing, you agree to{" "}
+                    <a href="#">HERO's Terms of Use</a>.
+                  </p>
+                </div>
               </div>
             )}
           </div>
