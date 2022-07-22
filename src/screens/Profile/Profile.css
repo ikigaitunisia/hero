@@ -68,8 +68,11 @@ header {
 } 
 
 .VideoContent {
+    width: 141px;
+    height: 210px;
     padding-left: 4px;
     padding-right: 4px;
+    padding-top: 4px;
 }
 
 
