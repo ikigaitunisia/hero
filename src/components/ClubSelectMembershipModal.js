@@ -117,7 +117,6 @@ function ClubSelectMembershipModal(props) {
                 ? "modal-content modal-content-custom"
                 : "modal-content modal-content-custom-white"
             }
-            style={{opacity: "90%"}}
           >
             <div
               className="modal-header"
