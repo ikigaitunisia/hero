@@ -111,13 +111,19 @@ const Profile = () => {
             { /* className='align-self-center ml-f' to={"/ProfileClub"}>   onClick={clickHandler} */ }
             <button className='switch switch-r' ><img className='switch-btn-icon' src={switchIconT}/>Club Access</button>
 
-          </div>
-            <img className='col-4 VideoContent' src={VideoContent1}/>
-            <img className='col-4 VideoContent' src={VideoContent2}/>
-            <img className='col-4 VideoContent' src={VideoContent3}/>
-            <img className='col-4 VideoContent'src={VideoContent4}/>
-            <img className='col-4 VideoContent' src={VideoContent5}/>
-            <img className='col-4 VideoContent' src={VideoContent6}/>
+
+            </div>
+            {profile.id === "Anuna"  && 
+            <>
+              <img className='col-4 VideoContent' src={VideoContent1}/>
+              <img className='col-4 VideoContent' src={VideoContent2}/>
+              <img className='col-4 VideoContent' src={VideoContent3}/>
+              <img className='col-4 VideoContent'src={VideoContent4}/>
+              <img className='col-4 VideoContent' src={VideoContent5}/>
+              <img className='col-4 VideoContent' src={VideoContent6}/>
+            </>
+            }
+
           </div>
     
     
