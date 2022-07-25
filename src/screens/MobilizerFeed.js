@@ -83,7 +83,10 @@ function MobilizerFeed(props) {
         ticking = false;
         return;
       }
-
+      if (scrollY > lastScrollY)
+      {
+        console.log("AAA");
+      }
       setScrollDir(scrollY > lastScrollY ? SCROLL_DOWN : SCROLL_UP);
       lastScrollY = scrollY > 0 ? scrollY : 0;
       ticking = false;
