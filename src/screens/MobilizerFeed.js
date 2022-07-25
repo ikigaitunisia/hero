@@ -106,7 +106,7 @@ function MobilizerFeed(props) {
      */
    window.addEventListener("scroll", onScroll);
    
-   return () => window.removeEventListener('scroll', handleScroll);
+   return () => window.removeEventListener('scroll', onScroll);
   }, []);
   return (
     <>
