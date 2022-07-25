@@ -5,62 +5,51 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import EchoModal from "../components/EchoModal";
 import {MobilizerData} from "../data/data.js";
 
+
 const SCROLL_UP = "up";
 const SCROLL_DOWN = "down";
+const thresholdPixels = 10;
 
-const useScrollDirection = ({
-  initialDirection,
-  thresholdPixels,
-  off
-} = {}) => {
-  const [scrollDir, setScrollDir] = useState(initialDirection);
-
-  useEffect(() => {
-    const threshold = thresholdPixels || 0;
-    let lastScrollY = window.pageYOffset;
-    let ticking = false;
-
-    const updateScrollDir = () => {
-      const scrollY = window.pageYOffset;
-
-      if (Math.abs(scrollY - lastScrollY) < threshold) {
-        // We haven't exceeded the threshold
-        ticking = false;
-        return;
-      }
-
-      setScrollDir(scrollY > lastScrollY ? SCROLL_DOWN : SCROLL_UP);
-      lastScrollY = scrollY > 0 ? scrollY : 0;
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateScrollDir);
-        ticking = true;
-      }
-    };
-
-    /**
-     * Bind the scroll handler if `off` is set to false.
-     * If `off` is set to true reset the scroll direction.
-     */
-    !off
-      ? window.addEventListener("scroll", onScroll)
-      : setScrollDir(initialDirection);
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [initialDirection, thresholdPixels, off]);
-
-  return scrollDir;
-};
 function MobilizerFeed(props) {
   const history = useHistory();
 
   const [items, setItems] = useState(Array.from({ length: 2 }));
   const [showEchoModal, setShowEchoModal] = useState(false);
   const [hasMore, setHasMore] = useState(true);
+  const [ScrollDir,setScrollDir] = useState("");
+  const [indexY,setIndexY] = useState(0);
   
+  const getDirection = () => {
+    if (ScrollDir == "down")
+      { 
+        console.log(indexY);
+        console.log(ScrollDir);
+        console.log(MobilizerData.length -1);
+        if (indexY< MobilizerData.length -1)
+        {
+          setIndexY(indexY +1);
+        }
+        else
+        {
+          setIndexY(0);
+        }
+      }
+      else 
+      {console.log(indexY);
+        console.log(ScrollDir);
+        console.log(ScrollDir);
+        console.log(MobilizerData.length -1);
+        if (indexY>0)
+        {
+          setIndexY(indexY-1);
+        }
+        else
+        {
+          setIndexY(MobilizerData.length -1);
+        }
+      }
+    }
+    
   const fetchMoreData = () => {
     if (items.length >= 6) {
       setHasMore(false);
@@ -80,6 +69,46 @@ function MobilizerFeed(props) {
       v.pause();
     }
   };
+  const threshold = thresholdPixels || 0;
+    let lastScrollY = window.pageYOffset;
+    let ticking = false;
+
+    const updateScrollDir = () => {
+      const scrollY = window.pageYOffset;
+
+    
+     
+      setScrollDir(scrollY > lastScrollY ? SCROLL_DOWN : SCROLL_UP);
+      console.log(scrollY > lastScrollY);
+
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+
+      ticking = false;
+      getDirection();
+    };
+    
+    const onScroll = () => {
+      
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollDir);
+        //updateScrollDir();
+        ticking = true;
+        //console.log(ScrollDir);
+      }
+      
+    };
+  window.addEventListener("scroll", onScroll);
+
+  useEffect(() => {
+    
+
+    /**
+     * Bind the scroll handler if `off` is set to false.
+     * If `off` is set to true reset the scroll direction.
+     */
+   
+   //return () => window.removeEventListener('scroll', onScroll);
+  }, [thresholdPixels]);
   return (
     <>
       <InfiniteScroll
@@ -88,11 +117,11 @@ function MobilizerFeed(props) {
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
       >
-        {MobilizerData.map((i, index) => (
-          <div key={index}>
+      
+          <div key={indexY}>
             <div className="feed" style={{ minHeight: "90vh!important" }}>
-              <video id={index} playsInline>
-                <source src={"videos/"+i.video} type="video/mp4" />
+              <video id={indexY} playsInline>
+                <source src={"videos/"+MobilizerData[indexY].video} type="video/mp4" />
               </video>
               <div className="feed-content">
                 <img
@@ -108,7 +137,7 @@ function MobilizerFeed(props) {
                 <button
                   type="button"
                   className="btn btn-primary rounded play-btn"
-                  onClick={() => playVideo(index)}
+                  onClick={() => playVideo(indexY)}
                 >
                   <ion-icon name="play" class="m-0"></ion-icon>
                 </button>
@@ -119,9 +148,9 @@ function MobilizerFeed(props) {
                     Changes the Profile Image based on the current activiest index
                     Link to the profile by the user ID
               */}
-                    <Link to={"/profile:" + i.id}>
+                    <Link to={"/profile:" + MobilizerData[indexY].id}>
                     <div
-                      className={"profileIcon-" + i.id}
+                      className={"profileIcon-" + MobilizerData[indexY].id}
                     >
                     </div>
                     </Link>
@@ -165,7 +194,6 @@ function MobilizerFeed(props) {
               </div>
             </div>
           </div>
-        ))}
       </InfiniteScroll>
       <EchoModal show={showEchoModal} onClose={() => setShowEchoModal(false)} />
     </>
