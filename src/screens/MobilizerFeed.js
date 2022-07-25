@@ -1,4 +1,4 @@
-import React, { useState,useEffect,useRef } from "react";
+import React, { useState,useLayoutEffect,useRef } from "react";
 import { withRouter, useHistory, Link } from "react-router-dom";
 import "./MobilizerFeed.css";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -71,7 +71,7 @@ function MobilizerFeed(props) {
     }
   };
   
-  useEffect(() => {
+  useLayoutEffect(() => {
     const threshold = thresholdPixels || 0;
     let lastScrollY = window.pageYOffset;
     let ticking = false;
@@ -106,7 +106,7 @@ function MobilizerFeed(props) {
      * If `off` is set to true reset the scroll direction.
      */
   const div = ref.current
-   div.addEventListener("scroll", onScroll)
+   window.addEventListener("scroll", onScroll)
    
 
   }, []);
