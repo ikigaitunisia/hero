@@ -18,7 +18,7 @@ function MobilizerFeed(props) {
   const [hasMore, setHasMore] = useState(true);
   const [ScrollDir,setScrollDir] = useState("");
   const [indexY,setIndexY] = useState(0);
-  console.log(ScrollDir);
+  
   const getDirection = () => {
     if (ScrollDir == "down")
       { 
@@ -82,6 +82,8 @@ function MobilizerFeed(props) {
      
       setScrollDir(scrollY > lastScrollY ? SCROLL_DOWN : SCROLL_UP);
       lastScrollY = scrollY > 0 ? scrollY : 0;
+
+      console.log(ScrollDir);
       ticking = false;
       //getDirection();
     };
