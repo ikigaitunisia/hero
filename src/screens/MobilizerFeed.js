@@ -18,6 +18,37 @@ function MobilizerFeed(props) {
   const [hasMore, setHasMore] = useState(true);
   const [ScrollDir,setScrollDir] = useState("");
   const [indexY,setIndexY] = useState(0);
+  const getDirection = () => {
+    if (ScrollDir == "down")
+      { 
+        console.log(indexY);
+        console.log(ScrollDir);
+        console.log(MobilizerData.length -1);
+        if (indexY< MobilizerData.length -1)
+        {
+          setIndexY(indexY +1);
+        }
+        else
+        {
+          setIndexY(0);
+        }
+      }
+      else 
+      {console.log(indexY);
+        console.log(ScrollDir);
+        console.log(ScrollDir);
+        console.log(MobilizerData.length -1);
+        if (indexY>0)
+        {
+          setIndexY(indexY-1);
+        }
+        else
+        {
+          setIndexY(MobilizerData.length -1);
+        }
+      }
+    }
+    getDirection();
   const fetchMoreData = () => {
     if (items.length >= 6) {
       setHasMore(false);
@@ -57,36 +88,7 @@ function MobilizerFeed(props) {
       ticking = false;
       getDirection();
     };
-    const getDirection = () => {
-    if (ScrollDir == "down")
-      { 
-        console.log(indexY);
-        console.log(ScrollDir);
-        console.log(MobilizerData.length -1);
-        if (indexY< MobilizerData.length -1)
-        {
-          setIndexY(indexY +1);
-        }
-        else
-        {
-          setIndexY(0);
-        }
-      }
-      else 
-      {console.log(indexY);
-        console.log(ScrollDir);
-        console.log(ScrollDir);
-        console.log(MobilizerData.length -1);
-        if (indexY>0)
-        {
-          setIndexY(indexY-1);
-        }
-        else
-        {
-          setIndexY(MobilizerData.length -1);
-        }
-      }
-    }
+    
     const onScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(updateScrollDir);
