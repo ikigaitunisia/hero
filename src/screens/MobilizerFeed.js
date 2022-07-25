@@ -141,7 +141,7 @@ function MobilizerFeed(props) {
                     <img
                       src="assets/img/club.png"
                       alt="image"
-                      class="imaged w32 rounded"
+                      className="imaged w32 rounded"
                     />
                     <span className="text-2">
                       Join <br /> Club

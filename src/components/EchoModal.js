@@ -41,7 +41,7 @@ function EchoModal(props) {
     <div
       className="modal fade action-sheet"
       id="echo"
-      tabindex="-1"
+      tabIndex="-1"
       role="dialog"
     >
       <div className="modal-dialog" role="document">

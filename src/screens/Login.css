@@ -1,0 +1,72 @@
+.supporter-logo {
+  width: 160px;
+}
+
+.login-form ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  text-align: center;
+}
+
+.login-form:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  text-align: center;
+}
+.login-form ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  text-align: center;
+}
+
+.login-form .verification-input {
+  background: transparent !important;
+  color: white !important;
+  border: 1px solid white !important;
+  box-shadow: unset !important;
+}
+@media screen and (max-width: 400px) {
+  .supporter-logo {
+    width: 150px;
+  }
+}
+.bg-g {
+  background: linear-gradient(0deg, rgb(162, 174, 241), blue);
+}
+
+.white-text {
+  color: white !important;
+}
+
+.text-title {
+  padding-top: 30px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: blue;
+}
+.center-div {
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.submit-btn {
+  background-color: white;
+  width: 200px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 600px) {
+  .text-title {
+    font-size: 24px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .text-title {
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .center-div {
+    width: 80%;
+  }
+}

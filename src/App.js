@@ -9,12 +9,14 @@ import ProfileClub from "./screens/Profile/ProfileClub/ProfileClub";
 import Vote from "./screens/Profile/ProfileClub/Vote";
 import Feature from "./screens/Profile/feature";
 import eventTalk from "./screens/Profile/ProfileClub/eventTalk";
+import Login from "./screens/Login";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Route path="/" exact component={Home} />
+        <Route path="/login" exact component={Login} />
         <Route path="/mobilizer-club" exact component={MobilizerClub} />
         <Route path="/mobilizer-feed" exact component={MobilizerFeed} />
         <Route path="/profile:id" exact component={Profile} />

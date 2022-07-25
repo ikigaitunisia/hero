@@ -5,7 +5,13 @@ import "./Home.css";
 function Home(props) {
   const history = useHistory();
   const join = () => {
-    history.push("/mobilizer-feed");
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user)
+    if (user == null) {
+      history.push("/Login");
+    } else {
+      history.push("/mobilizer-feed");
+    }
   };
   return (
     <>
