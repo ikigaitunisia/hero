@@ -114,7 +114,7 @@ function MobilizerFeed(props) {
     <>
   
       
-          <div key={indexY} ref={ref} onScroll={() => onScroll() }>
+          <div key={indexY} ref={ref} onScroll={() => onScroll() } style={{overflow: "scroll",overflowY: "hidden"}}>
             <div className="feed" style={{ minHeight: "90vh!important" }}>
               <video id={indexY} playsInline>
                 <source src={"videos/"+MobilizerData[indexY].video} type="video/mp4" />
