@@ -64,7 +64,7 @@ function MobilizerFeed(props) {
         ticking = true;
         if (ScrollDir == "down")
         {
-          if (indexY< MobilizerData.length() -1)
+          if (indexY< MobilizerData.length -1)
           {
           indexY = indexY +1;
           }
@@ -81,7 +81,7 @@ function MobilizerFeed(props) {
           }
           else
           {
-          indexY = MobilizerData.length() -1 ;
+          indexY = MobilizerData.length -1 ;
           }
         }
       }
