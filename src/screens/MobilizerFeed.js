@@ -104,9 +104,9 @@ function MobilizerFeed(props) {
      * Bind the scroll handler if `off` is set to false.
      * If `off` is set to true reset the scroll direction.
      */
-   window.addEventListener("scroll", onScroll)
+   window.addEventListener("scroll", onScroll);
    
-
+   return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   return (
     <>
