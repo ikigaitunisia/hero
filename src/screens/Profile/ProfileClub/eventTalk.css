@@ -1,0 +1,56 @@
+.eventTalk {
+    min-height: 100vh;
+    background-color: #B8B8FF;
+}
+.eventIcon {
+    height: 45.06px;
+    width: 44.02px;
+    margin-bottom: 26px;
+    margin-top: 22px;
+}
+
+.eventInner {
+    background-color: white;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    margin-left: 45px;
+    margin-right: 45px;
+    border-radius: 30px;
+
+}
+
+
+.eventTalkTitle {
+    font-family: 'Seravek';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    color: #191919;
+}
+
+
+.eventTalkParagraph 
+{font-style: normal;
+
+    font-family: 'Seravek';
+    font-weight: 400;
+font-size: 20px;
+line-height: 22px;
+/* or 110% */
+
+
+color: #191919;}
+
+.eventTalkLink {
+    font-family: 'Seravek';
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 22px;
+/* or 147% */
+text-align: center;
+text-decoration-line: underline!important;
+
+color: #191919!important;
+}

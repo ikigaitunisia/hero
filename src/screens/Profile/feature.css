@@ -1,27 +1,106 @@
+
 .featureCntainer {
     background-color: #3333FF;
     min-height: 100vh;
+}
+
+.voteIcon {
+    margin-top: 38px;
+    margin-bottom: 24.42px;
+}
+
+.featureTitle {
+    font-family: 'Seravek';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 22px;
+margin-top: 24px;
+/* or 110% */
+margin-bottom: 43px;
+
+color: #FFFFFF;
 }
 
 .FResults {
 
 }
 
-.Yvote span:empty {
+.Yvote, .Nvote {
     height: 100%;
+}
+
+.Yvote span{
+    /* position:absolute;
+    height: 60%;
     width: 90px;
     background-color: white;
+    border-radius: 20px 20px 0px 0px;
+    bottom: 0;
+    left: 3.2rem; */
+    position: absolute;
+    bottom: 0;
+    width: 90px;
+    height: 504px;
+    left: 110px;
+    top: 339px;
+    left: 3.2rem; 
+    background: #FFFFFF;
     border-radius: 20px 20px 0px 0px;
 }
 
 
-.Nvote span:empty {
-    height: 100%;
+.Nvote span{
+
+    /* position:absolute;
+    height: 15%;
     width: 90px;
     background-color: white;
+    border-radius: 20px 20px 0px 0px; */
+    bottom: 0;
+    right: 3.2rem;
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    left: 237px;
+    top: 753px;
+
+    background: #FFFFFF;
     border-radius: 20px 20px 0px 0px;
 }
 
 .voteIcon {
     height: 58.58px;
+
+}
+
+
+.featureParagraph {
+    font-family: 'Seravek';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+color: #FFFFFF;
+}
+
+.featureBtn {
+    width: 90px;
+    height: 48px;
+    left: 110px;
+    top: 526px;
+    border: none;
+    color: #3333FF;
+    background: #FFFFFF;
+    border-radius: 30px;
+}
+
+.VoteType {
+    font-family: 'Seravek';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 15px;
+    color: #FFFFFF;
 }

@@ -1,33 +1,41 @@
 import React from 'react'
 import events from "../ProfileAssets/Events.svg"
-
+import speaker from "../ProfileAssets/Speaker.svg"
+import ReturnIcon from "../ProfileAssets/Return.svg"
+import './eventTalk.css'
 
 const eventTalk = () => {
   return (
-    <div>
-        <img src={events} />
-        <div>
-            <h5>
+    <div className='eventTalk d-flex flex-column '>
+    <nav className='d-flex justify-content-around navP'>
+        <img className='returnIconClub' src={ReturnIcon} />
+        <h6 className='ActiviestName'>Anuna’s Club</h6>
+        <button className='navClubBtn'>Changer</button>
+    </nav>
+        <img className='eventIcon mx-auto ' src={events} />
+        <div className='eventInner d-flex flex-column justify-content-center align-items-center my-auto'>
+            <img src={process.env.PUBLIC_URL + "/assets/img/svg/Code.svg" } />
+            <h5 className='eventTalkTitle'>
             Name
             </h5>
-            <p>
+            <p className='eventTalkParagraph'>
             John Doe
             </p>
-            <h5>
+            <h5 className='eventTalkTitle'>
             Event
             </h5>
-            <p>HERO Talk Amsterdam
+            <p className='eventTalkParagraph'>HERO Talk Amsterdam
             </p>
-            <h5>Ticket Type</h5>
-            <p>HERO Changer Access</p>
-            <h5>Date</h5>
-            <p>Thu, 28 Jul 2022
+            <h5 className='eventTalkTitle'>Ticket Type</h5>
+            <p className='eventTalkParagraph'>HERO Changer Access</p>
+            <h5 className='eventTalkTitle'>Date</h5>
+            <p className='eventTalkParagraph'>Thu, 28 Jul 2022
             7:00 PM - 8:30 PM</p>
-            <a>Add to calendar</a>
+            <a className='eventTalkLink mx-auto'>Add to calendar</a>
             <h5>Venue</h5>
-            <p>EDGE Workspaces</p>
-            <a>View Map</a>
-            </div>
+            <p className='eventTalkParagraph'>EDGE Workspaces</p>
+            <a className='eventTalkLink mx-auto'>View Map</a> 
+          </div>
     
     </div>
   )

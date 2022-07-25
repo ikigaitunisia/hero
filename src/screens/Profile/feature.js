@@ -18,48 +18,51 @@ const Feature = () => {
 
   return (
     <div className='featureCntainer d-flex flex-column'>
-        <nav className='d-flex justify-content-around navP'>
-            <img className='returnIconClub' src={ReturnIcon} />
-            <h6 className='ActiviestName'>Anuna’s Club</h6>
-            <button className='navClubBtn'>Changer</button>
-        </nav>
-    {statecmp === 'current' ? (
 
-        <div className='d-flex flex-column align-items-center align-self-center my-auto'>
+    {statecmp === 'current' ? (
+        <>
+        <nav className='d-flex justify-content-around navP'>
+        <img className='returnIconClub' src={ReturnIcon} />
+        <h6 className='ActiviestName'>Anuna’s Club</h6>
+        <button className='navClubBtn'>Changer</button>
+        </nav>
+        <div className='d-flex flex-column align-items-center align-self-center my-auto' style={{width: "265px"}}>
         <img src={vote} />
-        <h3>HERO App Feature</h3>
-        <p>Would you like to have a HERO Club chat
+        <h3 className='featureTitle'>HERO App Feature</h3>
+        <p className='featureParagraph w-100'>Would you like to have a HERO Club chat
         feature to exchange messages
         with the mobilizer and other club members?</p>
-        <div className='d-flex'>
-            <button onClick={switchNext}>Yes</button>
-            <button>No</button>
+        <div className='d-flex justify-content-between w-75'>
+            <button onClick={switchNext} className="featureBtn">Yes</button>
+            <button className="featureBtn">No</button>
         </div>
         </div>
-
+        </>
     ):(
+        <>
+            <nav className='d-flex justify-content-around navP'>
+            <img onClick={() => {setStatecmp('current')}} className='returnIconClub' src={ReturnIcon} />
+            <h6 className='ActiviestName'>Anuna’s Club</h6>
+            <button className='navClubBtn'>Changer</button>
+            </nav>
+            <div className='FResults d-flex flex-column h-75'>
+            <img className='voteIcon' src={vote} />
+            <h3 className='featureTitle'>HERO App Feature Results</h3>
 
-        <div className='FResults d-flex flex-column h-75'>
-        <img className='voteIcon' src={vote} />
-            
-        <div className='d-flex justify-content-around flex-column'>
-            <div className='d-flex justify-content-around'>
-            <h6>Yes</h6>
-            <h6>No</h6>
-            </div>
-            <div className="votes d-lfex">
-            <div className='Yvote'>
-                <span>
-                </span>
-            </div>
-            <div className='Nvote'>
-                <span>
-                </span>
+            <div className='d-flex justify-content-around flex-column h-50'>
+                <div className="votes d-flex justify-content-around">
+                <div className='Yvote'>
+                    <h6 className='VoteType'>Yes</h6>
+                    <span>80%</span>
+                </div>
+                <div className='Nvote'>
+                <h6 className='VoteType'>No</h6>    
+                <span>20%</span>
+                </div>
+                </div>
             </div>
             </div>
-        </div>
-        </div>
-
+        </>
     )
 
     
