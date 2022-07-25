@@ -8,7 +8,7 @@ import {MobilizerData} from "../data/data.js";
 
 const SCROLL_UP = "up";
 const SCROLL_DOWN = "down";
-const thresholdPixels = 10;
+const thresholdPixels = 2;
 
 function MobilizerFeed(props) {
   const history = useHistory();
@@ -78,11 +78,7 @@ function MobilizerFeed(props) {
     const updateScrollDir = () => {
       const scrollY = window.pageYOffset;
 
-      if (Math.abs(scrollY - lastScrollY) < threshold) {
-        // We haven't exceeded the threshold
-        ticking = false;
-        return;
-      }
+    
       if (scrollY > lastScrollY)
       {
         console.log("AAA");
