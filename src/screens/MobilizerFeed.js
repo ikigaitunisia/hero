@@ -62,32 +62,31 @@ function MobilizerFeed(props) {
       if (!ticking) {
         window.requestAnimationFrame(updateScrollDir);
         ticking = true;
-   
+        if (ScrollDir == "down")
+        {
+          if (indexY< MobilizerData.length -1)
+          {
+            setIndexY(indexY +1);
+          }
+          else
+          {
+            setIndexY(0);
+          }
+        }
+        else 
+        {
+          if (indexY>0)
+          {
+            setIndexY(indexY-1);
+          }
+          else
+          {
+            setIndexY(MobilizerData.length -1);
+          }
+        }
+       
       }
-      if (ScrollDir == "down")
-      {
-        console.log(ScrollDir);
-        if (indexY< MobilizerData.length -1)
-        {
-          setIndexY(indexY +1);
-        }
-        else
-        {
-          setIndexY(0);
-        }
-      }
-      else 
-      {
-        console.log(ScrollDir);
-        if (indexY>0)
-        {
-          setIndexY(indexY-1);
-        }
-        else
-        {
-          setIndexY(MobilizerData.length -1);
-        }
-      }
+     
     };
 
     /**
@@ -97,11 +96,15 @@ function MobilizerFeed(props) {
    window.addEventListener("scroll", onScroll)
    
 
-    //return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
     <>
-  
+      <InfiniteScroll
+        dataLength={items.length}
+        next={fetchMoreData}
+        hasMore={hasMore}
+        loader={<h4>Loading...</h4>}
+      >
       
           <div key={indexY}>
             <div className="feed" style={{ minHeight: "90vh!important" }}>
@@ -179,7 +182,7 @@ function MobilizerFeed(props) {
               </div>
             </div>
           </div>
-      
+      </InfiniteScroll>
       <EchoModal show={showEchoModal} onClose={() => setShowEchoModal(false)} />
     </>
   );
