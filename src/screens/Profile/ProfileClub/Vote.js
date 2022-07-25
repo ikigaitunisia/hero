@@ -5,15 +5,16 @@ import "./ProfileClub.css"
 import { withRouter } from 'react-router-dom'
 const Vote = () => {
   return (
-    <div className='VoteContainer'>
+    <div className='VoteContainer h-100 d-flex flex-column justify-content-between'>
     <nav className='d-flex justify-content-around navP'>
         <img className='returnIconClub' src={ReturnIcon} />
         <h6 className='ActiviestName'>Anuna’s Club</h6>
         <button className='navClubBtn'>Changer</button>
     </nav>
-    
+        <div className='VoteInner align-self-end d-flex flex-column align-items-center justify-content-center mx-auto mb-4'>
         <img src={speaker}/>
-    
+        <p>COP 27</p>
+        </div>
     </div>
   )
 }

@@ -1,3 +1,11 @@
+.VoteInner {
+    position: relative;
+    bottom: 0;
+}
+
+.VoteInner img {
+    width: 40px;
+}
 a.more-btn  {
     margin-left: 0px!important;
     font-family: 'Seravek';
@@ -10,7 +18,6 @@ a.more-btn  {
 
 .VoteContainer {
     background-image: url("/assets/img/CamapingBg/Profile Info Background.png");
-
     min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
