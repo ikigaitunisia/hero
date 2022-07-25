@@ -122,7 +122,7 @@ function MobilizerFeed(props) {
    return () => window.removeEventListener('scroll', onScroll)
 
 
-  }, [onScroll]);
+  }, []);
   return (
     <>
       <InfiniteScroll
