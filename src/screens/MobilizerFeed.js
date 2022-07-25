@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect,useCallback } from "react";
 import { withRouter, useHistory, Link } from "react-router-dom";
 import "./MobilizerFeed.css";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -94,7 +94,6 @@ function MobilizerFeed(props) {
     lastScrollY = scrollY > 0 ? scrollY : 0;
 
     ticking = false;
-    getDirection();
   };
   
   const onScroll = () => useCallback(event => {
@@ -102,6 +101,8 @@ function MobilizerFeed(props) {
     if (!ticking) {
       window.requestAnimationFrame(updateScrollDir);
       //updateScrollDir();
+      getDirection();
+
       ticking = true;
       //console.log(ScrollDir);
     }
