@@ -5,16 +5,39 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import EchoModal from "../components/EchoModal";
 import {MobilizerData} from "../data/data.js";
 
+
 const SCROLL_UP = "up";
 const SCROLL_DOWN = "down";
+const thresholdPixels = 10;
 
-const useScrollDirection = ({
-  initialDirection,
-  thresholdPixels,
-  off
-} = {}) => {
-  const [scrollDir, setScrollDir] = useState(initialDirection);
+function MobilizerFeed(props) {
+  const history = useHistory();
 
+  const [items, setItems] = useState(Array.from({ length: 2 }));
+  const [showEchoModal, setShowEchoModal] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const [ScrollDir,setScrollDir] = useState("");
+  
+  const fetchMoreData = () => {
+    if (items.length >= 6) {
+      setHasMore(false);
+      return;
+    }
+    // a fake async api call like which sends
+    // 20 more records in 1.5 secs
+    setTimeout(() => {
+      setItems(items.concat(Array.from({ length: 2 })));
+    }, 1500);
+  };
+  const playVideo = (id) => {
+    var v = document.getElementById(id);
+    if (v.paused) {
+      v.play();
+    } else {
+      v.pause();
+    }
+  };
+  console.log(ScrollDir);
   useEffect(() => {
     const threshold = thresholdPixels || 0;
     let lastScrollY = window.pageYOffset;
@@ -45,41 +68,11 @@ const useScrollDirection = ({
      * Bind the scroll handler if `off` is set to false.
      * If `off` is set to true reset the scroll direction.
      */
-    !off
-      ? window.addEventListener("scroll", onScroll)
-      : setScrollDir(initialDirection);
+   window.addEventListener("scroll", onScroll)
+   
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, [initialDirection, thresholdPixels, off]);
-
-  return scrollDir;
-};
-function MobilizerFeed(props) {
-  const history = useHistory();
-
-  const [items, setItems] = useState(Array.from({ length: 2 }));
-  const [showEchoModal, setShowEchoModal] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
-  
-  const fetchMoreData = () => {
-    if (items.length >= 6) {
-      setHasMore(false);
-      return;
-    }
-    // a fake async api call like which sends
-    // 20 more records in 1.5 secs
-    setTimeout(() => {
-      setItems(items.concat(Array.from({ length: 2 })));
-    }, 1500);
-  };
-  const playVideo = (id) => {
-    var v = document.getElementById(id);
-    if (v.paused) {
-      v.play();
-    } else {
-      v.pause();
-    }
-  };
+  }, []);
   return (
     <>
       <InfiniteScroll
