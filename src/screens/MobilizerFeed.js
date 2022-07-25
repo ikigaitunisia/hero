@@ -94,7 +94,7 @@ function MobilizerFeed(props) {
     };
     
     const onScroll = () => {
-      console.log("scrolling");
+      console.log(ticking);
       if (!ticking) {
         window.requestAnimationFrame(updateScrollDir);
         //updateScrollDir();
