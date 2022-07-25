@@ -48,7 +48,7 @@ function MobilizerFeed(props) {
         }
       }
     }
-    getDirection();
+    
   const fetchMoreData = () => {
     if (items.length >= 6) {
       setHasMore(false);
@@ -91,7 +91,8 @@ function MobilizerFeed(props) {
     
     const onScroll = () => {
       if (!ticking) {
-        window.requestAnimationFrame(updateScrollDir);
+        //window.requestAnimationFrame();
+        updateScrollDir();
         ticking = true;
         console.log(ScrollDir);
       }
