@@ -66,6 +66,7 @@ function MobilizerFeed(props) {
         { 
           console.log(indexY);
           console.log(ScrollDir);
+          console.log(MobilizerData.length -1);
           if (indexY< MobilizerData.length -1)
           {
             setIndexY(indexY +1);
