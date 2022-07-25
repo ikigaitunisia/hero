@@ -57,13 +57,42 @@ function MobilizerFeed(props) {
       ticking = false;
       
     };
-
+    const getDirection = () => {
+    if (ScrollDir == "down")
+      { 
+        console.log(indexY);
+        console.log(ScrollDir);
+        console.log(MobilizerData.length -1);
+        if (indexY< MobilizerData.length -1)
+        {
+          setIndexY(indexY +1);
+        }
+        else
+        {
+          setIndexY(0);
+        }
+      }
+      else 
+      {console.log(indexY);
+        console.log(ScrollDir);
+        console.log(ScrollDir);
+        console.log(MobilizerData.length -1);
+        if (indexY>0)
+        {
+          setIndexY(indexY-1);
+        }
+        else
+        {
+          setIndexY(MobilizerData.length -1);
+        }
+      }
+    }
     const onScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(updateScrollDir);
         ticking = true;
         console.log(ScrollDir);
-       
+        getDirection();
       }
       
     };
