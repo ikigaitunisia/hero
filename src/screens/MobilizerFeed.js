@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect,useRef } from "react";
 import { withRouter, useHistory, Link } from "react-router-dom";
 import "./MobilizerFeed.css";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -18,6 +18,8 @@ function MobilizerFeed(props) {
   const [hasMore, setHasMore] = useState(true);
   const [ScrollDir,setScrollDir] = useState("");
   const [indexY,setIndexY] = useState(0);
+  const ref = useRef()
+
   const getDirection = () => {
     if (ScrollDir == "down")
       { 
@@ -103,7 +105,8 @@ function MobilizerFeed(props) {
      * Bind the scroll handler if `off` is set to false.
      * If `off` is set to true reset the scroll direction.
      */
-   window.addEventListener("scroll", onScroll)
+  const div = ref.current
+   div.addEventListener("scroll", onScroll)
    
 
   }, []);
@@ -111,7 +114,7 @@ function MobilizerFeed(props) {
     <>
     
       
-          <div key={indexY}>
+          <div key={indexY} ref={ref}>
             <div className="feed" style={{ minHeight: "90vh!important" }}>
               <video id={indexY} playsInline>
                 <source src={"videos/"+MobilizerData[indexY].video} type="video/mp4" />
