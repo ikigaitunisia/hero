@@ -94,10 +94,10 @@ function MobilizerFeed(props) {
     };
     
     const onScroll = () => {
-      console.log(ticking);
+      
       if (!ticking) {
-        window.requestAnimationFrame(updateScrollDir);
-        //updateScrollDir();
+        //window.requestAnimationFrame(updateScrollDir);
+        updateScrollDir();
         ticking = true;
         //console.log(ScrollDir);
       }
