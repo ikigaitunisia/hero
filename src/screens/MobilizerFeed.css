@@ -5,8 +5,25 @@
   height: 95vh;
   padding: 0 !important;
   min-height: 95vh !important;
+
 }
 
+.container{
+  height:100%;
+  width: 100%;
+ 
+  overflow-y: scroll;
+
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(3rem);
+  scroll-snap-type: y mandatory;
+  position: relative;
+  left: 100%;
+  top: 100%;
+  z-index: 1;
+  border-radius: 15px;
+  border: none;
+}
 video {
   /*min-width: 100%;*/
   /*min-height: 100vh;*/

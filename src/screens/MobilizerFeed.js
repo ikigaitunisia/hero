@@ -46,7 +46,7 @@ function MobilizerFeed(props) {
  
   return (
     <>
-  
+    <div className="container">
     {Activist.map((activist,i) => (
           <div key={i} >
             <div className="feed" style={{ minHeight: "90vh!important" }}>
@@ -124,7 +124,9 @@ function MobilizerFeed(props) {
               </div>
             </div>
           </div>
+         
     ))}
+    </div>
       <EchoModal show={showEchoModal} onClose={() => setShowEchoModal(false)} />
     </>
   );
