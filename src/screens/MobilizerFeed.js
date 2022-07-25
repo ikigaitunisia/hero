@@ -69,7 +69,8 @@ function MobilizerFeed(props) {
       v.pause();
     }
   };
-  
+  window.addEventListener("scroll", onScroll);
+
   useEffect(() => {
     const threshold = thresholdPixels || 0;
     let lastScrollY = window.pageYOffset;
@@ -104,9 +105,8 @@ function MobilizerFeed(props) {
      * Bind the scroll handler if `off` is set to false.
      * If `off` is set to true reset the scroll direction.
      */
-   window.addEventListener("scroll", onScroll);
    
-   return () => window.removeEventListener('scroll', onScroll);
+   //return () => window.removeEventListener('scroll', onScroll);
   }, [thresholdPixels]);
   return (
     <>
