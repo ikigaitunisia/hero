@@ -109,12 +109,7 @@ function MobilizerFeed(props) {
   }, []);
   return (
     <>
-      <InfiniteScroll
-        dataLength={items.length}
-        next={fetchMoreData}
-        hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
-      >
+    
       
           <div key={indexY}>
             <div className="feed" style={{ minHeight: "90vh!important" }}>
@@ -192,7 +187,6 @@ function MobilizerFeed(props) {
               </div>
             </div>
           </div>
-      </InfiniteScroll>
       <EchoModal show={showEchoModal} onClose={() => setShowEchoModal(false)} />
     </>
   );
