@@ -9,20 +9,21 @@
 }
 
 .container{
-  height:100%;
-  width: 100%;
- 
-  overflow-y: scroll;
-
-  scroll-snap-type: mandatory;
-  scroll-snap-points-y: repeat(3rem);
-  scroll-snap-type: y mandatory;
   position: relative;
-  left: 100%;
-  top: 100%;
-  z-index: 1;
-  border-radius: 15px;
-  border: none;
+  height: 800px;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 500px;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+}
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 video {
   /*min-width: 100%;*/
