@@ -26,26 +26,34 @@ function MobilizerFeed(props) {
         console.log(ScrollDir);
         console.log(MobilizerData.length -1);
         if (indexY< MobilizerData.length -1)
-        {
+        { 
+          
           setIndexY(indexY +1);
+          console.log("This0");
+          console.log(indexY);
         }
         else
         {
           setIndexY(0);
+          console.log("This1");
+          console.log(indexY);
         }
       }
       else 
       {console.log(indexY);
         console.log(ScrollDir);
-        console.log(ScrollDir);
         console.log(MobilizerData.length -1);
         if (indexY>0)
         {
           setIndexY(indexY-1);
+          console.log("This2");
+          console.log(indexY);
         }
         else
         {
           setIndexY(MobilizerData.length -1);
+          console.log("This3");
+          console.log(indexY);
         }
       }
     }
