@@ -99,14 +99,14 @@ function MobilizerFeed(props) {
   
   const onScroll = () => {
     
-    if (!ticking) {
+   /* if (!ticking) {
       window.requestAnimationFrame(updateScrollDir);
       //updateScrollDir();
 
       ticking = true;
       //console.log(ScrollDir);
-    }
-    
+    }*/
+    updateScrollDir();
   };
   useEffect(() => {
     
