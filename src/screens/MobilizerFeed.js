@@ -68,7 +68,7 @@ function MobilizerFeed(props) {
       v.play();
     } else {
       v.pause();
-    }*/
+    }
   };
   const threshold = thresholdPixels || 0;
     let lastScrollY = window.pageYOffset;
