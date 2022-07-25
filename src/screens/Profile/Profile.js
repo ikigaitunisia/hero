@@ -115,7 +115,7 @@ const Profile = () => {
           <div className='switchContainer d-flex justify-content-center'>
             <button className='switch '><img className='switch-btn-icon' src={switchIconO} /> Public Content</button>
     
-            <button onClick={redirectToclub}  className='switch switch-r' ><img className='switch-btn-icon' src={switchIconT}/>Club Access</button>
+            <Link to={"/profileClub:" + profile.id} props={{pid: profile.id}} className='switch switch-r' ><img className='switch-btn-icon' src={switchIconT}/>Club Access</Link>
             </div>
             
             { profile.id == "Anuna"  && 

@@ -11,8 +11,10 @@ import { useEffect } from 'react'
 
 
 
-const ProfileClub = () => {
+const ProfileClub = (props) => {
 
+
+    localStorage.setItem("profileId",  props.match.params.id)
     useEffect(() => {
         let test = document.querySelector("#profile");
         if (test) {test.remove()}
@@ -36,11 +38,9 @@ const ProfileClub = () => {
     <div className='ProfileClub'>
         <div className='ProfileClubHeader'>
             <nav className='d-flex justify-content-around navP'>
-                <img className='returnIconClub' src={ReturnIcon} />
+                <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + props.match.params.id)}><img className='returnIconClub' src={ReturnIcon} /></button>
                 <h6 className='ActiviestName'>Anuna’s Club</h6>
                 <button className='navClubBtn'>Changer</button>
-
-
             </nav>
         </div>
 

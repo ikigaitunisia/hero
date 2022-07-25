@@ -3,12 +3,14 @@ import events from "../ProfileAssets/Events.svg"
 import speaker from "../ProfileAssets/Speaker.svg"
 import ReturnIcon from "../ProfileAssets/Return.svg"
 import './eventTalk.css'
+import { useHistory } from 'react-router-dom'
 
 const eventTalk = () => {
+  
   return (
     <div className='eventTalk d-flex flex-column '>
     <nav className='d-flex justify-content-around navP'>
-        <img className='returnIconClub' src={ReturnIcon} />
+        <button className='border-0 bg-transparent' onClick={() => {window.location.replace("/profileclub" + window.localStorage.getItem("profileId"))} }><img className='returnIconClub' src={ReturnIcon} /></button>
         <h6 className='ActiviestName'>Anuna’s Club</h6>
         <button className='navClubBtn'>Changer</button>
     </nav>
