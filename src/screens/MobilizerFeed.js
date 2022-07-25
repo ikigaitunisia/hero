@@ -16,47 +16,8 @@ function MobilizerFeed(props) {
   const [items, setItems] = useState(Array.from({ length: 2 }));
   const [showEchoModal, setShowEchoModal] = useState(false);
   const [hasMore, setHasMore] = useState(true);
-  const [ScrollDir,setScrollDir] = useState("");
-  const [indexY,setIndexY] = useState(0);
-  const ref =useRef(null);
-  const getDirection = () => {
-    if (ScrollDir == "down")
-      { 
-        console.log(indexY);
-        console.log(ScrollDir);
-        console.log(MobilizerData.length -1);
-        if (indexY< MobilizerData.length -1)
-        { 
-          
-          setIndexY(indexY +1);
-          console.log("This0");
-          console.log(indexY);
-        }
-        else
-        {
-          setIndexY(0);
-          console.log("This1");
-          console.log(indexY);
-        }
-      }
-      else 
-      {console.log(indexY);
-        console.log(ScrollDir);
-        console.log(MobilizerData.length -1);
-        if (indexY>0)
-        {
-          setIndexY(indexY-1);
-          console.log("This2");
-          console.log(indexY);
-        }
-        else
-        {
-          setIndexY(MobilizerData.length -1);
-          console.log("This3");
-          console.log(indexY);
-        }
-      }
-    }
+
+ 
     
   /*const fetchMoreData = () => {
     console.log("ok");
@@ -79,45 +40,18 @@ function MobilizerFeed(props) {
     }
   };
  
-  const threshold = thresholdPixels || 0;
-  let lastScrollY = window.pageYOffset;
-  let ticking = false;
 
-  const updateScrollDir = () => {
-    const scrollY = window.pageYOffset;
-
+ 
   
-   
-    setScrollDir(scrollY > lastScrollY ? SCROLL_DOWN : SCROLL_UP);
-    console.log(scrollY > lastScrollY);
-
-    lastScrollY = scrollY > 0 ? scrollY : 0;
-    getDirection();
-
-    ticking = false;
-  };
-  
-  const onScroll = () => {
-    console.log(window.pageYOffset);
-    console.log(ref.current.scrollTop);
-   /* if (!ticking) {
-      window.requestAnimationFrame(updateScrollDir);
-      //updateScrollDir();
-
-      ticking = true;
-      //console.log(ScrollDir);
-    }*/
-    //updateScrollDir();
-  };
-  
+ 
   return (
     <>
   
-      
-          <div key={indexY} ref={ref} onScroll={() => onScroll() } style={{overflow: "scroll",overflowY: "hidden"}}>
+    {Activist.map((activist,i) => (
+          <div key={i} >
             <div className="feed" style={{ minHeight: "90vh!important" }}>
-              <video id={indexY} playsInline>
-                <source src={"videos/"+MobilizerData[indexY].video} type="video/mp4" />
+              <video id={i} playsInline>
+                <source src={"videos/"+Mactivist.video} type="video/mp4" />
               </video>
               <div className="feed-content">
                 <img
@@ -133,7 +67,7 @@ function MobilizerFeed(props) {
                 <button
                   type="button"
                   className="btn btn-primary rounded play-btn"
-                  onClick={() => playVideo(indexY)}
+                  onClick={() => playVideo(i)}
                 >
                   <ion-icon name="play" class="m-0"></ion-icon>
                 </button>
@@ -144,9 +78,9 @@ function MobilizerFeed(props) {
                     Changes the Profile Image based on the current activiest index
                     Link to the profile by the user ID
               */}
-                    <Link to={"/profile:" + MobilizerData[indexY].id}>
+                    <Link to={"/profile:" + activist.id}>
                     <div
-                      className={"profileIcon-" + MobilizerData[indexY].id}
+                      className={"profileIcon-" + activist.id}
                     >
                     </div>
                     </Link>
@@ -190,6 +124,7 @@ function MobilizerFeed(props) {
               </div>
             </div>
           </div>
+    ))}
       <EchoModal show={showEchoModal} onClose={() => setShowEchoModal(false)} />
     </>
   );
