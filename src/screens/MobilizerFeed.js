@@ -17,7 +17,7 @@ function MobilizerFeed(props) {
   const [showEchoModal, setShowEchoModal] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [ScrollDir,setScrollDir] = useState("");
-  
+  const [indexY,setIndexY] = useState(0);
   const fetchMoreData = () => {
     if (items.length >= 6) {
       setHasMore(false);
@@ -37,7 +37,7 @@ function MobilizerFeed(props) {
       v.pause();
     }
   };
-  console.log(ScrollDir);
+  
   useEffect(() => {
     const threshold = thresholdPixels || 0;
     let lastScrollY = window.pageYOffset;
@@ -55,12 +55,35 @@ function MobilizerFeed(props) {
       setScrollDir(scrollY > lastScrollY ? SCROLL_DOWN : SCROLL_UP);
       lastScrollY = scrollY > 0 ? scrollY : 0;
       ticking = false;
+      
     };
 
     const onScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(updateScrollDir);
         ticking = true;
+        if (ScrollDir == "down")
+        {
+          if (indexY< MobilizerData.length() -1)
+          {
+          indexY = indexY +1;
+          }
+          else
+          {
+          indexY = 0;
+          }
+        }
+        else 
+        {
+          if (indexY>0)
+          {
+          indexY = indexY-1;
+          }
+          else
+          {
+          indexY = MobilizerData.length() -1 ;
+          }
+        }
       }
     };
 
@@ -81,11 +104,11 @@ function MobilizerFeed(props) {
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
       >
-        {MobilizerData.map((i, index) => (
-          <div key={index}>
+      
+          <div key={indexY}>
             <div className="feed" style={{ minHeight: "90vh!important" }}>
-              <video id={index} playsInline>
-                <source src={"videos/"+i.video} type="video/mp4" />
+              <video id={indexY} playsInline>
+                <source src={"videos/"+MobilizerData[indexY].video} type="video/mp4" />
               </video>
               <div className="feed-content">
                 <img
@@ -101,7 +124,7 @@ function MobilizerFeed(props) {
                 <button
                   type="button"
                   className="btn btn-primary rounded play-btn"
-                  onClick={() => playVideo(index)}
+                  onClick={() => playVideo(indexY)}
                 >
                   <ion-icon name="play" class="m-0"></ion-icon>
                 </button>
@@ -112,9 +135,9 @@ function MobilizerFeed(props) {
                     Changes the Profile Image based on the current activiest index
                     Link to the profile by the user ID
               */}
-                    <Link to={"/profile:" + i.id}>
+                    <Link to={"/profile:" + MobilizerData[indexY].id}>
                     <div
-                      className={"profileIcon-" + i.id}
+                      className={"profileIcon-" + MobilizerData[indexY].id}
                     >
                     </div>
                     </Link>
@@ -158,7 +181,6 @@ function MobilizerFeed(props) {
               </div>
             </div>
           </div>
-        ))}
       </InfiniteScroll>
       <EchoModal show={showEchoModal} onClose={() => setShowEchoModal(false)} />
     </>
