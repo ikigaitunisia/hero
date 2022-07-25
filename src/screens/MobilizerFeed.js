@@ -50,9 +50,9 @@ function MobilizerFeed(props) {
       }
     }
     
-  const fetchMoreData = () => {
+  /*const fetchMoreData = () => {
     console.log("ok");
-   /* if (items.length >= 6) {
+    if (items.length >= 6) {
       setHasMore(false);
       return;
     }
@@ -61,7 +61,7 @@ function MobilizerFeed(props) {
     setTimeout(() => {
       setItems(items.concat(Array.from({ length: 2 })));
     }, 1500);
-  };
+  };*/
   const playVideo = (id) => {
     var v = document.getElementById(id);
     if (v.paused) {
