@@ -78,34 +78,7 @@ function MobilizerFeed(props) {
       v.pause();
     }
   };
-  const threshold = thresholdPixels || 0;
-    let lastScrollY = window.pageYOffset;
-    let ticking = false;
-
-    const updateScrollDir = () => {
-      const scrollY = window.pageYOffset;
-
-    
-     
-      setScrollDir(scrollY+20 > lastScrollY ? SCROLL_DOWN : SCROLL_UP);
-      console.log(scrollY > lastScrollY);
-
-      lastScrollY = scrollY > 0 ? scrollY : 0;
-
-      ticking = false;
-      getDirection();
-    };
-    
-    const onScroll = () => {
-      
-      if (!ticking) {
-        window.requestAnimationFrame(updateScrollDir);
-        //updateScrollDir();
-        ticking = true;
-        //console.log(ScrollDir);
-      }
-      
-    };
+ 
 
   useEffect(() => {
     
@@ -116,6 +89,34 @@ function MobilizerFeed(props) {
      */
    
    //return () => window.removeEventListener('scroll', onScroll);
+   const threshold = thresholdPixels || 0;
+   let lastScrollY = window.pageYOffset;
+   let ticking = false;
+
+   const updateScrollDir = () => {
+     const scrollY = window.pageYOffset;
+
+   
+    
+     setScrollDir(scrollY+20 > lastScrollY ? SCROLL_DOWN : SCROLL_UP);
+     console.log(scrollY > lastScrollY);
+
+     lastScrollY = scrollY > 0 ? scrollY : 0;
+
+     ticking = false;
+     getDirection();
+   };
+   
+   const onScroll = () => {
+     
+     if (!ticking) {
+       window.requestAnimationFrame(updateScrollDir);
+       //updateScrollDir();
+       ticking = true;
+       //console.log(ScrollDir);
+     }
+     
+   };
    window.addEventListener("scroll", onScroll);
 
    return () => window.removeEventListener('scroll', onScroll)
