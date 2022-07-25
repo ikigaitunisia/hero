@@ -18,6 +18,7 @@ function MobilizerFeed(props) {
   const [hasMore, setHasMore] = useState(true);
   const [ScrollDir,setScrollDir] = useState("");
   const [indexY,setIndexY] = useState(0);
+  console.log(ScrollDir);
   const getDirection = () => {
     if (ScrollDir == "down")
       { 
