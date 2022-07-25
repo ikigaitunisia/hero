@@ -47,11 +47,11 @@ function MobilizerFeed(props) {
   return (
     <>
     <div className="container">
-    {Activist.map((activist,i) => (
+    {MobilizerData.map((activist,i) => (
           <div key={i} >
             <div className="feed" style={{ minHeight: "90vh!important" }}>
               <video id={i} playsInline>
-                <source src={"videos/"+Mactivist.video} type="video/mp4" />
+                <source src={"videos/"+activist.video} type="video/mp4" />
               </video>
               <div className="feed-content">
                 <img
