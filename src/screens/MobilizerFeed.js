@@ -115,7 +115,7 @@ function MobilizerFeed(props) {
     <>
       <InfiniteScroll
         dataLength={items.length}
-        next={fetchMoreData}
+        
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
       >
