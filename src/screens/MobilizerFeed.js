@@ -66,22 +66,22 @@ function MobilizerFeed(props) {
         {
           if (indexY< MobilizerData.length -1)
           {
-          indexY = indexY +1;
+            setIndexY(indexY +1);
           }
           else
           {
-          indexY = 0;
+            setIndexY(0);
           }
         }
         else 
         {
           if (indexY>0)
           {
-          indexY = indexY-1;
+            setIndexY(indexY-1);
           }
           else
           {
-          indexY = MobilizerData.length -1 ;
+            setIndexY(MobilizerData.length -1);
           }
         }
       }
