@@ -51,7 +51,8 @@ function MobilizerFeed(props) {
     }
     
   const fetchMoreData = () => {
-    if (items.length >= 6) {
+    console.log("ok");
+   /* if (items.length >= 6) {
       setHasMore(false);
       return;
     }
@@ -67,7 +68,7 @@ function MobilizerFeed(props) {
       v.play();
     } else {
       v.pause();
-    }
+    }*/
   };
   const threshold = thresholdPixels || 0;
     let lastScrollY = window.pageYOffset;
@@ -97,7 +98,6 @@ function MobilizerFeed(props) {
       }
       
     };
-  window.addEventListener("scroll", onScroll);
 
   useEffect(() => {
     
@@ -108,7 +108,9 @@ function MobilizerFeed(props) {
      */
    
    //return () => window.removeEventListener('scroll', onScroll);
-  }, [thresholdPixels]);
+   window.addEventListener("scroll", onScroll);
+
+  }, [onScroll]);
   return (
     <>
       <InfiniteScroll
