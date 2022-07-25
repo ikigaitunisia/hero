@@ -8,7 +8,7 @@ import {MobilizerData} from "../data/data.js";
 
 const SCROLL_UP = "up";
 const SCROLL_DOWN = "down";
-const thresholdPixels = 2;
+const thresholdPixels = 10;
 
 function MobilizerFeed(props) {
   const history = useHistory();
@@ -79,10 +79,7 @@ function MobilizerFeed(props) {
       const scrollY = window.pageYOffset;
 
     
-      if (scrollY > lastScrollY)
-      {
-        console.log("AAA");
-      }
+     
       setScrollDir(scrollY > lastScrollY ? SCROLL_DOWN : SCROLL_UP);
       lastScrollY = scrollY > 0 ? scrollY : 0;
       ticking = false;
