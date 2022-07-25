@@ -18,7 +18,7 @@ function MobilizerFeed(props) {
   const [hasMore, setHasMore] = useState(true);
   const [ScrollDir,setScrollDir] = useState("");
   const [indexY,setIndexY] = useState(0);
-  
+  const ref =useRef(null);
   const getDirection = () => {
     if (ScrollDir == "down")
       { 
@@ -98,7 +98,8 @@ function MobilizerFeed(props) {
   };
   
   const onScroll = () => {
-    
+    console.log(window.pageYOffset);
+    console.log(ref.current.scrollTop);
    /* if (!ticking) {
       window.requestAnimationFrame(updateScrollDir);
       //updateScrollDir();
@@ -106,34 +107,14 @@ function MobilizerFeed(props) {
       ticking = true;
       //console.log(ScrollDir);
     }*/
-    updateScrollDir();
+    //updateScrollDir();
   };
-  useEffect(() => {
-    
-
-    /**
-     * Bind the scroll handler if `off` is set to false.
-     * If `off` is set to true reset the scroll direction.
-     */
-   
-   //return () => window.removeEventListener('scroll', onScroll);
   
-   window.addEventListener("scroll", onScroll);
-
-   return () => {window.removeEventListener('scroll', onScroll)}
-
-
-  }, [onScroll]);
   return (
     <>
-      <InfiniteScroll
-        dataLength={items.length}
-        
-        hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
-      >
+  
       
-          <div key={indexY}>
+          <div key={indexY} ref={ref} onScroll={() => onScroll() }>
             <div className="feed" style={{ minHeight: "90vh!important" }}>
               <video id={indexY} playsInline>
                 <source src={"videos/"+MobilizerData[indexY].video} type="video/mp4" />
@@ -209,7 +190,6 @@ function MobilizerFeed(props) {
               </div>
             </div>
           </div>
-      </InfiniteScroll>
       <EchoModal show={showEchoModal} onClose={() => setShowEchoModal(false)} />
     </>
   );
