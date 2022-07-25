@@ -37,30 +37,7 @@ function MobilizerFeed(props) {
       v.pause();
     }
   };
-  if (ScrollDir == "down")
-  {
-    console.log(ScrollDir);
-    if (indexY< MobilizerData.length -1)
-    {
-      setIndexY(indexY +1);
-    }
-    else
-    {
-      setIndexY(0);
-    }
-  }
-  else 
-  {
-    console.log(ScrollDir);
-    if (indexY>0)
-    {
-      setIndexY(indexY-1);
-    }
-    else
-    {
-      setIndexY(MobilizerData.length -1);
-    }
-  }
+  
   useEffect(() => {
     const threshold = thresholdPixels || 0;
     let lastScrollY = window.pageYOffset;
@@ -85,7 +62,30 @@ function MobilizerFeed(props) {
       if (!ticking) {
         window.requestAnimationFrame(updateScrollDir);
         ticking = true;
-       
+        if (ScrollDir == "down")
+  {
+    console.log(ScrollDir);
+    if (indexY< MobilizerData.length -1)
+    {
+      setIndexY(indexY +1);
+    }
+    else
+    {
+      setIndexY(0);
+    }
+  }
+  else 
+  {
+    console.log(ScrollDir);
+    if (indexY>0)
+    {
+      setIndexY(indexY-1);
+    }
+    else
+    {
+      setIndexY(MobilizerData.length -1);
+    }
+  }
       }
      
     };
@@ -97,7 +97,7 @@ function MobilizerFeed(props) {
    window.addEventListener("scroll", onScroll)
    
 
-    return () => window.removeEventListener("scroll", onScroll);
+    //return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
     <>
