@@ -83,7 +83,7 @@ function MobilizerFeed(props) {
       setScrollDir(scrollY > lastScrollY ? SCROLL_DOWN : SCROLL_UP);
       lastScrollY = scrollY > 0 ? scrollY : 0;
 
-      console.log(ScrollDir);
+      console.log(scrollY > lastScrollY);
       ticking = false;
       //getDirection();
     };
