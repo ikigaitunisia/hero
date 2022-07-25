@@ -62,27 +62,28 @@ function MobilizerFeed(props) {
       if (!ticking) {
         window.requestAnimationFrame(updateScrollDir);
         ticking = true;
-        if (ScrollDir == "down")
+       
+      }
+      if (ScrollDir == "down")
+      {
+        if (indexY< MobilizerData.length -1)
         {
-          if (indexY< MobilizerData.length -1)
-          {
-            setIndexY(indexY +1);
-          }
-          else
-          {
-            setIndexY(0);
-          }
+          setIndexY(indexY +1);
         }
-        else 
+        else
         {
-          if (indexY>0)
-          {
-            setIndexY(indexY-1);
-          }
-          else
-          {
-            setIndexY(MobilizerData.length -1);
-          }
+          setIndexY(0);
+        }
+      }
+      else 
+      {
+        if (indexY>0)
+        {
+          setIndexY(indexY-1);
+        }
+        else
+        {
+          setIndexY(MobilizerData.length -1);
         }
       }
     };
