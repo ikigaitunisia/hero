@@ -1,3 +1,21 @@
+a.more-btn  {
+    margin-left: 0px!important;
+    font-family: 'Seravek';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.VoteContainer {
+    background-image: url("/assets/img/CamapingBg/Profile Info Background.png");
+
+    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .according {
     position: absolute;
     bottom: 0;
@@ -10,7 +28,6 @@
     background-size: cover; 
     min-height: 100vh;
     width: 100%;
-    padding-top: 53px;
 }
 
 
@@ -70,4 +87,11 @@ color: #FFFFFF;
     width: 80px;
     height: 26px;
     border: none;
+}
+
+.navP {
+    min-height: 97px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid white;
 }

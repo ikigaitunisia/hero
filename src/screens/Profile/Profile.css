@@ -27,7 +27,12 @@
     border: solid 3px white;
 }
 
-
+#clubSelectMembership span, a{
+    color: #0000FF!important;
+}
+#clubSelectMembership span, a{
+    margin-left: 43px;
+}
 .ProfileImage-Jessica {
     position: relative;
     width: 64.07px;
@@ -93,8 +98,8 @@ header {
     border-radius: 3050px;
     border: 1px solid #FFFFFF;
     width: 285px;
-    height: 66px;
-    color: #0000FF;
+    padding-top: 33px;
+    padding-bottom: 33px;
 }
 
 .more-btn {

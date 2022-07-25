@@ -16,7 +16,7 @@ import VideoContent5 from "./ProfileAssets/Video Content 5.png"
 import VideoContent6 from "./ProfileAssets/Video Content 6.png"
 import "./Profile.css"
 import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom';
+import { withRouter, useHistory, Link } from "react-router-dom";
 import { MobilizerData } from "../../data/data.js"
 
 
@@ -29,6 +29,7 @@ const Profile = () => {
   const { id } = useParams();
   const [profile, setProfile] = useState({});
   useEffect(() => {
+
       console.log(id.substring(1))
       MobilizerData.map((value, index) => {
       if (value.id === id.substring(1)) {
@@ -36,6 +37,10 @@ const Profile = () => {
         }
       })
   })
+
+  const redirectToclub = () => {
+    window.location.replace("/profileClub:" + profile.id)
+  }
 
 
 
@@ -51,6 +56,7 @@ const Profile = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
+
             <ul className="navbar-nav">
               <li className="nav-item active">
                 <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
@@ -108,10 +114,8 @@ const Profile = () => {
           <div>
           <div className='switchContainer d-flex justify-content-center'>
             <button className='switch '><img className='switch-btn-icon' src={switchIconO} /> Public Content</button>
-            { /* className='align-self-center ml-f' to={"/ProfileClub"}>   onClick={clickHandler} */ }
-            <button className='switch switch-r' ><img className='switch-btn-icon' src={switchIconT}/>Club Access</button>
-
-
+    
+            <button onClick={redirectToclub}  className='switch switch-r' ><img className='switch-btn-icon' src={switchIconT}/>Club Access</button>
             </div>
             
             { profile.id == "Anuna"  && 
@@ -143,4 +147,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default withRouter(Profile);

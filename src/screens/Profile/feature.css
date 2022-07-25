@@ -1,0 +1,27 @@
+.featureCntainer {
+    background-color: #3333FF;
+    min-height: 100vh;
+}
+
+.FResults {
+
+}
+
+.Yvote span:empty {
+    height: 100%;
+    width: 90px;
+    background-color: white;
+    border-radius: 20px 20px 0px 0px;
+}
+
+
+.Nvote span:empty {
+    height: 100%;
+    width: 90px;
+    background-color: white;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.voteIcon {
+    height: 58.58px;
+}
