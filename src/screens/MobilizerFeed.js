@@ -1,4 +1,4 @@
-import React, { useState,useLayoutEffect,useRef } from "react";
+import React, { useState,useEffect } from "react";
 import { withRouter, useHistory, Link } from "react-router-dom";
 import "./MobilizerFeed.css";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -18,8 +18,6 @@ function MobilizerFeed(props) {
   const [hasMore, setHasMore] = useState(true);
   const [ScrollDir,setScrollDir] = useState("");
   const [indexY,setIndexY] = useState(0);
-  const ref = useRef()
-
   const getDirection = () => {
     if (ScrollDir == "down")
       { 
@@ -71,7 +69,7 @@ function MobilizerFeed(props) {
     }
   };
   
-  useLayoutEffect(() => {
+  useEffect(() => {
     const threshold = thresholdPixels || 0;
     let lastScrollY = window.pageYOffset;
     let ticking = false;
@@ -105,16 +103,20 @@ function MobilizerFeed(props) {
      * Bind the scroll handler if `off` is set to false.
      * If `off` is set to true reset the scroll direction.
      */
-  const div = ref.current
    window.addEventListener("scroll", onScroll)
    
 
   }, []);
   return (
     <>
-    
+      <InfiniteScroll
+        dataLength={items.length}
+        next={fetchMoreData}
+        hasMore={hasMore}
+        loader={<h4>Loading...</h4>}
+      >
       
-          <div key={indexY} ref={ref}>
+          <div key={indexY}>
             <div className="feed" style={{ minHeight: "90vh!important" }}>
               <video id={indexY} playsInline>
                 <source src={"videos/"+MobilizerData[indexY].video} type="video/mp4" />
@@ -190,6 +192,7 @@ function MobilizerFeed(props) {
               </div>
             </div>
           </div>
+      </InfiniteScroll>
       <EchoModal show={showEchoModal} onClose={() => setShowEchoModal(false)} />
     </>
   );
