@@ -92,6 +92,7 @@ function MobilizerFeed(props) {
     console.log(scrollY > lastScrollY);
 
     lastScrollY = scrollY > 0 ? scrollY : 0;
+    getDirection();
 
     ticking = false;
   };
@@ -101,7 +102,6 @@ function MobilizerFeed(props) {
     if (!ticking) {
       window.requestAnimationFrame(updateScrollDir);
       //updateScrollDir();
-      getDirection();
 
       ticking = true;
       //console.log(ScrollDir);
