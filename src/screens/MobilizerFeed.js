@@ -69,10 +69,7 @@ function MobilizerFeed(props) {
       v.pause();
     }
   };
-  window.addEventListener("scroll", onScroll);
-
-  useEffect(() => {
-    const threshold = thresholdPixels || 0;
+  const threshold = thresholdPixels || 0;
     let lastScrollY = window.pageYOffset;
     let ticking = false;
 
@@ -100,6 +97,10 @@ function MobilizerFeed(props) {
       }
       
     };
+  window.addEventListener("scroll", onScroll);
+
+  useEffect(() => {
+    
 
     /**
      * Bind the scroll handler if `off` is set to false.
