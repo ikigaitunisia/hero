@@ -63,7 +63,9 @@ function MobilizerFeed(props) {
         window.requestAnimationFrame(updateScrollDir);
         ticking = true;
         if (ScrollDir == "down")
-        { console.log(indexY);
+        { 
+          console.log(indexY);
+          console.log(ScrollDir);
           if (indexY< MobilizerData.length -1)
           {
             setIndexY(indexY +1);
@@ -75,6 +77,7 @@ function MobilizerFeed(props) {
         }
         else 
         {console.log(indexY);
+          console.log(ScrollDir);
           if (indexY>0)
           {
             setIndexY(indexY-1);
