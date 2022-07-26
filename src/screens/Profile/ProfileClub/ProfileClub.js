@@ -79,7 +79,7 @@ const ProfileClub = (props) => {
  
 
             <div className='ProfileClubHeader '>
-            <nav className='navP'>
+            <nav className='navP mx-3 mb-4'>
                 <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + props.match.params.id)}><img className='returnIconClub' src={ReturnIcon} /></button>
                 <h6 className='ActiviestName'>Anuna’s Club</h6>
                 <button className='navClubBtn'>Changer</button>
@@ -95,7 +95,7 @@ const ProfileClub = (props) => {
                 <img src={speaker} />    <p className='my-auto'>Active Campaigns</p>
                 </button>
                 <div className='Subacc f'>
-                <nav className='navP'>
+                <nav className='navP border-bottom border-white mx-3 mb-4'>
                 <button className='border-0 bg-transparent' onClick={accorReturn}><img className='returnIconClub' src={ReturnIcon} /></button>
                 <h6 className='ActiviestName'>Anuna’s Club</h6>
                 <button className='navClubBtn'>Changer</button>
@@ -116,7 +116,7 @@ const ProfileClub = (props) => {
             <img src={vote} /> <p>Vote on the future of HERO</p>
             </button>
             <div className='Subacc s'>
-            <nav className='navP'>
+            <nav className='navP border-bottom border-white mx-3 mb-4'>
             <button className='border-0 bg-transparent' onClick={accorReturn}><img className='returnIconClub' src={ReturnIcon} /></button>
             <h6 className='ActiviestName'>Anuna’s Club</h6>
             <button className='navClubBtn'>Changer</button>
@@ -132,8 +132,8 @@ const ProfileClub = (props) => {
         <button className='AccorHeader t' onClick={() => dropHandler('t')} ><img src={phoneScene} /><p>Behind the scenes footage</p></button>
         <div className='Subacc t'>
 
-        <nav className='navP'>
-            <button className='border-0 bg-transparent' onClick={accorReturn}><img className='returnIconClub' src={ReturnIcon} /></button>
+        <nav className='navP border-bottom border-white mx-3 mb-4'>
+        <button className='border-0 bg-transparent' onClick={accorReturn}><img className='returnIconClub' src={ReturnIcon} /></button>
             <h6 className='ActiviestName'>Anuna’s Club</h6>
             <button className='navClubBtn'>Changer</button>
         </nav>
@@ -147,7 +147,7 @@ const ProfileClub = (props) => {
     <div className='d-flex flex-column'>
     <button className='AccorHeader l' onClick={() => dropHandler('l')} ><img src={events} /><p>HERO Events</p></button>
     <div className='Subacc l'>
-    <nav className='navP'>
+    <nav className='navP border-bottom border-white mx-3 mb-4'>
     <button className='border-0 bg-transparent' onClick={accorReturn}><img className='returnIconClub' src={ReturnIcon} /></button>
     <h6 className='ActiviestName'>Anuna’s Club</h6>
     <button className='navClubBtn'>Changer</button>

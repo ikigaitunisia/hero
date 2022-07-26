@@ -118,7 +118,7 @@ color: #FFFFFF;
 
 .navP {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     min-height: 97px;
     align-items: center;
     border-bottom: 1px solid white;
