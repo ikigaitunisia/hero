@@ -7,15 +7,18 @@
     width: 40px;
 }
 
-a.more-btn  {
-    margin-left: 0px!important;
+.more-btn  {
     font-family: 'Seravek';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 22px;
     text-align: center;
-    color: #0000FF
+    width: 285px;
+    height: 66px;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 3050px;
 }
 
 .VoteContainer {
@@ -32,6 +35,10 @@ a.more-btn  {
     background-size: cover; 
     min-height: 100vh;
     width: 100%;
+    /* d-flex flex-column justify-content-between */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 
@@ -78,6 +85,9 @@ a.more-btn  {
 
 }
 .ProfileClubHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     height: 50vh!important;
 }
 
@@ -107,11 +117,14 @@ color: #FFFFFF;
 }
 
 .navP {
+    display: flex;
+    justify-content: space-around;
     min-height: 97px;
     align-items: center;
-    justify-content: center;
     border-bottom: 1px solid white;
+    border: none;
 }
+
 
 .ActiveBtn {
     color: #0000FF;
@@ -134,4 +147,105 @@ color: #FFFFFF;
     line-height: 17px;
     text-decoration-line: underline!important;
     color: #FFFFFF!important;
+}
+
+
+.AccorMore {
+    position: relative;
+}
+
+
+.tess {
+    height: 40vh;
+}
+
+.Subacc {
+    display: none;
+    height: 61vh;
+    justify-content: space-around;
+
+    
+}
+.Subacc.f {
+background-color: #0000FF;
+}
+.Subacc.f .more-btn {
+    color: #0000FF;
+
+}
+.Subacc.s .more-btn {
+    color: #3333FF;
+
+}
+.Subacc.t .more-btn {
+    color: #6666FF;
+
+}
+.Subacc.l .more-btn {
+    color: #B8B8FF;
+
+}
+.Subacc.s {
+    background-color:#3333FF;
+}
+
+.Subacc.t {
+background-color:#6666FF;
+}
+.Subacc.l {
+background-color: #B8B8FF;
+}
+
+.AccorHeader {
+    min-height: 100px;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+
+.AccorHeader.f {
+    background-color: #0000FF;
+    color: white;
+}
+
+.AccorHeader.s {
+    background-color: #3333FF;
+}
+
+.AccorHeader.t {
+    background-color: #6666FF;
+}
+
+.AccorHeader.l {
+    background-color: #B8B8FF;
+}
+
+.Accicon {
+    height: 32.94px;
+}
+
+
+.AccorHeader p {
+    font-family: 'Seravek';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 50px;
+}
+
+.AccorHeader.f p {
+    margin-left: 26px;
+}
+
+.AccorHeader.l p {
+    margin-left: 2px;
+}
+
+.AccorHeader img {
+    margin-left: 52px;
 }

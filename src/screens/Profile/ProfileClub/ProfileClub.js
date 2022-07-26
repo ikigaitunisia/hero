@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import speaker from "../ProfileAssets/Speaker.svg"
 import vote from "../ProfileAssets/Vote.svg"
 import events from "../ProfileAssets/Events.svg"
@@ -13,6 +13,8 @@ import { useEffect } from 'react'
 
 const ProfileClub = (props) => {
 
+
+    const [show, setShow] = useState('show')
 
     localStorage.setItem("profileId",  props.match.params.id)
     useEffect(() => {
@@ -34,17 +36,29 @@ const ProfileClub = (props) => {
 
     }
 
-    // const dropHandler = () => {
-    //     document.querySelector(".ProfileClubHeader").style.visibility = 'hidden';
-    //     console.log("hola")
-    //     console.log(document.querySelector(".ProfileClub").style)
-    // }
+    const dropHandler = (f) => {
+        setShow('no')
+        document.querySelector(".ProfileClubHeader").style.display = "none"
+        document.querySelector(".AccorMore").style.height = "100vh"
+        document.querySelector(".Subacc." + f).style.display = "flex"
+        document.querySelector(".Subacc." + f).style.flexDirection = "column"
+        document.querySelector(".AccorHeader." + f).style.display = "none"
+    }
 
 
   return (
-    <div className='ProfileClub d-flex flex-column justify-content-between'>
-        <div className='ProfileClubHeader d-flex flex-column justify-content-around'>
-            <nav className='d-flex justify-content-around navP border-0'>
+
+    
+    <div className='ProfileClub' style={
+        {
+            minHeight: show == "show" ? ("100vh"):("initial")
+        }
+    }>
+
+ 
+
+            <div className='ProfileClubHeader '>
+            <nav className='navP'>
                 <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + props.match.params.id)}><img className='returnIconClub' src={ReturnIcon} /></button>
                 <h6 className='ActiviestName'>Anuna’s Club</h6>
                 <button className='navClubBtn'>Changer</button>
@@ -52,112 +66,82 @@ const ProfileClub = (props) => {
             <img src={playButton} className="align-items-center my-auto mx-auto"/>
 
         </div>
-        <div id="accordion" className='according'>
-            <div className="card card-1 rounded-0" >
-                <div className="card-header p-4 border-0" id="headingFirst">
-                <h5 className="mb-0">
-                {/*onClick={dropHandler} */ }
-                    <button className="btn btn-link collapsed rounded-0" data-toggle="collapse" data-target="#collapseFirst" aria-expanded="false" aria-controls="collapseFirst">
-                        <img src={speaker} />    Active Campaigns
-                    </button>
-                </h5>
-                </div>
-                <div  id="collapseFirst" className="collapse" aria-labelledby="headingFirst" data-parent="#accordion">
-                <div style={{ color: "#0000FF!important"}} className="card-body d-flex flex-column justify-content-between align-items-center">
-                    <img src={speaker} />
-                    <button  onClick={redirectTosmthn} className='more-btn ActiveBtn' id='more-Link'>
+
+            
+            <div className='AccorMore d-flex flex-column'>
+            <div className='d-flex flex-column '>
+                <button className='AccorHeader f ' onClick={() => dropHandler('f')}>                        
+                <img src={speaker} />    <p className='my-auto'>Active Campaigns</p>
+                </button>
+                <div className='Subacc f'>
+                <nav className='navP'>
+                <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + props.match.params.id)}><img className='returnIconClub' src={ReturnIcon} /></button>
+                <h6 className='ActiviestName'>Anuna’s Club</h6>
+                <button className='navClubBtn'>Changer</button>
+            </nav>
+                    <img className='Accicon' src={speaker} />
+                    <button  onClick={redirectTosmthn} className='more-btn ActiveBtn mx-auto' id='more-Link'>
                     COP 27
-                    </button>
-                    <button className='more-btn mid-btn ActiveBtn'>
-                    Anuna x UNICEF
-                    </button>
-                    <button className='more-btn ActiveBtn'>
-                    Global Climate Strike
-                    </button>
-
-                    <a className='MoreLink mx-auto'>See previous campaigns</a>
-                    
-                </div>
+                    </button>                    <button className='more-btn mx-auto'>Anuna x UNICEF</button>
+                    <button className='more-btn mx-auto'>Anuna x UNICEF</button>
                 </div>
             </div>
-            <div className="card card-2 rounded-0">
-                <div className="card-header p-4 border-0" id="headingTwo">
-                <h5 className="mb-0">
-                    <button className="btn btn-link rounded-0 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <img src={vote} /> Vote on the future of HERO
-                    </button>
-                </h5>
-                </div>
-                <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div className="card-body d-flex flex-column justify-content-between align-items-center">
-                    <img src={vote} />
-                    <button onClick={feature} className='voteBtn more-btn'>
-                    Club Messaging Feature
-                                        </button>
-                    <button className='more-btn mid-btn voteBtn'>
-                    COP Campaign Concept
-                                        </button>
-                    <button className='more-btn voteBtn'>
-                    Topic of next HERO Talk
-                                        </button>
-
-                    <a className='MoreLink mx-auto'>See my previous votes</a>
-                    
-                </div>
-                </div>
-            </div>
-            <div className="card card-3 rounded-0">
-                <div className="card-header p-4 border-0" id="headingThree">
-                <h5 className="mb-0">
-                    <button className="btn btn-link collapsed rounded-0" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <img src={phoneScene} />Behind the scenes footage
-                    </button>
-                </h5>
-                </div>
-                <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                <div className="card-body d-flex flex-column justify-content-between align-items-center">
-                    <img src={phoneScene} />
-                    <button className='more-btn bsBtn'>
-                    Preparing for COP                    </button>
-                    <button className='more-btn mid-btn bsBtn'>
-                    Preparing our next climate strike
-                                        </button>
-                    <button className='more-btn bsBtn'>
-                    Meeting with HERO Supporters
-                                        </button>
-
-                    <a className='MoreLink mx-auto'>See more behind the scenes</a>
-                </div>
-                </div>
-            </div>
-            <div className="card card-4 rounded-0 rounded-0">
-                <div className="card-header p-4 border-0" id="headingLast">
-                <h5 className="mb-0">
-                    <button className="btn btn-link collapsed rounded-0" data-toggle="collapse" data-target="#collapseLast" aria-expanded="false" aria-controls="collapseLast">
-                    <img src={events} />HERO Events
-                    </button>
-                </h5>
-                </div>
-                <div id="collapseLast" className="collapse" aria-labelledby="headingLast" data-parent="#accordion">
-                <div className="card-body d-flex flex-column justify-content-between align-items-center">
-                    <img src={events} />
-                    <button onClick={eventTalk} name={"COP27"} className='more-btn HeventBtn'>
-                    HERO Talk Amsterdam
-                    </button>
-                    <button className='more-btn mid-btn HeventBtn'>
-                    HERO Re-Cycling
-                                        </button>
-                    <button className='more-btn HeventBtn'>
-                    HERO Supporter’s
-                    Meet Up
-                                        </button>
-
-                    <a className='MoreLink mx-auto'>See previous events</a>
-                    
-                </div>
-                </div>
+            <div className='d-flex flex-column'>
+            <button onClick={() => dropHandler('s')} className='AccorHeader s' >                    <img src={vote} /> <p>Vote on the future of HERO</p>
+            </button>
+            <div className='Subacc s'>
+            <nav className='navP'>
+            <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + props.match.params.id)}><img className='returnIconClub' src={ReturnIcon} /></button>
+            <h6 className='ActiviestName'>Anuna’s Club</h6>
+            <button className='navClubBtn'>Changer</button>
+        </nav>
+                <img className='Accicon' src={vote} />
+                <button onClick={feature} className='voteBtn more-btn mx-auto'>
+                Club Messaging Feature
+                                    </button>                <button className='more-btn mx-auto'>Sub Hola</button>
+                <button className='more-btn mx-auto'>Sub Hola</button>
             </div>
         </div>
+        <div className='d-flex flex-column'>
+        <button  onClick={() => dropHandler('t')} className='AccorHeader t' ><img src={phoneScene} /><p>Behind the scenes footage</p></button>
+        <div className='Subacc t'>
+
+        <nav className='navP'>
+            <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + props.match.params.id)}><img className='returnIconClub' src={ReturnIcon} /></button>
+            <h6 className='ActiviestName'>Anuna’s Club</h6>
+            <button className='navClubBtn'>Changer</button>
+        </nav>
+        <img className='Accicon' src={phoneScene} />
+
+            <button className='more-btn mx-auto'>Sub Hola</button>
+            <button className='more-btn mx-auto'>Sub Hola</button>
+            <button className='more-btn mx-auto'>Sub Hola</button>
+        </div>
+    </div>
+    <div className='d-flex flex-column'>
+    <button onClick={() => dropHandler('l')} className='AccorHeader l' ><img src={events} /><p>HERO Events</p></button>
+    <div className='Subacc l'>
+    <nav className='navP'>
+    <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + props.match.params.id)}><img className='returnIconClub' src={ReturnIcon} /></button>
+    <h6 className='ActiviestName'>Anuna’s Club</h6>
+    <button className='navClubBtn'>Changer</button>
+</nav>
+<img className='Accicon' src={events} />
+
+<button onClick={eventTalk} name={"COP27"} className='more-btn HeventBtn mx-auto'>
+HERO Talk Amsterdam
+</button>
+        <button className='more-btn mx-auto'>Sub Hola</button>
+        <button className='more-btn mx-auto'>Sub Hola</button>
+    </div>
+    </div>
+    
+            </div>
+
+        
+
+
+
     
     
     </div>
