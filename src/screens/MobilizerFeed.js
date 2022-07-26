@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect,useRef } from "react";
 import { withRouter, useHistory, Link } from "react-router-dom";
 import "./MobilizerFeed.css";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -16,41 +16,11 @@ function MobilizerFeed(props) {
   const [items, setItems] = useState(Array.from({ length: 2 }));
   const [showEchoModal, setShowEchoModal] = useState(false);
   const [hasMore, setHasMore] = useState(true);
-  const [ScrollDir,setScrollDir] = useState("");
-  const [indexY,setIndexY] = useState(0);
-  
-  const getDirection = () => {
-    if (ScrollDir == "down")
-      { 
-        console.log(indexY);
-        console.log(ScrollDir);
-        console.log(MobilizerData.length -1);
-        if (indexY< MobilizerData.length -1)
-        {
-          setIndexY(indexY +1);
-        }
-        else
-        {
-          setIndexY(0);
-        }
-      }
-      else 
-      {console.log(indexY);
-        console.log(ScrollDir);
-        console.log(ScrollDir);
-        console.log(MobilizerData.length -1);
-        if (indexY>0)
-        {
-          setIndexY(indexY-1);
-        }
-        else
-        {
-          setIndexY(MobilizerData.length -1);
-        }
-      }
-    }
+
+ 
     
-  const fetchMoreData = () => {
+  /*const fetchMoreData = () => {
+    console.log("ok");
     if (items.length >= 6) {
       setHasMore(false);
       return;
@@ -60,7 +30,7 @@ function MobilizerFeed(props) {
     setTimeout(() => {
       setItems(items.concat(Array.from({ length: 2 })));
     }, 1500);
-  };
+  };*/
   const playVideo = (id) => {
     var v = document.getElementById(id);
     if (v.paused) {
@@ -69,59 +39,19 @@ function MobilizerFeed(props) {
       v.pause();
     }
   };
-  const threshold = thresholdPixels || 0;
-    let lastScrollY = window.pageYOffset;
-    let ticking = false;
+ 
 
-    const updateScrollDir = () => {
-      const scrollY = window.pageYOffset;
-
-    
-     
-      setScrollDir(scrollY > lastScrollY ? SCROLL_DOWN : SCROLL_UP);
-      console.log(scrollY > lastScrollY);
-
-      lastScrollY = scrollY > 0 ? scrollY : 0;
-
-      ticking = false;
-      getDirection();
-    };
-    
-    const onScroll = () => {
-      
-      if (!ticking) {
-        window.requestAnimationFrame(updateScrollDir);
-        //updateScrollDir();
-        ticking = true;
-        //console.log(ScrollDir);
-      }
-      
-    };
-  window.addEventListener("scroll", onScroll);
-
-  useEffect(() => {
-    
-
-    /**
-     * Bind the scroll handler if `off` is set to false.
-     * If `off` is set to true reset the scroll direction.
-     */
-   
-   //return () => window.removeEventListener('scroll', onScroll);
-  }, [thresholdPixels]);
+ 
+  
+ 
   return (
     <>
-      <InfiniteScroll
-        dataLength={items.length}
-        next={fetchMoreData}
-        hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
-      >
-      
-          <div key={indexY}>
+    <div className="container">
+    {MobilizerData.map((activist,i) => (
+          <div key={i} >
             <div className="feed" style={{ minHeight: "90vh!important" }}>
-              <video id={indexY} playsInline>
-                <source src={"videos/"+MobilizerData[indexY].video} type="video/mp4" />
+              <video id={i} playsInline>
+                <source src={"videos/"+activist.video} type="video/mp4" />
               </video>
               <div className="feed-content">
                 <img
@@ -137,7 +67,7 @@ function MobilizerFeed(props) {
                 <button
                   type="button"
                   className="btn btn-primary rounded play-btn"
-                  onClick={() => playVideo(indexY)}
+                  onClick={() => playVideo(i)}
                 >
                   <ion-icon name="play" class="m-0"></ion-icon>
                 </button>
@@ -148,9 +78,9 @@ function MobilizerFeed(props) {
                     Changes the Profile Image based on the current activiest index
                     Link to the profile by the user ID
               */}
-                    <Link to={"/profile:" + MobilizerData[indexY].id}>
+                    <Link to={"/profile:" + activist.id}>
                     <div
-                      className={"profileIcon-" + MobilizerData[indexY].id}
+                      className={"profileIcon-" + activist.id}
                     >
                     </div>
                     </Link>
@@ -194,7 +124,9 @@ function MobilizerFeed(props) {
               </div>
             </div>
           </div>
-      </InfiniteScroll>
+         
+    ))}
+    </div>
       <EchoModal show={showEchoModal} onClose={() => setShowEchoModal(false)} />
     </>
   );
