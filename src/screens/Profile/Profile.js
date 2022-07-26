@@ -49,9 +49,9 @@ const Profile = () => {
       
     <header>
     <nav  className="navbar navbar-expand-lg navbar-light py-3 px-3">
-          <a className="navbar-brand mx-auto logo" href="#">
+          <Link className="navbar-brand mx-auto logo" to="/mobilizer-feed">
           <img src={Logo} />
-          </a>
+          </Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
