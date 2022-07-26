@@ -175,3 +175,9 @@ video {
   background-position: center;
 
 }
+
+#feed{
+  max-width: 100%!important;
+  padding: 0!important;
+  border-radius: unset!important;
+}
