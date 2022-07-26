@@ -46,29 +46,28 @@ const ProfileClub = (props) => {
 
             <img src={playButton} className="align-items-center my-auto mx-auto"/>
         <div id="accordion" className='according'>
-
-            <div className="card card-1 rounded-0">
+            <div className="card card-1 rounded-0" >
                 <div className="card-header" id="headingFirst">
                 <h5 className="mb-0">
                     <button className="btn btn-link collapsed rounded-0" data-toggle="collapse" data-target="#collapseFirst" aria-expanded="false" aria-controls="collapseFirst">
-                        <img src={speaker} />    Vote on the future of HERO
+                        <img src={speaker} />    Active Campaigns
                     </button>
                 </h5>
                 </div>
-                <div id="collapseFirst" className="collapse" aria-labelledby="headingFirst" data-parent="#accordion">
-                <div className="card-body d-flex flex-column justify-content-between align-items-center">
+                <div  id="collapseFirst" className="collapse" aria-labelledby="headingFirst" data-parent="#accordion">
+                <div style={{ color: "#0000FF!important"}} className="card-body d-flex flex-column justify-content-between align-items-center">
                     <img src={speaker} />
-                    <button  onClick={redirectTosmthn} className='more-btn' id='more-Link'>
+                    <button  onClick={redirectTosmthn} className='more-btn ActiveBtn' id='more-Link'>
                     COP 27
                     </button>
-                    <button className='more-btn mid-btn'>
+                    <button className='more-btn mid-btn ActiveBtn'>
                     Anuna x UNICEF
                     </button>
-                    <button className='more-btn'>
+                    <button className='more-btn ActiveBtn'>
                     Global Climate Strike
                     </button>
 
-                    <a>See previous campaigns</a>
+                    <a className='MoreLink mx-auto'>See previous campaigns</a>
                     
                 </div>
                 </div>
@@ -84,17 +83,17 @@ const ProfileClub = (props) => {
                 <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div className="card-body d-flex flex-column justify-content-between align-items-center">
                     <img src={vote} />
-                    <button onClick={feature} className='more-btn'>
+                    <button onClick={feature} className='voteBtn more-btn'>
                     Club Messaging Feature
                                         </button>
-                    <button className='more-btn mid-btn'>
+                    <button className='more-btn mid-btn voteBtn'>
                     COP Campaign Concept
                                         </button>
-                    <button className='more-btn'>
+                    <button className='more-btn voteBtn'>
                     Topic of next HERO Talk
                                         </button>
 
-                    <a>See my previous votes</a>
+                    <a className='MoreLink mx-auto'>See my previous votes</a>
                     
                 </div>
                 </div>
@@ -110,16 +109,16 @@ const ProfileClub = (props) => {
                 <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div className="card-body d-flex flex-column justify-content-between align-items-center">
                     <img src={phoneScene} />
-                    <button className='more-btn'>
+                    <button className='more-btn bsBtn'>
                     Preparing for COP                    </button>
-                    <button className='more-btn mid-btn'>
+                    <button className='more-btn mid-btn bsBtn'>
                     Preparing our next climate strike
                                         </button>
-                    <button className='more-btn'>
+                    <button className='more-btn bsBtn'>
                     Meeting with HERO Supporters
                                         </button>
 
-                    <a>See more behind the scenes</a>
+                    <a className='MoreLink mx-auto'>See more behind the scenes</a>
                 </div>
                 </div>
             </div>
@@ -134,18 +133,18 @@ const ProfileClub = (props) => {
                 <div id="collapseLast" className="collapse" aria-labelledby="headingLast" data-parent="#accordion">
                 <div className="card-body d-flex flex-column justify-content-between align-items-center">
                     <img src={events} />
-                    <button onClick={eventTalk} name={"COP27"} className='more-btn'>
+                    <button onClick={eventTalk} name={"COP27"} className='more-btn HeventBtn'>
                     HERO Talk Amsterdam
                     </button>
-                    <button className='more-btn mid-btn'>
+                    <button className='more-btn mid-btn HeventBtn'>
                     HERO Re-Cycling
                                         </button>
-                    <button className='more-btn'>
+                    <button className='more-btn HeventBtn'>
                     HERO Supporter’s
                     Meet Up
                                         </button>
 
-                    <a>See previous events</a>
+                    <a className='MoreLink mx-auto'>See previous events</a>
                     
                 </div>
                 </div>

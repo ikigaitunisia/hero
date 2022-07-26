@@ -6,6 +6,7 @@
 .VoteInner img {
     width: 40px;
 }
+
 a.more-btn  {
     margin-left: 0px!important;
     font-family: 'Seravek';
@@ -14,6 +15,7 @@ a.more-btn  {
     font-size: 20px;
     line-height: 22px;
     text-align: center;
+    color: #0000FF
 }
 
 .VoteContainer {
@@ -37,6 +39,10 @@ a.more-btn  {
     width: 100%;
 }
 
+
+.voteBtn {
+    color: #3333FF;
+}
 
 
 .according .card-header {
@@ -101,4 +107,27 @@ color: #FFFFFF;
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid white;
+}
+
+.ActiveBtn {
+    color: #0000FF;
+}
+
+.bsBtn {
+    color: #6666FF;
+}
+
+.HeventBtn {
+    color: #B8B8FF;
+}
+
+
+.MoreLink {
+    font-family: 'Seravek';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration-line: underline;
+    color: #FFFFFF!important;
 }

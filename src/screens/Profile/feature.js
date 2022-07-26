@@ -22,7 +22,7 @@ const Feature = () => {
     {statecmp === 'current' ? (
         <>
         <nav className='d-flex justify-content-around navP'>
-        <img className='returnIconClub' src={ReturnIcon} />
+        <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + localStorage.getItem("profileId"))}><img className='returnIconClub' src={ReturnIcon} /></button>
         <h6 className='ActiviestName'>Anuna’s Club</h6>
         <button className='navClubBtn'>Changer</button>
         </nav>
