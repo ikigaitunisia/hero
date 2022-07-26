@@ -56,7 +56,8 @@ const ProfileClub = (props) => {
             <div className="card card-1 rounded-0" >
                 <div className="card-header p-4 border-0" id="headingFirst">
                 <h5 className="mb-0">
-                    <button onClick={dropHandler} className="btn btn-link collapsed rounded-0" data-toggle="collapse" data-target="#collapseFirst" aria-expanded="false" aria-controls="collapseFirst">
+                {/*onClick={dropHandler} */ }
+                    <button className="btn btn-link collapsed rounded-0" data-toggle="collapse" data-target="#collapseFirst" aria-expanded="false" aria-controls="collapseFirst">
                         <img src={speaker} />    Active Campaigns
                     </button>
                 </h5>
