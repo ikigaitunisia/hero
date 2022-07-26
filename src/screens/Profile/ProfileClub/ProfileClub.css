@@ -25,13 +25,8 @@ a.more-btn  {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.according {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-.ProfileClubHeader {
-    position: absolute;
+
+.ProfileClub {
     background: url("../ProfileAssets/Profile Info Background1.png") ,linear-gradient(rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.34));
     background-repeat: no-repeat;
     background-size: cover; 
@@ -43,10 +38,16 @@ a.more-btn  {
 .voteBtn {
     color: #3333FF;
 }
-
+.card {
+    width: 100%;
+}
 
 .according .card-header {
-    min-height: 106px;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 
 .card-2 {
@@ -75,6 +76,9 @@ a.more-btn  {
 .card-header button.btn-link {
     color: white!important;
 
+}
+.ProfileClubHeader {
+    height: 50vh!important;
 }
 
 .returnIconClub {

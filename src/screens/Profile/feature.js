@@ -52,11 +52,11 @@ const Feature = () => {
             <div className='d-flex justify-content-around flex-column h-50'>
                 <div className="votes d-flex justify-content-around">
                 <div className='Yvote'>
-                    <h6 className='VoteType'>Yes</h6>
+                    <h6 className='VoteType y'>Yes</h6>
                     <span>80%</span>
                 </div>
                 <div className='Nvote'>
-                <h6 className='VoteType'>No</h6>    
+                <h6 className='VoteType n'>No</h6>    
                 <span>20%</span>
                 </div>
                 </div>

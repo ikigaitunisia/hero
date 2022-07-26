@@ -34,22 +34,29 @@ const ProfileClub = (props) => {
 
     }
 
+    // const dropHandler = () => {
+    //     document.querySelector(".ProfileClubHeader").style.visibility = 'hidden';
+    //     console.log("hola")
+    //     console.log(document.querySelector(".ProfileClub").style)
+    // }
+
+
   return (
-    <div className='ProfileClub'>
-        <div className='ProfileClubHeader'>
-            <nav className='d-flex justify-content-around navP'>
+    <div className='ProfileClub d-flex flex-column justify-content-between'>
+        <div className='ProfileClubHeader d-flex flex-column justify-content-around'>
+            <nav className='d-flex justify-content-around navP border-0'>
                 <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + props.match.params.id)}><img className='returnIconClub' src={ReturnIcon} /></button>
                 <h6 className='ActiviestName'>Anuna’s Club</h6>
                 <button className='navClubBtn'>Changer</button>
             </nav>
-        </div>
-
             <img src={playButton} className="align-items-center my-auto mx-auto"/>
+
+        </div>
         <div id="accordion" className='according'>
             <div className="card card-1 rounded-0" >
-                <div className="card-header" id="headingFirst">
+                <div className="card-header p-4 border-0" id="headingFirst">
                 <h5 className="mb-0">
-                    <button className="btn btn-link collapsed rounded-0" data-toggle="collapse" data-target="#collapseFirst" aria-expanded="false" aria-controls="collapseFirst">
+                    <button onClick={dropHandler} className="btn btn-link collapsed rounded-0" data-toggle="collapse" data-target="#collapseFirst" aria-expanded="false" aria-controls="collapseFirst">
                         <img src={speaker} />    Active Campaigns
                     </button>
                 </h5>
@@ -73,7 +80,7 @@ const ProfileClub = (props) => {
                 </div>
             </div>
             <div className="card card-2 rounded-0">
-                <div className="card-header" id="headingTwo">
+                <div className="card-header p-4 border-0" id="headingTwo">
                 <h5 className="mb-0">
                     <button className="btn btn-link rounded-0 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     <img src={vote} /> Vote on the future of HERO
@@ -99,7 +106,7 @@ const ProfileClub = (props) => {
                 </div>
             </div>
             <div className="card card-3 rounded-0">
-                <div className="card-header" id="headingThree">
+                <div className="card-header p-4 border-0" id="headingThree">
                 <h5 className="mb-0">
                     <button className="btn btn-link collapsed rounded-0" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     <img src={phoneScene} />Behind the scenes footage
@@ -123,7 +130,7 @@ const ProfileClub = (props) => {
                 </div>
             </div>
             <div className="card card-4 rounded-0 rounded-0">
-                <div className="card-header" id="headingLast">
+                <div className="card-header p-4 border-0" id="headingLast">
                 <h5 className="mb-0">
                     <button className="btn btn-link collapsed rounded-0" data-toggle="collapse" data-target="#collapseLast" aria-expanded="false" aria-controls="collapseLast">
                     <img src={events} />HERO Events
