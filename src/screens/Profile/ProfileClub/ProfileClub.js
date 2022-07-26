@@ -15,7 +15,7 @@ const ProfileClub = (props) => {
 
 
     const [show, setShow] = useState('show')
-
+    const [fd, setFd] = useState('')
     localStorage.setItem("profileId",  props.match.params.id)
     useEffect(() => {
         let test = document.querySelector("#profile");
@@ -38,6 +38,17 @@ const ProfileClub = (props) => {
 
     const dropHandler = (f) => {
         setShow('no')
+        setFd(f)
+        if (fd !== ""){
+            if (fd !== f){
+                document.querySelector(".Subacc." + fd).style.display = "none"
+                document.querySelector(".AccorHeader." + fd).style.display = "flex"
+
+
+
+            }
+            
+        }
         document.querySelector(".ProfileClubHeader").style.display = "none"
         document.querySelector(".AccorMore").style.height = "100vh"
         document.querySelector(".Subacc." + f).style.display = "flex"
@@ -46,12 +57,22 @@ const ProfileClub = (props) => {
     }
 
 
+
+    const accorReturn = (f) => {
+        document.querySelector(".ProfileClubHeader").style.display = "flex"
+        document.querySelector(".Subacc." + fd).style.display = "none"
+        document.querySelector(".AccorHeader." + fd).style.display = "flex"
+        document.querySelector(".AccorMore").style.height = "50vh"
+
+        setShow('show')
+    }
+
   return (
 
     
     <div className='ProfileClub' style={
         {
-            minHeight: show == "show" ? ("100vh"):("initial")
+            minHeight: show === "show" ? ("100vh"):("initial")
         }
     }>
 
@@ -75,23 +96,28 @@ const ProfileClub = (props) => {
                 </button>
                 <div className='Subacc f'>
                 <nav className='navP'>
-                <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + props.match.params.id)}><img className='returnIconClub' src={ReturnIcon} /></button>
+                <button className='border-0 bg-transparent' onClick={accorReturn}><img className='returnIconClub' src={ReturnIcon} /></button>
                 <h6 className='ActiviestName'>Anuna’s Club</h6>
                 <button className='navClubBtn'>Changer</button>
             </nav>
                     <img className='Accicon' src={speaker} />
                     <button  onClick={redirectTosmthn} className='more-btn ActiveBtn mx-auto' id='more-Link'>
                     COP 27
-                    </button>                    <button className='more-btn mx-auto'>Anuna x UNICEF</button>
+                    </button>                    
+                    <button className='more-btn mx-auto'>Anuna x UNICEF</button>
                     <button className='more-btn mx-auto'>Anuna x UNICEF</button>
                 </div>
             </div>
+
+
+
             <div className='d-flex flex-column'>
-            <button onClick={() => dropHandler('s')} className='AccorHeader s' >                    <img src={vote} /> <p>Vote on the future of HERO</p>
+            <button className='AccorHeader s' onClick={() => dropHandler('s')} >                    
+            <img src={vote} /> <p>Vote on the future of HERO</p>
             </button>
             <div className='Subacc s'>
             <nav className='navP'>
-            <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + props.match.params.id)}><img className='returnIconClub' src={ReturnIcon} /></button>
+            <button className='border-0 bg-transparent' onClick={accorReturn}><img className='returnIconClub' src={ReturnIcon} /></button>
             <h6 className='ActiviestName'>Anuna’s Club</h6>
             <button className='navClubBtn'>Changer</button>
         </nav>
@@ -103,11 +129,11 @@ const ProfileClub = (props) => {
             </div>
         </div>
         <div className='d-flex flex-column'>
-        <button  onClick={() => dropHandler('t')} className='AccorHeader t' ><img src={phoneScene} /><p>Behind the scenes footage</p></button>
+        <button className='AccorHeader t' onClick={() => dropHandler('t')} ><img src={phoneScene} /><p>Behind the scenes footage</p></button>
         <div className='Subacc t'>
 
         <nav className='navP'>
-            <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + props.match.params.id)}><img className='returnIconClub' src={ReturnIcon} /></button>
+            <button className='border-0 bg-transparent' onClick={accorReturn}><img className='returnIconClub' src={ReturnIcon} /></button>
             <h6 className='ActiviestName'>Anuna’s Club</h6>
             <button className='navClubBtn'>Changer</button>
         </nav>
@@ -119,10 +145,10 @@ const ProfileClub = (props) => {
         </div>
     </div>
     <div className='d-flex flex-column'>
-    <button onClick={() => dropHandler('l')} className='AccorHeader l' ><img src={events} /><p>HERO Events</p></button>
+    <button className='AccorHeader l' onClick={() => dropHandler('l')} ><img src={events} /><p>HERO Events</p></button>
     <div className='Subacc l'>
     <nav className='navP'>
-    <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + props.match.params.id)}><img className='returnIconClub' src={ReturnIcon} /></button>
+    <button className='border-0 bg-transparent' onClick={accorReturn}><img className='returnIconClub' src={ReturnIcon} /></button>
     <h6 className='ActiviestName'>Anuna’s Club</h6>
     <button className='navClubBtn'>Changer</button>
 </nav>
