@@ -24,6 +24,7 @@ export const MobilizerData = [
         videoBG: ["callum-shaw-7SE389kUVGw-unsplash.jpg", "2020-05-07_global_climate_strike.jpg", "elijahmckenzee.jpg", "li-an-lim-ycW4YxhrWHM-unsplash.jpg", "markus-spiske-dYZumbs8f_E-unsplash.jpg"],
         mainMovements: "Fridays for Future UK",
         video: "elijahVideo.mp4",
+        image: "ElijahPicture.jpg",
         TopCampaigns:
         [
             {title: "No more fast fashion",
@@ -71,6 +72,7 @@ export const MobilizerData = [
         sm: "linktr.ee/julietamartinez",
         mainMovements: "",
         video: "julietaVideo.mp4",
+        image: "JulietaPicture.jpeg",
         Victories: [
             {
                 title:"Chilean Women Creating Future ", 
@@ -116,6 +118,7 @@ export const MobilizerData = [
         sm: "IG: @jessicakleczka",
         mainMovements: "Indepedent mobiliser",
         video: "jessicaVideo.mp4",
+        image: "JessicaPicture.jpg",
         Victories: [
         {
             title: "TEDx talk ",
@@ -169,6 +172,7 @@ export const MobilizerData = [
         sm: "IG: @juansierra99, @juanpasierra11",
         mainMovements: "Pacto X El Clima Colombia Fridays For Future Bogotá United for Climate Action",
         video: "juanVideo.mp4",
+        image: "JulietaPicture.jpeg",
         Victories: [
             {
                 title: "Pacto X El Clima Colombia",
