@@ -43,9 +43,7 @@ const ProfileClub = (props) => {
             if (fd !== f){
                 document.querySelector(".Subacc." + fd).style.display = "none"
                 document.querySelector(".AccorHeader." + fd).style.display = "flex"
-
-
-
+                document.querySelector(".AccorContainer." + fd).style.order = "0"
             }
             
         }
@@ -54,6 +52,8 @@ const ProfileClub = (props) => {
         document.querySelector(".Subacc." + f).style.display = "flex"
         document.querySelector(".Subacc." + f).style.flexDirection = "column"
         document.querySelector(".AccorHeader." + f).style.display = "none"
+        document.querySelector(".AccorContainer." + f).style.order = "-1"
+
     }
 
 
@@ -63,6 +63,7 @@ const ProfileClub = (props) => {
         document.querySelector(".Subacc." + fd).style.display = "none"
         document.querySelector(".AccorHeader." + fd).style.display = "flex"
         document.querySelector(".AccorMore").style.height = "50vh"
+        document.querySelector(".AccorContainer." + f).style.order = "0"
 
         setShow('show')
     }
@@ -90,13 +91,13 @@ const ProfileClub = (props) => {
 
             
             <div className='AccorMore d-flex flex-column'>
-            <div className='d-flex flex-column '>
+            <div className='AccorContainer f'>
                 <button className='AccorHeader f ' onClick={() => dropHandler('f')}>                        
                 <img src={speaker} />    <p className='my-auto'>Active Campaigns</p>
                 </button>
                 <div className='Subacc f'>
                 <nav className='navP border-bottom border-white mx-3 mb-4'>
-                <button className='border-0 bg-transparent' onClick={accorReturn}><img className='returnIconClub' src={ReturnIcon} /></button>
+                <button className='border-0 bg-transparent' onClick={() => accorReturn('f')}><img className='returnIconClub' src={ReturnIcon} /></button>
                 <h6 className='ActiviestName'>Anuna’s Club</h6>
                 <button className='navClubBtn'>Changer</button>
             </nav>
@@ -111,13 +112,13 @@ const ProfileClub = (props) => {
 
 
 
-            <div className='d-flex flex-column'>
+            <div className='AccorContainer s'>
             <button className='AccorHeader s' onClick={() => dropHandler('s')} >                    
             <img src={vote} /> <p>Vote on the future of HERO</p>
             </button>
             <div className='Subacc s'>
             <nav className='navP border-bottom border-white mx-3 mb-4'>
-            <button className='border-0 bg-transparent' onClick={accorReturn}><img className='returnIconClub' src={ReturnIcon} /></button>
+            <button className='border-0 bg-transparent' onClick={() => accorReturn('s')}><img className='returnIconClub' src={ReturnIcon} /></button>
             <h6 className='ActiviestName'>Anuna’s Club</h6>
             <button className='navClubBtn'>Changer</button>
         </nav>
@@ -128,12 +129,12 @@ const ProfileClub = (props) => {
                 <button className='more-btn mx-auto'>Sub Hola</button>
             </div>
         </div>
-        <div className='d-flex flex-column'>
+        <div className='AccorContainer t'>
         <button className='AccorHeader t' onClick={() => dropHandler('t')} ><img src={phoneScene} /><p>Behind the scenes footage</p></button>
         <div className='Subacc t'>
 
         <nav className='navP border-bottom border-white mx-3 mb-4'>
-        <button className='border-0 bg-transparent' onClick={accorReturn}><img className='returnIconClub' src={ReturnIcon} /></button>
+        <button className='border-0 bg-transparent' onClick={() => accorReturn('t')}><img className='returnIconClub' src={ReturnIcon} /></button>
             <h6 className='ActiviestName'>Anuna’s Club</h6>
             <button className='navClubBtn'>Changer</button>
         </nav>
@@ -144,11 +145,11 @@ const ProfileClub = (props) => {
             <button className='more-btn mx-auto'>Sub Hola</button>
         </div>
     </div>
-    <div className='d-flex flex-column'>
+    <div className='AccorContainer l'>
     <button className='AccorHeader l' onClick={() => dropHandler('l')} ><img src={events} /><p>HERO Events</p></button>
     <div className='Subacc l'>
     <nav className='navP border-bottom border-white mx-3 mb-4'>
-    <button className='border-0 bg-transparent' onClick={accorReturn}><img className='returnIconClub' src={ReturnIcon} /></button>
+    <button className='border-0 bg-transparent' onClick={() => accorReturn('l')}><img className='returnIconClub' src={ReturnIcon} /></button>
     <h6 className='ActiviestName'>Anuna’s Club</h6>
     <button className='navClubBtn'>Changer</button>
 </nav>

@@ -118,7 +118,7 @@ color: #FFFFFF;
 
 .navP {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     min-height: 97px;
     align-items: center;
     border-bottom: 1px solid white;
@@ -248,4 +248,9 @@ background-color: #B8B8FF;
 
 .AccorHeader img {
     margin-left: 52px;
+}
+
+.AccorContainer {
+    display: flex;
+    flex-direction: column;
 }

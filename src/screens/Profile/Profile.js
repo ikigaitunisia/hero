@@ -48,7 +48,7 @@ const Profile = () => {
     <div id="profile" className='Profile d-flex flex-column'>
       
     <header>
-    <nav  className="navbar navbar-expand-lg navbar-light py-3 px-3">
+    <nav  className="navbar navbar-expand-lg navbar-light mx-3 py-3 px-3">
           <Link className="navbar-brand mx-auto logo" to="/mobilizer-feed">
           <img src={Logo} />
           </Link>
