@@ -32,7 +32,6 @@
 .ProfileClub {
     background: url("../ProfileAssets/Profile Info Background1.png") ,linear-gradient(rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.34));
     background-repeat: no-repeat;
-    background-size: cover; 
     min-height: 100vh;
     width: 100%;
     /* d-flex flex-column justify-content-between */

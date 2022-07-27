@@ -62,7 +62,7 @@ const ProfileClub = (props) => {
         document.querySelector(".ProfileClubHeader").style.display = "flex"
         document.querySelector(".Subacc." + fd).style.display = "none"
         document.querySelector(".AccorHeader." + fd).style.display = "flex"
-        document.querySelector(".AccorMore").style.height = "50vh"
+        // document.querySelector(".AccorMore").style.height = "50vh"
         document.querySelector(".AccorContainer." + f).style.order = "0"
 
         setShow('show')
