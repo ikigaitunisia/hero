@@ -48,7 +48,7 @@ const ProfileClub = (props) => {
             
         }
         document.querySelector(".ProfileClubHeader").style.display = "none"
-        document.querySelector(".AccorMore").style.height = "100vh"
+        // document.querySelector(".AccorMore").style.height = "100vh"
         document.querySelector(".Subacc." + f).style.display = "flex"
         document.querySelector(".Subacc." + f).style.flexDirection = "column"
         document.querySelector(".AccorHeader." + f).style.display = "none"
