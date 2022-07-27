@@ -8,6 +8,7 @@ export const MobilizerData = [
         location: "Brussels, Belgium",
         sm: "@anunadewever",
         video: "elijahVideo.mp4",
+        image: "annunaPicture.png"
     },
 
     {

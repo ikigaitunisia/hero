@@ -87,7 +87,7 @@ function MobilizerFeed(props) {
                   </div>
                   <div className="mb-3">
                     <img
-                      src="assets/img/annunaPicture.png"
+                      src={activist.image ? "assets/img/"+ activist.image: ""}
                       alt="image"
                       className="imaged w32 rounded"
                       onClick={() => history.push("/profile:" + activist.id)}
