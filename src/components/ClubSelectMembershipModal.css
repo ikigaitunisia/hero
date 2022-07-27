@@ -86,7 +86,7 @@ a {
   text-decoration: underline;
 }
 
-#clubSelectMembership .submit-btn {
+#clubSelectMembership .submit-btn-rounded {
   background: white !important;
   border: unset !important;
   color: blue !important;

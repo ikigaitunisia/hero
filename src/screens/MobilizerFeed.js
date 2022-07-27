@@ -77,13 +77,21 @@ function MobilizerFeed(props) {
                 {/* 
                     Changes the Profile Image based on the current activiest index
                     Link to the profile by the user ID
-              */}
+              
                     <Link to={"/profile:" + activist.id}>
                     <div
                       className={"profileIcon-" + activist.id}
                     >
                     </div>
-                    </Link>
+                    </Link>*/}
+                  </div>
+                  <div className="mb-3">
+                    <img
+                      src="assets/img/annunaPicture.png"
+                      alt="image"
+                      className="imaged w32 rounded"
+                      onClick={() => history.push("/profile:" + activist.id)}
+                    />
                   </div>
                   <div className="mb-3" onClick={() => setShowEchoModal(true)}>
                     <ion-icon

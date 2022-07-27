@@ -59,7 +59,7 @@ function MobilizerClub(props) {
 
 
 
-  <div className="container my-auto f-flex flex-column">
+  <div className="my-auto f-flex flex-column">
     <img className="mb-3" src={midLogo} />
     <p className="mx-auto mb-3">Join <b>Anuna's Club</b> to support
     her climate work and gain access

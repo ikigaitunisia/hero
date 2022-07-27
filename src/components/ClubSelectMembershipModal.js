@@ -203,7 +203,7 @@ function ClubSelectMembershipModal(props) {
                   </div>
                   <button
                     type="button"
-                    className="btn btn-icon rounded btn-primary submit-btn me-1 mb-1 mt-4"
+                    className="btn btn-icon rounded btn-primary submit-btn-rounded me-1 mb-1 mt-4"
                     onClick={confirmAmount}
                   >
                     <ion-icon
