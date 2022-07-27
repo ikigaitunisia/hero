@@ -107,7 +107,7 @@ const ProfileClub = (props) => {
                     COP 27
                     </button>                    
                     <button className='more-btn mx-auto'>Anuna x UNICEF</button>
-                    <button className='more-btn mx-auto'>Anuna x UNICEF</button>
+                    <button className='more-btn mx-auto'>Global Climate Strike</button>
                 </div>
             </div>
 
@@ -124,10 +124,9 @@ const ProfileClub = (props) => {
             <button className='navClubBtn'>Changer</button>
         </nav>
                 <img className='Accicon' src={vote} />
-                <button onClick={feature} className='voteBtn more-btn mx-auto'>
-                Club Messaging Feature
-                                    </button>                <button className='more-btn mx-auto'>Sub Hola</button>
-                <button className='more-btn mx-auto'>Sub Hola</button>
+                <button onClick={feature} className='voteBtn more-btn mx-auto'>Club Messaging Feature</button>
+                <button className='more-btn mx-auto'>COP Campaign Concept</button>
+                <button className='more-btn mx-auto'>Topic of next HERO Talk</button>
             </div>
         </div>
         <div className='AccorContainer t'>
@@ -141,9 +140,9 @@ const ProfileClub = (props) => {
         </nav>
         <img className='Accicon' src={phoneScene} />
 
-            <button className='more-btn mx-auto'>Sub Hola</button>
-            <button className='more-btn mx-auto'>Sub Hola</button>
-            <button className='more-btn mx-auto'>Sub Hola</button>
+            <button className='more-btn mx-auto'>Preparing for COP</button>
+            <button className='more-btn mx-auto'>Preparing our next climate strike</button>
+            <button className='more-btn mx-auto'>Preparing our next climate strike</button>
         </div>
     </div>
     <div className='AccorContainer l'>
@@ -159,8 +158,8 @@ const ProfileClub = (props) => {
 <button onClick={eventTalk} name={"COP27"} className='more-btn HeventBtn mx-auto'>
 HERO Talk Amsterdam
 </button>
-        <button className='more-btn mx-auto'>Sub Hola</button>
-        <button className='more-btn mx-auto'>Sub Hola</button>
+        <button className='more-btn mx-auto'>HERO Re-Cycling</button>
+        <button className='more-btn mx-auto'>HERO Supporter’s Meet Up</button>
     </div>
     </div>
     
