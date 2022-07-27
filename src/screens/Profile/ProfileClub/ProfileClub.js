@@ -20,6 +20,7 @@ const ProfileClub = (props) => {
     useEffect(() => {
         let test = document.querySelector("#profile");
         if (test) {test.remove()}
+
     })
 
 
@@ -82,7 +83,7 @@ const ProfileClub = (props) => {
             <div className='ProfileClubHeader '>
             <nav className='navP mx-3 mb-4'>
                 <button className='border-0 bg-transparent' onClick={() => window.location.replace("/profile" + props.match.params.id)}><img className='returnIconClub' src={ReturnIcon} /></button>
-                <h6 className='ActiviestName'>Anuna’s Club</h6>
+                <h6 className='ActiviestName'>{props.match.params.id.substring(1)} ’s Club</h6>
                 <button className='navClubBtn'>Changer</button>
             </nav>
             <img src={playButton} className="align-items-center my-auto mx-auto"/>
@@ -98,7 +99,7 @@ const ProfileClub = (props) => {
                 <div className='Subacc f'>
                 <nav className='navP border-bottom border-white mx-3 mb-4'>
                 <button className='border-0 bg-transparent' onClick={() => accorReturn('f')}><img className='returnIconClub' src={ReturnIcon} /></button>
-                <h6 className='ActiviestName'>Anuna’s Club</h6>
+                <h6 className='ActiviestName'>{props.match.params.id.substring(1)}'s Club</h6>
                 <button className='navClubBtn'>Changer</button>
             </nav>
                     <img className='Accicon' src={speaker} />
@@ -119,7 +120,7 @@ const ProfileClub = (props) => {
             <div className='Subacc s'>
             <nav className='navP border-bottom border-white mx-3 mb-4'>
             <button className='border-0 bg-transparent' onClick={() => accorReturn('s')}><img className='returnIconClub' src={ReturnIcon} /></button>
-            <h6 className='ActiviestName'>Anuna’s Club</h6>
+            <h6 className='ActiviestName'>{props.match.params.id.substring(1)}'s Club</h6>
             <button className='navClubBtn'>Changer</button>
         </nav>
                 <img className='Accicon' src={vote} />
@@ -135,8 +136,8 @@ const ProfileClub = (props) => {
 
         <nav className='navP border-bottom border-white mx-3 mb-4'>
         <button className='border-0 bg-transparent' onClick={() => accorReturn('t')}><img className='returnIconClub' src={ReturnIcon} /></button>
-            <h6 className='ActiviestName'>Anuna’s Club</h6>
-            <button className='navClubBtn'>Changer</button>
+        <h6 className='ActiviestName'>{props.match.params.id.substring(1)}'s Club</h6>
+        <button className='navClubBtn'>Changer</button>
         </nav>
         <img className='Accicon' src={phoneScene} />
 
@@ -150,7 +151,7 @@ const ProfileClub = (props) => {
     <div className='Subacc l'>
     <nav className='navP border-bottom border-white mx-3 mb-4'>
     <button className='border-0 bg-transparent' onClick={() => accorReturn('l')}><img className='returnIconClub' src={ReturnIcon} /></button>
-    <h6 className='ActiviestName'>Anuna’s Club</h6>
+    <h6 className='ActiviestName'>{props.match.params.id.substring(1)}'s Club</h6>
     <button className='navClubBtn'>Changer</button>
 </nav>
 <img className='Accicon' src={events} />
