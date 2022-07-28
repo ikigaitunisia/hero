@@ -78,10 +78,29 @@ function ClubSelectMembershipModal(props) {
   };
 
   const validate = () => {
-    console.log(name, cvv, expiryDate, cardNumber);
-    setShowForm1(false);
+    const user = JSON.parse(localStorage.getItem("user"));
+    if(user){
+        console.log("test")
+        const customerId = user.wallet.customerId;
+        axios
+        .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
+            "mode":"subscription",
+            "idaActivist":props.activistId,
+            "amount":amount*100,
+            "customerId":customerId
+        })
+        .then((res) => {
+            window.location.href = res.data.url;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+
+    //console.log(name, cvv, expiryDate, cardNumber);
+    //setShowForm1(false);
     // if (!name || !email || !birthDate || !city) {
-    axios
+    /*axios
       .post(`https://hegemony.donftify.digital:8080/InserData`, {
         Full_Name: name,
         Email: email,
@@ -97,7 +116,7 @@ function ClubSelectMembershipModal(props) {
       })
       .catch((err) => {
         console.log(err);
-      });
+      });*/
 
     //  }
   };
@@ -351,9 +370,9 @@ function ClubSelectMembershipModal(props) {
                   alt="logo"
                   className="logo"
                 />
-                <p className="header-text mt-4">Payment Details</p>
+                {/*<p className="header-text mt-4">Payment Details</p>*/}
                 <div className="section center">
-                  <form>
+                  {/*<form>
                     <div class="form-group boxed">
                       <div class="input-wrapper">
                         <label class="label" for="text4b">
@@ -422,7 +441,7 @@ function ClubSelectMembershipModal(props) {
                         </i>
                       </div>
                     </div>
-                  </form>
+            </form>*/}
                   <p className="header-text mt-4">Support the HERO Team</p>
                   <div className="flex-center amount-container">
                     <div className="coin">€</div>

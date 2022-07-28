@@ -7,7 +7,6 @@ import ClubSelectMembershipModal from "../components/ClubSelectMembershipModal";
 function MobilizerClub(props) {
   console.log("hola")
   const [showClubSelectMembershipModal, setShowClubSelectMembershipModal] = useState(false);
-
   return (<div id="MobilizerClubProfile">
 
 
@@ -69,7 +68,7 @@ function MobilizerClub(props) {
 
 
 
-  <ClubSelectMembershipModal show={showClubSelectMembershipModal} onClose={() => setShowClubSelectMembershipModal(false)} />
+  <ClubSelectMembershipModal show={showClubSelectMembershipModal} onClose={() => setShowClubSelectMembershipModal(false)} activistId={props.match.params.id}/>
 
 
 

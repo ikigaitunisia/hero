@@ -208,3 +208,9 @@ ul.socialMediaIcons {
 .switch-btn-icon {
     margin-right: 8px;
 }
+
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: unset; 
+}

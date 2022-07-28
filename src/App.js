@@ -17,7 +17,7 @@ function App() {
       <Router>
         <Route path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />
-        <Route path="/mobilizer-club" exact component={MobilizerClub} />
+        <Route path="/mobilizer-club:id" exact component={MobilizerClub} />
         <Route path="/mobilizer-feed" exact component={MobilizerFeed} />
         <Route path="/profile:id" exact component={Profile} />
         <Route path="/profileClub:id" exact component={ProfileClub} />

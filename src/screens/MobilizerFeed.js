@@ -103,7 +103,7 @@ function MobilizerFeed(props) {
                   </div>
                   <div
                     className="mb-3"
-                    onClick={() => history.push("/mobilizer-club")}
+                    onClick={() => history.push("/mobilizer-club" + activist.id)}
                   >
                     <img
                       src="assets/img/club.png"

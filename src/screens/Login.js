@@ -58,7 +58,7 @@ function Login() {
             "user",
             JSON.stringify({ Email: phoneNumber, wallet: response.data })
           );
-          history.push("/cardtransaction");
+          //history.push("/cardtransaction");
         })
         .catch(function (error) {
           //handle error here
