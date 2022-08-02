@@ -1,10 +1,8 @@
-import React, { useState,useEffect,useRef } from "react";
-import { withRouter, useHistory, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { withRouter, useHistory } from "react-router-dom";
 import "./MobilizerFeed.css";
-import InfiniteScroll from "react-infinite-scroll-component";
 import EchoModal from "../components/EchoModal";
-import {MobilizerData} from "../data/data.js";
-
+import { MobilizerData } from "../data/data.js";
 
 const SCROLL_UP = "up";
 const SCROLL_DOWN = "down";
@@ -13,24 +11,8 @@ const thresholdPixels = 10;
 function MobilizerFeed(props) {
   const history = useHistory();
 
-  const [items, setItems] = useState(Array.from({ length: 2 }));
   const [showEchoModal, setShowEchoModal] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
 
- 
-    
-  /*const fetchMoreData = () => {
-    console.log("ok");
-    if (items.length >= 6) {
-      setHasMore(false);
-      return;
-    }
-    // a fake async api call like which sends
-    // 20 more records in 1.5 secs
-    setTimeout(() => {
-      setItems(items.concat(Array.from({ length: 2 })));
-    }, 1500);
-  };*/
   const playVideo = (id) => {
     var v = document.getElementById(id);
     if (v.paused) {
@@ -39,19 +21,15 @@ function MobilizerFeed(props) {
       v.pause();
     }
   };
- 
 
- 
-  
- 
   return (
     <>
-    <div id="feed" className="container">
-    {MobilizerData.map((activist,i) => (
-          <div key={i} >
+      <div id="feed" className="container">
+        {MobilizerData.map((activist, i) => (
+          <div key={i}>
             <div className="feed" style={{ minHeight: "90vh!important" }}>
               <video id={i} playsInline>
-                <source src={"videos/"+activist.video} type="video/mp4" />
+                <source src={"videos/" + activist.video} type="video/mp4" />
               </video>
               <div className="feed-content">
                 <img
@@ -74,20 +52,8 @@ function MobilizerFeed(props) {
 
                 <div className="button-container">
                   <div className="mb-3">
-                {/* 
-                    Changes the Profile Image based on the current activiest index
-                    Link to the profile by the user ID
-              
-                    <Link to={"/profile:" + activist.id}>
-                    <div
-                      className={"profileIcon-" + activist.id}
-                    >
-                    </div>
-                    </Link>*/}
-                  </div>
-                  <div className="mb-3">
                     <img
-                      src={activist.image ? "assets/img/"+ activist.image: ""}
+                      src={activist.image ? "assets/img/" + activist.image : ""}
                       alt="image"
                       className="imaged w32 rounded rounded-profile-picture"
                       onClick={() => history.push("/profile:" + activist.id)}
@@ -103,7 +69,9 @@ function MobilizerFeed(props) {
                   </div>
                   <div
                     className="mb-3"
-                    onClick={() => history.push("/mobilizer-club" + activist.id)}
+                    onClick={() =>
+                      history.push("/mobilizer-club" + activist.id)
+                    }
                   >
                     <img
                       src="assets/img/club.png"
@@ -132,9 +100,8 @@ function MobilizerFeed(props) {
               </div>
             </div>
           </div>
-         
-    ))}
-    </div>
+        ))}
+      </div>
       <EchoModal show={showEchoModal} onClose={() => setShowEchoModal(false)} />
     </>
   );

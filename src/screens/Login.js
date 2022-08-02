@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import SmsVerification from "../components/SmsVerification";
 import BasicInput from "../components/inputs/BasicInput";
@@ -17,24 +17,19 @@ function Login() {
   const [points, setPoints] = useState("");
   const history = useHistory();
 
-
   const login = (e) => {
     e.preventDefault();
     if (!phoneNumberError) {
       setShowSmsVerification(true);
       axios
-      .post("https://hegemony.donftify.digital:8080/sendEmail/", {
-        Email: phoneNumber,
-        
-      })
-      .then(function (response) {
-        
-        
-      })
-      .catch(function (error) {
-        //handle error here
-        console.log(error);
-      });
+        .post("https://hegemony.donftify.digital:8080/sendEmail/", {
+          Email: phoneNumber,
+        })
+        .then(function (response) {})
+        .catch(function (error) {
+          //handle error here
+          console.log(error);
+        });
     } else {
       toast.error("Invalid Email");
       return;

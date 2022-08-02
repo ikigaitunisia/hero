@@ -1,55 +1,50 @@
-
-#MobilizerClubProfile{
-    min-height: 100vh;
-    background-image: url('../Assets/Profile/Anuna_Profile Picture 1.png'), linear-gradient(180deg, #0000FF 0%, #FFFFFF 104.31%);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#MobilizerClubProfile {
+  min-height: 100vh;
+  background-image: url("../Assets/Profile/Anuna_Profile Picture 1.png"),
+    linear-gradient(180deg, #0000ff 0%, #ffffff 104.31%);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-
 .navbar-light .navbar-toggler {
-
-    border: none;
- 
-
+  border: none;
 }
 
 .navbar-toggler-icon {
-    background-image: url('../Assets/Burger.svg')!important;
+  background-image: url("../Assets/Burger.svg") !important;
 }
 
 p {
-    font-family: 'Seravek';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 17px;
-text-align: center;
-width: 195px;
-color: #FFFFFF;
+  font-family: "Seravek";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  width: 195px;
+  color: #ffffff;
 }
 
-.btn-mb  {
-    width: 220.26px;
-    height: 48px;
-    left: 104px;
-    top: 528px;
-    background: #FFFFFF;
-    border-radius: 30px;
-    border: #FFFFFF;
-    color: #8585FF;
+.btn-mb {
+  width: 220.26px;
+  height: 48px;
+  left: 104px;
+  top: 528px;
+  background: #ffffff;
+  border-radius: 30px;
+  border: #ffffff;
+  color: #8585ff;
 }
 
 .bd-bold-text {
-    font-family: 'Seravek';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 17px;
-    color: #FFFFFF;
+  font-family: "Seravek";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
 }
