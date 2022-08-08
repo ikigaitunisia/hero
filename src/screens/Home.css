@@ -1,0 +1,27 @@
+.extraHeader1 {
+  background-color: blue !important;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.extraHeader1 a {
+  text-decoration: underline;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 18.4px;
+}
+
+.home-container h3 {
+  color: blue;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 22px;
+}
+.home-container {
+  width: 100%;
+  background-color: #f5f5f5;
+  margin: 0;
+}
