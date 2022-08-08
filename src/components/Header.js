@@ -8,6 +8,8 @@ function Header(props) {
   const showCloseBtn = props.showCloseBtn;
   const showLogo = props.showLogo;
   const showBackBtn = props.showBackBtn;
+  const bgBlue = props.bgBlue;
+
   const history = useHistory();
   const [loggedin, setLogedin] = useState(false);
 
@@ -28,7 +30,7 @@ function Header(props) {
   const colorClass = whiteMode ? "white-text" : "blue-text";
   return (
     <>
-      <div className="appHeader no-border transparent position-absolute">
+      <div className={bgBlue ? "appHeader no-border bgBlue position-absolute" : "appHeader no-border transparent position-absolute"}>
         <div className="left">
           {showBackBtn && (
             <a

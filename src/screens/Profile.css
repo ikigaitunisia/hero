@@ -1,0 +1,70 @@
+.profile{
+    color: white;
+}
+
+.profile h3 {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22.09px;
+}
+
+.profile small{
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14.72px;
+}
+
+.profile span{
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14.72px;
+}
+
+.profile p{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
+    margin: 0 auto;
+    width: unset!important;
+}
+
+#activist-info{
+    border-top: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.profile .social-btn{
+    background-color: white!important;
+    border: unset !important;
+}
+
+.profile button{
+    width: 25px;
+    height: 25px;
+}
+
+#social-btn-container{
+    width: unset;
+    margin: 0 auto;
+}
+
+.blue{
+    color: blue;
+}
+
+.black{
+    color: black;
+}
+
+#public-content, #club-access{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#public-content ion-icon, #club-access ion-icon{
+    width:25px;
+    height: 25px;
+}
