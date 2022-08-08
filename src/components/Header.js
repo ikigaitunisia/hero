@@ -32,15 +32,18 @@ function Header(props) {
   return (
     <>
       <div className="appHeader no-border transparent position-absolute">
-        <div className="left">
-          {loggedin && showMenuBtn && (
-            <a
-              href="#"
-              className={"headerButton " + colorClass}
-              onClick={() => setShowMenu(true)}
-            >
-              <ion-icon name="menu-outline"></ion-icon>
-            </a>
+        <div className="left pl-2">
+          {showLogo && (
+            <img
+              src={
+                whiteMode
+                  ? "assets/img/logo.png"
+                  : "assets/img/HEROLogoBlue.png"
+              }
+              alt="logo"
+              className="logo"
+              onClick={() => history.push("/")}
+            />
           )}
           {showBackBtn && (
             <a
@@ -54,20 +57,7 @@ function Header(props) {
             </a>
           )}
         </div>
-        <div className="pageTitle">
-          {showLogo && (
-            <img
-              src={
-                whiteMode
-                  ? "assets/img/heroLogo.png"
-                  : "assets/img/HEROLogoBlue.png"
-              }
-              alt="logo"
-              className="logo"
-              onClick={() => history.push("/")}
-            />
-          )}
-        </div>
+        <div className="pageTitle"></div>
         <div className="right">
           {showLoginBtn &&
             (!loggedin ? (
@@ -85,6 +75,15 @@ function Header(props) {
                 Logout
               </a>
             ))}
+          {loggedin && showMenuBtn && (
+            <a
+              href="#"
+              className={"headerButton " + colorClass}
+              onClick={() => setShowMenu(true)}
+            >
+              <ion-icon name="menu-outline"></ion-icon>
+            </a>
+          )}
 
           {showCloseBtn && (
             <a
