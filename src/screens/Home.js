@@ -19,12 +19,38 @@ function Home(props) {
         </h3>
 
         <div id="list-activist" className="mt-4 mb-1">
-          <div id="activist1">
+          <div id="activist1" className="mb-4">
             <img
-              src="assets/img/activist1.png"
-              alt="image"
-              className="imaged w100 rounded"
+              src="assets/img/logoWhite.png"
+              alt="logo"
+              className="logo mb-1"
             />
+            <small>
+              Close Coal Mines
+              <br /> in Europe
+            </small>
+          </div>
+          <div id="activist2" className="mb-4">
+            <img
+              src="assets/img/logoWhite.png"
+              alt="logo"
+              className="logo mb-1"
+            />
+            <small>
+              Stop New Oil
+              <br /> Fields UK
+            </small>
+          </div>
+          <div id="activist3" className="mb-4">
+            <img
+              src="assets/img/logoWhite.png"
+              alt="logo"
+              className="logo mb-1"
+            />
+            <small>
+              Bogotá Clean
+              <br /> Transportation
+            </small>
           </div>
         </div>
       </div>

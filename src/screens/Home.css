@@ -25,3 +25,52 @@
   background-color: #f5f5f5;
   margin: 0;
 }
+
+#activist1 {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  color: white;
+  font: bold 10px monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top, blue, transparent),
+    url("/assets/img/activist1.png") no-repeat top center;
+  margin: 0 auto;
+  flex-direction: column;
+}
+#activist2 {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  color: white;
+  font: bold 10px monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top, blue, transparent),
+    url("/assets/img/activist2.png") no-repeat top center;
+  margin: 0 auto;
+  flex-direction: column;
+}
+#activist3 {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  color: white;
+  font: bold 10px monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top, blue, transparent),
+    url("/assets/img/activist3.png") no-repeat top center;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+#activist1 img,
+#activist2 img,
+#activist3 img {
+  width: 10px;
+}
