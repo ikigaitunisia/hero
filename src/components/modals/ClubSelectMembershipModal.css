@@ -1,0 +1,318 @@
+.clubSelectMembership .modal-content-custom {
+  background: linear-gradient(0deg, rgb(162, 174, 241), #0000ffe5);
+  /*opacity: 90%!important;*/
+}
+
+.clubSelectMembership .modal-content-custom-white {
+  background: white;
+  opacity: unset!important;
+}
+
+.header-text {
+  width: unset;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.63px;
+  font-family: "Seravek";
+}
+
+#clubSelectMembership .custom-btn {
+  background-color: transparent !important;
+  color: white !important;
+  border: white 1px solid !important;
+  border-radius: 20px !important;
+  font-size: 30px;
+  height: 54px;
+  width: 160px;
+}
+
+#clubSelectMembership .custom-btn:active,
+.custom-btn:focus {
+  background: white !important;
+  color: blue !important;
+}
+
+.custom-btn-white,
+.custom-btn-white:hover,
+.custom-btn-white:focus {
+  background: white !important;
+  color: blue !important;
+  border: white 1px solid !important;
+  border-radius: 20px !important;
+  font-size: 30px;
+  height: 54px;
+  width: 160px;
+}
+
+#clubSelectMembership .custom-btn-white span {
+  color: blue !important;
+}
+
+#clubSelectMembership span,
+a {
+  color: white !important;
+}
+
+#clubSelectMembership sup {
+  top: -15px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-right: 5px;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#clubSelectMembership .custom-btn span {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-left: 5px;
+}
+
+#clubSelectMembership span {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+}
+#clubSelectMembership a {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.72px;
+  text-decoration: underline;
+}
+
+#clubSelectMembership .submit-btn-rounded {
+  background: white !important;
+  border: unset !important;
+  color: blue !important;
+  line-height: 1em !important;
+  padding: 0 !important;
+}
+
+#welcomeClub p {
+  width: unset;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.63px;
+}
+
+#welcomeClub .header-text {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24.54px;
+}
+
+#welcomeClub button {
+  background-color: white !important;
+  color: #6666ff !important;
+  border: unset !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 15px !important;
+}
+
+#white-form {
+  padding: 30px 40px;
+  padding-top: 10px;
+}
+
+#white-form label {
+  color: white;
+}
+
+#white-form .custom-select {
+  color: white;
+}
+#white-form option {
+  color: blue;
+}
+#white-form .input-group-text {
+  color: white;
+}
+
+#white-form ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+}
+
+#white-form :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+}
+
+#white-form .form-check-input:checked ~ .form-check-label:after {
+  background-color: #6236ff;
+  border-color: white !important;
+}
+#white-form .form-group.basic .form-control,
+.form-group.basic .custom-select {
+  border-bottom: 1px solid #dcdce9;
+  color: white;
+}
+
+#white-form ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white;
+}
+.radio-input {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+.add-icon {
+  width: 25px;
+  height: 25px;
+}
+@media screen and (max-width: 400px) {
+  #white-form {
+    padding: 30px 5px;
+    padding-top: 10px;
+  }
+  .radio-input {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#form p {
+  width: unset;
+}
+
+#form input {
+  text-align: center;
+  padding: 0;
+}
+
+#form label {
+  text-align: center;
+}
+
+#form button {
+  width: 264px !important;
+  height: 53px !important;
+  border-radius: 50px !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 22.09px !important;
+  color: #8585ff !important;
+  background-color: white !important;
+  border: unset !important;
+}
+#form1 p {
+  width: unset;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.72px;
+  font-family: "Seravek";
+  color: blue;
+}
+#form1 .header-text {
+  width: unset;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.63px;
+  font-family: "Seravek";
+  color: blue;
+}
+
+#form1 label {
+  color: #0000ff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.63px;
+}
+
+#form1 .form-group.boxed .form-control {
+  background: #f5f5f5;
+  box-shadow: none;
+  border-radius: 50px;
+  padding: 0 40px 0 16px;
+  border: unset;
+}
+
+.center {
+  margin: 0 auto;
+  width: 80%;
+}
+
+#form1 a {
+  text-decoration: underline;
+  color: blue !important;
+  font-weight: 700 !important;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.amount-container {
+  width: 160px;
+  height: 54px;
+  border-radius: 20px;
+  border: 2px solid #0000ff;
+  color: #0000ff;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.coin {
+  font-size: 25px;
+  border-right: 2px solid #0000ff;
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.amount {
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#form1 .verification-input {
+  font-size: 22px !important;
+  letter-spacing: 10px;
+  text-align: center;
+  border-radius: 50px !important;
+  border: unset !important;
+  padding: 0 10px !important;
+  min-height: unset !important;
+  font-weight: 700;
+  color: #27173e !important;
+  box-shadow: none !important;
+  background: #f5f5f5 !important;
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.react-datepicker__input-container input {
+  background: #f5f5f5 !important;
+  background: #f5f5f5;
+  box-shadow: none;
+  border-radius: 50px;
+  padding: 0 40px 0 16px;
+  border: unset;
+  height: 42px;
+  width: 100%;
+}

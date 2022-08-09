@@ -1,0 +1,31 @@
+.feed-container h3 {
+  color: blue;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.feed-container a {
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: white;
+}
+
+.feed-container .discover {
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: blue;
+}
+
+.feed-container #activist1 {
+  margin-right: 10px!important;
+
+}
+.feed-container #activist2 {
+  margin-left: 10px!important;
+  
+}
