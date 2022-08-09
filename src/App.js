@@ -7,6 +7,8 @@ import Home from "./screens/Home";
 import ChangePassword from "./screens/ChangePassword";
 import SearchFilters from "./screens/SearchFilters";
 import Feed from "./screens/Feed";
+import ActivistProfile from "./screens/ActivistProfile";
+
 function App() {
   return (
     <div className="App">
@@ -15,6 +17,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/search-filters" exact component={SearchFilters} />
         <Route path="/feed" exact component={Feed} />
+        <Route path="/mobilizer-profile" exact component={ActivistProfile} />
         <Route path="/changepassword" exact component={ChangePassword} />        
       </Router>
     </div>
