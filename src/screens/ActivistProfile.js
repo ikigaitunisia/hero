@@ -3,12 +3,16 @@ import { useHistory, useLocation } from "react-router-dom";
 import "./ActivistProfile.css";
 import { withRouter } from "react-router-dom";
 import Header from "../components/Header";
-import SearchForHeroCircle from "../components/SearchForHeroCircle";
+import ActivistVictoriesModal from "../components/modals/ActivistVictoriesModal";
+import ActivistCampaignsModal from "../components/modals/ActivistCampaignsModal";
+import ClubSelectMembershipModal from "../components/modals/ClubSelectMembershipModal";
 
 function ActivistProfile(props) {
   const [showMobilizerCampaignsModal, setShowMobilizerCampaignsModal] =
     useState(false);
   const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
+    useState(false);
+    const [showClubSelectMembershipModal, setShowClubSelectMembershipModal] =
     useState(false);
   return (
     <>
@@ -136,13 +140,15 @@ function ActivistProfile(props) {
       </div>
       <ActivistCampaignsModal
         show={showMobilizerCampaignsModal}
-        activist={A.state}
         onClose={() => setShowMobilizerCampaignsModal(false)}
       />
       <ActivistVictoriesModal
         show={showMobilizerVictoriesModal}
-        activist={A.state}
         onClose={() => setShowMobilizerVictoriesModal(false)}
+      />
+            <ClubSelectMembershipModal
+        show={showClubSelectMembershipModal}
+        onClose={() => setShowClubSelectMembershipModal(false)}
       />
     </>
   );

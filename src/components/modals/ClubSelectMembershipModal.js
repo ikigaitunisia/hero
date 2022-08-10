@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Modal } from "bootstrap";
 import "./ClubSelectMembershipModal.css";
-import HeroStarterDetails from "./HeroStarterDetails";
-import HeroSupporterDetails from "./HeroSupporterDetails";
-import HeroChangerDetails from "./HeroChangerDetails";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -20,9 +17,6 @@ function ClubSelectMembershipModal(props) {
 
     return () => {
       props.onClose();
-      setShowHeroStarterDetails(false);
-      setShowHeroSupporterDetails(false);
-      setShowHeroChangerDetails(false);
       setShowForm(false);
       setShowForm1(false);
       setShowWelcomeToClub(false);
@@ -31,10 +25,6 @@ function ClubSelectMembershipModal(props) {
     };
   }, [props.show]);
   const [showAmountSelect, setShowAmountSelect] = useState(true);
-  const [showHeroStarterDetails, setShowHeroStarterDetails] = useState(false);
-  const [showHeroSupporterDetails, setShowHeroSupporterDetails] =
-    useState(false);
-  const [showHeroChangerDetails, setShowHeroChangerDetails] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [showForm1, setShowForm1] = useState(false);
   const [showWelcomeToClub, setShowWelcomeToClub] = useState(false);
@@ -55,15 +45,12 @@ function ClubSelectMembershipModal(props) {
     }
     setAmount(a);
     if (a === 10) {
-      //setShowHeroStarterDetails(true);
       return;
     }
     if (a === 20) {
-      //setShowHeroSupporterDetails(true);
       return;
     }
     if (a === 50) {
-      //setShowHeroChangerDetails(true);
       return;
     }
   };
@@ -130,9 +117,6 @@ function ClubSelectMembershipModal(props) {
               </a>
             </div>
             {showAmountSelect &&
-              !showHeroStarterDetails &&
-              !showHeroSupporterDetails &&
-              !showHeroChangerDetails &&
               !showForm &&
               !showWelcomeToClub &&
               !showForm1 && (
@@ -209,27 +193,6 @@ function ClubSelectMembershipModal(props) {
                   </button>
                 </div>
               )}
-            {showHeroStarterDetails && (
-              <div className="modal-body">
-                <HeroStarterDetails
-                  onClose={() => setShowHeroStarterDetails(false)}
-                />
-              </div>
-            )}
-            {showHeroSupporterDetails && (
-              <div className="modal-body">
-                <HeroSupporterDetails
-                  onClose={() => setShowHeroSupporterDetails(false)}
-                />
-              </div>
-            )}
-            {showHeroChangerDetails && (
-              <div className="modal-body">
-                <HeroChangerDetails
-                  onClose={() => setShowHeroChangerDetails(false)}
-                />
-              </div>
-            )}
             {showForm && !showWelcomeToClub && (
               <div id="form" className="modal-body">
                 <img
