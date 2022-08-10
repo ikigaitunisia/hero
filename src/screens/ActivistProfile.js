@@ -6,6 +6,10 @@ import Header from "../components/Header";
 import SearchForHeroCircle from "../components/SearchForHeroCircle";
 
 function ActivistProfile(props) {
+  const [showMobilizerCampaignsModal, setShowMobilizerCampaignsModal] =
+    useState(false);
+  const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
+    useState(false);
   return (
     <>
       <Header whiteMode showLogo showMenuBtn showLoginBtn />
@@ -21,21 +25,36 @@ function ActivistProfile(props) {
         </div>
         <div className="section">
           <div className="row mt-2 mb-2">
-            <div className="col mb-2 flex-center" style={{borderRight: "1px solid #D9D9D9"}}>
+            <div
+              className="col mb-2 flex-center"
+              style={{ borderRight: "1px solid #D9D9D9" }}
+            >
               <ion-icon
                 id="campaign-logo"
                 class="md-icon me-1"
                 src="assets/img/svg/logoDark.svg"
+                onClick={() => setShowMobilizerCampaignsModal(true)}
               ></ion-icon>
-              <span className="fw-bold fs-14">Campaigns</span>
+              <span
+                className="fw-bold fs-14"
+                onClick={() => setShowMobilizerCampaignsModal(true)}
+              >
+                Campaigns
+              </span>
             </div>
             <div className="col flex-center mb-2">
               <ion-icon
                 id="victory-logo"
                 class="md-icon me-1"
                 src="assets/img/svg/logoDark.svg"
+                onClick={() => setShowMobilizerVictoriesModal(true)}
               ></ion-icon>
-              <span className="fw-bold fs-14">Victories</span>
+              <span
+                className="fw-bold fs-14"
+                onClick={() => setShowMobilizerVictoriesModal(true)}
+              >
+                Victories
+              </span>
             </div>
           </div>
         </div>
@@ -59,8 +78,9 @@ function ActivistProfile(props) {
             <h6 className="dark-text mb-2">Brussels, Belgium</h6>
             <div className="dark-text">
               <p>
-                Climate & Social Justice Mobilizer<br/> Co-founder Youth for Climate
-                Belgium<br/> Member of Friday’s for Future Global
+                Climate & Social Justice Mobilizer
+                <br /> Co-founder Youth for Climate Belgium
+                <br /> Member of Friday’s for Future Global
               </p>
             </div>
           </div>
@@ -114,6 +134,16 @@ function ActivistProfile(props) {
           </div>
         </div>
       </div>
+      <ActivistCampaignsModal
+        show={showMobilizerCampaignsModal}
+        activist={A.state}
+        onClose={() => setShowMobilizerCampaignsModal(false)}
+      />
+      <ActivistVictoriesModal
+        show={showMobilizerVictoriesModal}
+        activist={A.state}
+        onClose={() => setShowMobilizerVictoriesModal(false)}
+      />
     </>
   );
 }
