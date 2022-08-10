@@ -21,7 +21,7 @@ function ActivistProfile(props) {
         </div>
         <div className="section">
           <div className="row mt-2 mb-2">
-            <div className="col mb-2 flex-center">
+            <div className="col mb-2 flex-center" style={{borderRight: "1px solid #D9D9D9"}}>
               <ion-icon
                 id="campaign-logo"
                 class="md-icon me-1"
@@ -39,35 +39,36 @@ function ActivistProfile(props) {
             </div>
           </div>
         </div>
-        <div className="section mt-3 text-center center-div">
-          <div className="avatar-section mb-2">
-            <a href="#">
-              <img
-                src={"assets/img/annuna.png"}
-                alt="avatar"
-                className="imaged w100 rounded profil-img"
-              />
-            </a>
+        <div id="activist-details">
+          <div className="section pt-3 text-center center-div">
+            <div className="avatar-section mb-2">
+              <a href="#">
+                <img
+                  src={"assets/img/annuna.png"}
+                  alt="avatar"
+                  className="imaged w100 rounded profil-img"
+                />
+              </a>
+            </div>
+            <h3 className="dark-text pb-0 mb-2">Anuna de Wever</h3>
+            <h5 className="mb-2">
+              <a href="" className="dark-text">
+                @anunadewever
+              </a>
+            </h5>
+            <h6 className="dark-text mb-2">Brussels, Belgium</h6>
+            <div className="dark-text">
+              <p>
+                Climate & Social Justice Mobilizer<br/> Co-founder Youth for Climate
+                Belgium<br/> Member of Friday’s for Future Global
+              </p>
+            </div>
           </div>
-          <h3 className="custom-font blue-text pb-0 m-0">Anuna de Wever</h3>
-          <h5>
-            <a href="" className="blue-text title-font">
-              @anunadewever
-            </a>
-          </h5>
-          <span className="blue-text fs-italic">Brussels, Belgium</span>
-          <div className="black-text pt-3 pb-3">
-            <span>
-              Climate & Social Justice Mobilizer Co-founder Youth for Climate
-              Belgium Member of Friday’s for Future Global
-            </span>
-          </div>
-        </div>
-        <div id="social-btn-container" className="row p-2 mt-3">
+          <div id="social-btn-container" className="row mb-4">
             <div className="flex-col-center col mb-3 p-0">
               <button
                 type="button"
-                className="btn btn-icon rounded btn-primary social-btn me-1 mb-1"
+                className="btn btn-icon rounded btn-primary social-btn"
               >
                 <ion-icon src="assets/img/svg/tiktok.svg"></ion-icon>
               </button>
@@ -75,7 +76,7 @@ function ActivistProfile(props) {
             <div className="flex-col-center col mb-3 p-0">
               <button
                 type="button"
-                className="btn btn-icon rounded btn-primary social-btn me-1 mb-1"
+                className="btn btn-icon rounded btn-primary social-btn"
               >
                 <ion-icon name="logo-instagram"></ion-icon>
               </button>
@@ -83,33 +84,34 @@ function ActivistProfile(props) {
             <div className="flex-col-center col mb-3 p-0">
               <button
                 type="button"
-                className="btn btn-icon rounded btn-primary social-btn me-1 mb-1"
+                className="btn btn-icon rounded btn-primary social-btn"
               >
                 <ion-icon name="logo-twitter"></ion-icon>
               </button>
             </div>
           </div>
-        <div className="section mb-4">
-          <div id="activist1" className="mb-4">
-            <img
-              src="assets/img/logoWhite.png"
-              alt="logo"
-              className="logo mb-1"
-            />
-            <small>
-              Close Coal Mines
-              <br /> in Europe
-            </small>
+          <div className="section mb-4">
+            <div id="activist1" className="mb-4">
+              <img
+                src="assets/img/logoWhite.png"
+                alt="logo"
+                className="logo mb-1"
+              />
+              <small>
+                Close Coal Mines
+                <br /> in Europe
+              </small>
+            </div>
           </div>
-        </div>
-        <div className="section pb-4 mb-4">
-          <button
-            id="supportMobBtn"
-            type="button"
-            className="btn btn-primary rounded font-size-btn"
-          >
-            Support Anuna’s HERO Circle
-          </button>
+          <div className="section pb-4 mb-4">
+            <button
+              id="supportMobBtn"
+              type="button"
+              className="btn btn-primary rounded font-size-btn"
+            >
+              Support Anuna’s HERO Circle
+            </button>
+          </div>
         </div>
       </div>
     </>
