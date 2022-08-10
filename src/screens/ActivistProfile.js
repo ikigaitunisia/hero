@@ -63,6 +63,32 @@ function ActivistProfile(props) {
             </span>
           </div>
         </div>
+        <div id="social-btn-container" className="row p-2 mt-3">
+            <div className="flex-col-center col mb-3 p-0">
+              <button
+                type="button"
+                className="btn btn-icon rounded btn-primary social-btn me-1 mb-1"
+              >
+                <ion-icon src="assets/img/svg/tiktok.svg"></ion-icon>
+              </button>
+            </div>
+            <div className="flex-col-center col mb-3 p-0">
+              <button
+                type="button"
+                className="btn btn-icon rounded btn-primary social-btn me-1 mb-1"
+              >
+                <ion-icon name="logo-instagram"></ion-icon>
+              </button>
+            </div>
+            <div className="flex-col-center col mb-3 p-0">
+              <button
+                type="button"
+                className="btn btn-icon rounded btn-primary social-btn me-1 mb-1"
+              >
+                <ion-icon name="logo-twitter"></ion-icon>
+              </button>
+            </div>
+          </div>
         <div className="section mb-4">
           <div id="activist1" className="mb-4">
             <img
