@@ -8,6 +8,7 @@ import ChangePassword from "./screens/ChangePassword";
 import SearchFilters from "./screens/SearchFilters";
 import Feed from "./screens/Feed";
 import ActivistProfile from "./screens/ActivistProfile";
+import AfricanLeadersCircleProfile from "./screens/AfricanLeadersCircleProfile";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/search-filters" exact component={SearchFilters} />
         <Route path="/feed" exact component={Feed} />
         <Route path="/mobilizer-profile" exact component={ActivistProfile} />
+        <Route path="/african-leaders-circle-profile" exact component={AfricanLeadersCircleProfile} />
         <Route path="/changepassword" exact component={ChangePassword} />        
       </Router>
     </div>

@@ -24,3 +24,33 @@
   color: white;
   border: unset!important;
 }
+
+.flex-col{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.badge{
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  background-color: #B7B7FF!important;
+}
+
+.custom-div{
+  width: max-content;
+  margin: 0 auto;
+  background: #b8b8ff36;
+  padding: 20px;
+  border-radius: 40px;
+}
