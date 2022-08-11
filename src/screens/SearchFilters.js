@@ -11,10 +11,28 @@ function SearchFilters(props) {
 
       <div id="appCapsule" class="serach-filters-container">
         <SearchForHeroCircle />
-        <div className="row">
-          <div id="mobilizer-filter" className="col-12"></div>
-          <div id="scope-filter" className="col-12"></div>
-          <div id="region-filter" className="col-12"></div>
+        <div id="filters" className="row">
+          <div id="mobilizer-filter" className="col-12">
+            <img
+              src="assets/img/mobilizer.png"
+              alt="logo"
+              className="logo mb-1"
+            />
+          </div>
+          <div id="scope-filter" className="col-12">
+            <img
+              src="assets/img/scope.png"
+              alt="logo"
+              className="logo mb-1"
+            />
+          </div>
+          <div id="region-filter" className="col-12">
+            <img
+              src="assets/img/region.png"
+              alt="logo"
+              className="logo mb-1"
+            />
+          </div>
         </div>
       </div>
     </>
