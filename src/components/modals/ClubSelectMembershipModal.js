@@ -65,24 +65,27 @@ function ClubSelectMembershipModal(props) {
   };
 
   const validate = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if(user){
-        console.log("test")
-        const customerId = user.wallet.customerId;
-        axios
+    /*const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      console.log("test");
+      const customerId = user.wallet.customerId;
+      axios
         .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
-            "mode":"subscription",
-            "idaActivist":props.activistId,
-            "amount":amount*100,
-            "customerId":customerId
+          mode: "subscription",
+          idaActivist: props.activistId,
+          amount: amount * 100,
+          customerId: customerId,
         })
         .then((res) => {
-            window.location.href = res.data.url;
+          window.location.href = res.data.url;
         })
         .catch((err) => {
           console.log(err);
         });
-    }
+    }*/
+
+    setShowWelcomeToClub(true);
+
   };
 
   return (
@@ -116,83 +119,76 @@ function ClubSelectMembershipModal(props) {
                 ></ion-icon>
               </a>
             </div>
-            {showAmountSelect &&
-              !showForm &&
-              !showWelcomeToClub &&
-              !showForm1 && (
-                <div className="modal-body">
-                  <img
-                    src={"assets/img/logo2.png"}
-                    alt="logo"
-                    className="logo"
-                  />
-                  <p className="header-text mt-4 white">
+            {showAmountSelect && !showForm && !showWelcomeToClub && !showForm1 && (
+              <div className="modal-body">
+                <img src={"assets/img/logo2.png"} alt="logo" className="logo" />
+                <p className="header-text mt-4 white">
                   Choose your HERO Circle
-                 <br /> Membership
-                  </p>
-                  <div className="button-wrapper mt-4">
-                    <button
-                      type="button"
-                      className={
-                        amount === 10
-                          ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
-                          : "btn btn-outline-primary custom-btn me-1 mb-1"
-                      }
-                      onClick={() => chooseAmount(10)}
-                    >
-                      <sup>€</sup>10<span>/mo</span>
-                    </button>
-                    <span className="mt-1">HERO Starter</span>
-                    <a href="" className="mt-1">
-                      Click here to see what’s included.
-                    </a>
-                  </div>
-                  <div className="button-wrapper mt-4">
-                    <button
-                      type="button"
-                      className={
-                        amount === 20
-                          ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
-                          : "btn btn-outline-primary custom-btn me-1 mb-1"
-                      }
-                      onClick={() => chooseAmount(20)}
-                    >
-                      <sup>€</sup>20<span>/mo</span>
-                    </button>
-                    <span className="mt-1">HERO Supporter</span>
-                    <a href="" className="mt-1">
-                      Click here to see what’s included.
-                    </a>
-                  </div>
-                  <div className="button-wrapper mt-4">
-                    <button
-                      type="button"
-                      className={
-                        amount === 50
-                          ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
-                          : "btn btn-outline-primary custom-btn me-1 mb-1"
-                      }
-                      onClick={() => chooseAmount(50)}
-                    >
-                      <sup>€</sup>50<span>/mo</span>
-                    </button>
-                    <span className="mt-1">HERO Changer</span>
-                    <a href="" className="mt-1">
-                      Click here to see what’s included.
-                    </a>
-                  </div>
+                  <br /> Membership
+                </p>
+                <div className="button-wrapper mt-4">
                   <button
                     type="button"
-                    className="btn btn-icon rounded btn-primary submit-btn-rounded me-1 mb-1 mt-4"
-                    onClick={confirmAmount}
+                    className={
+                      amount === 10
+                        ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
+                        : "btn btn-outline-primary custom-btn me-1 mb-1"
+                    }
+                    onClick={() => chooseAmount(10)}
                   >
-                    <ion-icon
-                      src="assets/img/svg/next2.svg"
-                      style={{ color: "blue" }}
-                    ></ion-icon>
+                    <sup>€</sup>10<span>/mo</span>
                   </button>
+                  <span className="mt-1">HERO Starter</span>
+                  <a href="" className="mt-1">
+                    Click here to see what’s included.
+                  </a>
                 </div>
-              )}
+                <div className="button-wrapper mt-4">
+                  <button
+                    type="button"
+                    className={
+                      amount === 20
+                        ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
+                        : "btn btn-outline-primary custom-btn me-1 mb-1"
+                    }
+                    onClick={() => chooseAmount(20)}
+                  >
+                    <sup>€</sup>20<span>/mo</span>
+                  </button>
+                  <span className="mt-1">HERO Supporter</span>
+                  <a href="" className="mt-1">
+                    Click here to see what’s included.
+                  </a>
+                </div>
+                <div className="button-wrapper mt-4">
+                  <button
+                    type="button"
+                    className={
+                      amount === 50
+                        ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
+                        : "btn btn-outline-primary custom-btn me-1 mb-1"
+                    }
+                    onClick={() => chooseAmount(50)}
+                  >
+                    <sup>€</sup>50<span>/mo</span>
+                  </button>
+                  <span className="mt-1">HERO Changer</span>
+                  <a href="" className="mt-1">
+                    Click here to see what’s included.
+                  </a>
+                </div>
+                <button
+                  type="button"
+                  className="btn btn-icon rounded btn-primary submit-btn-rounded me-1 mb-1 mt-4"
+                  onClick={confirmAmount}
+                >
+                  <ion-icon
+                    src="assets/img/svg/next.svg"
+                    style={{ color: "blue" }}
+                  ></ion-icon>
+                </button>
+              </div>
+            )}
             {showForm && !showWelcomeToClub && (
               <div id="form" className="modal-body">
                 <img
@@ -305,14 +301,10 @@ function ClubSelectMembershipModal(props) {
 
             {showForm1 && !showWelcomeToClub && (
               <div id="form1" className="modal-body">
-                <img
-                  src={"assets/img/minLogoBlue.png"}
-                  alt="logo"
-                  className="logo"
-                />
-                {/*<p className="header-text mt-4">Payment Details</p>*/}
+                <img src={"assets/img/logo3.png"} alt="logo" className="logo" />
+                <p className="header-text mt-4">Payment Details</p>
                 <div className="section center">
-                  {/*<form>
+                  <form>
                     <div class="form-group boxed">
                       <div class="input-wrapper">
                         <label class="label" for="text4b">
@@ -381,18 +373,20 @@ function ClubSelectMembershipModal(props) {
                         </i>
                       </div>
                     </div>
-            </form>*/}
-                  <p className="header-text mt-4">Support the HERO Team</p>
+                  </form>
+                  <p className="header-text mt-4">Extra support to HERO</p>
                   <div className="flex-center amount-container">
                     <div className="coin">€</div>
                     <div className="amount">{amount}</div>
                   </div>
                   <p className="mt-4 mb-0">
-                    Consider giving an extra amount if you like our platform.
-                    <br /> Your contribution will help us to keep supporting
-                    <br /> mobilizers around the world with trainings, legal
-                    advice,
-                    <br /> partnerships and communication strategies.
+                    Give an extra amount if you like our platform. Your
+                    <br />
+                    contribution will help us to keep supporting mobilizers
+                    <br />
+                    around the world with trainings, legal advice, partnerships
+                    <br />
+                    and communication strategies.
                   </p>
                   <button
                     type="button"
@@ -407,6 +401,36 @@ function ClubSelectMembershipModal(props) {
                     <br /> By subscribing, you agree to{" "}
                     <a href="#">HERO's Terms of Use</a>.
                   </p>
+                  <div className="row">
+                  <div className="col" style={{padding: "10px 5px"}}>
+                    <img
+                      src={"assets/img/pic1.png"}
+                      alt="logo"
+                      className="logo"
+                    />
+                  </div>
+                  <div className="col" style={{padding: "10px 5px"}}>
+                    <img
+                      src={"assets/img/pic2.png"}
+                      alt="logo"
+                      className="logo"
+                    />
+                  </div>
+                  <div className="col" style={{padding: "10px 5px"}}>
+                    <img
+                      src={"assets/img/pic3.png"}
+                      alt="logo"
+                      className="logo"
+                    />
+                  </div>
+                  <div className="col" style={{padding: "10px 5px"}}>
+                    <img
+                      src={"assets/img/pic4.png"}
+                      alt="logo"
+                      className="logo"
+                    />
+                  </div>
+                </div>
                 </div>
               </div>
             )}

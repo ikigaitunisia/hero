@@ -18,3 +18,9 @@
   border: unset !important;
   background: transparent !important;
 }
+
+.btn-outline-secondary{
+  background-color: blue!important;
+  color: white;
+  border: unset!important;
+}
