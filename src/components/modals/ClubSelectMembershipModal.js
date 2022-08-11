@@ -85,7 +85,7 @@ function ClubSelectMembershipModal(props) {
     }*/
 
     setShowWelcomeToClub(true);
-
+    setShowForm1(false);
   };
 
   return (
@@ -280,22 +280,86 @@ function ClubSelectMembershipModal(props) {
             )}
             {showWelcomeToClub && (
               <div id="welcomeClub" className="modal-body">
-                <img
-                  src={"assets/img/heroLogo2.png"}
-                  alt="logo"
-                  className="logo"
-                />
-                <p className="header-text mt-4">Welcome to the club, John!</p>
-                <p className="mt-4">
-                  You are now supporting <b>Anuna</b> and
-                  <br /> will have access to exlusive content.
+                <img src={"assets/img/logo2.png"} alt="logo" className="logo" />
+                <p className="header-text mt-4 white">
+                  Welcome to the circle, John!
+                </p>
+                <p className="mt-4 white">
+                  You are now supporting{" "}
+                  <b>
+                    Anuna
+                    <br /> and 9 other mobilizers
+                  </b>{" "}
+                  and will
+                  <br /> have access to exlusive features.
                 </p>
                 <button
                   type="button"
                   className="btn btn-outline-secondary btn-lg rounded"
                 >
-                  Go to Club
+                  Go to my HERO Circle
                 </button>
+                <h5 className="mt-4 mb-4 white">
+                  Tell your friends about this circle!
+                </h5>
+                <div className="section center">
+                  <img
+                    src={"assets/img/echo.png"}
+                    alt="logo"
+                    className="logo"
+                  />
+                  <h6 className="white mt-2 mb-4">Echo it on:</h6>
+                  <div id="social-btn-container2" className="row mb-4">
+                    <div className="flex-col-center col mb-3 p-0">
+                      <button
+                        type="button"
+                        className="btn btn-icon rounded btn-primary social-btn"
+                      >
+                        <ion-icon class="blue" name="logo-whatsapp"></ion-icon>
+                      </button>
+                    </div>
+                    <div className="flex-col-center col mb-3 p-0">
+                      <button
+                        type="button"
+                        className="btn btn-icon rounded btn-primary social-btn"
+                      >
+                        <ion-icon src="assets/img/svg/tiktok2.svg"></ion-icon>
+                      </button>
+                    </div>
+                    <div className="flex-col-center col mb-3 p-0">
+                      <button
+                        type="button"
+                        className="btn btn-icon rounded btn-primary social-btn"
+                      >
+                        <ion-icon class="blue" name="logo-instagram"></ion-icon>
+                      </button>
+                    </div>
+                    <div className="flex-col-center col mb-3 p-0">
+                      <button
+                        type="button"
+                        className="btn btn-icon rounded btn-primary social-btn"
+                      >
+                        <ion-icon class="blue" name="logo-twitter"></ion-icon>
+                      </button>
+                    </div>
+                    <div className="flex-col-center col mb-3 p-0">
+                      <button
+                        type="button"
+                        className="btn btn-icon rounded btn-primary social-btn"
+                      >
+                        <ion-icon class="blue" name="logo-facebook"></ion-icon>
+                      </button>
+                    </div>
+                    <div className="flex-col-center col mb-3 p-0">
+                      <button
+                        type="button"
+                        className="btn btn-icon rounded btn-primary social-btn"
+                      >
+                        <ion-icon class="blue" name="logo-linkedin"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
 
@@ -402,35 +466,35 @@ function ClubSelectMembershipModal(props) {
                     <a href="#">HERO's Terms of Use</a>.
                   </p>
                   <div className="row">
-                  <div className="col" style={{padding: "10px 5px"}}>
-                    <img
-                      src={"assets/img/pic1.png"}
-                      alt="logo"
-                      className="logo"
-                    />
+                    <div className="col" style={{ padding: "10px 5px" }}>
+                      <img
+                        src={"assets/img/pic1.png"}
+                        alt="logo"
+                        className="logo"
+                      />
+                    </div>
+                    <div className="col" style={{ padding: "10px 5px" }}>
+                      <img
+                        src={"assets/img/pic2.png"}
+                        alt="logo"
+                        className="logo"
+                      />
+                    </div>
+                    <div className="col" style={{ padding: "10px 5px" }}>
+                      <img
+                        src={"assets/img/pic3.png"}
+                        alt="logo"
+                        className="logo"
+                      />
+                    </div>
+                    <div className="col" style={{ padding: "10px 5px" }}>
+                      <img
+                        src={"assets/img/pic4.png"}
+                        alt="logo"
+                        className="logo"
+                      />
+                    </div>
                   </div>
-                  <div className="col" style={{padding: "10px 5px"}}>
-                    <img
-                      src={"assets/img/pic2.png"}
-                      alt="logo"
-                      className="logo"
-                    />
-                  </div>
-                  <div className="col" style={{padding: "10px 5px"}}>
-                    <img
-                      src={"assets/img/pic3.png"}
-                      alt="logo"
-                      className="logo"
-                    />
-                  </div>
-                  <div className="col" style={{padding: "10px 5px"}}>
-                    <img
-                      src={"assets/img/pic4.png"}
-                      alt="logo"
-                      className="logo"
-                    />
-                  </div>
-                </div>
                 </div>
               </div>
             )}
