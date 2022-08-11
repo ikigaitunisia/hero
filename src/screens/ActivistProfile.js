@@ -132,6 +132,7 @@ function ActivistProfile(props) {
               id="supportMobBtn"
               type="button"
               className="btn btn-primary rounded font-size-btn"
+              onClick={() => setShowClubSelectMembershipModal(true)}
             >
               Support Anuna’s HERO Circle
             </button>

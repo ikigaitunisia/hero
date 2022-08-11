@@ -122,13 +122,13 @@ function ClubSelectMembershipModal(props) {
               !showForm1 && (
                 <div className="modal-body">
                   <img
-                    src={"assets/img/heroLogo2.png"}
+                    src={"assets/img/logo2.png"}
                     alt="logo"
                     className="logo"
                   />
-                  <p className="header-text mt-4">
-                    Choose your HERO Club
-                    <br /> Membership
+                  <p className="header-text mt-4 white">
+                  Choose your HERO Circle
+                 <br /> Membership
                   </p>
                   <div className="button-wrapper mt-4">
                     <button
