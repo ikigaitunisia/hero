@@ -12,8 +12,9 @@ function ActivistProfile(props) {
     useState(false);
   const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
     useState(false);
-    const [showClubSelectMembershipModal, setShowClubSelectMembershipModal] =
+  const [showClubSelectMembershipModal, setShowClubSelectMembershipModal] =
     useState(false);
+  const history = useHistory();
   return (
     <>
       <Header whiteMode showLogo showMenuBtn showLoginBtn />
@@ -115,7 +116,11 @@ function ActivistProfile(props) {
             </div>
           </div>
           <div className="section mb-4">
-            <div id="activist1" className="mb-4">
+            <div
+              id="activist1"
+              className="mb-4"
+              onClick={() => history.push("/african-leaders-circle-profile")}
+            >
               <img
                 src="assets/img/logoWhite.png"
                 alt="logo"
@@ -147,7 +152,7 @@ function ActivistProfile(props) {
         show={showMobilizerVictoriesModal}
         onClose={() => setShowMobilizerVictoriesModal(false)}
       />
-            <ClubSelectMembershipModal
+      <ClubSelectMembershipModal
         show={showClubSelectMembershipModal}
         onClose={() => setShowClubSelectMembershipModal(false)}
       />

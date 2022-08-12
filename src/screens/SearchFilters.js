@@ -3,8 +3,10 @@ import { withRouter } from "react-router-dom";
 import Header from "../components/Header";
 import SearchForHeroCircle from "../components/SearchForHeroCircle";
 import "./SearchFilters.css";
+import { useHistory } from "react-router-dom";
 
 function SearchFilters(props) {
+  const history = useHistory();
   return (
     <>
       <Header whiteMode showLogo showMenuBtn showLoginBtn />
@@ -17,6 +19,7 @@ function SearchFilters(props) {
               src="assets/img/mobilizer.png"
               alt="logo"
               className="logo mb-1"
+              onClick={() => history.push("/feed")}
             />
           </div>
           <div id="scope-filter" className="col-12">

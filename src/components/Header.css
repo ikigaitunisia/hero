@@ -1,4 +1,8 @@
-.headerCustomBtn{
-    font-weight: bolder;
-    font-family: seravek;
+.headerCustomBtn {
+  font-weight: bolder;
+  font-family: seravek;
+}
+
+.appHeader a {
+  color: black !important;
 }

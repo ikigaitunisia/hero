@@ -3,8 +3,10 @@ import { withRouter } from "react-router-dom";
 import Header from "../components/Header";
 import SearchForHeroCircle from "../components/SearchForHeroCircle";
 import "./Feed.css";
+import { useHistory } from "react-router-dom";
 
 function Feed(props) {
+  const history = useHistory();
   return (
     <>
       <Header whiteMode showLogo showMenuBtn showLoginBtn />
@@ -20,7 +22,11 @@ function Feed(props) {
         </a>
         <div className="row mt-4">
           <div className="col-6">
-            <div id="activist1" className="mb-4">
+            <div
+              id="activist1"
+              className="mb-4"
+              onClick={() => history.push("/mobilizer-profile")}
+            >
               <img
                 src="assets/img/logoWhite.png"
                 alt="logo"
@@ -31,7 +37,11 @@ function Feed(props) {
             </div>
           </div>
           <div className="col-6">
-            <div id="activist2" className="mb-4">
+            <div
+              id="activist2"
+              className="mb-4"
+              onClick={() => history.push("/mobilizer-profile")}
+            >
               <img
                 src="assets/img/logoWhite.png"
                 alt="logo"
@@ -42,7 +52,11 @@ function Feed(props) {
             </div>
           </div>
           <div className="col-6">
-            <div id="activist1" className="mb-4">
+            <div
+              id="activist1"
+              className="mb-4"
+              onClick={() => history.push("/mobilizer-profile")}
+            >
               <img
                 src="assets/img/logoWhite.png"
                 alt="logo"
@@ -53,7 +67,11 @@ function Feed(props) {
             </div>
           </div>
           <div className="col-6">
-            <div id="activist2" className="mb-4">
+            <div
+              id="activist2"
+              className="mb-4"
+              onClick={() => history.push("/mobilizer-profile")}
+            >
               <img
                 src="assets/img/logoWhite.png"
                 alt="logo"
