@@ -1,0 +1,16 @@
+.mobilzerfeed-container {
+  background: linear-gradient(0deg, #f8f9fa, #e9ecef);
+}
+
+.hr {
+  width: 80%;
+  margin: 0 auto;
+  height: unset;
+}
+
+#joinCircleBtn {
+  background-color: blue !important;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 15.95px;
+}

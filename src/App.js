@@ -9,6 +9,9 @@ import SearchFilters from "./screens/SearchFilters";
 import Feed from "./screens/Feed";
 import ActivistProfile from "./screens/ActivistProfile";
 import AfricanLeadersCircleProfile from "./screens/AfricanLeadersCircleProfile";
+import MobilizerFeed from "./screens/MobilizerFeed";
+import ListSupporter from "./screens/ListSupporter";
+import ListMobilizer from "./screens/ListMobilizer";
 
 function App() {
   return (
@@ -18,9 +21,12 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/search-filters" exact component={SearchFilters} />
         <Route path="/feed" exact component={Feed} />
+        <Route path="/mobilizer-feed" exact component={MobilizerFeed} />
         <Route path="/mobilizer-profile" exact component={ActivistProfile} />
         <Route path="/african-leaders-circle-profile" exact component={AfricanLeadersCircleProfile} />
         <Route path="/changepassword" exact component={ChangePassword} />        
+        <Route path="/supporters" exact component={ListSupporter} />    
+        <Route path="/mobilizers" exact component={ListMobilizer} />            
       </Router>
     </div>
   );

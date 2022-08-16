@@ -9,7 +9,7 @@ function Home(props) {
   const history = useHistory();
   return (
     <>
-      <Header whiteMode showLogo showMenuBtn showLoginBtn />
+      <Header whiteMode showLogo showMenuBtn showLoginBtn transparent/>
 
       <div id="appCapsule" class="home-container">
         <SearchForHeroCircle />

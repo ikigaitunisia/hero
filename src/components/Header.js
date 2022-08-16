@@ -10,6 +10,8 @@ function Header(props) {
   const showCloseBtn = props.showCloseBtn;
   const showLogo = props.showLogo;
   const showBackBtn = props.showBackBtn;
+  const showHeroLogo = props.showHeroLogo;
+  const transparent = props.transparent;
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const [loggedin, setLogedin] = useState(false);
@@ -31,7 +33,7 @@ function Header(props) {
   const colorClass = whiteMode ? "white-text" : "blue-text";
   return (
     <>
-      <div className="appHeader no-border transparent position-absolute">
+      <div className={transparent ? "appHeader no-border transparent position-absolute": "appHeader no-border position-absolute"}>
         <div className="left pl-2">
           {showLogo && (
             <img
@@ -57,7 +59,20 @@ function Header(props) {
             </a>
           )}
         </div>
-        <div className="pageTitle"></div>
+        <div className="pageTitle">
+        {showHeroLogo && (
+            <img
+              src={
+                whiteMode
+                  ? "assets/img/logo.png"
+                  : "assets/img/heroLogoBlue.png"
+              }
+              alt="logo"
+              className="logo"
+              onClick={() => history.push("/")}
+            />
+          )}
+        </div>
         <div className="right">
           {showLoginBtn &&
             (!loggedin ? (

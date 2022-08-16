@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import "./SearchForHeroCircle.css";
 
 function SearchForHeroCircle(props) {
   const history = useHistory();

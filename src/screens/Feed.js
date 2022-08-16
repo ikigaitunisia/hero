@@ -9,7 +9,7 @@ function Feed(props) {
   const history = useHistory();
   return (
     <>
-      <Header whiteMode showLogo showMenuBtn showLoginBtn />
+      <Header whiteMode showLogo showMenuBtn showLoginBtn transparent/>
 
       <div id="appCapsule" className="feed-container">
         <SearchForHeroCircle />
@@ -32,7 +32,7 @@ function Feed(props) {
                 alt="logo"
                 className="logo mb-1"
               />
-              <small>Anuna de Wever</small>
+              <span>Anuna de Wever</span>
               <small>Belgium</small>
             </div>
           </div>
@@ -47,7 +47,7 @@ function Feed(props) {
                 alt="logo"
                 className="logo mb-1"
               />
-              <small>Jessica Klezcka</small>
+              <span>Jessica Klezcka</span>
               <small>UK</small>
             </div>
           </div>
@@ -62,7 +62,7 @@ function Feed(props) {
                 alt="logo"
                 className="logo mb-1"
               />
-              <small>Anuna de Wever</small>
+              <span>Anuna de Wever</span>
               <small>Belgium</small>
             </div>
           </div>
@@ -77,7 +77,7 @@ function Feed(props) {
                 alt="logo"
                 className="logo mb-1"
               />
-              <small>Jessica Klezcka</small>
+              <span>Jessica Klezcka</span>
               <small>UK</small>
             </div>
           </div>

@@ -92,7 +92,7 @@
 }
 
 #mobilizerVictories .modal-content {
-  background-color: #0000ffe5 !important;
+  background-color: #8585FF !important;
   opacity: 90%;
 }
 #activistCampaigns .modal-content {
@@ -226,4 +226,16 @@
 
 .white{
   color: white!important;
+}
+
+
+#mobilizerVictories h5 {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 22px;
+}
+#activistCampaigns h5 {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 22px;
 }

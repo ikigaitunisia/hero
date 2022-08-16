@@ -19,38 +19,45 @@
   background: transparent !important;
 }
 
-.btn-outline-secondary{
-  background-color: blue!important;
+.btn-outline-secondary {
+  background-color: blue !important;
   color: white;
-  border: unset!important;
+  border: unset !important;
 }
 
-.flex-col{
+.flex-col {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.flex-row{
+.flex-row {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.badge{
+.badge {
   border-radius: 10px;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   align-content: center;
-  background-color: #B7B7FF!important;
+  background-color: #b7b7ff !important;
 }
 
-.custom-div{
+.custom-div {
   width: max-content;
   margin: 0 auto;
   background: #b8b8ff36;
   padding: 20px;
   border-radius: 40px;
+}
+
+.flex-center {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }

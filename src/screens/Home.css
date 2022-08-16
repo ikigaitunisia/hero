@@ -1,17 +1,7 @@
-.extraHeader1 {
-  background-color: blue !important;
-  height: max-content;
-  display: flex;
-  flex-direction: column;
-}
-
-.extraHeader1 a {
-  text-decoration: underline;
-  color: white;
-  font-size: 15px;
-  font-weight: 500;
-  font-style: italic;
-  line-height: 18.4px;
+.home-container {
+  width: 100%;
+  background-color: #f5f5f5;
+  margin: 0;
 }
 
 .home-container h3 {
@@ -20,18 +10,13 @@
   font-weight: 500;
   line-height: 22px;
 }
-.home-container {
-  width: 100%;
-  background-color: #f5f5f5;
-  margin: 0;
-}
 
 #activist1 {
-  height: 100px;
-  width: 100px;
+  height: 160px;
+  width: 160px;
   border-radius: 50%;
   color: white;
-  font: bold 10px monospace;
+  font: 700 13px monospace;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,13 +24,15 @@
     url("/assets/img/activist1.png") no-repeat top center;
   margin: 0 auto;
   flex-direction: column;
+  line-height: 15.95px;
+  padding-top: 40px;
 }
 #activist2 {
-  height: 100px;
-  width: 100px;
+  height: 160px;
+  width: 160px;
   border-radius: 50%;
   color: white;
-  font: bold 10px monospace;
+  font: 700 13px monospace;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,13 +40,15 @@
     url("/assets/img/activist2.png") no-repeat top center;
   margin: 0 auto;
   flex-direction: column;
+  line-height: 15.95px;
+  padding-top: 40px;
 }
 #activist3 {
-  height: 100px;
-  width: 100px;
+  height: 160px;
+  width: 160px;
   border-radius: 50%;
   color: white;
-  font: bold 10px monospace;
+  font: 700 13px monospace;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,6 +56,8 @@
     url("/assets/img/activist3.png") no-repeat top center;
   margin: 0 auto;
   flex-direction: column;
+  line-height: 15.95px;
+  padding-top: 40px;
 }
 
 #activist1 img,

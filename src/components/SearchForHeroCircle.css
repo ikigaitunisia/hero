@@ -1,0 +1,20 @@
+.extraHeader1 {
+  background-color: blue !important;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.extraHeader1 a {
+  text-decoration: underline;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 18.4px;
+}
+
+.extraHeader1 ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    text-align: center;
+  }

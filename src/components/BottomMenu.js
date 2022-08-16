@@ -21,8 +21,8 @@ function BottomMenu(props) {
             <ion-icon
               src={
                 activeItem === "feed"
-                  ? "assets/img/svg/feedFill.svg"
-                  : "assets/img/svg/feed.svg"
+                  ? "assets/img/svg/menu1.svg"
+                  : "assets/img/svg/menu1.svg"
               }
             ></ion-icon>
           </div>
@@ -38,8 +38,8 @@ function BottomMenu(props) {
             <ion-icon
               src={
                 activeItem === "card"
-                  ? "assets/img/svg/transactionFill.svg"
-                  : "assets/img/svg/transaction.svg"
+                  ? "assets/img/svg/menu2.svg"
+                  : "assets/img/svg/menu2.svg"
               }
             ></ion-icon>
           </div>
@@ -55,8 +55,8 @@ function BottomMenu(props) {
             <ion-icon
               src={
                 activeItem === "vote"
-                  ? "assets/img/svg/voteFill.svg"
-                  : "assets/img/svg/vote.svg"
+                  ? "assets/img/svg/menu3.svg"
+                  : "assets/img/svg/menu3.svg"
               }
             ></ion-icon>
           </div>

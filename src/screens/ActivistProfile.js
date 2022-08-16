@@ -17,7 +17,7 @@ function ActivistProfile(props) {
   const history = useHistory();
   return (
     <>
-      <Header whiteMode showLogo showMenuBtn showLoginBtn />
+      <Header whiteMode showLogo showMenuBtn showLoginBtn transparent/>
 
       <div id="appCapsule" className="bg-g-1">
         <div className="section full">

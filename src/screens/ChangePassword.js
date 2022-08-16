@@ -27,7 +27,7 @@ function ChangePassword() {
 
   return (
     <React.Fragment>
-      <Header whiteMode showLogo showBackBtn />
+      <Header whiteMode showLogo showBackBtn transparent/>
       <Toastbox position="top-right" pauseOnHover={true} intent="danger" />
       <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
         <div className="section mt-4 pt-4 text-center">

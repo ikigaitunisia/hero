@@ -54,7 +54,7 @@ function ActivistCampaignsModal(props) {
               </div>
 
               <div className="section center-div mt-2">
-                <h5 className="white mb-3">Campaigns</h5>
+                <h5 className="white mb-3">Current Campaigns</h5>
                 <div>
                   <div style={{ display: "flex" }} className="mt-4">
                     <div>

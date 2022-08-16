@@ -9,7 +9,7 @@ function SearchFilters(props) {
   const history = useHistory();
   return (
     <>
-      <Header whiteMode showLogo showMenuBtn showLoginBtn />
+      <Header whiteMode showLogo showMenuBtn showLoginBtn transparent/>
 
       <div id="appCapsule" class="serach-filters-container">
         <SearchForHeroCircle />
