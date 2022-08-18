@@ -12,6 +12,7 @@ import AfricanLeadersCircleProfile from "./screens/AfricanLeadersCircleProfile";
 import MobilizerFeed from "./screens/MobilizerFeed";
 import ListSupporter from "./screens/ListSupporter";
 import ListMobilizer from "./screens/ListMobilizer";
+import FindCircle from "./screens/FindCircle";
 
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
         <Route path="/african-leaders-circle-profile" exact component={AfricanLeadersCircleProfile} />
         <Route path="/changepassword" exact component={ChangePassword} />        
         <Route path="/supporters" exact component={ListSupporter} />    
-        <Route path="/mobilizers" exact component={ListMobilizer} />            
+        <Route path="/mobilizers" exact component={ListMobilizer} />   
+        <Route path="/find-circle" exact component={FindCircle} />   
       </Router>
     </div>
   );

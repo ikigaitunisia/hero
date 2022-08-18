@@ -116,57 +116,6 @@ video {
   font-family: "Seravek";
 }
 
-.profileIcon-Elijah {
-  position: relative;
-  width: 38.1px;
-  height: 38.1px;
-  background: url("./Profile/ProfileAssets/elijahmckenzee.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  border: solid 3px white;
-}
-
-.profileIcon-Julieta {
-  position: relative;
-  width: 38.1px;
-  height: 38.1px;
-  background: url("./Profile/ProfileAssets/Julieta.jpg");
-  background-size: cover;
-  border-radius: 50%;
-  border: solid 3px white;
-
-  background-position: center;
-}
-.profileIcon-Jessica {
-  position: relative;
-  width: 38.1px;
-  height: 38.1px;
-  background: url("./Profile/ProfileAssets/jessica.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  border: solid 3px white;
-}
-.profileIcon-Juan {
-  position: relative;
-  width: 38.1px;
-  height: 38.1px;
-  background: url("./Profile/ProfileAssets/elijahmckenzee.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  border: solid 3px white;
-}
-
-.profileIcon-Anuna {
-  position: relative;
-  width: 38.1px;
-  height: 38.1px;
-  background: url("../screens/Profile/ProfileAssets/ProfileImage.svg");
-  background-size: cover;
-  background-position: center;
-}
 
 #feed {
   max-width: 100% !important;
@@ -178,4 +127,56 @@ video {
   height: 32px;
   object-fit: cover;
   border: 1px solid #ffffffcc;
+}
+
+#whiteBtn{
+  background-color: white!important;
+  display: flex;
+  color: black!important;
+  border: unset!important;
+}
+
+#whiteBlueBtn{
+  background-color: white!important;
+  display: flex;
+  color: blue!important;
+  border: 1px solid blue!important;
+}
+
+#transparentBtn{
+  background-color: transparent!important;
+  border: 1px solid white!important;
+  color: white!important;
+  display: flex;
+}
+
+#accordion-item-1 .accordion-header{
+  border-radius: 20px 20px 0 0;
+}
+
+#accordion-item-3 .accordion-header{
+  border-radius: 0 0 20px 20px;
+}
+
+.bg-primary{
+  background-color: #0000FF!important;
+}
+
+.bg-dark{
+  background-color: #8585FF!important;
+}
+
+.bg-info{
+  background-color: #3333FF!important;
+}
+
+.accordion-header{
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.63px;
+  font-family: "Seravek";
+}
+
+.border-blue{
+  border: 1px solid #0000FF;
 }
