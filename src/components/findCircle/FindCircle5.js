@@ -48,6 +48,46 @@ function FindCircle5(props) {
                 </p>
               </div>
             </div>
+            <div class="card border-blue">
+              <div class="card-body flex-center flex-col">
+                <img
+                  src="assets/img/activist4.png"
+                  alt="image"
+                  class="imaged w48 rounded"
+                />
+                <span className="blue">Andrew Wilson</span>
+                <small className="blue">Amsterdam, Netherlands</small>
+                <p className="blue">
+                  “I wanted to do more for climate, but I just
+                  <br /> didn’t how. Supporting a HERO Circle has
+                  <br /> allowed me to find an effective way to take
+                  <br /> action while engaging with amazing
+                  <br />
+                  mobilizers that have teached me a lot
+                  <br /> about climate. I love it”
+                </p>
+              </div>
+            </div>
+            <div class="card border-blue">
+              <div class="card-body flex-center flex-col">
+                <img
+                  src="assets/img/activist4.png"
+                  alt="image"
+                  class="imaged w48 rounded"
+                />
+                <span className="blue">Andrew Wilson</span>
+                <small className="blue">Amsterdam, Netherlands</small>
+                <p className="blue">
+                  “I wanted to do more for climate, but I just
+                  <br /> didn’t how. Supporting a HERO Circle has
+                  <br /> allowed me to find an effective way to take
+                  <br /> action while engaging with amazing
+                  <br />
+                  mobilizers that have teached me a lot
+                  <br /> about climate. I love it”
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
