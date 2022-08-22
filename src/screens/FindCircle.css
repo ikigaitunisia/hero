@@ -189,6 +189,7 @@ video {
 
 .border-blue {
   border: 1px solid #0000ff;
+  border-radius: 30px;
 }
 
 .accordion-body-1 {

@@ -1,3 +1,21 @@
-#findCircle5{
-    background-color: blue;
+#findCircle5 {
+  background-color: blue;
+}
+
+#findCircle5 .card-body span {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22.09px;
+}
+
+#findCircle5 .card-body small {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17.18px;
+}
+
+#findCircle5 .card-body p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18.4px;
 }
