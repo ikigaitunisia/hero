@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <Router>
         <Route path="/login" exact component={Login} />
-        <Route path="/" exact component={Home} />
+        <Route path="/home" exact component={Home} />
         <Route path="/search-filters" exact component={SearchFilters} />
         <Route path="/feed" exact component={Feed} />
         <Route path="/mobilizer-feed" exact component={MobilizerFeed} />
@@ -28,7 +28,7 @@ function App() {
         <Route path="/changepassword" exact component={ChangePassword} />        
         <Route path="/supporters" exact component={ListSupporter} />    
         <Route path="/mobilizers" exact component={ListMobilizer} />   
-        <Route path="/find-circle" exact component={FindCircle} />   
+        <Route path="/" exact component={FindCircle} />   
       </Router>
     </div>
   );

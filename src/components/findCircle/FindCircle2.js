@@ -1,10 +1,11 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import "./FindCircle2.css";
 
 function FindCircle2(props) {
   const history = useHistory();
   return (
-    <div>
+    <div id="findcircle2">
       <div className="" style={{ minHeight: "90vh!important" }}>
         <div className="">
           <img
@@ -12,47 +13,45 @@ function FindCircle2(props) {
             alt="logo"
             className="logo mt-4"
           />
-          <div className="mt-2 flex-center">
+          <div className="mt-2 flex-center flex-col">
+            <h4 className="mt-3 blue">
+              We empower supporters to take
+              <br /> effective climate action by funding
+              <br />
+              circles of climate mobilizers.
+            </h4>
             <button
-              id="whiteBlueBtn"
+              id="blueBtn"
               type="button"
-              className="btn btn-primary rounded font-size-btn mt-4"
+              className="btn btn-primary rounded font-size-btn mt-4 mb-4"
             >
-              <ion-icon src="assets/img/svg/icon3.svg"></ion-icon>
-              Explore HERO Circles
+              <ion-icon src="assets/img/svg/icon6.svg"></ion-icon>
+              Fund a HERO Circle
             </button>
           </div>
-          <div className="section flex-center flex-col">
-            <h2 className="mt-3 blue">
-              Our mission is to
-              <br /> accelerate change
-              <br />
-              in the world.
-            </h2>
-            <p className="blue">
-              We empower people to take effective climate
-              <br /> action by supporting circles of climate
-              <br /> mobilizers.
-            </p>
+          <div className="section flex-center flex-col mt-4 mb-4">
             <img
-              src={"assets/img/image1.png"}
+              src={"assets/img/image4.png"}
               alt="logo"
-              className="logo mt-4"
+              className="logo mt-2 mb-2"
             />
           </div>
 
           <div className="section flex-center flex-col">
             <h2 className="mt-3 blue">What are HERO Circles?</h2>
             <p className="blue">
-              Circles are groups of 10 mobilizers working<br/> towards a same climate
-              policy objective.
+              <b>Circles are groups of 10 mobilizers</b> working
+              <br /> towards a same climate policy objective.
             </p>
             <p className="blue">
-              Via a monthly membership to a HERO Circle,<br/> you can allow these
-              mobilizers to focus full<br/> time on making that policy change happen.
+              By paying a <b>monthly subscription</b> to a HERO
+              <br />
+              Circle, you contribute to a <b>basic income</b> for
+              <br /> these mobilizers, allowing them to focus full
+              <br /> time on making that policy change happen.
             </p>
           </div>
-          <div className=" mt-4 flex-col">
+          <div className=" mt-4 flex-col mb-4 mt-4">
             <button
               id="supportMobBtn"
               type="button"
@@ -60,9 +59,9 @@ function FindCircle2(props) {
             >
               Learn how HERO Circles work
             </button>
-            <small>Scroll Down</small>
+            <small className="blue">Scroll Down</small>
             <ion-icon
-              src="assets/img/svg/scroll-down.svg"
+              src="assets/img/svg/scroll-down-blue.svg"
               style={{ width: "38px", height: "38px" }}
             ></ion-icon>
           </div>

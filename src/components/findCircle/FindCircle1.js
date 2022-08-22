@@ -27,10 +27,18 @@ function FindCircle1(props) {
             alt="logo"
             className="logo mt-4"
           />
-          <div className="mt-4">
+          <div className="mt-4 flex-col">
             <h2 className="white">
-              Find your <b>circle</b>,<br /> accelerate change.
+              <b>Support climate mobilizers,</b><br /> accelerate change.
             </h2>
+            <button
+              id="whiteBtn"
+              type="button"
+              className="btn btn-primary rounded font-size-btn mt-4 mb-4"
+            >
+              <ion-icon src="assets/img/svg/icon2.svg"></ion-icon>
+              Fund a HERO Circle
+            </button>
           </div>
 
           <button
@@ -43,20 +51,12 @@ function FindCircle1(props) {
 
           <div className="bottom mt-4 flex-col">
             <button
-              id="transparentBtn"
+              id="whiteBtn"
               type="button"
               className="btn btn-primary rounded font-size-btn mb-4"
             >
-              <ion-icon src="assets/img/svg/icon5.svg"></ion-icon>
+              <ion-icon src="assets/img/svg/icon1.svg"></ion-icon>
               Learn more about HERO
-            </button>
-            <button
-              id="transparentBtn"
-              type="button"
-              className="btn btn-primary rounded font-size-btn mb-4"
-            >
-              <ion-icon src="assets/img/svg/icon6.svg"></ion-icon>
-              Explore HERO Circles
             </button>
             <small>Scroll Down</small>
             <ion-icon
