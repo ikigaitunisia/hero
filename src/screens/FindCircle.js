@@ -13,7 +13,7 @@ function FindCircle(props) {
     <InfiniteScroll
       dataLength={5} //This is important field to render the next data
       hasMore={true}
-      loader={<h4>Loading...</h4>}
+      loader={<h4></h4>}
     >
       <FindCircle1 />
       <FindCircle2 />
