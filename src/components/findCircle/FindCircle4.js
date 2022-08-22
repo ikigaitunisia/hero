@@ -5,31 +5,36 @@ function FindCircle4(props) {
   const history = useHistory();
   return (
     <div>
-      <div className="feed" style={{ minHeight: "90vh!important" }}>
-        <div className="feed-content">
+      <div className="" style={{ minHeight: "90vh!important" }}>
+        <div className="">
           <img
             src={"assets/img/heroLogoBlue.png"}
             alt="logo"
             className="logo mt-4"
           />
           <div className="mt-4 flex-center flex-col">
-            <button
-              id="whiteBlueBtn"
-              type="button"
-              className="btn btn-primary rounded font-size-btn mb-4 "
-            >
-              <ion-icon src="assets/img/svg/icon3.svg"></ion-icon>
-              Find your circle, accelerate change.
-            </button>
-
-            <h1 className="blue">100 times</h1>
+            <h1 className="blue mb-2">
+              100 times
+              <br /> more effective.{" "}
+            </h1>
             <p className="blue">
-              more effective than buying carbon credits
-              <br /> according to the <b>Stanford Social</b>
-              <br /> <b>Innovation Review.</b>
+              Funding climate mobilizers is 100
+              <br /> times more effective than buying
+              <br />
+              carbon credits according to the
+              <br /> <b>Stanford Social Innovation Review</b>
             </p>
+            <button
+              id="blueBtn"
+              type="button"
+              className="btn btn-primary rounded font-size-btn mt-4 mb-4 "
+            >
+              <ion-icon src="assets/img/svg/icon6.svg"></ion-icon>
+              Fund a HERO Circle
+            </button>
           </div>
           <div className="section inset mt-2 mb-4">
+            <h5 className="blue mb-4">How do mobilizers accomplish this?</h5>
             <div className="accordion" id="accordionExample5">
               <div className="accordion-item mb-1">
                 <h2 className="accordion-header bg-primary">
@@ -39,7 +44,7 @@ function FindCircle4(props) {
                     data-bs-toggle="collapse"
                     data-bs-target="#accordiond1"
                   >
-                    Influence on climate policy
+                    Step 1 : Policy proposal
                   </button>
                 </h2>
                 <div
@@ -47,17 +52,13 @@ function FindCircle4(props) {
                   className="accordion-collapse collapse"
                   data-bs-parent="#accordionExample5"
                 >
-                  <div className="accordion-body blue">
-                    <b>100 times</b> more effective than
-                    <br /> buying carbon credits according to
-                    <br /> the{" "}
-                    <b>
-                      <i>
-                        Stanford Social Innovation
-                        <br /> Review
-                      </i>
-                    </b>
-                    .
+                  <div className="accordion-body accordion-body-1 p-4">
+                    Example: <br /> <br /> The European Union Green Deal.
+                    <br /> Mobilizers propose to change from 40%
+                    <br /> to 55% the carbon reduction target for
+                    <br />
+                    the European Union in 2030 vs 1990
+                    <br /> levels in the Green Deal law of 2021.
                   </div>
                 </div>
               </div>
@@ -70,7 +71,7 @@ function FindCircle4(props) {
                     data-bs-toggle="collapse"
                     data-bs-target="#accordiond6"
                   >
-                    Change in public narratives
+                    Step 2 : Supporter engagement
                   </button>
                 </h2>
                 <div
@@ -78,21 +79,14 @@ function FindCircle4(props) {
                   className="accordion-collapse collapse"
                   data-bs-parent="#accordionExample5"
                 >
-                  <div className="accordion-body blue">
-                    <b>100 times</b> more effective than
-                    <br /> buying carbon credits according to
-                    <br /> the{" "}
-                    <b>
-                      <i>
-                        Stanford Social Innovation
-                        <br /> Review
-                      </i>
-                    </b>
-                    .
+                  <div className="accordion-body accordion-body-2 p-4">
+                    Mobilizers launched a campaign and had
+                    <br /> a petition signed by 129,387 individuals
+                    <br /> and 320 scientists from 50 countries.
                   </div>
                 </div>
               </div>
-              <div className="accordion-item">
+              <div className="accordion-item mb-1">
                 <h2 className="accordion-header bg-dark">
                   <button
                     className="accordion-button collapsed"
@@ -100,7 +94,7 @@ function FindCircle4(props) {
                     data-bs-toggle="collapse"
                     data-bs-target="#accordiond7"
                   >
-                    Mobilization of people towards action
+                    Step 3 : Policy change
                   </button>
                 </h2>
                 <div
@@ -108,30 +102,56 @@ function FindCircle4(props) {
                   className="accordion-collapse collapse"
                   data-bs-parent="#accordionExample5"
                 >
-                  <div className="accordion-body blue">
-                    <b>100 times</b> more effective than
-                    <br /> buying carbon credits according to
-                    <br /> the{" "}
-                    <b>
-                      <i>
-                        Stanford Social Innovation
-                        <br /> Review
-                      </i>
-                    </b>
-                    .
+                  <div className="accordion-body accordion-body-3 p-4">
+                    EU Green Deal was passed with 55%
+                    <br /> reduction, translating into 3500 Mtons
+                    <br /> CO2 reduction over 2021-30.
+                    <br /> <br /> Mobilizers keep pressure on
+                    <br /> policymakers to ensure execution of the
+                    <br /> laws.
+                  </div>
+                </div>
+              </div>
+              <div className="accordion-item">
+                <h2 className="accordion-header bg-warning">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#accordiond8"
+                  >
+                    Step 4 : Communication
+                  </button>
+                </h2>
+                <div
+                  id="accordiond8"
+                  className="accordion-collapse collapse"
+                  data-bs-parent="#accordionExample5"
+                >
+                  <div className="accordion-body accordion-body-4 p-4">
+                    “We would have no European Green
+                    <br /> Deal without the Fridays for the Future
+                    <br /> movement”
+                    <br /> -Frans Timmermans, Vice President of the
+                    <br /> European Commission.
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="section flex-center mt-4">
+          <div className="section flex-center flex-col mt-4 mb-4">
             <button
-              id="whiteBlueBtn"
+              id="blueBtn"
               type="button"
-              className="btn btn-primary rounded font-size-btn mt-4 "
+              className="btn btn-primary rounded font-size-btn mt-4 mb-4"
             >
               Reviews from HERO Supporters
             </button>
+            <small className="blue ">Scroll Down</small>
+            <ion-icon
+              src="assets/img/svg/scroll-down-blue.svg"
+              style={{ width: "38px", height: "38px" }}
+            ></ion-icon>
           </div>
         </div>
       </div>

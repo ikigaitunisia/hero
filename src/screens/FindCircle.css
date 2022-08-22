@@ -116,7 +116,6 @@ video {
   font-family: "Seravek";
 }
 
-
 #feed {
   max-width: 100% !important;
   padding: 0 !important;
@@ -129,61 +128,90 @@ video {
   border: 1px solid #ffffffcc;
 }
 
-#whiteBtn{
-  background-color: white!important;
+#whiteBtn {
+  background-color: white !important;
   display: flex;
-  color: black!important;
-  border: unset!important;
+  color: black !important;
+  border: unset !important;
 }
 
-#whiteBlueBtn{
-  background-color: white!important;
+#whiteBlueBtn {
+  background-color: white !important;
   display: flex;
-  color: blue!important;
-  border: 1px solid blue!important;
+  color: blue !important;
+  border: 1px solid blue !important;
 }
 
-#transparentBtn{
-  background-color: transparent!important;
-  border: 1px solid white!important;
-  color: white!important;
+#transparentBtn {
+  background-color: transparent !important;
+  border: 1px solid white !important;
+  color: white !important;
   display: flex;
 }
 
-#blueBtn{
-  background-color: blue!important;
+#blueBtn {
+  background-color: blue !important;
   display: flex;
-  color: white!important;
-  border: 1px solid blue!important;
+  color: white !important;
+  border: 1px solid blue !important;
 }
 
-#accordion-item-1 .accordion-header{
+#accordion-item-1 .accordion-header {
   border-radius: 20px 20px 0 0;
 }
 
-#accordion-item-3 .accordion-header{
+#accordion-item-3 .accordion-header {
   border-radius: 0 0 20px 20px;
 }
 
-.bg-primary{
-  background-color: #0000FF!important;
+.bg-primary {
+  background-color: #0000ff !important;
 }
 
-.bg-dark{
-  background-color: #8585FF!important;
+.bg-info {
+  background-color: #3333ff !important;
 }
 
-.bg-info{
-  background-color: #3333FF!important;
+.bg-dark {
+  background-color: #8585ff !important;
 }
 
-.accordion-header{
+.bg-warning {
+  background-color: #b8b8ff !important;
+}
+
+.accordion-header {
   font-size: 16px;
   font-weight: 400;
   line-height: 19.63px;
   font-family: "Seravek";
 }
 
-.border-blue{
-  border: 1px solid #0000FF;
+.border-blue {
+  border: 1px solid #0000ff;
+}
+
+.accordion-body-1 {
+  text-align: start;
+  background-color: blue;
+  margin-top: 5px;
+  color: white;
+}
+.accordion-body-2 {
+  text-align: start;
+  background-color: #3333ff;
+  margin-top: 5px;
+  color: white;
+}
+.accordion-body-3 {
+  text-align: start;
+  background-color: #8585ff;
+  margin-top: 5px;
+  color: white;
+}
+.accordion-body-4 {
+  text-align: start;
+  background-color: #b8b8ff;
+  margin-top: 5px;
+  color: white;
 }
