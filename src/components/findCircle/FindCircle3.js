@@ -26,14 +26,22 @@ function FindCircle3(props) {
             alt="logo"
             className="logo mt-4"
           />
-          <div className="mt-4 flex-center">
+          <div className="mt-4 flex-center flex-col">
+            <h4 className="white">
+              <b>
+                Climate mobilizers have the
+                <br /> most important job of our time,
+              </b>
+              <br />
+              but its not being paid.
+            </h4>
             <button
-              id="transparentBtn"
+              id="whiteBtn"
               type="button"
-              className="btn btn-primary rounded font-size-btn mb-4 "
+              className="btn btn-primary rounded font-size-btn mt-4 mb-4 "
             >
-              <ion-icon src="assets/img/svg/icon4.svg"></ion-icon>
-              Find your circle, accelerate change.
+              <ion-icon src="assets/img/svg/icon2.svg"></ion-icon>
+              Fund a HERO Circle
             </button>
           </div>
 
@@ -46,12 +54,6 @@ function FindCircle3(props) {
           </button>
 
           <div className="bottom mt-4 flex-col">
-            <h3 className="white">
-              Climate mobilizers have
-              <br /> the most important job of
-              <br /> our time, but its not being
-              <br /> paid.
-            </h3>
             <button
               id="whiteBtn"
               type="button"
@@ -59,6 +61,11 @@ function FindCircle3(props) {
             >
               Learn about the impact of mobilizers
             </button>
+            <small>Scroll Down</small>
+            <ion-icon
+              src="assets/img/svg/scroll-down.svg"
+              style={{ width: "38px", height: "38px" }}
+            ></ion-icon>
           </div>
         </div>
       </div>
