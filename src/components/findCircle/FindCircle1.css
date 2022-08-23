@@ -1,26 +1,26 @@
-#findcircle1 h2{
-    font-size: 30px;
-    line-height: 34px;
-    font-weight: 400;
-    color: rgb(255 255 255 / 90%)!important;
+#findcircle1 h2 {
+  font-size: 30px;
+  line-height: 34px;
+  font-weight: 400;
+  color: rgb(255 255 255 / 90%) !important;
 }
 
-#findcircle1 h2 b{
-    font-size: 30px;
-    line-height: 34px;
-    font-weight: 700;
-    color: rgb(255 255 255 / 90%)!important;
+#findcircle1 h2 b {
+  font-size: 30px;
+  line-height: 34px;
+  font-weight: 700;
+  color: rgb(255 255 255 / 90%) !important;
 }
 
-#findcircle1 #transparentBtn{
-    font-size: 18px;
-    line-height: 22.09px;
-    font-weight: 400!important;
+#findcircle1 #transparentBtn {
+  font-size: 18px;
+  line-height: 22.09px;
+  font-weight: 400 !important;
 }
 
-#findcircle1 small{
-    font-size: 15px;
-    line-height: 18.4px;
-    font-weight: 300!important;
-    color: #EBEBEB;
+#findcircle1 small {
+  font-size: 15px;
+  line-height: 18.4px;
+  font-weight: 300 !important;
+  color: #ebebeb;
 }

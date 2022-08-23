@@ -5,7 +5,7 @@ import "./FindCircle4.css";
 function FindCircle4(props) {
   const history = useHistory();
   return (
-    <div>
+    <div id="findCircle4">
       <div className="" style={{ minHeight: "90vh!important" }}>
         <div className="">
           <img
@@ -14,7 +14,7 @@ function FindCircle4(props) {
             className="logo mt-4"
           />
           <div className="mt-4 flex-center flex-col">
-            <h1 className="blue mb-2">
+            <h1 className="blue mb-3">
               100 times
               <br /> more effective.{" "}
             </h1>
@@ -23,7 +23,8 @@ function FindCircle4(props) {
               <br /> times more effective than buying
               <br />
               carbon credits according to the
-              <br /> <b>Stanford Social Innovation Review</b>
+              <br />{" "}
+              <b className="underline">Stanford Social Innovation Review</b>
             </p>
             <button
               id="blueBtn"
@@ -54,7 +55,7 @@ function FindCircle4(props) {
                   data-bs-parent="#accordionExample5"
                 >
                   <div className="accordion-body accordion-body-1 p-4">
-                    Example: <br /> <br /> The European Union Green Deal.
+                    Example: <br /> <br /> <b>The European Union Green Deal.</b>
                     <br /> Mobilizers propose to change from 40%
                     <br /> to 55% the carbon reduction target for
                     <br />
@@ -82,8 +83,11 @@ function FindCircle4(props) {
                 >
                   <div className="accordion-body accordion-body-2 p-4">
                     Mobilizers launched a campaign and had
-                    <br /> a petition signed by 129,387 individuals
-                    <br /> and 320 scientists from 50 countries.
+                    <br />{" "}
+                    <b>
+                      a petition signed by 129,387 individuals
+                      <br /> and 320 scientists from 50 countries.
+                    </b>
                   </div>
                 </div>
               </div>
@@ -104,7 +108,7 @@ function FindCircle4(props) {
                   data-bs-parent="#accordionExample5"
                 >
                   <div className="accordion-body accordion-body-3 p-4">
-                    EU Green Deal was passed with 55%
+                    <b>EU Green Deal was passed</b> with 55%
                     <br /> reduction, translating into 3500 Mtons
                     <br /> CO2 reduction over 2021-30.
                     <br /> <br /> Mobilizers keep pressure on
@@ -151,7 +155,7 @@ function FindCircle4(props) {
             <small className="blue ">Scroll Down</small>
             <ion-icon
               src="assets/img/svg/scroll-down-blue.svg"
-              style={{ width: "38px", height: "38px" }}
+              style={{ width: "18px", height: "26px" }}
             ></ion-icon>
           </div>
         </div>

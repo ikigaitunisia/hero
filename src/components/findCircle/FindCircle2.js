@@ -62,7 +62,7 @@ function FindCircle2(props) {
             <small className="blue">Scroll Down</small>
             <ion-icon
               src="assets/img/svg/scroll-down-blue.svg"
-              style={{ width: "38px", height: "38px" }}
+              style={{ width: "18px", height: "26px" }}
             ></ion-icon>
           </div>
         </div>

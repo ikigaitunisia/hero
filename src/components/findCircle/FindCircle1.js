@@ -29,7 +29,8 @@ function FindCircle1(props) {
           />
           <div className="mt-4 flex-col">
             <h2 className="white">
-              <b>Support climate mobilizers,</b><br /> accelerate change.
+              <b>Support climate mobilizers,</b>
+              <br /> accelerate change.
             </h2>
             <button
               id="whiteBtn"

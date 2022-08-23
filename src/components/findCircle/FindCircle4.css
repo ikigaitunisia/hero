@@ -1,3 +1,45 @@
 .accordion-header {
   height: 67px;
 }
+
+#findCircle4 h1 {
+  font-size: 40px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 42px;
+}
+
+#findCircle4 p {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22.09px;
+}
+
+#findCircle4 .underline {
+  text-decoration: underline;
+}
+
+#findCircle4 #blueBtn {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22.09px;
+}
+
+#findCircle4 h5 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22.09px;
+}
+
+#findCircle4 .accordion-header {
+  display: flex;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.63px;
+}
+
+#findCircle4 .accordion-body-1 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
