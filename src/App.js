@@ -13,6 +13,7 @@ import MobilizerFeed from "./screens/MobilizerFeed";
 import ListSupporter from "./screens/ListSupporter";
 import ListMobilizer from "./screens/ListMobilizer";
 import FindCircle from "./screens/FindCircle";
+import CircleFeed from "./screens/CircleFeed";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/supporters" exact component={ListSupporter} />    
         <Route path="/mobilizers" exact component={ListMobilizer} />   
         <Route path="/" exact component={FindCircle} />   
+        <Route path="/circle-feed" exact component={CircleFeed} />   
       </Router>
     </div>
   );
