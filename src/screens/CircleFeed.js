@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import Header from "../components/Header";
 import "./CircleFeed.css";
@@ -51,9 +51,17 @@ function CircleFeed(props) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToNextCircle = () => {
+    if (currentIndex === 4) {
+      setCurrentIndex(0);
+      setCurrentCircle(circles[0]);
+      return;
+    }
     setCurrentIndex(currentIndex + 1);
-    setCurrentCircle(circles[currentIndex]);
   };
+
+  useEffect(() => {
+    setCurrentCircle(circles[currentIndex]);
+  }, [currentIndex]);
   return (
     <>
       <Header whiteMode showHeroLogo transparent showBackBtn />
@@ -90,19 +98,31 @@ function CircleFeed(props) {
         </div>
         <div className="circle-feed-bottom mb-4">
           <div style={{ display: "flex" }}>
-            <div className={currentIndex === 0 ? "active-dot me-1" :  "dot me-1"}></div>
-            <div className={currentIndex === 1 ? "active-dot me-1" :  "dot me-1"}></div>
-            <div className={currentIndex === 2 ? "active-dot me-1" :  "dot me-1"}></div>
-            <div className={currentIndex === 3 ? "active-dot me-1" :  "dot me-1"}></div>
-            <div className={currentIndex === 4 ? "active-dot me-1" :  "dot me-1"}></div>
+            <div
+              className={currentIndex === 0 ? "active-dot me-1" : "dot me-1"}
+            ></div>
+            <div
+              className={currentIndex === 1 ? "active-dot me-1" : "dot me-1"}
+            ></div>
+            <div
+              className={currentIndex === 2 ? "active-dot me-1" : "dot me-1"}
+            ></div>
+            <div
+              className={currentIndex === 3 ? "active-dot me-1" : "dot me-1"}
+            ></div>
+            <div
+              className={currentIndex === 4 ? "active-dot me-1" : "dot me-1"}
+            ></div>
           </div>
-          {currentIndex < 5  && <button
-            type="button"
-            className="btn btn-icon rounded btn-primary social-btn"
-            onClick={goToNextCircle}
-          >
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-          </button>}
+          {
+            <button
+              type="button"
+              className="btn btn-icon rounded btn-primary social-btn"
+              onClick={goToNextCircle}
+            >
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+          }
         </div>
       </div>
     </>
