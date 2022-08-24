@@ -64,7 +64,7 @@ function Header(props) {
             <img
               src={
                 whiteMode
-                  ? "assets/img/logo.png"
+                  ? "assets/img/heroLogoWhite.png"
                   : "assets/img/heroLogoBlue.png"
               }
               alt="logo"

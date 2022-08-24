@@ -36,6 +36,7 @@ function FindCircle1(props) {
               id="whiteBtn"
               type="button"
               className="btn btn-primary rounded font-size-btn mt-4 mb-4"
+              onClick={() => history.push("/circle-feed")}
             >
               <ion-icon src="assets/img/svg/icon2.svg"></ion-icon>
               Fund a HERO Circle

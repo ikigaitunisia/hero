@@ -1,0 +1,82 @@
+.circle-feed-container {
+  background: linear-gradient(0deg, white, blue);
+}
+
+.feed2 {
+  position: relative;
+  /* overflow: hidden; */
+  width: 80%;
+  height: 80vh;
+  padding: 0 !important;
+  min-height: 80vh !important;
+  scroll-snap-align: start;
+  margin: 20px auto;
+}
+
+.flex-col-start {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+}
+
+.feed2 video {
+  border-radius: 30px;
+}
+
+.circle-feed-container .social-btn {
+  float: right;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: rgb(180, 177, 177);
+  border-radius: 50%;
+}
+
+.active-dot {
+    height: 10px;
+    width: 10px;
+    background-color: blue;
+    border-radius: 50%;
+  }
+
+
+
+.circle-feed-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.feed2 h3 {
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.feed2 p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.feed2 #whiteBtn {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22.09px;
+}
+
+.feed2 a {
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.feed2 .play-btn {
+  top: 35% !important;
+}
