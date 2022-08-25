@@ -1,0 +1,70 @@
+.feed3 {
+  position: relative;
+  /* overflow: hidden; */
+  width: 80%;
+  height: 80vh;
+  padding: 0 !important;
+  min-height: 80vh !important;
+  scroll-snap-align: start;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 30px;
+}
+
+.circle-feed-details {
+  background: linear-gradient(0deg, white, blue);
+}
+.circle-feed-details .social-btn {
+  float: right;
+}
+
+.circle-feed-details .card {
+  border-radius: 30px;
+}
+
+.circle-feed-details h4 {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 20px;
+}
+
+.circle-feed-details small {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.63px;
+}
+
+.circle-feed-details h6 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.circle-feed-details h5 {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 30px;
+  color: black;
+}
+
+.circle-feed-details p {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 30px;
+}
+
+.circle-feed-details span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.72px;
+}
+
+.transparentMenu {
+  background: transparent;
+  border: unset;
+}
+
+.circle-feed-details .progress {
+  height: 28px;
+  border-radius: 50px;
+}
