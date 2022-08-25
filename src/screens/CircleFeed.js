@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import Header from "../components/Header";
 import "./CircleFeed.css";
+import ClubSelectMembershipModal from "../components/modals/ClubSelectMembershipModal";
 
 function CircleFeed(props) {
   const circles = [
@@ -49,6 +50,8 @@ function CircleFeed(props) {
 
   const [currentCircle, setCurrentCircle] = useState(circles[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showClubSelectMembershipModal, setShowClubSelectMembershipModal] =
+    useState(false);
 
   const goToNextCircle = () => {
     if (currentIndex === 4) {
@@ -58,7 +61,14 @@ function CircleFeed(props) {
     }
     setCurrentIndex(currentIndex + 1);
   };
-
+  const playVideo = (id) => {
+    var v = document.getElementById(id);
+    if (v.paused) {
+      v.play();
+    } else {
+      v.pause();
+    }
+  };
   useEffect(() => {
     setCurrentCircle(circles[currentIndex]);
   }, [currentIndex]);
@@ -75,7 +85,11 @@ function CircleFeed(props) {
             />
           </video>
           <div className="feed-content">
-            <button type="button" className="btn btn-primary rounded play-btn">
+            <button
+              type="button"
+              className="btn btn-primary rounded play-btn"
+              onClick={() => playVideo(1)}
+            >
               <ion-icon name="play" class="m-0"></ion-icon>
             </button>
 
@@ -86,6 +100,7 @@ function CircleFeed(props) {
                 id="whiteBtn"
                 type="button"
                 className="btn btn-primary rounded font-size-btn mb-4"
+                onClick={() => setShowClubSelectMembershipModal(true)}
               >
                 <ion-icon src="assets/img/svg/icon2.svg"></ion-icon>
                 Fund this HERO Circle
@@ -125,6 +140,10 @@ function CircleFeed(props) {
           }
         </div>
       </div>
+      <ClubSelectMembershipModal
+        show={showClubSelectMembershipModal}
+        onClose={() => setShowClubSelectMembershipModal(false)}
+      />
     </>
   );
 }
