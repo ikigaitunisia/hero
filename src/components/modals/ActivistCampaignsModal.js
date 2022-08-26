@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Modal } from "bootstrap";
+import "./Modal.css";
 
 function ActivistCampaignsModal(props) {
   useEffect(() => {
@@ -54,82 +55,88 @@ function ActivistCampaignsModal(props) {
               </div>
 
               <div className="section center-div mt-2">
-                <h5 className="white mb-3">Current Campaigns</h5>
-                <div>
-                  <div style={{ display: "flex" }} className="mt-4">
-                    <div>
-                      <ion-icon
-                        src="assets/img/svg/campaign.svg"
-                        class="custom-icon-size"
-                      ></ion-icon>
-                    </div>
-                    <div
-                      className="in"
-                      style={{ textAlign: "start", marginLeft: "20px" }}
-                    >
-                      <div className="white">
-                        <div className="mb-05">
-                          <strong>Empowering African Emerging Leaders</strong>
-                        </div>
-                        <div className="mb-05">
-                          <strong>UNICEF</strong>
-                        </div>
-                        <div className="text-small mb-05">In progress</div>
-                        <div className="text-xsmall">
-                          Empowering Africa’s new generation of climate
-                          mobilizers.
+                <h5 className="white mb-4">Current Campaigns</h5>
+                <div className="mt-4">
+                  <div className="card mt-4 mb-4">
+                    <div style={{ display: "flex" }} className="card-body">
+                      <div>
+                        <ion-icon
+                          src="assets/img/svg/campaign.svg"
+                          class="custom-icon-size"
+                        ></ion-icon>
+                      </div>
+                      <div
+                        className="in"
+                        style={{ textAlign: "start", marginLeft: "20px" }}
+                      >
+                        <div className="blue">
+                          <div className="mb-05">
+                            <strong>Name of campaign</strong>
+                          </div>
+                          <div className="mb-05">
+                            <strong>Name of organization</strong>
+                          </div>
+                          <div className="text-small mb-05">Status</div>
+                          <div className="text-xsmall">
+                            Brief description of the campaign - Brief
+                            description of the campaign.
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div style={{ display: "flex" }} className="mt-4">
-                    <div>
-                      <ion-icon
-                        src="assets/img/svg/campaign.svg"
-                        class="custom-icon-size"
-                      ></ion-icon>
-                    </div>
-                    <div
-                      className="in"
-                      style={{ textAlign: "start", marginLeft: "20px" }}
-                    >
-                      <div className="white">
-                        <div className="mb-05">
-                          <strong>Stop Coal Mining in Belgium</strong>
-                        </div>
-                        <div className="mb-05">
-                          <strong>Youth for Climate Belgium</strong>
-                        </div>
-                        <div className="text-small mb-05">In progress</div>
-                        <div className="text-xsmall">
-                          Organizing mobilizations to put pressure on Belgium’s
-                          goberment to close coal mines.
+                  <div className="card mb-4">
+                    <div style={{ display: "flex" }} className="card-body">
+                      <div>
+                        <ion-icon
+                          src="assets/img/svg/campaign.svg"
+                          class="custom-icon-size"
+                        ></ion-icon>
+                      </div>
+                      <div
+                        className="in"
+                        style={{ textAlign: "start", marginLeft: "20px" }}
+                      >
+                        <div className="blue">
+                          <div className="mb-05">
+                            <strong>Name of campaign</strong>
+                          </div>
+                          <div className="mb-05">
+                            <strong>Name of organization</strong>
+                          </div>
+                          <div className="text-small mb-05">Status</div>
+                          <div className="text-xsmall">
+                            Brief description of the campaign - Brief
+                            description of the campaign.
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div style={{ display: "flex" }} className="mt-4">
-                    <div>
-                      <ion-icon
-                        src="assets/img/svg/campaign.svg"
-                        class="custom-icon-size"
-                      ></ion-icon>
-                    </div>
-                    <div
-                      className="in"
-                      style={{ textAlign: "start", marginLeft: "20px" }}
-                    >
-                      <div className="white">
-                        <div className="mb-05">
-                          <strong>Global Climate Strike</strong>
-                        </div>
-                        <div className="mb-05">
-                          <strong>Friday’s for Future International</strong>
-                        </div>
-                        <div className="text-small mb-05">In progress</div>
-                        <div className="text-xsmall">
-                          Mobilization co-leader for Friday’s for Future Global
-                          Climate Strike 2022.
+                  <div className="card mb-4">
+                    <div style={{ display: "flex" }} className="card-body">
+                      <div>
+                        <ion-icon
+                          src="assets/img/svg/campaign.svg"
+                          class="custom-icon-size"
+                        ></ion-icon>
+                      </div>
+                      <div
+                        className="in"
+                        style={{ textAlign: "start", marginLeft: "20px" }}
+                      >
+                        <div className="blue">
+                          <div className="mb-05">
+                            <strong>Name of campaign</strong>
+                          </div>
+                          <div className="mb-05">
+                            <strong>Name of organization</strong>
+                          </div>
+                          <div className="text-small mb-05">Status</div>
+                          <div className="text-xsmall">
+                            Brief description of the campaign - Brief
+                            description of the campaign.
+                          </div>
                         </div>
                       </div>
                     </div>

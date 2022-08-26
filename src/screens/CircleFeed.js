@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import "./CircleFeed.css";
 import ClubSelectMembershipModal from "../components/modals/ClubSelectMembershipModal";
 
 function CircleFeed(props) {
+  const history = useHistory();
   const circles = [
     {
       id: "1",
@@ -105,7 +106,11 @@ function CircleFeed(props) {
                 <ion-icon src="assets/img/svg/icon2.svg"></ion-icon>
                 Fund this HERO Circle
               </button>
-              <a href={currentCircle.link} className="white">
+              <a
+                href=""
+                onClick={() => history.push("/circle-feed-details")}
+                className="white"
+              >
                 Learn more about this circle
               </a>
             </div>

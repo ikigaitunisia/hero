@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Modal } from "bootstrap";
+import "./Modal.css";
 
 function ActivistVictoriesModal(props) {
   useEffect(() => {
@@ -46,7 +47,7 @@ function ActivistVictoriesModal(props) {
                   <img
                     src={"assets/img/logo1.png"}
                     alt="avatar"
-                    style={{width: "35px"}}
+                    style={{ width: "35px" }}
                     className="w100"
                   />
                 </a>
@@ -55,54 +56,87 @@ function ActivistVictoriesModal(props) {
 
             <div className="section center-div mt-2">
               <h5 className="white mb-3">Victories</h5>
-              <div>
-                <div style={{ display: "flex" }} className="mt-4">
-                  <div>
-                    <ion-icon
-                      src="assets/img/svg/campaign.svg"
-                      class="custom-icon-size"
-                    ></ion-icon>
-                  </div>
-                  <div
-                    className="in"
-                    style={{ textAlign: "start", marginLeft: "20px" }}
-                  >
-                    <div className="white">
-                      <div className="mb-05">
-                        <strong>EU Climate Law</strong>
-                      </div>
-                      <div className="mb-05">
-                        <strong>Carbon Policy</strong>
-                      </div>
-                      <div className="text-small mb-05">Passed</div>
-                      <div className="text-xsmall">
-                        Climate target changed from 40% to 55% carbon emission
-                        reduction by 2030.
+              <div className="mt-4">
+                <div className="card mt-4 mb-4">
+                  <div style={{ display: "flex" }} className="card-body">
+                    <div>
+                      <ion-icon
+                        src="assets/img/svg/campaign.svg"
+                        class="custom-icon-size"
+                      ></ion-icon>
+                    </div>
+                    <div
+                      className="in"
+                      style={{ textAlign: "start", marginLeft: "20px" }}
+                    >
+                      <div>
+                        <div className="mb-05">
+                          <strong>Name of campaign</strong>
+                        </div>
+                        <div className="mb-05">
+                          <strong>Name of organization</strong>
+                        </div>
+                        <div className="text-small mb-05">Status</div>
+                        <div className="text-xsmall">
+                          Brief description of the campaign - Brief description
+                          of the campaign.
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div style={{ display: "flex" }} className="mt-4">
-                  <div>
-                    <ion-icon
-                      src="assets/img/svg/campaign.svg"
-                      class="custom-icon-size"
-                    ></ion-icon>
+                <div className="card mb-4">
+                  <div style={{ display: "flex" }} className="card-body">
+                    <div>
+                      <ion-icon
+                        src="assets/img/svg/campaign.svg"
+                        class="custom-icon-size"
+                      ></ion-icon>
+                    </div>
+                    <div
+                      className="in"
+                      style={{ textAlign: "start", marginLeft: "20px" }}
+                    >
+                      <div>
+                        <div className="mb-05">
+                          <strong>Name of campaign</strong>
+                        </div>
+                        <div className="mb-05">
+                          <strong>Name of organization</strong>
+                        </div>
+                        <div className="text-small mb-05">Status</div>
+                        <div className="text-xsmall">
+                          Brief description of the campaign - Brief description
+                          of the campaign.
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div
-                    className="in"
-                    style={{ textAlign: "start", marginLeft: "20px" }}
-                  >
-                    <div className="white">
-                      <div className="mb-05">
-                        <strong>Taxonomy Law in Belgium</strong>
-                      </div>
-                      <div className="mb-05">
-                        <strong>Carbon Policy</strong>
-                      </div>
-                      <div className="text-small mb-05">Blocked</div>
-                      <div className="text-xsmall">
-                        Avoided Taxonomy Law to pass in Belgium’s Congress.
+                </div>
+                <div className="card mb-4">
+                  <div style={{ display: "flex" }} className="card-body">
+                    <div>
+                      <ion-icon
+                        src="assets/img/svg/campaign.svg"
+                        class="custom-icon-size"
+                      ></ion-icon>
+                    </div>
+                    <div
+                      className="in"
+                      style={{ textAlign: "start", marginLeft: "20px" }}
+                    >
+                      <div>
+                        <div className="mb-05">
+                          <strong>Name of campaign</strong>
+                        </div>
+                        <div className="mb-05">
+                          <strong>Name of organization</strong>
+                        </div>
+                        <div className="text-small mb-05">Status</div>
+                        <div className="text-xsmall">
+                          Brief description of the campaign - Brief description
+                          of the campaign.
+                        </div>
                       </div>
                     </div>
                   </div>
