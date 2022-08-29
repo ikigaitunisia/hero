@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal } from "bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Menu.css";
 
 function Menu(props) {
   const history = useHistory();
+
+  const [loggedin, setLogedin] = useState(false);
   useEffect(() => {
     if (props.show) {
       const modal = new Modal(document.getElementById("menu"), {
@@ -17,6 +19,12 @@ function Menu(props) {
       props.onClose();
     };
   }, [props.show]);
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user != null) {
+      setLogedin(true);
+    }
+  }, []);
   const logout = () => {
     localStorage.removeItem("user");
     history.push("/");
@@ -67,9 +75,24 @@ function Menu(props) {
                 </a>
                 </li>*/}
             </ul>
-            <div className="listview-title mt-3 mb-3">
-              <h5 className="text-start blue-text">Log in</h5>
+            <div className="listview-title mt-3">
+              <h5
+                className="text-start blue-text"
+                onClick={loggedin ? logout : () => {}}
+              >
+                {loggedin ? "Log out" : "Log in"}
+              </h5>
             </div>
+            {loggedin && (
+              <div className="listview-title">
+                <h5 className="text-start blue-text">Account Settings</h5>
+              </div>
+            )}
+            {loggedin && (
+              <div className="listview-title mb-3">
+                <h5 className="text-start blue-text">FAQ</h5>
+              </div>
+            )}
             <ul className="listview flush transparent no-line image-listview">
               <li>
                 <a href="" className="item pt-0 pb-0">
