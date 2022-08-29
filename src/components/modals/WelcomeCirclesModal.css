@@ -1,0 +1,32 @@
+.welcomeCircles {
+  background: linear-gradient(0deg, rgb(162, 174, 241), #0000ffe5);
+  /*opacity: 90%!important;*/
+}
+
+#welcomeCircles #welcomeClub button {
+  width: 227px;
+  height: 52px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 15px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+#welcomeCircles img {
+  width: 52px;
+  height: 52px;
+}
+
+#welcomeCircles img {
+  width: 52px;
+  height: 52px;
+}
+
+#welcomeCircles ion-icon {
+  width: 16px;
+  height: 16px;
+}
