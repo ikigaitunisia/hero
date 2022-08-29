@@ -44,6 +44,60 @@
   margin: auto !important;
 }
 
-.bg-white{
-  background: white!important;
+.bg-white {
+  background: white !important;
+}
+
+#login-form input {
+  background: transparent !important;
+  border-radius: 50px;
+  height: 50px;
+  border: 1px solid white;
+  margin-right: 0 !important;
+}
+
+#login-form ::placeholder {
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.63px;
+}
+
+.login p {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24.54px;
+}
+
+.login #whiteBtn {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 17.58px !important;
+  color: #787574 !important;
+  width: 270px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.login #whiteBlueBtn {
+  background-color: white !important;
+  display: flex;
+  color: blue !important;
+  border: unset !important;
+  margin: 0 auto;
+  width: 180px;
+  height: 50px;
+  border-radius: 50px;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 22.09px !important;
+}
+
+.login .submit-btn-rounded {
+  background: white !important;
+  border: unset !important;
+  color: blue !important;
+  line-height: 1em !important;
+  padding: 0 !important;
 }

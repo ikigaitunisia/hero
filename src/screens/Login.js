@@ -88,7 +88,7 @@ function Login() {
   };
 
   return (
-    <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
+    <div id="appCapsule" className="bg-g login" style={{ minHeight: "100vh" }}>
       <img src={"assets/img/logo2.png"} alt="logo" className="logo" />
       <p className="header-text mt-4 white">Create your HERO Account</p>
       <div className="flex-center flex-col">
@@ -106,7 +106,93 @@ function Login() {
         <span className="white m-3">OR</span>
         <hr className="hr bg-white" />
       </div>
-      <div></div>
+      <div className="flex-center">
+        <form id="login-form">
+          <div class="form-group boxed">
+            <div class="input-wrapper">
+              <input
+                type="email"
+                class="form-control"
+                id="email4b"
+                placeholder="Your email"
+              />
+              <i class="clear-input">
+                <ion-icon
+                  name="close-circle"
+                  role="img"
+                  class="md hydrated"
+                  aria-label="close circle"
+                ></ion-icon>
+              </i>
+            </div>
+          </div>
+
+          <div className="form-group boxed">
+            <div className="input-wrapper">
+              <input
+                type="password"
+                autocomplete="off"
+                className="form-control"
+                id="password4b"
+                placeholder="Password"
+              />
+              <i className="clear-input">
+                <ion-icon
+                  name="close-circle"
+                  role="img"
+                  className="md hydrated"
+                  aria-label="close circle"
+                ></ion-icon>
+              </i>
+            </div>
+          </div>
+
+          <div className="form-group boxed">
+            <div className="input-wrapper">
+              <input
+                type="text"
+                className="form-control"
+                id="text4b"
+                placeholder="John Doe"
+              />
+              <i class="clear-input">
+                <ion-icon
+                  name="close-circle"
+                  role="img"
+                  className="md hydrated"
+                  aria-label="close circle"
+                ></ion-icon>
+              </i>
+            </div>
+          </div>
+
+          <div className="form-check p-0 mt-2">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="customCheckb1"
+            />
+            <label className="form-check-label white" for="customCheckb1">
+              I agree to the <a href="#">HERO Terms and Conditions</a>
+            </label>
+          </div>
+          <button
+            id="whiteBlueBtn"
+            type="button"
+            className="btn btn-primary rounded font-size-btn mt-4 mb-4 "
+          >
+            Join HERO
+          </button>
+        </form>
+      </div>
+      <div className="flex-center">
+        <button
+          type="button"
+          className="btn btn-icon rounded btn-primary submit-btn-rounded me-1 mb-1 mt-4"
+        >
+          <ion-icon src="assets/img/svg/next.svg"></ion-icon>
+        </button>
+      </div>
     </div>
   );
 }
