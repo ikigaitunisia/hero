@@ -43,7 +43,7 @@ function Menu(props) {
             <div className="profileBox pt-2 pb-2">
               <div className="image-wrapper">
                 <img
-                  src="assets/img/logoH.png"
+                  src="assets/img/logo.png"
                   alt="image"
                   className="imaged  w36"
                 />
@@ -67,76 +67,111 @@ function Menu(props) {
                 </a>
                 </li>*/}
             </ul>
-            <div className="listview-title mt-1">
-              <h2 className="text-start blue-text">About HERO</h2>
+            <div className="listview-title mt-3 mb-3">
+              <h5 className="text-start blue-text">Log in</h5>
             </div>
             <ul className="listview flush transparent no-line image-listview">
               <li>
-                <a
-                  href=""
-                  onClick={() => {
-                    history.push("/");
-                  }}
-                  className="item"
-                >
-                  <div className="in">Home Page</div>
+                <a href="" className="item pt-0 pb-0">
+                  <div className="in blue">How are mobilizers verified?</div>
                 </a>
               </li>
               <li>
-                <a
-                  href=""
-                  onClick={() => {
-                    history.push("/heroteam");
-                  }}
-                  className="item"
-                >
-                  <div className="in">Team</div>
+                <a href="" className="item pt-0 pb-0">
+                  <div className="in blue">What is Basic Income?</div>
                 </a>
               </li>
               <li>
-                <a
-                  href="https://herolabsco.notion.site/HERO-FAQ-a74c18e9ad1d4f308a3ec06e0bb62732"
-                  target="_blank"
-                  className="item"
-                >
-                  <div className="in">FAQ</div>
+                <a href="" className="item pt-0 pb-0">
+                  <div className="in blue">Subscriptions & Pricing</div>
                 </a>
               </li>
               <li>
-                <a
-                  href="https://www.hero-labs.co/#HERO-About"
-                  target="_blank"
-                  className="item"
-                >
-                  <div className="in">Blog</div>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://open.spotify.com/show/3OLdPSPIYXHR4wHGNAQG30?si=YCPjg0hWTL6WwLY0GGRDfA&nd=1"
-                  target="_blank"
-                  className="item"
-                >
-                  <div className="in">Podcast</div>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://herolabsco.notion.site/Contact-af4234ecdbd9440c8c3f94d394277e64"
-                  target="_blank"
-                  className="item"
-                >
-                  <div className="in">Contact</div>
+                <a href="" className="item pt-0 pb-0">
+                  <div className="in blue">How HERO works</div>
                 </a>
               </li>
             </ul>
-            <div className="listview-title mt-1">
-              <h2 className="text-start blue-text">
-                <a href="" onClick={logout} className="blue-text td-0">
-                  Log out
-                </a>
-              </h2>
+            <div id="social-btn-container2" className="row mb-4 mt-4 pl-3">
+              <button
+                type="button"
+                className="btn btn-icon rounded btn-primary social-btn me-2"
+              >
+                <ion-icon name="logo-instagram"></ion-icon>
+              </button>
+              <button
+                type="button"
+                className="btn btn-icon rounded btn-primary social-btn me-2"
+              >
+                <ion-icon name="logo-tiktok"></ion-icon>
+              </button>
+              <button
+                type="button"
+                className="btn btn-icon rounded btn-primary social-btn me-2"
+              >
+                <ion-icon name="logo-twitter"></ion-icon>
+              </button>
+              <button
+                type="button"
+                className="btn btn-icon rounded btn-primary social-btn me-2"
+              >
+                <ion-icon name="logo-youtube"></ion-icon>
+              </button>
             </div>
+            <div className="listview-title mt-3 mb-3">
+              <h6 className="text-start blue-text">
+                <b>HERO Labs BV © 2022.</b>
+                <br />
+                Fred. Roeskestraat 115,
+                <br />
+                1076EE. Amsterdam, NL.
+              </h6>
+            </div>
+
+            <ul className="listview flush transparent no-line image-listview">
+              <li>
+                <a href="" className="item pt-0 pb-0">
+                  <div className="in blue">
+                    <small>Founders 100% Pledge</small>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="" className="item pt-0 pb-0">
+                  <div className="in blue">
+                    <small>How to join a HERO Circle</small>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="" className="item pt-0 pb-0">
+                  <div className="in blue">
+                    <small>HERO team</small>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="" className="item pt-0 pb-0">
+                  <div className="in blue">
+                    <small>Help center</small>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="" className="item pt-0 pb-0">
+                  <div className="in blue">
+                    <small>Terms of Service</small>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="" className="item pt-0 pb-0">
+                  <div className="in blue">
+                    <small>Data & Privacy</small>
+                  </div>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

@@ -8,11 +8,16 @@ function FindCircle2(props) {
     <div id="findcircle2">
       <div className="" style={{ minHeight: "90vh!important" }}>
         <div className="">
-          <img
-            src={"assets/img/heroLogoBlue.png"}
-            alt="logo"
-            className="logo mt-4"
-          />
+          <div>
+            <img
+              src={"assets/img/heroLogoBlue.png"}
+              alt="logo"
+              className="logo mt-4"
+            />
+            <a href="#" className={"headerButton menuBtn mt-4 mb-4"}>
+              <ion-icon name="menu-outline" class="menuBtnIcon"></ion-icon>
+            </a>
+          </div>
           <div className="mt-2 flex-center flex-col">
             <h4 className="mt-3 blue">
               We empower supporters to take

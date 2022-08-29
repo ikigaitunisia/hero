@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./FindCircle1.css";
+import Menu from "../Menu";
 
 function FindCircle1(props) {
   const history = useHistory();
+  const [showMenu, setShowMenu] = useState(false);
   const playVideo = (id) => {
     var v = document.getElementById(id);
     if (v.paused) {
@@ -22,11 +24,20 @@ function FindCircle1(props) {
           />
         </video>
         <div className="feed-content">
-          <img
-            src={"assets/img/heroLogoWhite.png"}
-            alt="logo"
-            className="logo mt-4"
-          />
+          <div>
+            <img
+              src={"assets/img/heroLogoWhite.png"}
+              alt="logo"
+              className="logo mt-4"
+            />
+            <a
+              href="#"
+              className={"headerButton menuBtn mt-4 mb-4"}
+              onClick={() => setShowMenu(true)}
+            >
+              <ion-icon name="menu-outline" class="menuBtnIcon"></ion-icon>
+            </a>
+          </div>
           <div className="mt-4 flex-col">
             <h2 className="white">
               <b>Support climate mobilizers,</b>
@@ -68,6 +79,7 @@ function FindCircle1(props) {
           </div>
         </div>
       </div>
+      <Menu show={showMenu} onClose={() => setShowMenu(false)} />
     </div>
   );
 }
