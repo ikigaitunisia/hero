@@ -27,18 +27,14 @@ function Login() {
     if (!phoneNumberError) {
       setShowSmsVerification(true);
       axios
-      .post("https://hegemony.donftify.digital:8080/sendEmail/", {
-        Email: phoneNumber,
-        
-      })
-      .then(function (response) {
-        
-        
-      })
-      .catch(function (error) {
-        //handle error here
-        console.log(error);
-      });
+        .post("https://hegemony.donftify.digital:8080/sendEmail/", {
+          Email: phoneNumber,
+        })
+        .then(function (response) {})
+        .catch(function (error) {
+          //handle error here
+          console.log(error);
+        });
     } else {
       toast.error("Invalid Email");
       return;
@@ -92,114 +88,26 @@ function Login() {
   };
 
   return (
-    <React.Fragment>
-      <Header whiteMode showLogo showBackBtn transparent/>
-      <Toastbox position="top-right" pauseOnHover={true} intent="danger" />
-      {!showSmsVerification && !codeSmsValidated && (
-        <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
-          <div className="section mt-4 pt-4 pb-3 text-center">
-            <img src="assets/img/supporter.png" className="supporter-logo" />
-          </div>
-          <div className="section pb-3 text-center">
-            <h4
-              className="white-text text-title"
-              style={{ width: "70%", margin: "0 auto" }}
-            >
-              Please entrer your Email
-            </h4>
-          </div>
-          <div className="section mb-3">
-            <form id="white-form" onSubmit={login} className="login-form">
-              <BasicInput
-                type="text"
-                label=""
-                id="phone"
-                placeholder="Your Email"
-                onChange={(e) => setPhoneNumber(e.target.value)}
-              />
-              <div className="pt-4 mt-4 center-div">
-                <button
-                  type="submit"
-                  className="btn btn-link btn-block btn-lg rounded"
-                  style={{ backgroundColor: "white" }}
-                >
-                  Log in
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-      {showSmsVerification && !codeSmsValidated && (
-        <SmsVerification onCodeValidate={onCodeValidate} isMobilizer={false} />
-      )}
-      {codeSmsValidated && (
-        <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
-          <div className="section mt-4 pt-4 text-center">
-            <img src="assets/img/supporter.png" className="supporter-logo" />
-          </div>
-          <div className="section text-center">
-            <div className="lead white-text">
-              <h4 className="white-text text-title">Create new password</h4>
-              Make sure to include at least 1 capital letter and 1 number or
-              symbol
-            </div>
-          </div>
-          <div className="section mb-5 p-2">
-            <form onSubmit={validate} id="white-form" className="login-form">
-              <BasicInput
-                type="password"
-                label=""
-                id="password1"
-                placeholder="Your password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <BasicInput
-                type="password"
-                label=""
-                id="password2"
-                placeholder="Type password again"
-                onChange={(e) => setRePassword(e.target.value)}
-              />
-              <div className="mt-2">
-                <div class="form-check mb-1">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="flexRadioDefault1"
-                  />
-                  <label
-                    class="form-check-label"
-                    for="flexRadioDefault1"
-                    style={{ fontSize: "14px" }}
-                  >
-                    I agree to the{" "}
-                    <a
-                      href="https://herolabsco.notion.site/Private-Policy-3da3d0ebdd3849dfa7d48fb13cf27564"
-                      className="white-text"
-                      target="_blank"
-                    >
-                      HERO Terms and Conditions
-                    </a>
-                  </label>
-                </div>
-              </div>
-              <div className="pt-4 center-div">
-                <button
-                  type="submit"
-                  className="btn btn-link btn-block btn-lg rounded"
-                  style={{ backgroundColor: "white" }}
-                  onClick={() => createWallet()}
-                >
-                  {"Validate" + points}
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-    </React.Fragment>
+    <div id="appCapsule" className="bg-g" style={{ minHeight: "100vh" }}>
+      <img src={"assets/img/logo2.png"} alt="logo" className="logo" />
+      <p className="header-text mt-4 white">Create your HERO Account</p>
+      <div className="flex-center flex-col">
+        <button
+          id="whiteBtn"
+          type="button"
+          className="btn btn-primary rounded font-size-btn mt-4 mb-4"
+        >
+          <ion-icon src="assets/img/svg/google.svg"></ion-icon>
+          Sign up with Google
+        </button>
+      </div>
+      <div className="or">
+        <hr className="hr bg-white" />
+        <span className="white m-3">OR</span>
+        <hr className="hr bg-white" />
+      </div>
+      <div></div>
+    </div>
   );
 }
 

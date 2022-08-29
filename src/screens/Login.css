@@ -27,3 +27,23 @@
     width: 150px;
   }
 }
+
+.bg-g {
+  background: linear-gradient(0deg, #f5f5f5, blue);
+}
+
+.or {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  align-content: center;
+  justify-content: center;
+}
+
+.or .hr {
+  margin: auto !important;
+}
+
+.bg-white{
+  background: white!important;
+}
