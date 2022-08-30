@@ -82,6 +82,29 @@ function CircleHome(props) {
               ></div>
             </div>
             <h6>200 memberships left to complete this circle</h6>
+            <div className="me-4 ml-4 mb-0">
+              <img
+                src="assets/img/sample/photo/1.jpg"
+                alt="image"
+                className="imaged w48 rounded m-2"
+              />
+              <img
+                src="assets/img/sample/photo/1.jpg"
+                alt="image"
+                className="imaged w48 rounded m-2"
+              />
+              <img
+                src="assets/img/sample/photo/1.jpg"
+                alt="image"
+                className="imaged w48 rounded m-2"
+              />
+            </div>
+            <span>
+              <b>Supporter 1, Support 2, Supporter 3</b>
+              <br /> recently joined this circle.
+            </span>
+            <hr className="hr mt-4 mb-4" />
+            <h6>Swipe right to move between circles you support</h6>
           </div>
         </div>
         <div className="circle-feed-bottom mb-4">
