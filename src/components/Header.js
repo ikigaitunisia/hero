@@ -12,6 +12,9 @@ function Header(props) {
   const showBackBtn = props.showBackBtn;
   const showHeroLogo = props.showHeroLogo;
   const transparent = props.transparent;
+  const showTitlePage = props.showTitlePage;
+  const title = props.title;
+
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const [loggedin, setLogedin] = useState(false);
@@ -72,6 +75,7 @@ function Header(props) {
               onClick={() => history.push("/")}
             />
           )}
+          {showTitlePage && <h3 className="blue">{title}</h3>}
         </div>
         <div className="right">
           {showLoginBtn &&
@@ -90,7 +94,7 @@ function Header(props) {
                 Logout
               </a>
             ))}
-          {loggedin && showMenuBtn && (
+          {showMenuBtn && (
             <a
               href="#"
               className={"headerButton " + colorClass}
