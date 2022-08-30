@@ -3,3 +3,8 @@
   font-family: seravek;
 }
 
+.appHeader h3 {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 30.67px;
+}

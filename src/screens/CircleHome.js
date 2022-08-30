@@ -28,7 +28,7 @@ function CircleHome(props) {
           <img
             src="assets/img/image8.png"
             alt="image"
-            className="imaged  w36"
+            className="imaged  w36 mt-4"
           />
         </div>
         <div class="card mb-3 ml-3 me-3">
@@ -40,7 +40,7 @@ function CircleHome(props) {
             </h5>
           </div>
           <div class="card-body flex-center flex-col mt-3">
-            <h5 className="blue">Circle’s Objective</h5>
+            <h4 className="blue">Circle’s Objective</h4>
             <p>
               This is the circle objective. A brief description of the focus of
               the circle for the first year.
@@ -106,12 +106,12 @@ function CircleHome(props) {
                 className="imaged w48 rounded m-2"
               />
             </div>
-            <span>
+            <span id="list-supporters">
               <b>Supporter 1, Support 2, Supporter 3</b>
               <br /> recently joined this circle.
             </span>
             <hr className="hr mt-4 mb-4" />
-            <h6>Swipe right to move between circles you support</h6>
+            <h6 id="bottom-text">Swipe right to move between circles you support</h6>
           </div>
         </div>
         <div className="circle-feed-bottom mb-4">
