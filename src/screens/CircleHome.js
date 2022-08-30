@@ -6,23 +6,49 @@ import { withRouter } from "react-router-dom";
 
 function CircleHome(props) {
   const history = useHistory();
+  const circles = [
+    {
+      id: "1",
+      name: "HERO First Circle",
+      description:
+        "This is the circle objective. A brief description of the focus of the circle for the first year.",
+    },
+    {
+      id: "2",
+      name: "HERO Second Circle",
+      description:
+        "This is the circle objective. A brief description of the focus of the circle for the first year.",
+    },
+    {
+      id: "3",
+      name: "HERO Third Circle",
+      description:
+        "This is the circle objective. A brief description of the focus of the circle for the first year.",
+    },
+  ];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentCircle, setCurrentCircle] = useState(circles[0]);
+
   const goToNextCircle = () => {
-    if (currentIndex === 4) {
+    if (currentIndex === 2) {
       setCurrentIndex(0);
+      setCurrentCircle(circles[0]);
       return;
     }
     setCurrentIndex(currentIndex + 1);
   };
+
+  useEffect(() => {
+    setCurrentCircle(circles[currentIndex]);
+  }, [currentIndex]);
   return (
     <>
       <Header
         showTitlePage
-        title={"HERO First Circle"}
+        title={currentCircle.name}
         showBackBtn
         showMenuBtn
       />
-
       <div id="appCapsule" className="circle-home">
         <div className="flex-center mt-4 mb-4">
           <img
@@ -41,10 +67,7 @@ function CircleHome(props) {
           </div>
           <div class="card-body flex-center flex-col mt-3">
             <h4 className="blue">Circle’s Objective</h4>
-            <p>
-              This is the circle objective. A brief description of the focus of
-              the circle for the first year.
-            </p>
+            <p>{currentCircle.description}</p>
             <hr className="hr mt-4 mb-4" />
             <div className="flex-center flex-row">
               <div className="flex-center flex-col me-2">
@@ -111,7 +134,9 @@ function CircleHome(props) {
               <br /> recently joined this circle.
             </span>
             <hr className="hr mt-4 mb-4" />
-            <h6 id="bottom-text">Swipe right to move between circles you support</h6>
+            <h6 id="bottom-text">
+              Swipe right to move between circles you support
+            </h6>
           </div>
         </div>
         <div className="circle-feed-bottom mb-4">
