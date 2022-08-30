@@ -19,6 +19,7 @@ function Menu(props) {
       props.onClose();
     };
   }, [props.show]);
+
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user != null) {
@@ -78,7 +79,14 @@ function Menu(props) {
             <div className="listview-title mt-3">
               <h5
                 className="text-start blue-text"
-                onClick={loggedin ? logout : () => {}}
+                onClick={
+                  loggedin
+                    ? logout
+                    : () => {
+                        history.push("/login");
+                        window.location.reload();
+                      }
+                }
               >
                 {loggedin ? "Log out" : "Log in"}
               </h5>

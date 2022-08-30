@@ -115,15 +115,15 @@ function Login() {
         </div>
         <div className="flex-center">
           <form id="login-form">
-            <div class="form-group boxed">
-              <div class="input-wrapper">
+            <div className="form-group boxed">
+              <div className="input-wrapper">
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   id="email4b"
                   placeholder="Your email"
                 />
-                <i class="clear-input">
+                <i className="clear-input">
                   <ion-icon
                     name="close-circle"
                     role="img"
@@ -138,7 +138,7 @@ function Login() {
               <div className="input-wrapper">
                 <input
                   type="password"
-                  autocomplete="off"
+                  autoComplete="off"
                   className="form-control"
                   id="password4b"
                   placeholder="Password"
@@ -162,7 +162,7 @@ function Login() {
                   id="text4b"
                   placeholder="John Doe"
                 />
-                <i class="clear-input">
+                <i className="clear-input">
                   <ion-icon
                     name="close-circle"
                     role="img"
@@ -179,7 +179,7 @@ function Login() {
                 className="form-check-input"
                 id="customCheckb1"
               />
-              <label className="form-check-label white" for="customCheckb1">
+              <label className="form-check-label white" htmlFor="customCheckb1">
                 I agree to the <a href="#">HERO Terms and Conditions</a>
               </label>
             </div>
