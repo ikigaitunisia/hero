@@ -31,8 +31,15 @@ function CircleHome(props) {
             className="imaged  w36"
           />
         </div>
-        <div class="card m-3">
-          <div class="card-body flex-center flex-col">
+        <div class="card mb-3 ml-3 me-3">
+          <div className="custom-div-header">
+            <h5>
+              <b>Echo this circle,</b>
+              <br />
+              invite your friends to join!
+            </h5>
+          </div>
+          <div class="card-body flex-center flex-col mt-3">
             <h5 className="blue">Circle’s Objective</h5>
             <p>
               This is the circle objective. A brief description of the focus of
@@ -117,12 +124,6 @@ function CircleHome(props) {
             ></div>
             <div
               className={currentIndex === 2 ? "active-dot me-1" : "dot me-1"}
-            ></div>
-            <div
-              className={currentIndex === 3 ? "active-dot me-1" : "dot me-1"}
-            ></div>
-            <div
-              className={currentIndex === 4 ? "active-dot me-1" : "dot me-1"}
             ></div>
           </div>
           {
