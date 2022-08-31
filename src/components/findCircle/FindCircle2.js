@@ -18,7 +18,7 @@ function FindCircle2(props) {
               <ion-icon name="menu-outline" class="menuBtnIcon"></ion-icon>
             </a>
           </div>
-          <div className="mt-2 flex-center flex-col">
+          <div className="m-4 flex-center flex-col">
             <h4 className="mt-3 blue">
               We empower supporters to take
               <br /> effective climate action by funding

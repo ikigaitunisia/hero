@@ -75,7 +75,7 @@ function Header(props) {
               onClick={() => history.push("/")}
             />
           )}
-          {showTitlePage && <h3 className="blue">{title}</h3>}
+          {showTitlePage && <h3 className={transparent ? "white": "blue"}>{title}</h3>}
         </div>
         <div className="right">
           {showLoginBtn &&

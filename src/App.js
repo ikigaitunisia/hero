@@ -16,6 +16,7 @@ import FindCircle from "./screens/FindCircle";
 import CircleFeed from "./screens/CircleFeed";
 import CircleFeedDetails from "./screens/CircleFeedDetails";
 import CircleHome from "./screens/CircleHome";
+import MobilizerProfile from "./screens/MobilizerProfile";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/circle-feed" exact component={CircleFeed} />   
         <Route path="/circle-feed-details" exact component={CircleFeedDetails} />   
         <Route path="/circle-home" exact component={CircleHome} />   
+        <Route path="/mobilizer-profile2" exact component={MobilizerProfile} />   
       </Router>
     </div>
   );
