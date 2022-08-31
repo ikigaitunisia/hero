@@ -24,11 +24,12 @@ function FindCircle4(props) {
               <br /> more effective.{" "}
             </h1>
             <p className="blue">
-              Funding climate mobilizers is 100
-              <br /> times more effective than buying
+              Funding climate mobilizers can be 100
+              <br />
+              times more effective than buying
               <br />
               carbon credits according to the
-              <br />{" "}
+              <br />
               <b className="underline">Stanford Social Innovation Review</b>
             </p>
             <button
