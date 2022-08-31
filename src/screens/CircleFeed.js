@@ -120,18 +120,23 @@ function CircleFeed(props) {
           <div style={{ display: "flex" }}>
             <div
               className={currentIndex === 0 ? "active-dot me-1" : "dot me-1"}
+              onClick={goToNextCircle}
             ></div>
             <div
               className={currentIndex === 1 ? "active-dot me-1" : "dot me-1"}
+              onClick={goToNextCircle}
             ></div>
             <div
               className={currentIndex === 2 ? "active-dot me-1" : "dot me-1"}
+              onClick={goToNextCircle}
             ></div>
             <div
               className={currentIndex === 3 ? "active-dot me-1" : "dot me-1"}
+              onClick={goToNextCircle}
             ></div>
             <div
               className={currentIndex === 4 ? "active-dot me-1" : "dot me-1"}
+              onClick={goToNextCircle}
             ></div>
           </div>
           {
