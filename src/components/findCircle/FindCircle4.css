@@ -38,7 +38,13 @@
   line-height: 19.63px;
 }
 
-#findCircle4 .accordion-body-1 {
+#findCircle4 .accordion-body-1 p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+#findCircle4 .accordion-body-1 b {
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;

@@ -62,12 +62,15 @@ function FindCircle4(props) {
                   data-bs-parent="#accordionExample5"
                 >
                   <div className="accordion-body accordion-body-1 p-4">
-                    Example: <br /> <br /> <b>The European Union Green Deal.</b>
-                    <br /> Mobilizers propose to change from 40%
-                    <br /> to 55% the carbon reduction target for
-                    <br />
-                    the European Union in 2030 vs 1990
-                    <br /> levels in the Green Deal law of 2021.
+                    <p>Example:</p>
+                    <b>The European Union Green Deal.</b>
+                    <p>
+                      Mobilizers propose to change from 40%
+                      <br /> to 55% the carbon reduction target for
+                      <br />
+                      the European Union in 2030 vs 1990
+                      <br /> levels in the Green Deal law of 2021.
+                    </p>
                   </div>
                 </div>
               </div>
