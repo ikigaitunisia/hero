@@ -48,77 +48,7 @@ function CircleHome(props) {
       <div id="appCapsule" className="mobilizer-profile">
         <div class="card mb-3 ml-3 me-3">
           <div class="card-body flex-center flex-col mt-3">
-            <h4 className="blue">Circle’s Objective</h4>
-            <p>{currentCircle.description}</p>
-            <hr className="hr mt-4 mb-4" />
-            <div className="flex-center flex-row">
-              <div className="flex-center flex-col me-2">
-                <ion-icon
-                  src="assets/img/svg/icon8.svg"
-                  class="mb-2"
-                ></ion-icon>
-                <span>Mobilizers</span>
-              </div>
-              <div className="flex-center flex-col me-2">
-                <ion-icon
-                  src="assets/img/svg/icon9.svg"
-                  class="mb-2"
-                ></ion-icon>
-                <span>Updates</span>
-              </div>
-              <div className="flex-center flex-col me-2">
-                <ion-icon
-                  src="assets/img/svg/icon10.svg"
-                  class="mb-2"
-                ></ion-icon>
-                <span>Videos</span>
-              </div>
-              <div className="flex-center flex-col">
-                <ion-icon
-                  src="assets/img/svg/icon12.svg"
-                  class="mb-2"
-                ></ion-icon>
-                <span>Interactions</span>
-              </div>
-            </div>
-            <hr className="hr mt-4 mb-4" />
-            <h5>Memberships</h5>
-            <div className="progress mb-2">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                style={{ width: "25%" }}
-                aria-valuenow="25"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              ></div>
-            </div>
-            <h6>200 memberships left to complete this circle</h6>
-            <div className="me-4 ml-4 mb-0">
-              <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
-                className="imaged w48 rounded m-2"
-              />
-              <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
-                className="imaged w48 rounded m-2"
-              />
-              <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
-                className="imaged w48 rounded m-2"
-              />
-            </div>
-            <span id="list-supporters">
-              <b>Supporter 1, Support 2, Supporter 3</b>
-              <br /> recently joined this circle.
-            </span>
-            <hr className="hr mt-4 mb-4" />
-            <h6 id="bottom-text">
-              Swipe right to move between circles you support
-            </h6>
+
           </div>
         </div>
         <div className="circle-feed-bottom mb-4">
