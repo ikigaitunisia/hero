@@ -34,12 +34,12 @@ function FindCircle5(props) {
             </button>
           </div>
           <div className="section flex-center mt-4 flex-col">
-            <div class="card border-blue mb-3">
-              <div class="card-body flex-center flex-col">
+            <div className="card border-blue mb-3">
+              <div className="card-body flex-center flex-col">
                 <img
                   src="assets/img/image7.png"
                   alt="image"
-                  class="imaged w48 rounded"
+                  className="imaged w48 rounded"
                 />
                 <span className="blue">A girl from AMS</span>
                 <small className="blue mb-2">Amsterdam, Netherlands</small>
@@ -50,12 +50,12 @@ function FindCircle5(props) {
                 </p>
               </div>
             </div>
-            <div class="card border-blue mb-3">
-              <div class="card-body flex-center flex-col">
+            <div className="card border-blue mb-3">
+              <div className="card-body flex-center flex-col">
                 <img
                   src="assets/img/image5.png"
                   alt="image"
-                  class="imaged w48 rounded"
+                  className="imaged w48 rounded"
                 />
                 <span className="blue">Anne-Flore Lepeu</span>
                 <small className="blue mb-2">Paris, France</small>
@@ -66,12 +66,12 @@ function FindCircle5(props) {
                 </p>
               </div>
             </div>
-            <div class="card border-blue mb-3">
-              <div class="card-body flex-center flex-col">
+            <div className="card border-blue mb-3">
+              <div className="card-body flex-center flex-col">
                 <img
                   src="assets/img/image6.png"
                   alt="image"
-                  class="imaged w48 rounded"
+                  className="imaged w48 rounded"
                 />
                 <span className="blue">A guy from London</span>
                 <small className="blue mb-2">London, UK</small>
