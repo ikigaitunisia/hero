@@ -96,6 +96,12 @@ function Login() {
         className="bg-g login"
         style={{ minHeight: "100vh" }}
       >
+        {showWelcomeCirclesModal && (
+          <WelcomeCirclesModal
+            show={showWelcomeCirclesModal}
+            onClose={() => setShowWelcomeCirclesModal(false)}
+          />
+        )}
         <img src={"assets/img/logo2.png"} alt="logo" className="logo" />
         <p className="header-text mt-4 white">Create your HERO Account</p>
         <div className="flex-center flex-col">
@@ -202,12 +208,6 @@ function Login() {
           </button>
         </div>
       </div>
-      {showWelcomeCirclesModal && (
-        <WelcomeCirclesModal
-          show={showWelcomeCirclesModal}
-          onClose={() => setShowWelcomeCirclesModal(false)}
-        />
-      )}
     </>
   );
 }
