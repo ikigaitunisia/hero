@@ -70,7 +70,7 @@ function CircleHome(props) {
             <p>{currentCircle.description}</p>
             <hr className="hr mt-4 mb-4" />
             <div className="flex-center flex-row">
-              <div className="flex-center flex-col me-2">
+              <div className="flex-center flex-col me-2" onClick={() => history.push("/mobilizer-profile2")}>
                 <ion-icon
                   src="assets/img/svg/icon8.svg"
                   class="mb-2"
