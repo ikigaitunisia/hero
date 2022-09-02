@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import "./CircleFeed.css";
+import axios from "axios";
 import ClubSelectMembershipModal from "../components/modals/ClubSelectMembershipModal";
 
 function CircleFeed(props) {
   const history = useHistory();
-  const circles = [
+  const [circles,setCircles] = useState([]);
+  const [load,setLoad] = useState(false);
+  /*const circles = [
     {
       id: "1",
       name: "HERO FIRST CIRCLE",
@@ -48,7 +51,7 @@ function CircleFeed(props) {
       video: "short-video-for-test.mp4",
     },
   ];
-
+*/
   const [currentCircle, setCurrentCircle] = useState(circles[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showClubSelectMembershipModal, setShowClubSelectMembershipModal] =
@@ -71,9 +74,31 @@ function CircleFeed(props) {
     }
   };
   useEffect(() => {
-    setCurrentCircle(circles[currentIndex]);
+    
+    axios.post("https://hegemony.donftify.digital:8080/circle/all",{
+      "tags":[],
+      "locations":[]
+    })
+      .then((res) => {
+           console.log(res.data);
+           let A=[]
+        res.data.map((item, i) => {
+             A.push({id:i.toString(),name:item.Name,Description:item.Description,video:"short-video-for-test.mp4"});
+          
+        });
+        
+        setCircles(A);
+        setLoad(true);
+        setCurrentCircle(A[currentIndex]);
+
+      });
+      console.log(circles);
+
+      console.log(load);
   }, [currentIndex]);
   return (
+    <>
+    {load &&
     <>
       <Header whiteMode showHeroLogo transparent showBackBtn />
 
@@ -84,7 +109,7 @@ function CircleFeed(props) {
               src={"assets/videos/" + currentCircle.video}
               type="video/mp4"
             />
-          </video>
+  </video>
           <div className="feed-content">
             <button
               type="button"
@@ -108,7 +133,7 @@ function CircleFeed(props) {
               </button>
               <a
                 href=""
-                onClick={() => history.push("/circle-feed-details")}
+                onClick={() => history.push("/circle-feed-details:"+currentCircle.name,{circle:circles,index:currentIndex})}
                 className="white"
               >
                 Learn more about this circle
@@ -118,26 +143,16 @@ function CircleFeed(props) {
         </div>
         <div className="circle-feed-bottom mb-4">
           <div style={{ display: "flex" }}>
+            {circles.map((item, i) => {
+                    return (
+
             <div
-              className={currentIndex === 0 ? "active-dot me-1" : "dot me-1"}
+              className={currentIndex === i ? "active-dot me-1" : "dot me-1"}
               onClick={goToNextCircle}
             ></div>
-            <div
-              className={currentIndex === 1 ? "active-dot me-1" : "dot me-1"}
-              onClick={goToNextCircle}
-            ></div>
-            <div
-              className={currentIndex === 2 ? "active-dot me-1" : "dot me-1"}
-              onClick={goToNextCircle}
-            ></div>
-            <div
-              className={currentIndex === 3 ? "active-dot me-1" : "dot me-1"}
-              onClick={goToNextCircle}
-            ></div>
-            <div
-              className={currentIndex === 4 ? "active-dot me-1" : "dot me-1"}
-              onClick={goToNextCircle}
-            ></div>
+                    )
+            })
+            }
           </div>
           {
             <button
@@ -154,7 +169,10 @@ function CircleFeed(props) {
         show={showClubSelectMembershipModal}
         onClose={() => setShowClubSelectMembershipModal(false)}
       />
+      </>
+        }
     </>
+        
   );
 }
 

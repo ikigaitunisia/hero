@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter ,useParams,useLocation} from "react-router-dom";
 import Header from "../components/Header";
 import "./CircleFeed.css";
 import "./CircleFeedDetails.css";
 import ClubSelectMembershipModal from "../components/modals/ClubSelectMembershipModal";
 import ActivistVictoriesModal from "../components/modals/ActivistVictoriesModal";
 import ActivistCampaignsModal from "../components/modals/ActivistCampaignsModal";
-
+import axios from "axios";
 function CircleFeedDetails(props) {
-  const circles = [
-    { name: "HERO First Circle", description: "@herofirstcircle" },
-    { name: "HERO Second Circle", description: "@herosecondcircle" },
-    { name: "HERO Youthtopia Circle", description: "@heroyouthtopiacircle" },
-    { name: "HERO Fourth Circle", description: "@herofourthcircle" },
-    { name: "HERO Fifth Circle", description: "@herofifthcircle" },
-  ];
+  
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentCircle, setCurrentCircle] = useState(circles[0]);
+  const [currentCircle, setCurrentCircle] = useState({});
+  const [load,setLoad] = useState(false);
   const [showClubSelectMembershipModal, setShowClubSelectMembershipModal] =
     useState(false);
   const [showMobilizerCampaignsModal, setShowMobilizerCampaignsModal] =
     useState(false);
   const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
     useState(false);
+  const [MobilizersCircle,setMobilizersCircle] = useState([]);
+    const { circlename } = useParams();
+    const {state} = useLocation();
+    const [circles,setCircles] = useState([]);
   const goToNextCircle = () => {
     if (currentIndex === 4) {
       setCurrentIndex(0);
@@ -32,10 +31,25 @@ function CircleFeedDetails(props) {
     setCurrentIndex(currentIndex + 1);
   };
   useEffect(() => {
-    setCurrentCircle(circles[currentIndex]);
+    setCircles(state.circle)
+    setCurrentIndex(state.index);
+    setLoad(true);
+    axios.get("https://hegemony.donftify.digital:8080/circle/members/"+circlename.replace(":",""))
+      .then((res) => {
+        console.log(res.data);
+        setMobilizersCircle(res.data);
+          
+        });
+        
+    setCurrentCircle(state.circle[currentIndex]);
+
   }, [currentIndex]);
   return (
+   
     <>
+   
+   {load &&
+   <>
       <Header whiteMode showHeroLogo transparent showBackBtn />
 
       <div id="appCapsule" className="circle-feed-details">
@@ -48,46 +62,17 @@ function CircleFeedDetails(props) {
             </small>
             <h6 className="blue mt-4 mb-3">Mobilizers in this circle</h6>
             <div className="me-4 ml-4 mb-0">
+            {MobilizersCircle.map((item) => {
+                    return (
+
               <img
-                src="assets/img/sample/photo/1.jpg"
+                src={"assets/img/"+item.imgProfil}
                 alt="image"
                 className="imaged w48 rounded m-2"
               />
-              <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
-                className="imaged w48 rounded m-2"
-              />
-              <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
-                className="imaged w48 rounded m-2"
-              />
-              <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
-                className="imaged w48 rounded m-2"
-              />
-              <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
-                className="imaged w48 rounded m-2"
-              />
-              <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
-                className="imaged w48 rounded m-2"
-              />
-              <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
-                className="imaged w48 rounded m-2"
-              />
-              <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
-                className="imaged w48 rounded m-2"
-              />
+                    )
+            })
+          }
             </div>
             <hr className="hr mt-2 mb-2" style={{ color: "#D9D9D9" }} />
             <div className="row mt-2 mb-2">
@@ -160,21 +145,17 @@ function CircleFeedDetails(props) {
         </div>
         <div className="circle-feed-bottom mb-4">
           <div style={{ display: "flex" }}>
+          {circles.map((item, i) => {
+                    return (
+
             <div
-              className={currentIndex === 0 ? "active-dot me-1" : "dot me-1"}
+              className={currentIndex === i ? "active-dot me-1" : "dot me-1"}
+              onClick={goToNextCircle}
             ></div>
-            <div
-              className={currentIndex === 1 ? "active-dot me-1" : "dot me-1"}
-            ></div>
-            <div
-              className={currentIndex === 2 ? "active-dot me-1" : "dot me-1"}
-            ></div>
-            <div
-              className={currentIndex === 3 ? "active-dot me-1" : "dot me-1"}
-            ></div>
-            <div
-              className={currentIndex === 4 ? "active-dot me-1" : "dot me-1"}
-            ></div>
+                    )
+            })
+            }
+            
           </div>
           <button
             type="button"
@@ -197,7 +178,10 @@ function CircleFeedDetails(props) {
         show={showMobilizerVictoriesModal}
         onClose={() => setShowMobilizerVictoriesModal(false)}
       />
+      </>
+        }
     </>
+  
   );
 }
 

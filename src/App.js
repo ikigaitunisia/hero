@@ -34,7 +34,7 @@ function App() {
         <Route path="/mobilizers" exact component={ListMobilizer} />   
         <Route path="/" exact component={FindCircle} />   
         <Route path="/circle-feed" exact component={CircleFeed} />   
-        <Route path="/circle-feed-details" exact component={CircleFeedDetails} />   
+        <Route path="/circle-feed-details:circlename" exact component={CircleFeedDetails} />   
         <Route path="/circle-home" exact component={CircleHome} />   
         <Route path="/mobilizer-profile2" exact component={MobilizerProfile} />   
       </Router>
