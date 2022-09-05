@@ -63,9 +63,9 @@ function Login() {
         });
     }
 
-const onFailure = (err) => {
-    console.log('failed:', err);
-};
+  const onFailure = (err) => {
+      console.log('failed:', err);
+  };
   const createWallet = () => {
     console.log("ok");
     const user = JSON.parse(localStorage.getItem("user"));
