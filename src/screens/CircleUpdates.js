@@ -21,15 +21,15 @@ function CircleUpdates(props) {
       <div id="appCapsule" className="circles-updates">
         <div className="mt-4">
           <ion-icon
+            src="assets/img/svg/icon18.svg"
+            class="mb-2 icon-btn me-2"
+          ></ion-icon>
+          <ion-icon
             src="assets/img/svg/icon16.svg"
             class="mb-2 icon-btn me-2"
           ></ion-icon>
           <ion-icon
             src="assets/img/svg/icon17.svg"
-            class="mb-2 icon-btn me-2"
-          ></ion-icon>
-          <ion-icon
-            src="assets/img/svg/icon18.svg"
             class="mb-2 icon-btn me-2"
           ></ion-icon>
         </div>
