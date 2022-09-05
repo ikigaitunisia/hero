@@ -303,6 +303,7 @@ function ClubSelectMembershipModal(props) {
                   onClick={() => {
                     history.push("/circle-home");
                     window.location.reload();
+                    
                 
                 }}
                 >
