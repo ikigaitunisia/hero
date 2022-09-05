@@ -4,7 +4,11 @@ import "./ClubSelectMembershipModal.css";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useHistory } from "react-router-dom";
+
 function ClubSelectMembershipModal(props) {
+  const history = useHistory();
+
   useEffect(() => {
     if (props.show) {
       const modal = new Modal(document.getElementById("clubSelectMembership"), {
@@ -296,6 +300,11 @@ function ClubSelectMembershipModal(props) {
                 <button
                   type="button"
                   className="btn btn-outline-secondary btn-lg rounded"
+                  onClick={() => {
+                    history.push("/circle-home");
+                    window.location.reload();
+                
+                }}
                 >
                   Go to my HERO Circle
                 </button>
