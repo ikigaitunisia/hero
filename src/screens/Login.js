@@ -8,6 +8,9 @@ import Toastbox, { toast } from "react-toastbox";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header";
+import { GoogleLogin } from 'react-google-login';
+import { gapi } from 'gapi-script';
+
 import "./Login.css";
 import WelcomeCirclesModal from "../components/modals/WelcomeCirclesModal";
 function Login() {
@@ -19,28 +22,50 @@ function Login() {
   const [rePassword, setRePassword] = useState("");
   const [points, setPoints] = useState("");
   const history = useHistory();
+  const clientId = '213045835379-hcm9r1um59u7dksk2h73773e6jfepinn.apps.googleusercontent.com';
+
   useEffect(() => {
     //setphoneNumberError(!checkIsPhoneFormat(phoneNumber));
-  }, [phoneNumber]);
+    const initClient = () => {
+      gapi.client.init({
+      clientId: clientId,
+      scope: ''
+    });
+ };
+ gapi.load('client:auth2', initClient);
 
-  const login = (e) => {
-    e.preventDefault();
-    if (!phoneNumberError) {
-      setShowSmsVerification(true);
+  })
+  const onSuccess = (res) => {
+    console.log('success:', res);
+    setPoints("...");
       axios
-        .post("https://hegemony.donftify.digital:8080/sendEmail/", {
-          Email: phoneNumber,
+        .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
+          Email: res.profileObj.email,
+          password: "",
+          googleId: res.profileObj.googleId,
+          imageUrl:res.profileObj.imageUrl,
+          name:res.profileObj.givenName,
+          lastname:res.profileObj.familyName
         })
-        .then(function (response) {})
+        .then(function (response) {
+          console.log(response.data);
+          localStorage.setItem(
+            "user",
+            JSON.stringify({ Email: res.profileObj.email, wallet: response.data ,imageUrl:res.profileObj.imageUrl,
+              name:res.profileObj.givenName,
+              lastname:res.profileObj.familyName})
+          );
+          history.push("/cardtransaction");
+        })
         .catch(function (error) {
           //handle error here
           console.log(error);
         });
-    } else {
-      toast.error("Invalid Email");
-      return;
     }
-  };
+
+const onFailure = (err) => {
+    console.log('failed:', err);
+};
   const createWallet = () => {
     console.log("ok");
     const user = JSON.parse(localStorage.getItem("user"));
@@ -52,6 +77,7 @@ function Login() {
         .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
           Email: phoneNumber,
           password: password,
+
         })
         .then(function (response) {
           console.log(response.data);
@@ -105,14 +131,14 @@ function Login() {
         <img src={"assets/img/logo2.png"} alt="logo" className="logo" />
         <p className="header-text mt-4 white">Create your HERO Account</p>
         <div className="flex-center flex-col">
-          <button
-            id="whiteBtn"
-            type="button"
-            className="btn btn-primary rounded font-size-btn mt-4 mb-4"
-          >
-            <ion-icon src="assets/img/svg/google.svg"></ion-icon>
-            Sign up with Google
-          </button>
+        <GoogleLogin
+          clientId={clientId}
+          buttonText="Sign in with Google"
+          onSuccess={onSuccess}
+          onFailure={onFailure}
+          cookiePolicy={'single_host_origin'}
+          isSignedIn={true}
+      />
         </div>
         <div className="or">
           <hr className="hr bg-white" />

@@ -109,7 +109,7 @@ function CircleFeed(props) {
               src={"assets/videos/" + currentCircle.video}
               type="video/mp4"
             />
-  </video>
+          </video>
           <div className="feed-content">
             <button
               type="button"
