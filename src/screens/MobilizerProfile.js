@@ -71,7 +71,14 @@ function CircleHome(props) {
   }, [currentIndex]);
   return (
     <>
-      <Header showHeroLogo showBackBtn showMenuBtn whiteMode transparent />
+      <Header
+        showHeroLogo
+        showBackBtn
+        showMenuBtn
+        whiteMode
+        transparent
+        backTo={"/circle-home"}
+      />
       <div id="appCapsule" className="mobilizer-profile">
         <div class="section mt-2 mb-4">
           <div class="card bg-dark text-white">

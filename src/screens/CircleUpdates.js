@@ -16,6 +16,7 @@ function CircleUpdates(props) {
         showMenuBtn
         transparent
         whiteMode
+        backTo={"/circle-home"}
       />
       <div id="appCapsule" className="circles-updates">
         <div className="mt-4">

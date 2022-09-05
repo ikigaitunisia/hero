@@ -14,6 +14,7 @@ function Header(props) {
   const transparent = props.transparent;
   const showTitlePage = props.showTitlePage;
   const title = props.title;
+  const backTo = props.backTo;
 
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
@@ -56,7 +57,7 @@ function Header(props) {
               className={"headerButton " + colorClass}
               data-bs-toggle="modal"
               data-bs-target="#sidebarPanel"
-              onClick={() => history.push("/")}
+              onClick={() => backTo ? history.push(backTo): history.push("/")}
             >
               <ion-icon name="chevron-back-outline"></ion-icon>
             </a>

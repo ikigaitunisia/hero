@@ -19,6 +19,7 @@ import CircleHome from "./screens/CircleHome";
 import MobilizerProfile from "./screens/MobilizerProfile";
 import CircleUpdates from "./screens/CircleUpdates";
 import CircleVideos from "./screens/CircleVideos";
+import CircleInteractions from "./screens/CircleInteractions";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path="/mobilizer-profile2" exact component={MobilizerProfile} />   
         <Route path="/circle-updates" exact component={CircleUpdates} />   
         <Route path="/circle-videos" exact component={CircleVideos} />   
+        <Route path="/circle-interactions" exact component={CircleInteractions} />   
       </Router>
     </div>
   );

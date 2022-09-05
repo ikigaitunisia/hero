@@ -100,7 +100,10 @@ function CircleHome(props) {
                 ></ion-icon>
                 <span>Videos</span>
               </div>
-              <div className="flex-center flex-col">
+              <div
+                className="flex-center flex-col"
+                onClick={() => history.push("/circle-interactions")}
+              >
                 <ion-icon
                   src="assets/img/svg/icon12.svg"
                   class="mb-2"

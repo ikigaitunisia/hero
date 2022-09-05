@@ -59,6 +59,7 @@ function CircleVideos(props) {
         showMenuBtn
         transparent
         whiteMode
+        backTo={"/circle-home"}
       />
       <div id="appCapsule" className="circle-videos">
         <div className="mt-4">
