@@ -9,6 +9,7 @@
 
 .circles-updates .listview > li {
   align-items: flex-start !important;
+  justify-content: unset !important;
 }
 
 .circles-updates .card-header {
