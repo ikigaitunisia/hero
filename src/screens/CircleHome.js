@@ -75,7 +75,7 @@ function CircleHome(props) {
                 onClick={() => history.push("/mobilizer-profile2")}
               >
                 <ion-icon
-                  src="assets/img/svg/icon8.svg"
+                  src="assets/img/svg/icon10.svg"
                   class="mb-2"
                 ></ion-icon>
                 <span>Mobilizers</span>
@@ -85,7 +85,7 @@ function CircleHome(props) {
                 onClick={() => history.push("/circle-updates")}
               >
                 <ion-icon
-                  src="assets/img/svg/icon9.svg"
+                  src="assets/img/svg/icon12.svg"
                   class="mb-2"
                 ></ion-icon>
                 <span>Updates</span>
@@ -95,7 +95,7 @@ function CircleHome(props) {
                 onClick={() => history.push("/circle-videos")}
               >
                 <ion-icon
-                  src="assets/img/svg/icon10.svg"
+                  src="assets/img/svg/icon8.svg"
                   class="mb-2"
                 ></ion-icon>
                 <span>Videos</span>
@@ -105,7 +105,7 @@ function CircleHome(props) {
                 onClick={() => history.push("/circle-interactions")}
               >
                 <ion-icon
-                  src="assets/img/svg/icon12.svg"
+                  src="assets/img/svg/icon9.svg"
                   class="mb-2"
                 ></ion-icon>
                 <span>Interactions</span>
