@@ -66,14 +66,17 @@ function CircleVideos(props) {
           <ion-icon
             src="assets/img/svg/icon24.svg"
             class="mb-2 icon-btn me-2"
+            onClick={() => history.push("/circle-updates")}
           ></ion-icon>
           <ion-icon
-            src="assets/img/svg/icon16.svg"
+            src="assets/img/svg/icon22.svg"
             class="mb-2 icon-btn me-2"
+            onClick={() => history.push("/circle-videos")}
           ></ion-icon>
           <ion-icon
-            src="assets/img/svg/icon23.svg"
+            src="assets/img/svg/icon17.svg"
             class="mb-2 icon-btn me-2"
+            onClick={() => history.push("/circle-interactions")}
           ></ion-icon>
         </div>
         <div className="section mt-2">
