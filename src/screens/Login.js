@@ -229,8 +229,9 @@ function Login() {
           <button
             type="button"
             className="btn btn-icon rounded btn-primary submit-btn-rounded me-1 mb-1 mt-4"
+            onClick={() => history.push("/")}
           >
-            <ion-icon src="assets/img/svg/next.svg"></ion-icon>
+            <ion-icon src="assets/img/svg/left.svg"></ion-icon>
           </button>
         </div>
       </div>

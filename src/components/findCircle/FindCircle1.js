@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "./FindCircle1.css";
 import Menu from "../Menu";
@@ -6,6 +6,14 @@ import Menu from "../Menu";
 function FindCircle1(props) {
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
+  const [loggedin, setLogedin] = useState(false);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user != null) {
+      setLogedin(true);
+    }
+  }, []);
   const playVideo = (id) => {
     var v = document.getElementById(id);
     if (v.paused) {
@@ -13,6 +21,10 @@ function FindCircle1(props) {
     } else {
       v.pause();
     }
+  };
+  const logout = () => {
+    localStorage.removeItem("user");
+    history.push("/");
   };
   return (
     <div id="findcircle1">
@@ -63,6 +75,13 @@ function FindCircle1(props) {
           </button>
 
           <div className="bottom mt-4 flex-col">
+            <a
+              href=""
+              className="white mb-4 login-link"
+              onClick={loggedin ? logout : () => history.push("/login")}
+            >
+              {loggedin ? "Logout" : "Log in"}
+            </a>
             <button
               id="whiteBtn"
               type="button"

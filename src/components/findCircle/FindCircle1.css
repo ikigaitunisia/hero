@@ -34,3 +34,10 @@
   width: 35px;
   height: 35px;
 }
+
+.login-link {
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+}
