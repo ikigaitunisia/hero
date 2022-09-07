@@ -51,6 +51,7 @@ function Login() {
           console.log(response.data);
           localStorage.setItem(
             "user",
+            
             JSON.stringify({ Email: res.profileObj.email, wallet: response.data ,imageUrl:res.profileObj.imageUrl,
               name:res.profileObj.givenName,
               lastname:res.profileObj.familyName})
