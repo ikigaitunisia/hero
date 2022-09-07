@@ -3,10 +3,24 @@ import { useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import "./CircleUpdates.css";
+import { w3cwebsocket as W3CWebSocket } from "websocket";
+
+const client = new W3CWebSocket('wss://hegemony.donftify.digital:8081');
 
 function CircleUpdates(props) {
   const history = useHistory();
+ 
 
+useEffect(() => {
+  client.onopen = () => {
+    console.log('WebSocket Client Connected');
+};
+
+client.onmessage = (message) => {
+    console.log(message);
+};
+
+})
   return (
     <>
       <Header
