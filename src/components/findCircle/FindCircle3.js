@@ -15,14 +15,14 @@ function FindCircle3(props) {
   return (
     <div>
       <div className="feed" style={{ minHeight: "90vh!important" }}>
-        <video playsInline id="1">
+        <video playsInline id="2">
           <source
             src={"assets/videos/" + "short-video-for-test.mp4"}
             type="video/mp4"
           />
         </video>
         <div className="feed-content">
-          <div>
+        <div className="p-t-h">
             <img
               src={"assets/img/heroLogoWhite.png"}
               alt="logo"
@@ -55,7 +55,7 @@ function FindCircle3(props) {
           <button
             type="button"
             className="btn btn-primary rounded play-btn"
-            onClick={() => playVideo(1)}
+            onClick={() => playVideo(2)}
           >
             <ion-icon name="play" class="m-0"></ion-icon>
           </button>

@@ -36,7 +36,7 @@ function FindCircle1(props) {
           />
         </video>
         <div className="feed-content">
-          <div>
+          <div className="p-t-h">
             <img
               src={"assets/img/heroLogoWhite.png"}
               alt="logo"

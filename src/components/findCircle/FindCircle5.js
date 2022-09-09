@@ -8,7 +8,7 @@ function FindCircle5(props) {
     <div id="findCircle5">
       <div className="" style={{ minHeight: "90vh!important" }}>
         <div className="">
-          <div>
+        <div className="p-t-h">
             <img
               src={"assets/img/heroLogoWhite.png"}
               alt="logo"
