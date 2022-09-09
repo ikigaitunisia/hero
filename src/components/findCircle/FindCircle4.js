@@ -144,9 +144,9 @@ function FindCircle4(props) {
                   data-bs-parent="#accordionExample5"
                 >
                   <div className="accordion-body accordion-body-4 p-4">
-                    “We would have no European Green
+                    <b>“We would have no European Green
                     <br /> Deal without the Fridays for the Future
-                    <br /> movement”
+                    <br /> movement”</b>
                     <br /> -Frans Timmermans, Vice President of the
                     <br /> European Commission.
                   </div>
