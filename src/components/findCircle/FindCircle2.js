@@ -46,7 +46,7 @@ function FindCircle2(props) {
           <div className="section flex-center flex-col">
             <h2 className="mt-3 blue">What are HERO Circles?</h2>
             <p className="blue">
-              <b>Circles are groups of 10 mobilizers</b> working
+              <b>Circles are groups of 5-10 mobilizers</b> working
               <br /> towards a same climate policy objective.
             </p>
             <p className="blue">
