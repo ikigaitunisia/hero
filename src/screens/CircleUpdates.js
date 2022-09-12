@@ -61,7 +61,61 @@ const addFeed = () => {
         else if (item.typeMedia == "photo")
         {
           k.push (
-            <ImageFeed item={item} key={i} index={i} onPress={like} />
+            <li key={i+item.id+"li"}>
+              
+            <div>
+              <img
+                src="assets/img/sample/photo/1.jpg"
+                alt="image"
+                class="imaged w48 rounded"
+              />
+            </div>
+            <div
+              className="in"
+              style={{ textAlign: "start", marginLeft: "20px" }}
+            >
+              <div className="blue">
+                <div className="">
+                  <strong>
+                  {item.mobilizer} <small>{item.time}</small>
+                  </strong>
+                </div>
+                <div className="mb-05">
+                  <span>{"@"+item.mobilizer}</span>
+                </div>
+                <div className="text-xsmall">
+                {item.desc}
+   
+                </div>
+              </div>
+              <div className="flex-row mt-3 mb-4">
+                <img 
+                    src={"http://hegemony.donftify.digital/HeroCoin/uploads/"+item.url}
+                  />
+              </div>
+              <div className="flex-row mt-3" key={i+item.id+"div"}>
+                <div className="flex-center flex-row" key={i+item.id+"div1"}>
+                 <button  style={{zIndex:"999999",border:"2px"}}  key={i+item.id}
+                    id = {i+item.id}
+                    onClick={(e) => like(e)}>ok</button>
+                  <ion-icon
+                    src="assets/img/svg/icon20.svg"
+                    style={{ width: "15px", height: "15px" }}
+                    className="me-1"
+                  ></ion-icon>
+                  <span className="me-2">{item.likes}</span>
+                </div>
+                <div className="flex-center flex-row">
+                  <ion-icon
+                    src="assets/img/svg/icon21.svg"
+                    style={{ width: "15px", height: "15px" }}
+                    class="me-1"
+                  ></ion-icon>
+                  <span>250</span>
+                </div>
+              </div>
+              </div>
+          </li>
           )
         }
         
@@ -72,20 +126,21 @@ const addFeed = () => {
   };
   
 
-
-client.onmessage = (message) => {
-    let data = JSON.parse(message.data);
-    console.log(data.type);
-    if (data.type == "updatesFeed")
-    {
-      
-      let a = feed;
-      a.push(data.data);
-      setFeed(a);
-      console.log(feed);
-      addFeed();
+  client.onmessage = (message) => {
+    console.log(message.data)
+    if(message.data !== "something"){
+      let data = JSON.parse(message.data);
+      console.log(data.type);
+      if (data.type == "updatesFeed") {
+        let a = feed;
+        a.push(data.data);
+        setFeed(a);
+        console.log(feed);
+        addFeed();
+      }
     }
-};
+
+  };
 
 })
   return (
@@ -122,11 +177,16 @@ client.onmessage = (message) => {
             <ul className="listview flush transparent simple-listview">
 
              
-                <li>
-                {feedHtml}
+                
+                {feedHtml.map((cell,j) => {
+                  return (
+                      <>
+                      {cell}
+                      </>
+                  )
+                  
+                  })}
                  
-                 
-                 </li>
                 
              
             </ul>
