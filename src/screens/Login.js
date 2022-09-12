@@ -51,12 +51,11 @@ function Login() {
           console.log(response.data);
           localStorage.setItem(
             "user",
-            
             JSON.stringify({ Email: res.profileObj.email, wallet: response.data ,imageUrl:res.profileObj.imageUrl,
               name:res.profileObj.givenName,
               lastname:res.profileObj.familyName})
           );
-          history.push("/cardtransaction");
+          history.push("/");
         })
         .catch(function (error) {
           //handle error here
@@ -78,15 +77,19 @@ function Login() {
         .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
           Email: phoneNumber,
           password: password,
-
+          googleId: "",
+          imageUrl:"",
+          name:"",
+          lastname:""
         })
         .then(function (response) {
           console.log(response.data);
+          console.log(phoneNumber);
           localStorage.setItem(
             "user",
             JSON.stringify({ Email: phoneNumber, wallet: response.data })
           );
-          history.push("/cardtransaction");
+          history.push("/");
         })
         .catch(function (error) {
           //handle error here
@@ -155,6 +158,8 @@ function Login() {
                   className="form-control"
                   id="email4b"
                   placeholder="Your email"
+                  value={phoneNumber}
+                  onChange={(ev) => setPhoneNumber(ev.target.value)}
                 />
                 <i className="clear-input">
                   <ion-icon
@@ -175,6 +180,8 @@ function Login() {
                   className="form-control"
                   id="password4b"
                   placeholder="Password"
+                  value={password}
+                  onChange={(ev) => setPassword(ev.target.value)}
                 />
                 <i className="clear-input">
                   <ion-icon
@@ -220,7 +227,8 @@ function Login() {
               id="whiteBlueBtn"
               type="button"
               className="btn btn-primary rounded font-size-btn mt-4 mb-4 "
-              onClick={() => setShowWelcomeCirclesModal(true)}
+              /*onClick={() => setShowWelcomeCirclesModal(true)} */
+              onClick={() => createWallet()}
             >
               Join HERO
             </button>

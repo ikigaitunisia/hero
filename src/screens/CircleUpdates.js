@@ -3,21 +3,88 @@ import { useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import "./CircleUpdates.css";
-import { w3cwebsocket as W3CWebSocket } from "websocket";
+import TextFeed from './TextFeed';
+import VideoFeed from './VideoFeed';
+import ImageFeed from './ImageFeed';
 
+
+import { w3cwebsocket as W3CWebSocket } from "websocket";
+import axios from "axios";
 const client = new W3CWebSocket('wss://hegemony.donftify.digital:8081');
+const user = JSON.parse(localStorage.getItem("user"));
 
 function CircleUpdates(props) {
   const history = useHistory();
- 
+  const [feed,setFeed] = useState([]);
+  const [feedHtml,setFeedHtml] = useState([]);
 
+  client.onmessage = (message) => {
+    console.log(message);
+  
+};
+const like = () => {
+  console.log("ok");
+}
+/*const like = (i,postID) => {
+    console.log("llll");
+    axios.post("https://hegemony.donftify.digital:8080/supporter/react-post", {type:"LIKE",postId:postID,email:user.Email}, {
+    }).then(res => {
+      console.log(res.data);
+      let k = feed;
+      k[i].likes = res.data;
+      setFeed(feed);
+      client.send(JSON.stringify({type:"updatesLike",data:res.data,postID:postID}));
+    })
+}*/
 useEffect(() => {
+
+  console.log(user);
+
   client.onopen = () => {
     console.log('WebSocket Client Connected');
 };
+const addFeed = () => {
+     let k = []
+     feed.map((item, i) => {
+      if (item.typeMedia == "text")
+      {
+        k.push (
+            <TextFeed item={item} key={i} index={i} />
+        )
+        }
+        else if (item.typeMedia == "video")
+        {
+          k.push (
+            <VideoFeed item={item} key={i} index={i}/>
+         )
+        }
+        else if (item.typeMedia == "photo")
+        {
+          k.push (
+            <ImageFeed item={item} key={i} index={i} onPress={like} />
+          )
+        }
+        
+      }
+
+  )
+  setFeedHtml(k);
+  };
+  
+
 
 client.onmessage = (message) => {
-    console.log(message);
+    let data = JSON.parse(message.data);
+    console.log(data.type);
+    if (data.type == "updatesFeed")
+    {
+      
+      let a = feed;
+      a.push(data.data);
+      setFeed(a);
+      console.log(feed);
+      addFeed();
+    }
 };
 
 })
@@ -53,143 +120,15 @@ client.onmessage = (message) => {
         <div className="section mt-2">
           <div className="card">
             <ul className="listview flush transparent simple-listview">
-              <li>
-                <div>
-                  <img
-                    src="assets/img/sample/photo/1.jpg"
-                    alt="image"
-                    class="imaged w48 rounded"
-                  />
-                </div>
-                <div
-                  className="in"
-                  style={{ textAlign: "start", marginLeft: "20px" }}
-                >
-                  <div className="blue">
-                    <div className="">
-                      <strong>
-                        Mobilizer 1 <small>10h</small>
-                      </strong>
-                    </div>
-                    <div className="mb-05">
-                      <span>@mobilizer1</span>
-                    </div>
-                    <div className="text-xsmall">
-                      This is an update about an event. <b>@Circle Event 1</b>{" "}
-                      can be tagged to access more details.
-                    </div>
-                  </div>
-                  <div class="card text-white bg-primary mt-2 mb-2">
-                    <div class="card-header flex-center">
-                      <ion-icon src="assets/img/svg/icon19.svg"></ion-icon>
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title blue">Circle Event 1</h5>
-                      <p class="card-text blue">
-                        Month Day, 0:00 am - Month Day, 0:00 pm CET
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex-row mt-3">
-                    <div className="flex-center flex-row">
-                      <ion-icon
-                        src="assets/img/svg/icon20.svg"
-                        style={{ width: "15px", height: "15px" }}
-                        class="me-1"
-                      ></ion-icon>
-                      <span className="me-2">100</span>
-                    </div>
-                    <div className="flex-center flex-row">
-                      <ion-icon
-                        src="assets/img/svg/icon21.svg"
-                        style={{ width: "15px", height: "15px" }}
-                        class="me-1"
-                      ></ion-icon>
-                      <span>250</span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <img
-                    src="assets/img/sample/photo/1.jpg"
-                    alt="image"
-                    class="imaged w48 rounded"
-                  />
-                </div>
-                <div
-                  className="in"
-                  style={{ textAlign: "start", marginLeft: "20px" }}
-                >
-                  <div className="blue">
-                    <div className="">
-                      <strong>
-                        Mobilizer 2 <small>12h</small>
-                      </strong>
-                    </div>
-                    <div className="mb-05">
-                      <span>@mobilizer2</span>
-                    </div>
-                    <div className="text-xsmall">
-                      This is a text update with up to 280 characters.
-                    </div>
-                  </div>
-                  <div className="flex-row mt-3">
-                    <div className="flex-center flex-row">
-                      <ion-icon
-                        src="assets/img/svg/icon20.svg"
-                        style={{ width: "15px", height: "15px" }}
-                        class="me-1"
-                      ></ion-icon>
-                      <span className="me-2">100</span>
-                    </div>
-                    <div className="flex-center flex-row">
-                      <ion-icon
-                        src="assets/img/svg/icon21.svg"
-                        style={{ width: "15px", height: "15px" }}
-                        class="me-1"
-                      ></ion-icon>
-                      <span>250</span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <img
-                    src="assets/img/sample/photo/1.jpg"
-                    alt="image"
-                    class="imaged w48 rounded"
-                  />
-                </div>
-                <div
-                  className="in"
-                  style={{ textAlign: "start", marginLeft: "20px" }}
-                >
-                  <div className="blue">
-                    <div className="">
-                      <strong>
-                        Mobilizer 3 <small>1d</small>
-                      </strong>
-                    </div>
-                    <div className="mb-05">
-                      <span>@mobilizer3</span>
-                    </div>
-                    <div className="text-xsmall">
-                      This is a text update with media, in this case a video.
-                    </div>
-                  </div>
-                  <div className="flex-row mt-3 mb-4">
-                    <video playsInline>
-                      <source
-                        src={"assets/videos/" + "short-video-for-test.mp4"}
-                        type="video/mp4"
-                      />
-                    </video>
-                  </div>
-                </div>
-              </li>
+
+             
+                <li>
+                {feedHtml}
+                 
+                 
+                 </li>
+                
+             
             </ul>
           </div>
         </div>
