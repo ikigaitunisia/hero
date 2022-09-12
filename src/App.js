@@ -22,6 +22,7 @@ import CircleVideos from "./screens/CircleVideos";
 import CircleInteractions from "./screens/CircleInteractions";
 import CircleDashboard from "./screens/CircleDashboard";
 import HeroTeam from "./screens/HeroTeam";
+import Echo from "./screens/Echo";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         <Route path="/circle-interactions" exact component={CircleInteractions} />   
         <Route path="/CircleDashboard:circlename" exact component={CircleDashboard} /> 
         <Route path="/hero-team" exact component={HeroTeam} />   
+        <Route path="/echo" exact component={Echo} />   
       </Router>
     </div>
   );
