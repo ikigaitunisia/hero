@@ -20,6 +20,7 @@ import MobilizerProfile from "./screens/MobilizerProfile";
 import CircleUpdates from "./screens/CircleUpdates";
 import CircleVideos from "./screens/CircleVideos";
 import CircleInteractions from "./screens/CircleInteractions";
+import HeroTeam from "./screens/HeroTeam";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/circle-updates" exact component={CircleUpdates} />   
         <Route path="/circle-videos" exact component={CircleVideos} />   
         <Route path="/circle-interactions" exact component={CircleInteractions} />   
+        <Route path="/hero-team" exact component={HeroTeam} />   
       </Router>
     </div>
   );

@@ -1,0 +1,41 @@
+.team-img {
+  width: 120px;
+  height: 120px;
+}
+
+.team-hero {
+  background: linear-gradient(0deg, #f5f5f5, #80808024);
+}
+
+.team-hero h4 {
+  font-size: 25px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+.founders p {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.member-team p {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.member-team h5 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+}
+.member-team span {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.team-hero .hr-text{
+    background-color: blue;
+}
