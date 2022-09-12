@@ -1,5 +1,9 @@
 Welcome to the Hero Github Readme !
 
+Nav bar fix
+font, size, spacing fix
+array of circle fix & test many stories
+
 To all testers
 
 Main Contributor flow :  we have done our best to make this test user friendly, but we are on the testnet, so you will need to bear in mind the following 

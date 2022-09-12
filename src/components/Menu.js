@@ -32,15 +32,15 @@ function Menu(props) {
   };
   return (
     <div
-      className="modal fade panelbox panelbox-left"
+      className="modal fade panelbox panelbox-left w-100"
       id="menu"
       tabIndex="-1"
       role="dialog"
     >
-      <div className="modal-dialog" role="document">
-        <div className="modal-content">
-          <div className="modal-body p-0">
-            <div className=" pt-2 pb-2">
+      <div className="modal-dialog w-100" role="document">
+        <div className="modal-content  w-100 d-flex align-items-center justify-content-center">
+          <div className="modal-body p-0 d-flex flex-column justify-content-around">
+            <div className=" pt-2 pb-2 xicon">
               <a
                 href="#"
                 className="btn btn-link btn-icon sidebar-close"
