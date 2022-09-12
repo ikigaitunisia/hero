@@ -21,6 +21,8 @@ import CircleUpdates from "./screens/CircleUpdates";
 import CircleVideos from "./screens/CircleVideos";
 import CircleInteractions from "./screens/CircleInteractions";
 import CircleDashboard from "./screens/CircleDashboard";
+import HeroTeam from "./screens/HeroTeam";
+
 function App() {
   return (
     <div className="App">
@@ -44,6 +46,7 @@ function App() {
         <Route path="/circle-videos" exact component={CircleVideos} />   
         <Route path="/circle-interactions" exact component={CircleInteractions} />   
         <Route path="/CircleDashboard:circlename" exact component={CircleDashboard} /> 
+        <Route path="/hero-team" exact component={HeroTeam} />   
       </Router>
     </div>
   );

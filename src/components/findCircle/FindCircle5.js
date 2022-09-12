@@ -8,7 +8,7 @@ function FindCircle5(props) {
     <div id="findCircle5">
       <div className="" style={{ minHeight: "90vh!important" }}>
         <div className="">
-        <div className="p-t-h">
+          <div className="p-t-h">
             <img
               src={"assets/img/heroLogoWhite.png"}
               alt="logo"
@@ -37,11 +37,11 @@ function FindCircle5(props) {
             <div className="card border-blue mb-3">
               <div className="card-body flex-center flex-col">
                 <img
-                  src="assets/img/image7.png"
+                  src="assets/img/image5.png"
                   alt="image"
                   className="imaged w48 rounded"
                 />
-                <span className="blue">A girl from AMS</span>
+                <span className="blue">Esther Rimmelink</span>
                 <small className="blue mb-2">Amsterdam, Netherlands</small>
                 <p className="blue">
                   “I wanted to do more for climate, but I just
@@ -53,12 +53,12 @@ function FindCircle5(props) {
             <div className="card border-blue mb-3">
               <div className="card-body flex-center flex-col">
                 <img
-                  src="assets/img/image5.png"
+                  src="assets/img/image6.png"
                   alt="image"
                   className="imaged w48 rounded"
                 />
                 <span className="blue">Anne-Flore Lepeu</span>
-                <small className="blue mb-2">Paris, France</small>
+                <small className="blue mb-2">Bordeaux, France</small>
                 <p className="blue">
                   “Having real time reports on the policies
                   <br /> impacted by the HERO Circle I support is
@@ -69,11 +69,11 @@ function FindCircle5(props) {
             <div className="card border-blue mb-3">
               <div className="card-body flex-center flex-col">
                 <img
-                  src="assets/img/image6.png"
+                  src="assets/img/image7.png"
                   alt="image"
                   className="imaged w48 rounded"
                 />
-                <span className="blue">A guy from London</span>
+                <span className="blue">Leo Horn</span>
                 <small className="blue mb-2">London, UK</small>
                 <p className="blue">
                   “HERO has made changing the world as

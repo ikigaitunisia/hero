@@ -41,3 +41,25 @@
 #menu img {
   width: 32px !important;
 }
+
+
+
+
+.modal-content {
+  width: 100wv;
+}
+
+.in.blue {
+  font-family: 'Seravek';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+.modal-body {
+  margin-top: -1rem;
+}
+
+ .xicon {
+  margin-top: 4rem;
+}
