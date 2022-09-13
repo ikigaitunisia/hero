@@ -2,32 +2,32 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
-import "./AccountInformation.css";
+import "./EditPassword.css";
 
-function AccountInformation(props) {
+function EditPassword(props) {
   const history = useHistory();
 
   return (
     <>
       <Header
         showTitlePage
-        title={"Account Information"}
+        title={"Change Password"}
         showBackBtn
         showMenuBtn
         transparent
         whiteMode
         backTo={"/"}
       />
-      <div id="appCapsule" className="account-information">
+      <div id="appCapsule" className="edit-password">
         <div className="mt-4">
           <ion-icon
-            src="assets/img/svg/accountInfo.svg"
+            src="assets/img/svg/account.svg"
             class="mb-2 icon-btn me-2"
+            onClick={() => history.push("/account-information")}
           ></ion-icon>
           <ion-icon
-            src="assets/img/svg/passwordInfo.svg"
+            src="assets/img/svg/passwordInfoWhite.svg"
             class="mb-2 icon-btn me-2"
-            onClick={() => history.push("/edit-password")}
           ></ion-icon>
           <ion-icon
             src="assets/img/svg/notification.svg"
@@ -40,42 +40,40 @@ function AccountInformation(props) {
         </div>
         <div className="section mt-2">
           <div className="card flex-center pt-4 pb-4">
-            <img
-              src="assets/img/sample/photo/1.jpg"
-              alt="image"
-              className="imaged w48 rounded mb-3"
-            />
-            <span className="blue">Upload profile photo</span>
+            <span>
+              Your password must be at least 6 characters
+              <br /> and should include a combination of numbers,
+              <br /> letters and special characters (!$@%)
+            </span>
             <hr className="hr mt-4 mb-4" />
             <div id="">
               <form>
                 <div className="form-group boxed">
                   <div className="input-wrapper">
                     <label className="label mb-3" for="text4b">
-                      Full Name
+                      Current Password
                     </label>
                     <input
-                      type="text"
+                      type="password"
                       className="form-control"
                       id="text4b"
-                      placeholder="Supporter One"
+                      placeholder=""
                     />
                     <i className="clear-input">
                       <ion-icon name="close-circle"></ion-icon>
                     </i>
                   </div>
                 </div>
-
                 <div className="form-group boxed">
                   <div className="input-wrapper">
-                    <label className="label mb-3" for="email4b">
-                      HERO ID
+                    <label className="label mb-3" for="text4b">
+                      New Password
                     </label>
                     <input
-                      type="email"
+                      type="password"
                       className="form-control"
-                      id="email4b"
-                      placeholder="@supporterone"
+                      id="text4b"
+                      placeholder=""
                     />
                     <i className="clear-input">
                       <ion-icon name="close-circle"></ion-icon>
@@ -84,49 +82,18 @@ function AccountInformation(props) {
                 </div>
                 <div className="form-group boxed">
                   <div className="input-wrapper">
-                    <label className="label mb-3" for="email4b">
-                      Email
+                    <label className="label mb-3" for="text4b">
+                      Confirm New Password
                     </label>
                     <input
-                      type="email"
+                      type="password"
                       className="form-control"
-                      id="email4b"
-                      placeholder="supporterone@gmail.com"
+                      id="text4b"
+                      placeholder=""
                     />
                     <i className="clear-input">
                       <ion-icon name="close-circle"></ion-icon>
                     </i>
-                  </div>
-                </div>
-                <div className="form-group boxed">
-                  <div className="input-wrapper">
-                    <label className="label mb-3" for="select4b">
-                      Where do you live?
-                    </label>
-                    <select
-                      className="form-control custom-select"
-                      id="select4b"
-                    >
-                      <option value="1">Netherlands</option>
-                      <option value="2">Netherlands</option>
-                      <option value="3">Netherlands</option>
-                      <option value="4">Netherlands</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="flex-center mt-3">
-                  <p className="m-0">I want to receive email updates</p>
-                  <div className="form-check form-switch">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="SwitchCheckDefault4"
-                      checked="true"
-                    />
-                    <label
-                      className="form-check-label"
-                      for="SwitchCheckDefault4"
-                    ></label>
                   </div>
                 </div>
               </form>
@@ -145,4 +112,4 @@ function AccountInformation(props) {
   );
 }
 
-export default withRouter(AccountInformation);
+export default withRouter(EditPassword);

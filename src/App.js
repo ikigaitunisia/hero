@@ -24,6 +24,7 @@ import CircleDashboard from "./screens/CircleDashboard";
 import HeroTeam from "./screens/HeroTeam";
 import Echo from "./screens/Echo";
 import AccountInformation from "./screens/AccountInformation";
+import EditPassword from "./screens/EditPassword";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
         <Route path="/hero-team" exact component={HeroTeam} />   
         <Route path="/echo" exact component={Echo} />   
         <Route path="/account-information" exact component={AccountInformation} />   
+        <Route path="/edit-password" exact component={EditPassword} />   
       </Router>
     </div>
   );
