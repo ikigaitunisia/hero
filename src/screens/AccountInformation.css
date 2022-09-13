@@ -1,0 +1,47 @@
+.account-information {
+  background: linear-gradient(0deg, white, blue);
+}
+
+.account-information span {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17.18px;
+}
+
+.account-information .form-group .label {
+  font-size: 14px;
+  margin: 0;
+  font-weight: 600;
+  color: #27173e;
+  display: block;
+  line-height: 17.18px;
+  text-align: center;
+}
+
+.account-information ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  text-align: center;
+}
+
+.account-information button {
+  width: 102px;
+  height: 36px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17.18px;
+}
+
+.account-information .form-group.boxed .form-control {
+  border-radius: 50px;
+}
+
+.account-information p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17.18px;
+}
+
+.account-information .card {
+  border-radius: 50px;
+}
