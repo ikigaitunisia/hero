@@ -62,14 +62,14 @@ function Echo() {
             quote={"fb_share"}
             style={{width:"40px",height:"40px",borderRadius: "50%"}}
           >
-                  <ion-icon class="blue" name="logo-whatsapp"></ion-icon>
-                  </WhatsappShareButton>
-                <button
+                   <button
                   type="button"
                   className="btn btn-icon rounded btn-primary social-btn"
                 >
                   <img class="blue" src="assets/img/svg/whatsapp.svg"/>
                 </button>
+                  </WhatsappShareButton>
+              
               </div>
               
             
