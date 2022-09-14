@@ -42,13 +42,13 @@ function App() {
         <Route path="/circle-feed" exact component={CircleFeed} />   
         <Route path="/circle-feed-details:circlename" exact component={CircleFeedDetails} />   
         <Route path="/circle-home" exact component={CircleHome} />   
-        <Route path="/mobilizer-profile2" exact component={MobilizerProfile} />   
+        <Route path="/mobilizer-profile2:circlename" exact component={MobilizerProfile} />   
         <Route path="/circle-updates" exact component={CircleUpdates} />   
         <Route path="/circle-videos" exact component={CircleVideos} />   
         <Route path="/circle-interactions" exact component={CircleInteractions} />   
         <Route path="/CircleDashboard:circlename" exact component={CircleDashboard} /> 
         <Route path="/hero-team" exact component={HeroTeam} />   
-        <Route path="/echo" exact component={Echo} />   
+        <Route path="/echo:circlename" exact component={Echo} />   
       </Router>
     </div>
   );

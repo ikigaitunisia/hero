@@ -22,7 +22,10 @@ function WelcomeCirclesModal(props) {
 
   useEffect(() => {
     const btn1 = document.getElementById("btn1");
-    btn1.addEventListener("click", () => {});
+    btn1.addEventListener("click", () => {
+      history.push("/echo:"+props.circle);
+      window.location.reload();
+    });
     const btn2 = document.getElementById("btn2");
     btn2.addEventListener("click", () => {
       history.push("/circle-home");
@@ -39,6 +42,7 @@ function WelcomeCirclesModal(props) {
       <div
         className="modal fade modalbox"
         id="welcomeCircles"
+        key="welcomeCircles"
         tabIndex="-1"
         role="dialog"
       >
@@ -71,7 +75,7 @@ function WelcomeCirclesModal(props) {
                   <br /> exclusive features.
                 </p>
 
-                <button id="btn1" type="button" className="btn btn-lg mb-4">
+                <button id="btn1" type="button" className="btn btn-lg mb-4" onClick={() => console.log("ok")}>
                   Echo this circle,
                   <br />
                   invite your friends to join!

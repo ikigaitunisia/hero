@@ -169,6 +169,7 @@ function CircleFeedDetails(props) {
       <ClubSelectMembershipModal
         show={showClubSelectMembershipModal}
         onClose={() => setShowClubSelectMembershipModal(false)}
+        circle={circlename.replace(":","")}
       />
       <ActivistCampaignsModal
         show={showMobilizerCampaignsModal}

@@ -168,6 +168,7 @@ function CircleFeed(props) {
       <ClubSelectMembershipModal
         show={showClubSelectMembershipModal}
         onClose={() => setShowClubSelectMembershipModal(false)}
+        circle={currentCircle.name}
       />
       </>
         }

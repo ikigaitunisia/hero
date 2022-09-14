@@ -1,10 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter,useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
+import {
+  
+  
+  LinkedinShareButton,
+  TwitterShareButton,
+  FacebookShareButton,
+  WhatsappShareButton,
+ 
+  
+ 
+
+} from "react-share";
 function Echo() {
   const history = useHistory();
-
+  const [Copied,setCopied] = useState("copie");
+  const { circlename } = useParams();
+  const valueOF = "https://hegemony.donftify.digital:3001/circle-feed-details"+circlename;
   return (
     <>
       <div
@@ -23,65 +38,62 @@ function Echo() {
             <input
               type="text"
               class="form-control"
-              placeholder="circle1.hero-labs.co"
+              placeholder={valueOF}
+              value={valueOF}
               aria-label="circle1.hero-labs.co"
               aria-describedby="basic-addon2"
+              readonly
             />
             <div class="input-group-append">
+            <CopyToClipboard text={valueOF}
+          onCopy={() => setCopied("copied")}>
               <button class="btn btn-outline-secondary" type="button">
-                Copy
+              {Copied}
               </button>
+              </CopyToClipboard>
             </div>
           </div>
           <div className="section center">
             <div id="social-btn-container2" className="row mb-4">
               <div className="flex-col-center col mb-3 p-0">
-                <button
-                  type="button"
-                  className="btn btn-icon rounded btn-primary social-btn"
-                >
+              <WhatsappShareButton
+            url={"https://hegemony.donftify.digital:3001/"}
+            quote={"fb_share"}
+            style={{width:"40px",height:"40px",borderRadius: "50%"}}
+          >
                   <ion-icon class="blue" name="logo-whatsapp"></ion-icon>
-                </button>
+                  </WhatsappShareButton>
               </div>
+              
+            
               <div className="flex-col-center col mb-3 p-0">
-                <button
-                  type="button"
-                  className="btn btn-icon rounded btn-primary social-btn"
-                >
-                  <ion-icon src="assets/img/svg/tiktok2.svg"></ion-icon>
-                </button>
-              </div>
-              <div className="flex-col-center col mb-3 p-0">
-                <button
-                  type="button"
-                  className="btn btn-icon rounded btn-primary social-btn"
-                >
-                  <ion-icon class="blue" name="logo-instagram"></ion-icon>
-                </button>
-              </div>
-              <div className="flex-col-center col mb-3 p-0">
-                <button
-                  type="button"
-                  className="btn btn-icon rounded btn-primary social-btn"
-                >
+              <TwitterShareButton
+            url={"https://hegemony.donftify.digital:3001/"}
+            quote={"fb_share"}
+            style={{width:"40px",height:"40px",borderRadius: "50%"}}
+          >
                   <ion-icon class="blue" name="logo-twitter"></ion-icon>
-                </button>
+                  </TwitterShareButton>
+              </div>
+              
+              <div className="flex-col-center col mb-3 p-0">
+              <FacebookShareButton
+            url={"https://hegemony.donftify.digital:3001/"}
+            quote={"fb_share"}
+            style={{width:"40px",height:"40px",borderRadius: "50%"}}
+          >
+              <ion-icon class="blue" name="logo-facebook" ></ion-icon>
+          </FacebookShareButton>
               </div>
               <div className="flex-col-center col mb-3 p-0">
-                <button
-                  type="button"
-                  className="btn btn-icon rounded btn-primary social-btn"
-                >
-                  <ion-icon class="blue" name="logo-facebook"></ion-icon>
-                </button>
-              </div>
-              <div className="flex-col-center col mb-3 p-0">
-                <button
-                  type="button"
-                  className="btn btn-icon rounded btn-primary social-btn"
-                >
-                  <ion-icon class="blue" name="logo-linkedin"></ion-icon>
-                </button>
+               
+                  <LinkedinShareButton
+            url={"https://hegemony.donftify.digital:3001/"}
+            quote={"fb_share"}
+            style={{width:"40px",height:"40px",borderRadius: "50%"}}
+          >
+                  <ion-icon class="blue" name="logo-linkedin" ></ion-icon>
+                  </LinkedinShareButton>
               </div>
             </div>
           </div>

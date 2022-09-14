@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory,useParams } from "react-router-dom";
 import "./CircleHome.css";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
+import axios from "axios"
 import "./MobilizerProfile.css";
 
-function CircleHome(props) {
+function MobilizerProfile(props) {
   const history = useHistory();
-  const circles = [
+
+  /*const circles = [
     {
       id: "1",
       name: "Anuna de Wever",
@@ -54,22 +56,77 @@ function CircleHome(props) {
         "This is a brief description of the mobilizer’s work, organizations and projects.",
     },
   ];
+  */
+  const [mobilizers,setMobilizers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentCircle, setCurrentCircle] = useState(circles[0]);
-
+  const [currentCircle, setCurrentCircle] = useState({});
+  const [load,setLoad] = useState(false);
+  const { circlename } = useParams();
+  const [socials,setSocials] = useState([]);
+  const [Instagram,setInstagram] = useState("");
+  const [Facebook,setFacebook] = useState("");
+  const [Twitter,setTwitter] = useState("");
+  const [TikTok,setTikTok] = useState("");
   const goToNextCircle = () => {
-    if (currentIndex === 4) {
+    if (currentIndex === mobilizers.length - 1) {
       setCurrentIndex(0);
-      setCurrentCircle(circles[0]);
+      setCurrentCircle(mobilizers[0]);
+      
       return;
     }
     setCurrentIndex(currentIndex + 1);
+    let socials = JSON.parse(mobilizers[currentIndex].Socials);
+        
+        if ('Instagram' in socials)
+        {
+          setInstagram(socials.Instagram);
+        }
+        if("Twitter" in socials)
+        {
+          setTwitter(socials.Twitter);
+        }
+        if("Facebook" in socials)
+        {
+          setFacebook(socials.Facebook);
+        }
+        if("TikTok" in socials)
+        {
+          setTikTok(socials.TikTok)
+        }
   };
 
   useEffect(() => {
-    setCurrentCircle(circles[currentIndex]);
+    axios.get("https://hegemony.donftify.digital:8080/circle/members/"+circlename.replace(":",""))
+      .then((res) => {
+        console.log(res.data);
+        setCurrentCircle(res.data[currentIndex]);
+
+        setMobilizers(res.data);
+        console.log(res.data.Socials)
+        let socials = JSON.parse(res.data[currentIndex].Socials);
+        
+        if ('Instagram' in socials)
+        {
+          setInstagram(socials.Instagram);
+        }
+        if("Twitter" in socials)
+        {
+          setTwitter(socials.Twitter);
+        }
+        if("Facebook" in socials)
+        {
+          setFacebook(socials.Facebook);
+        }
+        if("TikTok" in socials)
+        {
+          setTikTok(socials.TikTok)
+        }
+          setLoad(true);
+        });
   }, [currentIndex]);
   return (
+    <>
+    {load &&
     <>
       <Header
         showHeroLogo
@@ -111,47 +168,57 @@ function CircleHome(props) {
                 <span>{currentCircle.lead}</span>
               </div>
               <p>{currentCircle.description}</p>
-
+              
               <div className="flex-center flex-row mb-4">
+              
+                      <>
+                      {TikTok!= "" &&
                 <button
                   type="button"
                   className="btn btn-icon rounded btn-primary social-btn2 me-1"
+                  onClick={() =>  window.open(TikTok, '_blank', 'noopener,noreferrer')}
                 >
                   <ion-icon src="assets/img/svg/tiktok2.svg"></ion-icon>
                 </button>
+                }
+                {Instagram != "" &&
                 <button
                   type="button"
                   className="btn btn-icon rounded btn-primary social-btn2 me-1"
+                  onClick={() =>  window.open(Instagram, '_blank', 'noopener,noreferrer')}
                 >
                   <ion-icon class="blue" name="logo-instagram"></ion-icon>
                 </button>
+}     
+{Twitter != "" &&
                 <button
                   type="button"
                   className="btn btn-icon rounded btn-primary social-btn2"
+                  onClick={() =>  window.open(Twitter, '_blank', 'noopener,noreferrer')}
                 >
                   <ion-icon class="blue" name="logo-twitter"></ion-icon>
                 </button>
+}
+                </>
+               
+                
               </div>
             </div>
           </div>
         </div>
         <div className="circle-feed-bottom mb-4">
+     
           <div style={{ display: "flex" }}>
+          {mobilizers.map((item, i) => {
+                    return (
+
             <div
-              className={currentIndex === 0 ? "active-dot me-1" : "dot me-1"}
+              className={currentIndex === i ? "active-dot me-1" : "dot me-1"}
+              onClick={goToNextCircle}
             ></div>
-            <div
-              className={currentIndex === 1 ? "active-dot me-1" : "dot me-1"}
-            ></div>
-            <div
-              className={currentIndex === 2 ? "active-dot me-1" : "dot me-1"}
-            ></div>
-            <div
-              className={currentIndex === 3 ? "active-dot me-1" : "dot me-1"}
-            ></div>
-            <div
-              className={currentIndex === 4 ? "active-dot me-1" : "dot me-1"}
-            ></div>
+                    )
+            })
+            }
           </div>
           {
             <button
@@ -164,8 +231,10 @@ function CircleHome(props) {
           }
         </div>
       </div>
+      </>
+    }
     </>
   );
 }
 
-export default withRouter(CircleHome);
+export default withRouter(MobilizerProfile);
