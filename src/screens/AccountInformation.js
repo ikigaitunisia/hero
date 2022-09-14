@@ -1,12 +1,73 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import "./AccountInformation.css";
+import axios from "axios";
 
 function AccountInformation(props) {
   const history = useHistory();
+  const [fullName,setFullName] = useState("");
+  const [HeroId,setHeroId] = useState("");
+  const [Email,setEmail]= useState("");
+  const [livingCountry,setLivingCountry] = useState("");
+  const [profilePhoto,setProfilePhoto] = useState("");
+  const [choosedFile,setChoosedFile] = useState(null);
+  const user = JSON.parse(localStorage.getItem("user"));
+  const inputFilePhoto = useRef(null) ;
+  const clickedFile = () => {
+    inputFilePhoto.current.click();
+    console.log(choosedFile);
+    
+  }
+  console.log(choosedFile);
 
+  const getUserInfo = () => {
+    axios
+    .post("https://hegemony.donftify.digital:8080/userInfo/", {
+      Email: user.Email,
+     
+    },
+    {
+    headers: {
+      Authorization:"Basic PEJhc2ljIEF1dGggVXNlcm5hbWU+OjxCYXNpYyBBdXRoIFBhc3N3b3JkPg=="
+  }}
+  )
+    .then(function (response) {
+      console.log(response.data[0]);
+      setEmail(response.data[0]._fields[0].properties.email);
+      setFullName(response.data[0]._fields[0].properties.name);
+      setLivingCountry(response.data[0]._fields[0].properties.CountryTolive);
+      setHeroId(response.data[0]._fields[0].properties.HeroId);
+      setProfilePhoto(response.data[0]._fields[0].properties.imageUrl);
+    });
+  }
+  const updateUserInfo = () => {
+    const formData = new FormData()
+       
+        formData.append('Email', user.Email);
+        formData.append('newEmail', Email);
+        formData.append('name', fullName);
+        formData.append('HeroId', HeroId);
+        formData.append('CountryTolive', livingCountry);
+        formData.append('url', profilePhoto);
+        formData.append('myFile', choosedFile);
+
+    axios
+    .post("https://hegemony.donftify.digital:8080/uploadProfilePhoto/", formData,
+    {
+    headers: {
+      Authorization:"Basic PEJhc2ljIEF1dGggVXNlcm5hbWU+OjxCYXNpYyBBdXRoIFBhc3N3b3JkPg=="
+  }}
+  )
+    .then(function (response) {
+     console.log(response.data);
+    });
+  }
+  useEffect(() => {
+    console.log(user);
+    getUserInfo();
+  }, []);
   return (
     <>
       <Header
@@ -40,12 +101,40 @@ function AccountInformation(props) {
         </div>
         <div className="section mt-2">
           <div className="card flex-center pt-4 pb-4">
-            <img
-              src="assets/img/sample/photo/1.jpg"
-              alt="image"
-              className="imaged w48 rounded mb-3"
-            />
-            <span className="blue">Upload profile photo</span>
+            {
+                (() => {
+                  if (profilePhoto == '' && choosedFile == null){
+                      return (
+                        <img
+                        src="assets/img/sample/photo/1.jpg"
+                        alt="image"
+                        className="imaged w48 rounded mb-3"
+                      />
+                      )
+                  }
+                  else if (choosedFile != null)
+                  { return (
+                    <img
+                    src={URL.createObjectURL(choosedFile)}
+                    alt="image"
+                    className="imaged w48 rounded mb-3"
+                  /> )
+                  }
+                  else{
+                    return (
+                    <img
+                    src={"http://hegemony.donftify.digital/HeroCoin/uploads/"+profilePhoto}
+                    alt="image"
+                    className="imaged w48 rounded mb-3"
+                  />
+                    )
+                  }
+                })()
+
+
+            }
+           
+            <span className="blue" onClick={() => clickedFile()}>Upload profile photo</span>
             <hr className="hr mt-4 mb-4" />
             <div id="">
               <form>
@@ -58,7 +147,9 @@ function AccountInformation(props) {
                       type="text"
                       className="form-control"
                       id="text4b"
-                      placeholder="Supporter One"
+                      placeholder={fullName}
+                      value={fullName}
+                      onChange={(ev) => ev.target.value}
                     />
                     <i className="clear-input">
                       <ion-icon name="close-circle"></ion-icon>
@@ -75,7 +166,10 @@ function AccountInformation(props) {
                       type="email"
                       className="form-control"
                       id="email4b"
-                      placeholder="@supporterone"
+                      placeholder={HeroId}
+                      value={HeroId}
+                      onChange={(ev) => setHeroId(ev.target.value)}
+
                     />
                     <i className="clear-input">
                       <ion-icon name="close-circle"></ion-icon>
@@ -91,7 +185,9 @@ function AccountInformation(props) {
                       type="email"
                       className="form-control"
                       id="email4b"
-                      placeholder="supporterone@gmail.com"
+                      placeholder={Email}
+                      value={Email}
+                      onChange={(ev) => setEmail(ev.target.value)}
                     />
                     <i className="clear-input">
                       <ion-icon name="close-circle"></ion-icon>
@@ -106,11 +202,13 @@ function AccountInformation(props) {
                     <select
                       className="form-control custom-select"
                       id="select4b"
+                      value= {livingCountry}
+                      onChange={(ev) => setLivingCountry(ev.target.value)}
                     >
-                      <option value="1">Netherlands</option>
-                      <option value="2">Netherlands</option>
-                      <option value="3">Netherlands</option>
-                      <option value="4">Netherlands</option>
+                      <option value=""></option>
+                      <option value="Netherlands">Netherlands</option>
+                      <option value="France">France</option>
+                      
                     </select>
                   </div>
                 </div>
@@ -130,10 +228,12 @@ function AccountInformation(props) {
                   </div>
                 </div>
               </form>
+              <input type='file' id='file' ref={inputFilePhoto} style={{display: 'none'}}  onChange={(file) => setChoosedFile(file.target.files[0])}/>
 
               <button
                 type="button"
                 className="btn btn-outline-secondary btn-lg mt-4"
+                onClick={() => updateUserInfo()}
               >
                 Save
               </button>
