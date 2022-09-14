@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withRouter,useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import "./Echo.css";
 
 import {
   
@@ -24,11 +25,11 @@ function Echo() {
     <>
       <div
         id="appCapsule"
-        className="bg-g login"
+        className="echo"
         style={{ minHeight: "100vh" }}
       >
-        <div id="welcomeClub" className="modal-body">
-          <img src={"assets/img/echo.png"} alt="logo" className="logo" />{" "}
+        <div id="" className="echo-content section">
+          <img src={"assets/img/echotransparent.png"} alt="logo" className="logo" />{" "}
           <p className="header-text mt-4 white">
             Echo this circle,
             <br />
@@ -63,6 +64,12 @@ function Echo() {
           >
                   <ion-icon class="blue" name="logo-whatsapp"></ion-icon>
                   </WhatsappShareButton>
+                <button
+                  type="button"
+                  className="btn btn-icon rounded btn-primary social-btn"
+                >
+                  <img class="blue" src="assets/img/svg/whatsapp.svg"/>
+                </button>
               </div>
               
             
@@ -72,7 +79,14 @@ function Echo() {
             quote={"fb_share"}
             style={{width:"40px",height:"40px",borderRadius: "50%"}}
           >
-                  <ion-icon class="blue" name="logo-twitter"></ion-icon>
+                  <div className="flex-col-center col mb-3 p-0">
+                <button
+                  type="button"
+                  className="btn btn-icon rounded btn-primary social-btn"
+                >
+                  <img class="blue" src="assets/img/svg/twitter.svg"/>
+                </button>
+              </div>
                   </TwitterShareButton>
               </div>
               
@@ -82,7 +96,12 @@ function Echo() {
             quote={"fb_share"}
             style={{width:"40px",height:"40px",borderRadius: "50%"}}
           >
-              <ion-icon class="blue" name="logo-facebook" ></ion-icon>
+             <button
+                  type="button"
+                  className="btn btn-icon rounded btn-primary social-btn"
+                >
+                  <img class="blue" src="assets/img/svg/facebook.svg"/>
+                </button>
           </FacebookShareButton>
               </div>
               <div className="flex-col-center col mb-3 p-0">
@@ -92,12 +111,22 @@ function Echo() {
             quote={"fb_share"}
             style={{width:"40px",height:"40px",borderRadius: "50%"}}
           >
-                  <ion-icon class="blue" name="logo-linkedin" ></ion-icon>
+                  <button
+                  type="button"
+                  className="btn btn-icon rounded btn-primary social-btn"
+                >
+                  <img class="blue" src="assets/img/svg/linkedin.svg"/>
+                </button>
                   </LinkedinShareButton>
-              </div>
+              
+             
+              
+              
+             
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
