@@ -123,7 +123,7 @@ function AccountInformation(props) {
                   else{
                     return (
                     <img
-                    src={"http://hegemony.donftify.digital/HeroCoin/uploads/"+profilePhoto}
+                    src={"https://hegemony.donftify.digital:8080/getFile:"+profilePhoto}
                     alt="image"
                     className="imaged w48 rounded mb-3"
                   />
