@@ -100,7 +100,7 @@ function AccountInformation(props) {
           ></ion-icon>
         </div>
         <div className="section mt-2">
-          <div className="card flex-center pt-4 pb-4">
+          <div className="card flex-center pt-4 pb-4" onClick={() => clickedFile()}>
             {
                 (() => {
                   if (profilePhoto == '' && choosedFile == null){
@@ -149,7 +149,7 @@ function AccountInformation(props) {
                       id="text4b"
                       placeholder={fullName}
                       value={fullName}
-                      onChange={(ev) => ev.target.value}
+                      onChange={(ev) => setFullName(ev.target.value)}
                     />
                     <i className="clear-input">
                       <ion-icon name="close-circle"></ion-icon>
