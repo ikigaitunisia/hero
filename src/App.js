@@ -25,6 +25,7 @@ import HeroTeam from "./screens/HeroTeam";
 import Echo from "./screens/Echo";
 import AccountInformation from "./screens/AccountInformation";
 import EditPassword from "./screens/EditPassword";
+import Subscriptions from "./screens/Subscriptions";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
         <Route path="/echo" exact component={Echo} />   
         <Route path="/account-information" exact component={AccountInformation} />   
         <Route path="/edit-password" exact component={EditPassword} />   
+        <Route path="/subscriptions" exact component={Subscriptions} />   
       </Router>
     </div>
   );
