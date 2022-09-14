@@ -7,6 +7,11 @@ function Menu(props) {
   const history = useHistory();
 
   const [loggedin, setLogedin] = useState(false);
+  const goToProfil = () => {
+
+    history.push("account-information");
+     window.location.reload(false) ;
+  }
   useEffect(() => {
     if (props.show) {
       const modal = new Modal(document.getElementById("menu"), {
@@ -92,7 +97,7 @@ function Menu(props) {
               </h5>
             </div>
             {loggedin && (
-              <div className="listview-title" onClick={() => history.push("account-information")}>
+              <div className="listview-title" onClick={() => goToProfil()}>
                 <h5 className="text-start blue-text">Account Settings</h5>
               </div>
             )}
