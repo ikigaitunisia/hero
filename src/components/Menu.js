@@ -92,7 +92,7 @@ function Menu(props) {
               </h5>
             </div>
             {loggedin && (
-              <div className="listview-title">
+              <div className="listview-title" onClick={() => history.push("account-information")}>
                 <h5 className="text-start blue-text">Account Settings</h5>
               </div>
             )}
