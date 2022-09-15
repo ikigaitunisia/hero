@@ -30,7 +30,7 @@ function FindCircle1(props) {
   return (
     <div id="findcircle1">
       <div className="feed" style={{ minHeight: "90vh!important" }}>
-        <video playsInline id="1">
+        <video muted playsInline id="1">
           <source
             src={"assets/videos/" + "short-video-for-test.mp4"}
             type="video/mp4"
