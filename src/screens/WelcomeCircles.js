@@ -17,7 +17,7 @@ function WelcomeCircles(props) {
   useEffect(() => {
     const btn1 = document.getElementById("btn1");
     btn1.addEventListener("click", () => {
-      history.push("/echo:"+circlename);
+      history.push("/echo:"+circlename.replace(':',""));
       window.location.reload();
     });
     const btn2 = document.getElementById("btn2");
