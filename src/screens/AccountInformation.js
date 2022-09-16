@@ -106,10 +106,7 @@ function AccountInformation(props) {
           ></ion-icon>
         </div>
         <div className="section mt-2">
-          <div
-            className="card flex-center pt-4 pb-4"
-            onClick={() => clickedFile()}
-          >
+          <div className="card flex-center pt-4 pb-4">
             {(() => {
               if (profilePhoto == "" && choosedFile == null) {
                 return (
@@ -207,9 +204,19 @@ function AccountInformation(props) {
                     <label className="label mb-3" htmlFor="select4b">
                       Where do you live?
                     </label>
-                    <select
+                    {/*<select
                       className="form-control custom-select"
                       id="select4b"
+                      value={livingCountry}
+                      onChange={(ev) => setLivingCountry(ev.target.value)}
+                    >
+                      <option value=""></option>
+                      <option value="Netherlands">Netherlands</option>
+                      <option value="France">France</option>
+          </select>*/}
+                    <select
+                      class="form-select form-select-lg mb-3"
+                      aria-label=".form-select-lg example"
                       value={livingCountry}
                       onChange={(ev) => setLivingCountry(ev.target.value)}
                     >

@@ -45,3 +45,7 @@
 .account-information .card {
   border-radius: 50px;
 }
+.account-information .form-select {
+  border: 1px solid #8080804a;
+  border-radius: 50px;
+}
