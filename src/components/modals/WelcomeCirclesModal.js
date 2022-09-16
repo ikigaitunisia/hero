@@ -33,7 +33,7 @@ function WelcomeCirclesModal(props) {
     });
     const btn3 = document.getElementById("btn3");
     btn3.addEventListener("click", () => {
-      history.push("/circle-home");
+      history.push("/account-information");
       window.location.reload();
     });
   }, []);
