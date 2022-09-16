@@ -181,7 +181,7 @@ function ClubSelectMembershipModal(props) {
                     Access to Circle Updates
                   </a>
                 </div>
-                <hr className="hr mt-4 mb-4" />
+                <hr className="hr mt-2 mb-2" />
 
                 <div className="button-wrapper mt-4">
                   <button
@@ -211,7 +211,7 @@ function ClubSelectMembershipModal(props) {
                     Access to Circle Updates + Videos
                   </a>
                 </div>
-                <hr className="hr mt-4 mb-4" />
+                <hr className="hr mt-2 mb-2" />
 
                 <div className="button-wrapper mt-4">
                   <button
@@ -375,11 +375,13 @@ function ClubSelectMembershipModal(props) {
             {showForm1 && !showWelcomeToClub && (
               <div id="form1" className="modal-body">
                 <div className="section center">
-                  <img
-                    src={"assets/img/logo3.png"}
-                    alt="logo"
-                    className="logo"
-                  />
+                  <div className="flex">
+                    <img
+                      src={"assets/img/logo3.png"}
+                      alt="logo"
+                      className="logo"
+                    />
+                  </div>
                   {user == null && (
                     <p className="header-text mt-4">Create your HERO Account</p>
                   )}
@@ -477,8 +479,11 @@ function ClubSelectMembershipModal(props) {
                     <div className="amount">{amount}</div>
                   </div>*/}
 
-                  <div id="total-container" className="flex flex-row">
-                    <div style={{ display: "flex", alignItems: "flex-end" }}>
+                  <div id="total-container" className="row">
+                    <div
+                      className="col"
+                      style={{ display: "flex", alignItems: "flex-end" }}
+                    >
                       <div className="me-2">
                         <p className="header-text mt-4">Total</p>
                         <h6>(VAT included): </h6>
@@ -488,13 +493,15 @@ function ClubSelectMembershipModal(props) {
                       </div>
                     </div>
 
-                    <button
-                      type="button"
-                      className="btn btn-outline-secondary btn-lg rounded mt-4"
-                      onClick={validate}
-                    >
-                      Subscribe
-                    </button>
+                    <div className="col">
+                      <button
+                        type="button"
+                        className="btn btn-outline-secondary btn-lg rounded mt-4"
+                        onClick={validate}
+                      >
+                        Subscribe
+                      </button>
+                    </div>
                   </div>
                   {/*<p className="mt-4">
                     You can cancel at anytime.

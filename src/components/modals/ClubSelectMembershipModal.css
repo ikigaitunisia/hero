@@ -406,6 +406,9 @@ a {
 #form1 #subscription {
   text-align: start;
   color: black !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 16px !important;
 }
 
 .checkbox-container {
@@ -436,4 +439,49 @@ a {
 
 #total-container span {
   color: black !important;
+}
+
+#total-container button {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 15px !important;
+  width: 135px;
+  height: 48px;
+  float: right;
+}
+
+#total-container .amount-div {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  line-height: 29px !important;
+}
+
+#total-container .amount-div sup,
+#total-container .amount-div span {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 16px !important;
+}
+
+#total-container .header-text {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 19px !important;
+}
+
+#total-container h6 {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 14px !important;
+}
+
+@media screen and (max-width: 443px) {
+  #total-container button {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 15px !important;
+    width: 135px;
+    height: 48px;
+    float: unset;
+  }
 }
