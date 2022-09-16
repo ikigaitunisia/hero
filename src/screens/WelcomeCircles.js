@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./WelcomeCirclesModal.css";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams,withRouter } from "react-router-dom";
 import { Modal } from "bootstrap";
 
 function WelcomeCircles(props) {
