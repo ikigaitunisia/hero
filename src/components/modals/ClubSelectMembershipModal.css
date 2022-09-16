@@ -364,7 +364,7 @@ a {
   font-size: 25px;
 }
 
-.input-wrapper {
+#amount-select .input-wrapper {
   width: 200px;
   margin: 0 auto;
   display: flex;
@@ -373,7 +373,7 @@ a {
   align-content: center;
 }
 
-#clubSelectMembership ::placeholder {
+#amount-select ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: white;
   text-align: center;
@@ -382,7 +382,7 @@ a {
   line-height: 30px;
 }
 
-#clubSelectMembership :-ms-input-placeholder {
+#amount-select :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: white;
   text-align: center;
@@ -391,6 +391,49 @@ a {
   line-height: 30px;
 }
 
-#clubSelectMembership .hr{
+#clubSelectMembership .hr {
   background-color: #1611296b;
+}
+
+#form1 .hr {
+  width: 100%;
+}
+
+#form1 .header-text {
+  text-align: start;
+}
+
+#form1 #subscription {
+  text-align: start;
+  color: black !important;
+}
+
+.checkbox-container {
+  text-align: start;
+}
+#form1 .checkbox-container span {
+  text-align: start !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 19.63px !important;
+  color: black !important;
+}
+
+#total-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+}
+
+#total-container h6 {
+  color: blue !important;
+}
+
+#total-container p {
+  margin-bottom: 0 !important;
+}
+
+#total-container span {
+  color: black !important;
 }

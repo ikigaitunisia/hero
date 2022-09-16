@@ -147,7 +147,7 @@ function ClubSelectMembershipModal(props) {
               </a>
             </div>
             {showAmountSelect && !showForm && !showWelcomeToClub && !showForm1 && (
-              <div className="modal-body">
+              <div id="amount-select" className="modal-body">
                 <img src={"assets/img/logo2.png"} alt="logo" className="logo" />
                 <p className="header-text mt-4 white">
                   Choose your HERO Circle
@@ -374,11 +374,15 @@ function ClubSelectMembershipModal(props) {
 
             {showForm1 && !showWelcomeToClub && (
               <div id="form1" className="modal-body">
-                <img src={"assets/img/logo3.png"} alt="logo" className="logo" />
-                {user == null && (
-                  <p className="header-text mt-4">Create your hero Account</p>
-                )}
                 <div className="section center">
+                  <img
+                    src={"assets/img/logo3.png"}
+                    alt="logo"
+                    className="logo"
+                  />
+                  {user == null && (
+                    <p className="header-text mt-4">Create your HERO Account</p>
+                  )}
                   {user == null && (
                     <form>
                       <div className="form-group boxed">
@@ -396,47 +400,103 @@ function ClubSelectMembershipModal(props) {
                           />
                         </div>
                       </div>
-                      <div className="input-wrapper">
-                        <label className="label" for="email4b">
-                          Password
-                        </label>
-                        <input
-                          type="password"
-                          className="form-control"
-                          id="email4b"
-                          placeholder="Your email"
-                          onChange={(e) => setPassword(e.target.value)}
-                          value={password}
-                        />
+                      <div className="form-group boxed">
+                        <div className="input-wrapper">
+                          <label className="label" for="email4b">
+                            Password
+                          </label>
+                          <input
+                            type="password"
+                            className="form-control"
+                            id="email4b"
+                            placeholder="Your email"
+                            onChange={(e) => setPassword(e.target.value)}
+                            value={password}
+                          />
+                        </div>
                       </div>
-                      <div className="input-wrapper">
-                        <label className="label" for="email4b">
-                          Create your Hero id
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="email4b"
-                          placeholder="@heroid"
-                          onChange={(e) => setHeroId(e.target.value)}
-                          value={HeroId}
-                        />
+                      <div className="form-group boxed">
+                        <div className="input-wrapper">
+                          <label className="label" for="email4b">
+                            Create your Hero id
+                          </label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="email4b"
+                            placeholder="@heroid"
+                            onChange={(e) => setHeroId(e.target.value)}
+                            value={HeroId}
+                          />
+                        </div>
                       </div>
+                      <hr className="hr mt-4 mb-4" />
                     </form>
                   )}
-                  <div className="flex-center amount-container">
+                  {user == null && (
+                    <div>
+                      <p className="header-text mt-4">Subscription</p>
+                      <p id="subscription">HERO Advocate / @herofirstcircle</p>
+
+                      <div className="checkbox-container">
+                        <span>Make my subscription private</span>
+                        <div className="form-check form-check-inline ml-2">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            id="inlineCheckbox1"
+                            value="option1"
+                          />
+                          <label
+                            className="form-check-label"
+                            for="inlineCheckbox1"
+                          ></label>
+                        </div>
+                      </div>
+                      <hr className="hr mt-2 mb-2" />
+                      <div className="checkbox-container">
+                        <span>I agree to HERO Terms and Conditions</span>
+                        <div className="form-check form-check-inline ml-2">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            id="inlineCheckbox2"
+                            value="option2"
+                          />
+                          <label
+                            className="form-check-label"
+                            for="inlineCheckbox2"
+                          ></label>
+                        </div>
+                      </div>
+                      <hr className="hr mt-2 mb-2" />
+                    </div>
+                  )}
+                  {/*<div className="flex-center amount-container">
                     <div className="coin">€</div>
                     <div className="amount">{amount}</div>
-                  </div>
+                  </div>*/}
 
-                  <button
-                    type="button"
-                    className="btn btn-outline-secondary btn-lg rounded mt-4"
-                    onClick={validate}
-                  >
-                    Subscribe
-                  </button>
-                  <p className="mt-4">
+                  <div id="total-container" className="flex flex-row">
+                    <div style={{ display: "flex", alignItems: "flex-end" }}>
+                      <div className="me-2">
+                        <p className="header-text mt-4">Total</p>
+                        <h6>(VAT included): </h6>
+                      </div>
+                      <div className="amount-div dark mt-2">
+                        <sup>€</sup>20<span>/mo</span>
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      className="btn btn-outline-secondary btn-lg rounded mt-4"
+                      onClick={validate}
+                    >
+                      Subscribe
+                    </button>
+                  </div>
+                  {/*<p className="mt-4">
                     You can cancel at anytime.
                     <br /> Your membership renews automatically on November 7th.
                     <br /> By subscribing, you agree to{" "}
@@ -471,7 +531,7 @@ function ClubSelectMembershipModal(props) {
                         className="logo"
                       />
                     </div>
-                  </div>
+                </div>*/}
                 </div>
               </div>
             )}
