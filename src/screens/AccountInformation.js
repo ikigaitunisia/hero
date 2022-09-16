@@ -13,6 +13,7 @@ function AccountInformation(props) {
   const [livingCountry, setLivingCountry] = useState("");
   const [profilePhoto, setProfilePhoto] = useState("");
   const [choosedFile, setChoosedFile] = useState(null);
+  const [receiveMailUpdates, setReceiveMailUpdates] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
   const inputFilePhoto = useRef(null);
   const clickedFile = () => {
@@ -233,8 +234,8 @@ function AccountInformation(props) {
                       className="form-check-input"
                       type="checkbox"
                       id="SwitchCheckDefault4"
-                      checked={true}
-                      onChange={() => {}}
+                      checked={receiveMailUpdates}
+                      onChange={() => {setReceiveMailUpdates(current => !current)}}
                     />
                     <label
                       className="form-check-label"
