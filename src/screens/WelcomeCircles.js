@@ -97,4 +97,4 @@ function WelcomeCircles(props) {
   );
 }
 
-export default WelcomeCircles;
+export default withRouter(WelcomeCircles);
