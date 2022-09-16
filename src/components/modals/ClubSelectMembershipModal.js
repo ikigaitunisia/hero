@@ -195,7 +195,7 @@ function ClubSelectMembershipModal(props) {
                   >
                     <img
                       src={
-                        amount === 10
+                        amount === 20
                           ? "assets/img/heroLogoBlue.png"
                           : "assets/img/heroLogoWhite.png"
                       }
@@ -225,7 +225,7 @@ function ClubSelectMembershipModal(props) {
                   >
                     <img
                       src={
-                        amount === 10
+                        amount === 50
                           ? "assets/img/heroLogoBlue.png"
                           : "assets/img/heroLogoWhite.png"
                       }
@@ -238,16 +238,16 @@ function ClubSelectMembershipModal(props) {
                     You can choose the monthly amount
                     <br /> you want to contribute, starting at €50
                   </a>
-                  <div class="form-group basic animated">
-                    <div class="input-wrapper">
+                  <div className="form-group basic animated">
+                    <div className="input-wrapper">
                       <span>€</span>
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="userid2"
                         placeholder="50"
                       />
-                      <i class="clear-input">
+                      <i className="clear-input">
                         <ion-icon
                           name="close-circle"
                           role="img"
@@ -381,14 +381,14 @@ function ClubSelectMembershipModal(props) {
                 <div className="section center">
                   {user == null && (
                     <form>
-                      <div class="form-group boxed">
-                        <div class="input-wrapper">
-                          <label class="label" for="email4b">
+                      <div className="form-group boxed">
+                        <div className="input-wrapper">
+                          <label className="label" for="email4b">
                             Your email
                           </label>
                           <input
                             type="email"
-                            class="form-control"
+                            className="form-control"
                             id="email4b"
                             placeholder="Your email"
                             onChange={(e) => setEmail(e.target.value)}
@@ -396,26 +396,26 @@ function ClubSelectMembershipModal(props) {
                           />
                         </div>
                       </div>
-                      <div class="input-wrapper">
-                        <label class="label" for="email4b">
+                      <div className="input-wrapper">
+                        <label className="label" for="email4b">
                           Password
                         </label>
                         <input
                           type="password"
-                          class="form-control"
+                          className="form-control"
                           id="email4b"
                           placeholder="Your email"
                           onChange={(e) => setPassword(e.target.value)}
                           value={password}
                         />
                       </div>
-                      <div class="input-wrapper">
-                        <label class="label" for="email4b">
+                      <div className="input-wrapper">
+                        <label className="label" for="email4b">
                           Create your Hero id
                         </label>
                         <input
                           type="text"
-                          class="form-control"
+                          className="form-control"
                           id="email4b"
                           placeholder="@heroid"
                           onChange={(e) => setHeroId(e.target.value)}

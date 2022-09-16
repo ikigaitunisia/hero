@@ -390,3 +390,7 @@ a {
   font-weight: 700;
   line-height: 30px;
 }
+
+#clubSelectMembership .hr{
+  background-color: #1611296b;
+}
