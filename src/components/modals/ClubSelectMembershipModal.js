@@ -36,9 +36,9 @@ function ClubSelectMembershipModal(props) {
 
   const [HeroId, setHeroId] = useState("");
   const [email, setEmail] = useState("");
-  const [password,setPassword] = useState("");
-  const [user,setUser] = useState(JSON.parse(localStorage.getItem("user")));
- 
+  const [password, setPassword] = useState("");
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+
   const chooseAmount = (a) => {
     if (amount) {
       setAmount(null);
@@ -64,59 +64,55 @@ function ClubSelectMembershipModal(props) {
     //setShowForm(true);
     setShowForm1(true);
   };
-  const createAccount = async() => {
-    const response = await axios
-        .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
-          Email: email,
-          password: password,
-          googleId: "",
-          imageUrl:"",
-          name:"",
-          lastname:"",
-          HeroId:HeroId
-        })
-       
-          console.log(response.data);
-          localStorage.setItem(
-            "user",
-            JSON.stringify({ Email: email, wallet: response.data })
-          );
-          return { Email: email, wallet: response.data };
-        
-       
-  }
-  const validate = async() => {
-    let a = JSON.parse(localStorage.getItem("user"));
-    if (a == null)
-    { 
-      a= await createAccount();
+  const createAccount = async () => {
+    const response = await axios.post(
+      "https://hegemony.donftify.digital:8080/CreateWallet/",
+      {
+        Email: email,
+        password: password,
+        googleId: "",
+        imageUrl: "",
+        name: "",
+        lastname: "",
+        HeroId: HeroId,
+      }
+    );
 
+    console.log(response.data);
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ Email: email, wallet: response.data })
+    );
+    return { Email: email, wallet: response.data };
+  };
+  const validate = async () => {
+    let a = JSON.parse(localStorage.getItem("user"));
+    if (a == null) {
+      a = await createAccount();
     }
 
-       console.log(a);
-      const customerId = a.wallet.customerId;
-      console.log( {
+    console.log(a);
+    const customerId = a.wallet.customerId;
+    console.log({
+      mode: "subscription",
+      grName: props.circle,
+      amount: amount * 100,
+      customerId: customerId,
+    });
+    axios
+      .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
         mode: "subscription",
         grName: props.circle,
         amount: amount * 100,
         customerId: customerId,
+      })
+      .then((res) => {
+        console.log(res.data);
+        window.location.href = res.data.url;
+      })
+      .catch((err) => {
+        console.log(err);
       });
-      axios
-        .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
-          mode: "subscription",
-          grName: props.circle,
-          amount: amount * 100,
-          customerId: customerId,
-        })
-        .then((res) => {
-          console.log(res.data);
-          window.location.href = res.data.url;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    
-
   };
 
   return (
@@ -167,13 +163,26 @@ function ClubSelectMembershipModal(props) {
                     }
                     onClick={() => chooseAmount(10)}
                   >
-                    <sup>€</sup>10<span>/mo</span>
+                    <img
+                      src={
+                        amount === 10
+                          ? "assets/img/heroLogoBlue.png"
+                          : "assets/img/heroLogoWhite.png"
+                      }
+                      alt="logo"
+                      className="logo"
+                    />
+                    <sup>STARTER</sup>
                   </button>
-                  <span className="mt-1">HERO Starter</span>
+                  <div className="amount-div white mt-2">
+                    <sup>€</sup>10<span>/mo</span>
+                  </div>
                   <a href="" className="mt-1">
-                    Click here to see what’s included.
+                    Access to Circle Updates
                   </a>
                 </div>
+                <hr className="hr mt-4 mb-4" />
+
                 <div className="button-wrapper mt-4">
                   <button
                     type="button"
@@ -184,13 +193,26 @@ function ClubSelectMembershipModal(props) {
                     }
                     onClick={() => chooseAmount(20)}
                   >
-                    <sup>€</sup>20<span>/mo</span>
+                    <img
+                      src={
+                        amount === 10
+                          ? "assets/img/heroLogoBlue.png"
+                          : "assets/img/heroLogoWhite.png"
+                      }
+                      alt="logo"
+                      className="logo"
+                    />
+                    <sup>ADVOCATE</sup>
                   </button>
-                  <span className="mt-1">HERO Supporter</span>
+                  <div className="amount-div white mt-2">
+                    <sup>€</sup>20<span>/mo</span>
+                  </div>
                   <a href="" className="mt-1">
-                    Click here to see what’s included.
+                    Access to Circle Updates + Videos
                   </a>
                 </div>
+                <hr className="hr mt-4 mb-4" />
+
                 <div className="button-wrapper mt-4">
                   <button
                     type="button"
@@ -201,11 +223,43 @@ function ClubSelectMembershipModal(props) {
                     }
                     onClick={() => chooseAmount(50)}
                   >
-                    <sup>€</sup>50<span>/mo</span>
+                    <img
+                      src={
+                        amount === 10
+                          ? "assets/img/heroLogoBlue.png"
+                          : "assets/img/heroLogoWhite.png"
+                      }
+                      alt="logo"
+                      className="logo"
+                    />
+                    <sup>CHANGER</sup>
                   </button>
-                  <span className="mt-1">HERO Changer</span>
                   <a href="" className="mt-1">
-                    Click here to see what’s included.
+                    You can choose the monthly amount
+                    <br /> you want to contribute, starting at €50
+                  </a>
+                  <div class="form-group basic animated">
+                    <div class="input-wrapper">
+                      <span>€</span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="userid2"
+                        placeholder="50"
+                      />
+                      <i class="clear-input">
+                        <ion-icon
+                          name="close-circle"
+                          role="img"
+                          class="md hydrated"
+                          aria-label="close circle"
+                        ></ion-icon>
+                      </i>
+                      <span>/mo</span>
+                    </div>
+                  </div>
+                  <a href="" className="mt-1">
+                    Everyone on HERO Advocate + Interactions
                   </a>
                 </div>
                 <button
@@ -220,7 +274,7 @@ function ClubSelectMembershipModal(props) {
                 </button>
               </div>
             )}
-            { /*showForm && !showWelcomeToClub && (
+            {/*showForm && !showWelcomeToClub && (
               <div id="form" className="modal-body">
                 <img
                   src={"assets/img/heroLogo.png"}
@@ -311,42 +365,38 @@ function ClubSelectMembershipModal(props) {
             )
             */}
             {showWelcomeToClub && (
-              <WelcomeCirclesModal show={true} 
-              onClose={() => setShowWelcomeToClub(false)}
-              circle ={props.circle}
+              <WelcomeCirclesModal
+                show={true}
+                onClose={() => setShowWelcomeToClub(false)}
+                circle={props.circle}
               />
-             
             )}
 
             {showForm1 && !showWelcomeToClub && (
               <div id="form1" className="modal-body">
                 <img src={"assets/img/logo3.png"} alt="logo" className="logo" />
-                { user == null &&
-
-                <p className="header-text mt-4">Create your hero Account</p>
-                }
+                {user == null && (
+                  <p className="header-text mt-4">Create your hero Account</p>
+                )}
                 <div className="section center">
-                   { user == null &&
-                  <form>
-                   
-
-                    <div class="form-group boxed">
-                      <div class="input-wrapper">
-                        <label class="label" for="email4b">
-                          Your email
-                        </label>
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="email4b"
-                          placeholder="Your email"
-                          onChange={(e) => setEmail(e.target.value)}
-                          value={email}
-                        />
-                       
+                  {user == null && (
+                    <form>
+                      <div class="form-group boxed">
+                        <div class="input-wrapper">
+                          <label class="label" for="email4b">
+                            Your email
+                          </label>
+                          <input
+                            type="email"
+                            class="form-control"
+                            id="email4b"
+                            placeholder="Your email"
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div class="input-wrapper">
+                      <div class="input-wrapper">
                         <label class="label" for="email4b">
                           Password
                         </label>
@@ -358,7 +408,6 @@ function ClubSelectMembershipModal(props) {
                           onChange={(e) => setPassword(e.target.value)}
                           value={password}
                         />
-                       
                       </div>
                       <div class="input-wrapper">
                         <label class="label" for="email4b">
@@ -372,15 +421,14 @@ function ClubSelectMembershipModal(props) {
                           onChange={(e) => setHeroId(e.target.value)}
                           value={HeroId}
                         />
-                       
                       </div>
-                  </form>
-                    }
+                    </form>
+                  )}
                   <div className="flex-center amount-container">
                     <div className="coin">€</div>
                     <div className="amount">{amount}</div>
                   </div>
-                  
+
                   <button
                     type="button"
                     className="btn btn-outline-secondary btn-lg rounded mt-4"

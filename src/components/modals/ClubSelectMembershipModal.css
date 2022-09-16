@@ -5,7 +5,7 @@
 
 .clubSelectMembership .modal-content-custom-white {
   background: white;
-  opacity: unset!important;
+  opacity: unset !important;
 }
 
 .header-text {
@@ -23,7 +23,7 @@
   border-radius: 20px !important;
   font-size: 30px;
   height: 54px;
-  width: 160px;
+  width: 210px;
 }
 
 #clubSelectMembership .custom-btn:active,
@@ -41,7 +41,7 @@
   border-radius: 20px !important;
   font-size: 30px;
   height: 54px;
-  width: 160px;
+  width: 210px;
 }
 
 #clubSelectMembership .custom-btn-white span {
@@ -83,7 +83,6 @@ a {
   font-size: 12px;
   font-weight: 400;
   line-height: 14.72px;
-  text-decoration: underline;
 }
 
 #clubSelectMembership .submit-btn-rounded {
@@ -317,7 +316,7 @@ a {
   width: 100%;
 }
 
-#echo-btn{
+#echo-btn {
   margin: 0 auto;
   padding: 10px;
   display: flex;
@@ -332,13 +331,62 @@ a {
   display: flex;
 }
 
-#social-btn-container2 div{
+#social-btn-container2 div {
   display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
-.blue{
-  color: blue!important;
+.blue {
+  color: blue !important;
+}
+
+#clubSelectMembership .custom-btn img,
+#clubSelectMembership .custom-btn-white img {
+  width: 93px;
+  height: 22px;
+}
+
+#clubSelectMembership .custom-btn,
+#clubSelectMembership .custom-btn-white {
+  border-radius: 50px !important;
+}
+
+.amount-div span {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-left: 5px;
+}
+
+.amount-div {
+  font-size: 25px;
+}
+
+.input-wrapper {
+  width: 200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+#clubSelectMembership ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+#clubSelectMembership :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 30px;
 }

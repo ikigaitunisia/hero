@@ -8,55 +8,6 @@ import "./MobilizerProfile.css";
 
 function MobilizerProfile(props) {
   const history = useHistory();
-
-  /*const circles = [
-    {
-      id: "1",
-      name: "Anuna de Wever",
-      fullname: "@anunadewever",
-      address: "Brussels, Belgium",
-      lead: "Circle Lead",
-      description:
-        "This is a brief description of the mobilizer’s work, organizations and projects.",
-    },
-    {
-      id: "2",
-      name: "Thomas Maddens",
-      fullname: "@thomasmaddens",
-      address: "Brussels, Belgium",
-      lead: "Circle Campaigner",
-      description:
-        "This is a brief description of the mobilizer’s work, organizations and projects.",
-    },
-    {
-      id: "3",
-      name: "Mobilizer Three",
-      fullname: "@mobilizerthree",
-      address: "Circle Fundraiser",
-      lead: "Circle Lead",
-      description:
-        "This is a brief description of the mobilizer’s work, organizations and projects.",
-    },
-    {
-      id: "4",
-      name: "Mobilizer Four",
-      fullname: "@mobilizerfour",
-      address: "Brussels, Belgium",
-      lead: "Circle Organizer",
-      description:
-        "This is a brief description of the mobilizer’s work, organizations and projects.",
-    },
-    {
-      id: "5",
-      name: "Mobilizer Five",
-      fullname: "@mobilizerfive",
-      address: "City, Country",
-      lead: "Circle Role",
-      description:
-        "This is a brief description of the mobilizer’s work, organizations and projects.",
-    },
-  ];
-  */
   const [mobilizers, setMobilizers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCircle, setCurrentCircle] = useState({});
@@ -100,7 +51,7 @@ function MobilizerProfile(props) {
       .then((res) => {
         console.log(res.data);
         setCurrentCircle(res.data[currentIndex]);
-
+        console.log(res.data[currentIndex]);
         setMobilizers(res.data);
         console.log(res.data.Socials);
         let socials = JSON.parse(res.data[currentIndex].Socials);
@@ -141,29 +92,39 @@ function MobilizerProfile(props) {
                   alt="image"
                 />
                 <div className="card-img-overlay">
-                  <h2 className="white">{currentCircle.name}</h2>
-                  <div className="flex-center">
-                    <span>{currentCircle.fullname}</span>
-                    <ion-icon
-                      src="assets/img/svg/icon15.svg"
-                      class="ml-1"
-                    ></ion-icon>
-                  </div>
-                  <div className="mt-3 mb-2 flex-center">
-                    <ion-icon
-                      src="assets/img/svg/icon13.svg"
-                      class="me-1"
-                    ></ion-icon>
-                    <span>{currentCircle.address}</span>
-                  </div>
-                  <div className="mb-3 flex-center">
-                    <ion-icon
-                      src="assets/img/svg/icon14.svg"
-                      class="me-1"
-                    ></ion-icon>
-                    <span>{currentCircle.lead}</span>
-                  </div>
-                  <p>{currentCircle.description}</p>
+                  {currentCircle.name && (
+                    <h2 className="white">{currentCircle.name}</h2>
+                  )}
+                  {currentCircle.id && (
+                    <div className="flex-center">
+                      <span>{currentCircle.id}</span>
+                      <ion-icon
+                        src="assets/img/svg/icon15.svg"
+                        class="ml-1"
+                      ></ion-icon>
+                    </div>
+                  )}
+                  {currentCircle.address && (
+                    <div className="mt-3 mb-2 flex-center">
+                      <ion-icon
+                        src="assets/img/svg/icon13.svg"
+                        class="me-1"
+                      ></ion-icon>
+                      <span>{currentCircle.address}</span>
+                    </div>
+                  )}
+                  {currentCircle.role && (
+                    <div className="mb-3 flex-center">
+                      <ion-icon
+                        src="assets/img/svg/icon14.svg"
+                        class="me-1"
+                      ></ion-icon>
+                      <span>{currentCircle.role}</span>
+                    </div>
+                  )}
+                  {currentCircle.description && (
+                    <p>{currentCircle.description}</p>
+                  )}
 
                   <div className="flex-center flex-row mb-4">
                     <>
