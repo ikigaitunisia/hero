@@ -26,6 +26,9 @@ import Echo from "./screens/Echo";
 import AccountInformation from "./screens/AccountInformation";
 import EditPassword from "./screens/EditPassword";
 import Subscriptions from "./screens/Subscriptions";
+import WelcomeCircles from "./screens/WelcomeCircles";
+
+
 
 function App() {
   return (
@@ -54,6 +57,8 @@ function App() {
         <Route path="/echo:circlename" exact component={Echo} />   
         <Route path="/account-information" exact component={AccountInformation} />   
         <Route path="/edit-password" exact component={EditPassword} />   
+        <Route path="/welcome-circle:circlename" exact component={WelcomeCircles} />   
+
         <Route path="/subscriptions" exact component={Subscriptions} />   
       </Router>
     </div>

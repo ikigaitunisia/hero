@@ -1,0 +1,50 @@
+#welcomeCircles .modal-content {
+  background: linear-gradient(0deg, white, blue) !important;
+}
+
+#welcomeCircles button {
+  width: 227px;
+  height: 52px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 15px;
+  background-color: white !important;
+  color: #6666ff !important;
+  border: unset !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 15px !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+#welcomeCircles img {
+  width: 52px;
+  height: 52px;
+}
+
+#welcomeCircles img {
+  width: 52px;
+  height: 52px;
+}
+
+#welcomeCircles ion-icon {
+  width: 16px;
+  height: 16px;
+}
+
+#welcomeCircles p {
+  width: unset;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.63px;
+}
+
+#welcomeCircles .header-text {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24.54px;
+}

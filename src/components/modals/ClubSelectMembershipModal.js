@@ -34,14 +34,11 @@ function ClubSelectMembershipModal(props) {
   const [showWelcomeToClub, setShowWelcomeToClub] = useState(false);
   const [amount, setAmount] = useState(null);
 
-  const [name, setName] = useState("");
+  const [HeroId, setHeroId] = useState("");
   const [email, setEmail] = useState("");
-  const [birthDate, setBirthDate] = useState("");
-  const [city, setCity] = useState("");
-  const [cardNumber, setCardNumber] = useState("");
-  const [cvv, setCvv] = useState("");
-  const [expiryDate, setExpiryDate] = useState(new Date());
-
+  const [password,setPassword] = useState("");
+  const [user,setUser] = useState(JSON.parse(localStorage.getItem("user")));
+ 
   const chooseAmount = (a) => {
     if (amount) {
       setAmount(null);
@@ -67,29 +64,59 @@ function ClubSelectMembershipModal(props) {
     //setShowForm(true);
     setShowForm1(true);
   };
+  const createAccount = async() => {
+    const response = await axios
+        .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
+          Email: email,
+          password: password,
+          googleId: "",
+          imageUrl:"",
+          name:"",
+          lastname:"",
+          HeroId:HeroId
+        })
+       
+          console.log(response.data);
+          localStorage.setItem(
+            "user",
+            JSON.stringify({ Email: email, wallet: response.data })
+          );
+          return { Email: email, wallet: response.data };
+        
+       
+  }
+  const validate = async() => {
+    let a = JSON.parse(localStorage.getItem("user"));
+    if (a == null)
+    { 
+      a= await createAccount();
 
-  const validate = () => {
-    /*const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      console.log("test");
-      const customerId = user.wallet.customerId;
+    }
+
+       console.log(a);
+      const customerId = a.wallet.customerId;
+      console.log( {
+        mode: "subscription",
+        grName: props.circle,
+        amount: amount * 100,
+        customerId: customerId,
+      });
       axios
         .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
           mode: "subscription",
-          idaActivist: props.activistId,
+          grName: props.circle,
           amount: amount * 100,
           customerId: customerId,
         })
         .then((res) => {
+          console.log(res.data);
           window.location.href = res.data.url;
         })
         .catch((err) => {
           console.log(err);
         });
-    }*/
+    
 
-    setShowWelcomeToClub(true);
-    setShowForm1(false);
   };
 
   return (
@@ -193,7 +220,7 @@ function ClubSelectMembershipModal(props) {
                 </button>
               </div>
             )}
-            {showForm && !showWelcomeToClub && (
+            { /*showForm && !showWelcomeToClub && (
               <div id="form" className="modal-body">
                 <img
                   src={"assets/img/heroLogo.png"}
@@ -281,7 +308,8 @@ function ClubSelectMembershipModal(props) {
                   </form>
                 </div>
               </div>
-            )}
+            )
+            */}
             {showWelcomeToClub && (
               <WelcomeCirclesModal show={true} 
               onClose={() => setShowWelcomeToClub(false)}
@@ -293,92 +321,66 @@ function ClubSelectMembershipModal(props) {
             {showForm1 && !showWelcomeToClub && (
               <div id="form1" className="modal-body">
                 <img src={"assets/img/logo3.png"} alt="logo" className="logo" />
-                <p className="header-text mt-4">Payment Details</p>
+                { user == null &&
+
+                <p className="header-text mt-4">Create your hero Account</p>
+                }
                 <div className="section center">
+                   { user == null &&
                   <form>
-                    <div class="form-group boxed">
-                      <div class="input-wrapper">
-                        <label class="label" for="text4b">
-                          Card Number
-                        </label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="text4b"
-                          placeholder="5534  2834  8857  5370"
-                          onChange={(e) => setCardNumber(e.target.value)}
-                        />
-                        <i class="clear-input">
-                          <ion-icon name="close-circle"></ion-icon>
-                        </i>
-                      </div>
-                    </div>
-                    <div className="row section">
-                      <div class="form-group boxed col me-1">
-                        <div
-                          class="input-wrapper"
-                          style={{ minWidth: "129px" }}
-                        >
-                          <label class="label" for="select4b">
-                            Expiry date
-                          </label>
-                          <DatePicker
-                            class="form-control"
-                            selected={expiryDate}
-                            onChange={(date) => setExpiryDate(date)}
-                            dateFormat="MMMM, yyyy"
-                          />
-                        </div>
-                      </div>
-                      <div class="form-group col boxed">
-                        <div class="input-wrapper">
-                          <label class="label" for="email4b">
-                            CVV
-                          </label>
-                          <input
-                            type="text"
-                            class="form-control verification-input"
-                            id="smscode"
-                            placeholder="•••"
-                            maxlength="4"
-                            onChange={(e) => setCvv(e.target.value)}
-                          />
-                        </div>
-                      </div>
-                    </div>
+                   
 
                     <div class="form-group boxed">
                       <div class="input-wrapper">
                         <label class="label" for="email4b">
-                          Name
+                          Your email
                         </label>
                         <input
                           type="email"
                           class="form-control"
                           id="email4b"
-                          placeholder="John Doe"
-                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Your email"
+                          onChange={(e) => setEmail(e.target.value)}
+                          value={email}
                         />
-                        <i class="clear-input">
-                          <ion-icon name="close-circle"></ion-icon>
-                        </i>
+                       
                       </div>
                     </div>
+                    <div class="input-wrapper">
+                        <label class="label" for="email4b">
+                          Password
+                        </label>
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="email4b"
+                          placeholder="Your email"
+                          onChange={(e) => setPassword(e.target.value)}
+                          value={password}
+                        />
+                       
+                      </div>
+                      <div class="input-wrapper">
+                        <label class="label" for="email4b">
+                          Create your Hero id
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="email4b"
+                          placeholder="@heroid"
+                          onChange={(e) => setHeroId(e.target.value)}
+                          value={HeroId}
+                        />
+                       
+                      </div>
                   </form>
-                  <p className="header-text mt-4">Extra support to HERO</p>
+                    }
                   <div className="flex-center amount-container">
                     <div className="coin">€</div>
                     <div className="amount">{amount}</div>
                   </div>
-                  <p className="mt-4 mb-0">
-                    Give an extra amount if you like our platform. Your
-                    <br />
-                    contribution will help us to keep supporting mobilizers
-                    <br />
-                    around the world with trainings, legal advice, partnerships
-                    <br />
-                    and communication strategies.
-                  </p>
+                  
                   <button
                     type="button"
                     className="btn btn-outline-secondary btn-lg rounded mt-4"
