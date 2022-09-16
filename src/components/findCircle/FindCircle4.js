@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-scroll";
 import "./FindCircle4.css";
 
 function FindCircle4(props) {
@@ -8,7 +9,7 @@ function FindCircle4(props) {
     <div id="findCircle4">
       <div className="" style={{ minHeight: "90vh!important" }}>
         <div className="">
-        <div className="p-t-h">
+          <div className="p-t-h">
             <img
               src={"assets/img/heroLogoBlue.png"}
               alt="logo"
@@ -144,9 +145,11 @@ function FindCircle4(props) {
                   data-bs-parent="#accordionExample5"
                 >
                   <div className="accordion-body accordion-body-4 p-4">
-                    <b>“We would have no European Green
-                    <br /> Deal without the Fridays for the Future
-                    <br /> movement”</b>
+                    <b>
+                      “We would have no European Green
+                      <br /> Deal without the Fridays for the Future
+                      <br /> movement”
+                    </b>
                     <br /> -Frans Timmermans, Vice President of the
                     <br /> European Commission.
                   </div>
@@ -162,7 +165,17 @@ function FindCircle4(props) {
             >
               Reviews from HERO Supporters
             </button>
-            <small className="blue ">Scroll Down</small>
+
+            <Link
+              to="findCircle5"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              <small className="blue ">Scroll Down</small>
+            </Link>
+
             <ion-icon
               src="assets/img/svg/scroll-down-blue.svg"
               style={{ width: "18px", height: "26px" }}

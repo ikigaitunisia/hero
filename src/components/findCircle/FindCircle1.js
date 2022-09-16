@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "./FindCircle1.css";
+import FindCirle2 from "./FindCircle2";
 import Menu from "../Menu";
+import { Link } from "react-scroll";
 
 function FindCircle1(props) {
   const history = useHistory();
@@ -30,7 +32,7 @@ function FindCircle1(props) {
   return (
     <div id="findcircle1">
       <div className="feed" style={{ minHeight: "90vh!important" }}>
-        <video muted playsInline id="1">
+        <video playsInline autoPlay muted id="1">
           <source
             src={"assets/videos/" + "short-video-for-test.mp4"}
             type="video/mp4"
@@ -91,7 +93,17 @@ function FindCircle1(props) {
               <ion-icon src="assets/img/svg/icon1.svg"></ion-icon>
               Learn more about HERO
             </button>
-            <small>Scroll Down</small>
+            <small>
+              <Link
+                to="findcircle2"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                Scroll Down
+              </Link>
+            </small>
             <ion-icon
               src="assets/img/svg/scroll-down.svg"
               style={{ width: "38px", height: "38px" }}

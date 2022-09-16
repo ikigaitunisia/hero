@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-scroll";
 import "./FindCircle2.css";
 
 function FindCircle2(props) {
@@ -8,7 +9,7 @@ function FindCircle2(props) {
     <div id="findcircle2">
       <div className="" style={{ minHeight: "90vh!important" }}>
         <div className="">
-        <div className="p-t-h">
+          <div className="p-t-h">
             <img
               src={"assets/img/heroLogoBlue.png"}
               alt="logo"
@@ -65,7 +66,16 @@ function FindCircle2(props) {
             >
               Learn how HERO Circles work
             </button>
-            <small className="blue">Scroll Down</small>
+            <Link
+              to="findcircle3"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              <small className="blue">Scroll Down</small>
+            </Link>
+
             <ion-icon
               src="assets/img/svg/scroll-down-blue.svg"
               style={{ width: "18px", height: "26px" }}

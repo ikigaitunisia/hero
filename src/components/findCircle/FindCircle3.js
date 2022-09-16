@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-scroll";
 import "./FindCircle3.css";
 
 function FindCircle3(props) {
@@ -13,16 +14,16 @@ function FindCircle3(props) {
     }
   };
   return (
-    <div>
+    <div id="findcircle3">
       <div className="feed" style={{ minHeight: "90vh!important" }}>
-        <video playsInline id="2">
+        <video playsInline autoPlay muted id="2">
           <source
             src={"assets/videos/" + "short-video-for-test.mp4"}
             type="video/mp4"
           />
         </video>
         <div className="feed-content">
-        <div className="p-t-h">
+          <div className="p-t-h">
             <img
               src={"assets/img/heroLogoWhite.png"}
               alt="logo"
@@ -68,7 +69,17 @@ function FindCircle3(props) {
             >
               Learn about the impact of mobilizers
             </button>
-            <small>Scroll Down</small>
+            <small className="blue">
+              <Link
+                to="findCircle4"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                Scroll Down
+              </Link>
+            </small>
             <ion-icon
               src="assets/img/svg/scroll-down.svg"
               style={{ width: "38px", height: "38px" }}
