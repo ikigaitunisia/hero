@@ -411,7 +411,7 @@ function ClubSelectMembershipModal(props) {
                             type="password"
                             className="form-control"
                             id="email4b"
-                            placeholder="Your email"
+                            placeholder="Your password"
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
                           />
