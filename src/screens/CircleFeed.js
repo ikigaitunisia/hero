@@ -157,7 +157,7 @@ function CircleFeed(props) {
                       className={
                         currentIndex === i ? "active-dot me-1" : "dot me-1"
                       }
-                      onClick={goToNextCircle}
+                      onClick={circles.length < 2 ? null : goToNextCircle}
                     ></div>
                   );
                 })}
@@ -167,6 +167,7 @@ function CircleFeed(props) {
                   type="button"
                   className="btn btn-icon rounded btn-primary social-btn"
                   onClick={goToNextCircle}
+                  disabled={circles.length < 2}
                 >
                   <ion-icon name="arrow-forward-outline"></ion-icon>
                 </button>
