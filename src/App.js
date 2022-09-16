@@ -57,7 +57,7 @@ function App() {
         <Route path="/echo:circlename" exact component={Echo} />   
         <Route path="/account-information" exact component={AccountInformation} />   
         <Route path="/edit-password" exact component={EditPassword} />   
-        <Route path="/welcome-circle:circlename" exact component={WelcomeCircles} />   
+        <Route path="/welcome-circle:circlename" exact component={WelcomeCircles}  />   
 
         <Route path="/subscriptions" exact component={Subscriptions} />   
       </Router>
