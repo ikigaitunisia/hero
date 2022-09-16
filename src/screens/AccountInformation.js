@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
@@ -7,63 +7,69 @@ import axios from "axios";
 
 function AccountInformation(props) {
   const history = useHistory();
-  const [fullName,setFullName] = useState("");
-  const [HeroId,setHeroId] = useState("");
-  const [Email,setEmail]= useState("");
-  const [livingCountry,setLivingCountry] = useState("");
-  const [profilePhoto,setProfilePhoto] = useState("");
-  const [choosedFile,setChoosedFile] = useState(null);
+  const [fullName, setFullName] = useState("");
+  const [HeroId, setHeroId] = useState("");
+  const [Email, setEmail] = useState("");
+  const [livingCountry, setLivingCountry] = useState("");
+  const [profilePhoto, setProfilePhoto] = useState("");
+  const [choosedFile, setChoosedFile] = useState(null);
   const user = JSON.parse(localStorage.getItem("user"));
-  const inputFilePhoto = useRef(null) ;
+  const inputFilePhoto = useRef(null);
   const clickedFile = () => {
     inputFilePhoto.current.click();
     console.log(choosedFile);
-    
-  }
+  };
   console.log(choosedFile);
 
   const getUserInfo = () => {
     axios
-    .post("https://hegemony.donftify.digital:8080/userInfo/", {
-      Email: user.Email,
-     
-    },
-    {
-    headers: {
-      Authorization:"Basic PEJhc2ljIEF1dGggVXNlcm5hbWU+OjxCYXNpYyBBdXRoIFBhc3N3b3JkPg=="
-  }}
-  )
-    .then(function (response) {
-      console.log(response.data[0]);
-      setEmail(response.data[0]._fields[0].properties.email);
-      setFullName(response.data[0]._fields[0].properties.name);
-      setLivingCountry(response.data[0]._fields[0].properties.CountryTolive);
-      setHeroId(response.data[0]._fields[0].properties.HeroId);
-      setProfilePhoto(response.data[0]._fields[0].properties.imageUrl);
-    });
-  }
+      .post(
+        "https://hegemony.donftify.digital:8080/userInfo/",
+        {
+          Email: user.Email,
+        },
+        {
+          headers: {
+            Authorization:
+              "Basic PEJhc2ljIEF1dGggVXNlcm5hbWU+OjxCYXNpYyBBdXRoIFBhc3N3b3JkPg==",
+          },
+        }
+      )
+      .then(function (response) {
+        console.log(response.data[0]);
+        setEmail(response.data[0]._fields[0].properties.email);
+        setFullName(response.data[0]._fields[0].properties.name);
+        setLivingCountry(response.data[0]._fields[0].properties.CountryTolive);
+        setHeroId(response.data[0]._fields[0].properties.HeroId);
+        setProfilePhoto(response.data[0]._fields[0].properties.imageUrl);
+      });
+  };
   const updateUserInfo = () => {
-    const formData = new FormData()
-       
-        formData.append('Email', user.Email);
-        formData.append('newEmail', Email);
-        formData.append('name', fullName);
-        formData.append('HeroId', HeroId);
-        formData.append('CountryTolive', livingCountry);
-        formData.append('url', profilePhoto);
-        formData.append('myFile', choosedFile);
+    const formData = new FormData();
+
+    formData.append("Email", user.Email);
+    formData.append("newEmail", Email);
+    formData.append("name", fullName);
+    formData.append("HeroId", HeroId);
+    formData.append("CountryTolive", livingCountry);
+    formData.append("url", profilePhoto);
+    formData.append("myFile", choosedFile);
 
     axios
-    .post("https://hegemony.donftify.digital:8080/uploadProfilePhoto/", formData,
-    {
-    headers: {
-      Authorization:"Basic PEJhc2ljIEF1dGggVXNlcm5hbWU+OjxCYXNpYyBBdXRoIFBhc3N3b3JkPg=="
-  }}
-  )
-    .then(function (response) {
-     console.log(response.data);
-    });
-  }
+      .post(
+        "https://hegemony.donftify.digital:8080/uploadProfilePhoto/",
+        formData,
+        {
+          headers: {
+            Authorization:
+              "Basic PEJhc2ljIEF1dGggVXNlcm5hbWU+OjxCYXNpYyBBdXRoIFBhc3N3b3JkPg==",
+          },
+        }
+      )
+      .then(function (response) {
+        console.log(response.data);
+      });
+  };
   useEffect(() => {
     console.log(user);
     getUserInfo();
@@ -100,47 +106,50 @@ function AccountInformation(props) {
           ></ion-icon>
         </div>
         <div className="section mt-2">
-          <div className="card flex-center pt-4 pb-4" onClick={() => clickedFile()}>
-            {
-                (() => {
-                  if (profilePhoto == '' && choosedFile == null){
-                      return (
-                        <img
-                        src="assets/img/sample/photo/1.jpg"
-                        alt="image"
-                        className="imaged w48 rounded mb-3"
-                      />
-                      )
-                  }
-                  else if (choosedFile != null)
-                  { return (
-                    <img
-                    src={URL.createObjectURL(choosedFile)}
-                    alt="image"
-                    className="imaged w48 rounded mb-3"
-                  /> )
-                  }
-                  else{
-                    return (
-                    <img
-                    src={"https://hegemony.donftify.digital:8080/getFile:"+profilePhoto}
+          <div
+            className="card flex-center pt-4 pb-4"
+            onClick={() => clickedFile()}
+          >
+            {(() => {
+              if (profilePhoto == "" && choosedFile == null) {
+                return (
+                  <img
+                    src="assets/img/sample/photo/1.jpg"
                     alt="image"
                     className="imaged w48 rounded mb-3"
                   />
-                    )
-                  }
-                })()
+                );
+              } else if (choosedFile != null) {
+                return (
+                  <img
+                    src={URL.createObjectURL(choosedFile)}
+                    alt="image"
+                    className="imaged w48 rounded mb-3"
+                  />
+                );
+              } else {
+                return (
+                  <img
+                    src={
+                      "https://hegemony.donftify.digital:8080/getFile:" +
+                      profilePhoto
+                    }
+                    alt="image"
+                    className="imaged w48 rounded mb-3"
+                  />
+                );
+              }
+            })()}
 
-
-            }
-           
-            <span className="blue" onClick={() => clickedFile()}>Upload profile photo</span>
+            <span className="blue" onClick={() => clickedFile()}>
+              Upload profile photo
+            </span>
             <hr className="hr mt-4 mb-4" />
             <div id="">
               <form>
                 <div className="form-group boxed">
                   <div className="input-wrapper">
-                    <label className="label mb-3" for="text4b">
+                    <label className="label mb-3" htmlFor="text4b">
                       Full Name
                     </label>
                     <input
@@ -159,7 +168,7 @@ function AccountInformation(props) {
 
                 <div className="form-group boxed">
                   <div className="input-wrapper">
-                    <label className="label mb-3" for="email4b">
+                    <label className="label mb-3" htmlFor="email4b">
                       HERO ID
                     </label>
                     <input
@@ -169,7 +178,6 @@ function AccountInformation(props) {
                       placeholder={HeroId}
                       value={HeroId}
                       onChange={(ev) => setHeroId(ev.target.value)}
-
                     />
                     <i className="clear-input">
                       <ion-icon name="close-circle"></ion-icon>
@@ -178,7 +186,7 @@ function AccountInformation(props) {
                 </div>
                 <div className="form-group boxed">
                   <div className="input-wrapper">
-                    <label className="label mb-3" for="email4b">
+                    <label className="label mb-3" htmlFor="email4b">
                       Email
                     </label>
                     <input
@@ -196,19 +204,18 @@ function AccountInformation(props) {
                 </div>
                 <div className="form-group boxed">
                   <div className="input-wrapper">
-                    <label className="label mb-3" for="select4b">
+                    <label className="label mb-3" htmlFor="select4b">
                       Where do you live?
                     </label>
                     <select
                       className="form-control custom-select"
                       id="select4b"
-                      value= {livingCountry}
+                      value={livingCountry}
                       onChange={(ev) => setLivingCountry(ev.target.value)}
                     >
                       <option value=""></option>
                       <option value="Netherlands">Netherlands</option>
                       <option value="France">France</option>
-                      
                     </select>
                   </div>
                 </div>
@@ -219,16 +226,23 @@ function AccountInformation(props) {
                       className="form-check-input"
                       type="checkbox"
                       id="SwitchCheckDefault4"
-                      checked="true"
+                      checked={true}
+                      onChange={() => {}}
                     />
                     <label
                       className="form-check-label"
-                      for="SwitchCheckDefault4"
+                      htmlFor="SwitchCheckDefault4"
                     ></label>
                   </div>
                 </div>
               </form>
-              <input type='file' id='file' ref={inputFilePhoto} style={{display: 'none'}}  onChange={(file) => setChoosedFile(file.target.files[0])}/>
+              <input
+                type="file"
+                id="file"
+                ref={inputFilePhoto}
+                style={{ display: "none" }}
+                onChange={(file) => setChoosedFile(file.target.files[0])}
+              />
 
               <button
                 type="button"
