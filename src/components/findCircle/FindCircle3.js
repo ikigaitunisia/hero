@@ -67,9 +67,6 @@ function FindCircle3(props) {
               type="button"
               className="btn btn-primary rounded font-size-btn mb-4"
             >
-              Learn about the impact of mobilizers
-            </button>
-            <small className="blue">
               <Link
                 to="findCircle4"
                 spy={true}
@@ -77,8 +74,11 @@ function FindCircle3(props) {
                 offset={50}
                 duration={500}
               >
-                Scroll Down
+                 <text className="learnMore">Learn about the impact of mobilizers</text> 
               </Link>
+            </button>
+            <small>
+                Scroll Down
             </small>
             <ion-icon
               src="assets/img/svg/scroll-down.svg"

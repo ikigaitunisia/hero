@@ -163,19 +163,18 @@ function FindCircle4(props) {
               type="button"
               className="btn btn-primary rounded font-size-btn mt-4 mb-4"
             >
-              Reviews from HERO Supporters
+              <Link
+                to="findCircle5"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                 <text>eviews from HERO Supporters</text> 
+              </Link>
+              R
             </button>
-
-            <Link
-              to="findCircle5"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-            >
               <small className="blue ">Scroll Down</small>
-            </Link>
-
             <ion-icon
               src="assets/img/svg/scroll-down-blue.svg"
               style={{ width: "18px", height: "26px" }}

@@ -37,8 +37,14 @@ function Header(props) {
   const colorClass = whiteMode ? "white-text" : "blue-text";
   return (
     <>
-      <div className={transparent ? "appHeader no-border transparent position-absolute": "appHeader no-border position-absolute"}>
-        <div className="left pl-2">
+      <div
+        className={
+          transparent
+            ? "appHeader no-border transparent position-absolute"
+            : "appHeader no-border position-absolute"
+        }
+      >
+        <div className="left pl-2 header">
           {showLogo && (
             <img
               src={
@@ -57,14 +63,16 @@ function Header(props) {
               className={"headerButton " + colorClass}
               data-bs-toggle="modal"
               data-bs-target="#sidebarPanel"
-              onClick={() => backTo ? history.push(backTo): history.push("/")}
+              onClick={() =>
+                backTo ? history.push(backTo) : history.push("/")
+              }
             >
               <ion-icon name="chevron-back-outline"></ion-icon>
             </a>
           )}
         </div>
         <div className="pageTitle">
-        {showHeroLogo && (
+          {showHeroLogo && (
             <img
               src={
                 whiteMode
@@ -76,7 +84,9 @@ function Header(props) {
               onClick={() => history.push("/")}
             />
           )}
-          {showTitlePage && <h3 className={transparent ? "white": "blue"}>{title}</h3>}
+          {showTitlePage && (
+            <h3 className={transparent ? "white" : "blue"}>{title}</h3>
+          )}
         </div>
         <div className="right">
           {showLoginBtn &&

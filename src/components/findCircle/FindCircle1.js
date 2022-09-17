@@ -90,10 +90,8 @@ function FindCircle1(props) {
               type="button"
               className="btn btn-primary rounded font-size-btn mb-4"
             >
+              
               <ion-icon src="assets/img/svg/icon1.svg"></ion-icon>
-              Learn more about HERO
-            </button>
-            <small>
               <Link
                 to="findcircle2"
                 spy={true}
@@ -101,8 +99,12 @@ function FindCircle1(props) {
                 offset={50}
                 duration={500}
               >
-                Scroll Down
+                 <text className="learnMore">Learn more about HERO</text> 
               </Link>
+             
+            </button>
+            <small>
+                Scroll Down
             </small>
             <ion-icon
               src="assets/img/svg/scroll-down.svg"
