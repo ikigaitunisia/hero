@@ -23,7 +23,7 @@ function CircleFeedDetails(props) {
     const {state} = useLocation();
     const [circles,setCircles] = useState([]);
   const goToNextCircle = () => {
-    if (currentIndex === 4) {
+    if (currentIndex === circles.length - 1) {
       setCurrentIndex(0);
       setCurrentCircle(circles[0]);
       return;
