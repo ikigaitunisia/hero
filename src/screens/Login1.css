@@ -1,0 +1,15 @@
+.google-btn {
+  border-radius: 50px !important;
+}
+
+.google-btn div {
+  border-radius: 50px !important;
+}
+
+#login-form .label{
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19.63px;
+}
