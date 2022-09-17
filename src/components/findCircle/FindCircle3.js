@@ -74,16 +74,32 @@ function FindCircle3(props) {
                 offset={50}
                 duration={500}
               >
-                 <text className="learnMore">Learn about the impact of mobilizers</text> 
+                <text className="learnMore">
+                  Learn about the impact of mobilizers
+                </text>
               </Link>
             </button>
-            <small>
-                Scroll Down
-            </small>
-            <ion-icon
-              src="assets/img/svg/scroll-down.svg"
-              style={{ width: "38px", height: "38px" }}
-            ></ion-icon>
+            <Link
+              to="findCircle4"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              <small>Scroll Down</small>{" "}
+            </Link>
+            <Link
+              to="findCircle4"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              <ion-icon
+                src="assets/img/svg/scroll-down.svg"
+                style={{ width: "18px", height: "26px" }}
+              ></ion-icon>
+            </Link>
           </div>
         </div>
       </div>

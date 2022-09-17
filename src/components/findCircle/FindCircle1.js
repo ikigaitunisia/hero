@@ -90,7 +90,6 @@ function FindCircle1(props) {
               type="button"
               className="btn btn-primary rounded font-size-btn mb-4"
             >
-              
               <ion-icon src="assets/img/svg/icon1.svg"></ion-icon>
               <Link
                 to="findcircle2"
@@ -99,17 +98,30 @@ function FindCircle1(props) {
                 offset={50}
                 duration={500}
               >
-                 <text className="learnMore">Learn more about HERO</text> 
+                <text className="learnMore">Learn more about HERO</text>
               </Link>
-             
             </button>
-            <small>
-                Scroll Down
-            </small>
-            <ion-icon
-              src="assets/img/svg/scroll-down.svg"
-              style={{ width: "38px", height: "38px" }}
-            ></ion-icon>
+            <Link
+              to="findcircle2"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              <small>Scroll Down</small>
+            </Link>
+            <Link
+              to="findcircle2"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              <ion-icon
+                src="assets/img/svg/scroll-down.svg"
+                style={{ width: "18px", height: "26px" }}
+              ></ion-icon>
+            </Link>
           </div>
         </div>
       </div>

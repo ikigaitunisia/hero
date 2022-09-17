@@ -170,15 +170,30 @@ function FindCircle4(props) {
                 offset={50}
                 duration={500}
               >
-                 <text>eviews from HERO Supporters</text> 
+                <text>Reviews from HERO Supporters</text>
               </Link>
-              R
             </button>
-              <small className="blue ">Scroll Down</small>
-            <ion-icon
-              src="assets/img/svg/scroll-down-blue.svg"
-              style={{ width: "18px", height: "26px" }}
-            ></ion-icon>
+            <Link
+              to="findCircle5"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              <small className="blue ">Scroll Down</small>{" "}
+            </Link>
+            <Link
+              to="findCircle5"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              <ion-icon
+                src="assets/img/svg/scroll-down-blue.svg"
+                style={{ width: "18px", height: "26px" }}
+              ></ion-icon>
+            </Link>
           </div>
         </div>
       </div>
