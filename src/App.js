@@ -39,26 +39,9 @@ function App() {
         <Route path="/feed" exact component={Feed} />
         <Route path="/mobilizer-feed" exact component={MobilizerFeed} />
         <Route path="/mobilizer-profile" exact component={ActivistProfile} />
-<<<<<<< HEAD
-        <Route path="/african-leaders-circle-profile" exact component={AfricanLeadersCircleProfile} />
-        <Route path="/changepassword" exact component={ChangePassword} />        
-        <Route path="/supporters" exact component={ListSupporter} />    
-        <Route path="/mobilizers" exact component={ListMobilizer} />   
-        <Route path="/" exact component={FindCircle} />   
-        <Route path="/circle-feed" exact component={CircleFeed} />   
-        <Route path="/circle-feed-details:circlename" exact component={CircleFeedDetails} />   
-        <Route path="/circle-home" exact component={CircleHome} />   
-        <Route path="/mobilizer-profile2:circlename" exact component={MobilizerProfile} />   
+        
         <Route path="/circle-updates:circlename" exact component={CircleUpdates} />   
-        <Route path="/circle-videos" exact component={CircleVideos} />   
-        <Route path="/circle-interactions" exact component={CircleInteractions} />   
-        <Route path="/CircleDashboard:circlename" exact component={CircleDashboard} /> 
-        <Route path="/hero-team" exact component={HeroTeam} />   
-        <Route path="/echo:circlename" exact component={Echo} />   
-        <Route path="/account-information" exact component={AccountInformation} />   
-        <Route path="/edit-password" exact component={EditPassword} />   
-        <Route path="/welcome-circle:circlename" exact component={WelcomeCircles}  />   
-=======
+
         <Route
           path="/african-leaders-circle-profile"
           exact
@@ -105,7 +88,6 @@ function App() {
           exact
           component={WelcomeCircles}
         />
->>>>>>> 2b8ad5eb962ff1991a3f9dfba4e754321234250e
 
         <Route path="/subscriptions" exact component={Subscriptions} />
         <Route path="/login1" exact component={Login1} />
