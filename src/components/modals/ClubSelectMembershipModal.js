@@ -177,9 +177,9 @@ function ClubSelectMembershipModal(props) {
                   <div className="amount-div white mt-2">
                     <sup>€</sup>10<span>/mo</span>
                   </div>
-                  <a href="" className="mt-1">
+                  <h6 className="mt-1">
                     Access to Circle Updates
-                  </a>
+                  </h6>
                 </div>
                 <hr className="hr mt-2 mb-2" />
 
@@ -207,9 +207,9 @@ function ClubSelectMembershipModal(props) {
                   <div className="amount-div white mt-2">
                     <sup>€</sup>20<span>/mo</span>
                   </div>
-                  <a href="" className="mt-1">
+                  <h6 className="mt-1">
                     Access to Circle Updates + Videos
-                  </a>
+                  </h6>
                 </div>
                 <hr className="hr mt-2 mb-2" />
 
@@ -234,10 +234,10 @@ function ClubSelectMembershipModal(props) {
                     />
                     <sup>CHANGER</sup>
                   </button>
-                  <a href="" className="mt-1">
+                  <h6 className="mt-1">
                     You can choose the monthly amount
                     <br /> you want to contribute, starting at €50
-                  </a>
+                  </h6>
                   <div className="form-group basic animated">
                     <div className="input-wrapper">
                       <span>€</span>
@@ -258,9 +258,9 @@ function ClubSelectMembershipModal(props) {
                       <span>/mo</span>
                     </div>
                   </div>
-                  <a href="" className="mt-1">
+                  <h6 className="mt-1">
                     Everyone on HERO Advocate + Interactions
-                  </a>
+                  </h6>
                 </div>
                 <button
                   type="button"
