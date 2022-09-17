@@ -33,6 +33,7 @@ function Menu(props) {
   const logout = () => {
     localStorage.removeItem("user");
     history.push("/");
+    setLogedin(false);
   };
   return (
     <div
