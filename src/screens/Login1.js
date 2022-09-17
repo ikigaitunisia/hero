@@ -273,9 +273,9 @@ function Login1() {
               <input
                 type="checkbox"
                 className="form-check-input"
-                id="customCheckb1"
+                id="customCheckb2"
               />
-              <label className="form-check-label white" htmlFor="customCheckb1">
+              <label className="form-check-label white" htmlFor="customCheckb2">
                 I agree to the{" "}
                 <a href="#" style={{ textDecoration: "underline" }}>
                   HERO Terms and Conditions
