@@ -49,7 +49,7 @@ function App() {
         <Route path="/circle-feed-details:circlename" exact component={CircleFeedDetails} />   
         <Route path="/circle-home" exact component={CircleHome} />   
         <Route path="/mobilizer-profile2:circlename" exact component={MobilizerProfile} />   
-        <Route path="/circle-updates" exact component={CircleUpdates} />   
+        <Route path="/circle-updates:circlename" exact component={CircleUpdates} />   
         <Route path="/circle-videos" exact component={CircleVideos} />   
         <Route path="/circle-interactions" exact component={CircleInteractions} />   
         <Route path="/CircleDashboard:circlename" exact component={CircleDashboard} /> 
