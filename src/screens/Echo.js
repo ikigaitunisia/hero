@@ -76,7 +76,7 @@ function Echo() {
               <div className="flex-col-center col mb-3 p-0">
               <TwitterShareButton
             url={"https://hegemony.donftify.digital:3001/"}
-            quote={"fb_share"}
+            title={"fb_share"}
             style={{width:"40px",height:"40px",borderRadius: "50%"}}
           >
                   <div className="flex-col-center col mb-3 p-0">
@@ -93,7 +93,8 @@ function Echo() {
               <div className="flex-col-center col mb-3 p-0">
               <FacebookShareButton
             url={"https://hegemony.donftify.digital:3001/"}
-            quote={"fb_share"}
+            title={"CampersTribe - World is yours to explore"}
+            hashtag="#camperstribe"
             style={{width:"40px",height:"40px",borderRadius: "50%"}}
           >
              <button
@@ -108,7 +109,9 @@ function Echo() {
                
                   <LinkedinShareButton
             url={"https://hegemony.donftify.digital:3001/"}
-            quote={"fb_share"}
+            title={"join hero"}
+            summary={"hello my friend"}
+            source={"linkedin"}
             style={{width:"40px",height:"40px",borderRadius: "50%"}}
           >
                   <button
