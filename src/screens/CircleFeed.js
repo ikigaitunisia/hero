@@ -58,7 +58,7 @@ function CircleFeed(props) {
     useState(false);
 
   const goToNextCircle = () => {
-    if (currentIndex === 4) {
+    if (currentIndex === circles.length - 1) {
       setCurrentIndex(0);
       setCurrentCircle(circles[0]);
       return;
@@ -157,7 +157,7 @@ function CircleFeed(props) {
                       className={
                         currentIndex === i ? "active-dot me-1" : "dot me-1"
                       }
-                      onClick={circles.length < 2 ? null : goToNextCircle}
+                      onClick={goToNextCircle}
                     ></div>
                   );
                 })}
@@ -167,7 +167,6 @@ function CircleFeed(props) {
                   type="button"
                   className="btn btn-icon rounded btn-primary social-btn"
                   onClick={goToNextCircle}
-                  disabled={circles.length < 2}
                 >
                   <ion-icon name="arrow-forward-outline"></ion-icon>
                 </button>
