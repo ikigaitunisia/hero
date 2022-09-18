@@ -68,3 +68,9 @@
   height: 28px;
   border-radius: 50px;
 }
+
+.circle-feed-details #whiteBlackBtn{
+  font-size: 12px;
+  font-weight: 700!important;
+  line-height: 14.72px;
+}
