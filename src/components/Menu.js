@@ -184,7 +184,11 @@ function Menu(props) {
 
             <ul className="listview flush transparent no-line image-listview">
               <li>
-                <a href="" className="item pt-0 pb-0">
+                <a
+                  href="https://herolabsco.notion.site/How-to-join-a-HERO-Circle-42834385f36f4a17bbaedf1a12d9dec5"
+                  target="_blank"
+                  className="item pt-0 pb-0"
+                >
                   <div className="in blue">
                     <small>How to join a HERO Circle</small>
                   </div>
@@ -202,14 +206,22 @@ function Menu(props) {
                 </a>
               </li>
               <li>
-                <a href="" className="item pt-0 pb-0">
+                <a
+                  href="https://herolabsco.notion.site/Contact-us-af4234ecdbd9440c8c3f94d394277e64"
+                  target="_blank"
+                  className="item pt-0 pb-0"
+                >
                   <div className="in blue">
                     <small>Help center</small>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="" className="item pt-0 pb-0">
+                <a
+                  href=" https://www.notion.so/herolabsco/Terms-of-Service-2ad8469c5f5e414eab44966ed5ec1627"
+                  className="item pt-0 pb-0"
+                  target="_blank"
+                >
                   <div className="in blue">
                     <small>Terms of Service</small>
                   </div>
@@ -219,6 +231,7 @@ function Menu(props) {
                 <a
                   href="https://herolabsco.notion.site/Privacy-Policy-3da3d0ebdd3849dfa7d48fb13cf27564"
                   className="item pt-0 pb-0"
+                  target="_blank"
                 >
                   <div className="in blue">
                     <small>Data & Privacy</small>
