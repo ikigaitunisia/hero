@@ -1,10 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-scroll";
 import "./FindCircle4.css";
+import Menu from "../Menu";
 
 function FindCircle4(props) {
   const history = useHistory();
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <div id="findCircle4">
       <div className="" style={{ minHeight: "90vh!important" }}>
@@ -15,12 +18,12 @@ function FindCircle4(props) {
               alt="logo"
               className="logo mt-4"
             />
-            <a href="#" className={"headerButton menuBtn mt-4 mb-4"}>
-              <ion-icon name="menu-outline" class="menuBtnIcon"></ion-icon>
+            <a className={"headerButton menuBtn mt-4 mb-4"} onClick={() => setShowMenu(true)}>
+              <ion-icon name="menu-outline" class="menuBtnIcon" style={{color:"#0000ff"}}></ion-icon>
             </a>
           </div>
           <div className="mt-4 flex-center flex-col">
-            <h1 className="blue mb-3">
+            <h1 className="blue mb-3" style={{fontSize:""}}>
               100 times
               <br /> more effective.{" "}
             </h1>
@@ -64,7 +67,7 @@ function FindCircle4(props) {
                 >
                   <div className="accordion-body accordion-body-1 p-4">
                     <p>Example:</p>
-                    <b>The European Union Green Deal.</b>
+                    <b style={{fontWeight: "bold"}}>The European Union Green Deal.</b>
                     <p>
                       Mobilizers propose to change from 40%
                       <br /> to 55% the carbon reduction target for
@@ -167,7 +170,7 @@ function FindCircle4(props) {
                 to="findCircle5"
                 spy={true}
                 smooth={true}
-                offset={50}
+                offset={30}
                 duration={500}
               >
                 <text>Reviews from HERO Supporters</text>
@@ -177,7 +180,7 @@ function FindCircle4(props) {
               to="findCircle5"
               spy={true}
               smooth={true}
-              offset={50}
+              offset={30}
               duration={500}
             >
               <small className="blue ">Scroll Down</small>{" "}
@@ -186,7 +189,7 @@ function FindCircle4(props) {
               to="findCircle5"
               spy={true}
               smooth={true}
-              offset={50}
+              offset={30}
               duration={500}
             >
               <ion-icon
@@ -197,6 +200,8 @@ function FindCircle4(props) {
           </div>
         </div>
       </div>
+      <Menu show={showMenu} onClose={() => setShowMenu(false)} />
+
     </div>
   );
 }

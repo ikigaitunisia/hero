@@ -1,9 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 import { useHistory } from "react-router-dom";
 import "./FindCircle5.css";
+import Menu from "../Menu";
+
 
 function FindCircle5(props) {
   const history = useHistory();
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <div id="findCircle5">
       <div className="" style={{ minHeight: "90vh!important" }}>
@@ -14,7 +18,7 @@ function FindCircle5(props) {
               alt="logo"
               className="logo mt-4"
             />
-            <a href="#" className={"headerButton menuBtn mt-4 mb-4"}>
+            <a  className={"headerButton menuBtn mt-4 mb-4"} onClick={() => setShowMenu(true)}>
               <ion-icon name="menu-outline" class="menuBtnIcon"></ion-icon>
             </a>
           </div>
@@ -85,6 +89,7 @@ function FindCircle5(props) {
           </div>
         </div>
       </div>
+      <Menu show={showMenu} onClose={() => setShowMenu(false)} />
     </div>
   );
 }

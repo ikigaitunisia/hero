@@ -1,10 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-scroll";
 import "./FindCircle3.css";
+import Menu from "../Menu";
 
 function FindCircle3(props) {
   const history = useHistory();
+  const [showMenu, setShowMenu] = useState(false);
+
   const playVideo = (id) => {
     var v = document.getElementById(id);
     if (v.paused) {
@@ -15,7 +18,7 @@ function FindCircle3(props) {
   };
   return (
     <div id="findcircle3">
-      <div className="feed" style={{ minHeight: "90vh!important" }}>
+      <div className="feed" style={{ minHeight: "90vh!important" ,height:"104vh"}}>
         <video playsInline autoPlay muted id="2">
           <source
             src={"assets/videos/" + "short-video-for-test.mp4"}
@@ -29,7 +32,7 @@ function FindCircle3(props) {
               alt="logo"
               className="logo mt-4"
             />
-            <a href="#" className={"headerButton menuBtn mt-4 mb-4"}>
+            <a className={"headerButton menuBtn mt-4 mb-4"} onClick={() => setShowMenu(true)}>
               <ion-icon name="menu-outline" class="menuBtnIcon"></ion-icon>
             </a>
           </div>
@@ -71,7 +74,7 @@ function FindCircle3(props) {
                 to="findCircle4"
                 spy={true}
                 smooth={true}
-                offset={50}
+                offset={30}
                 duration={500}
               >
                 <text className="learnMore">
@@ -83,7 +86,7 @@ function FindCircle3(props) {
               to="findCircle4"
               spy={true}
               smooth={true}
-              offset={50}
+              offset={30}
               duration={500}
             >
               <small>Scroll Down</small>{" "}
@@ -92,7 +95,7 @@ function FindCircle3(props) {
               to="findCircle4"
               spy={true}
               smooth={true}
-              offset={50}
+              offset={30}
               duration={500}
             >
               <ion-icon
@@ -103,6 +106,8 @@ function FindCircle3(props) {
           </div>
         </div>
       </div>
+      <Menu show={showMenu} onClose={() => setShowMenu(false)} />
+
     </div>
   );
 }

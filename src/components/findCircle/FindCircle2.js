@@ -1,10 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-scroll";
 import "./FindCircle2.css";
+import Menu from "../Menu";
 
 function FindCircle2(props) {
   const history = useHistory();
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <div id="findcircle2">
       <div className="" style={{ minHeight: "90vh!important" }}>
@@ -15,8 +18,8 @@ function FindCircle2(props) {
               alt="logo"
               className="logo mt-4"
             />
-            <a href="#" className={"headerButton menuBtn mt-4 mb-4"}>
-              <ion-icon name="menu-outline" class="menuBtnIcon"></ion-icon>
+            <a  className={"headerButton menuBtn mt-4 mb-4"} onClick={() => setShowMenu(true)}>
+              <ion-icon name="menu-outline" class="menuBtnIcon" style={{color:"#0000ff"}}></ion-icon>
             </a>
           </div>
           <div className="m-4 flex-center flex-col">
@@ -68,7 +71,7 @@ function FindCircle2(props) {
                 to="findcircle3"
                 spy={true}
                 smooth={true}
-                offset={50}
+                offset={30}
                 duration={500}
               >
                 <text>Learn how HERO Circles work</text>
@@ -78,7 +81,7 @@ function FindCircle2(props) {
               to="findcircle3"
               spy={true}
               smooth={true}
-              offset={50}
+              offset={30}
               duration={500}
             >
               <small className="blue ">Scroll Down</small>{" "}
@@ -87,7 +90,7 @@ function FindCircle2(props) {
               to="findcircle3"
               spy={true}
               smooth={true}
-              offset={50}
+              offset={30}
               duration={500}
             >
               <ion-icon
@@ -98,6 +101,8 @@ function FindCircle2(props) {
           </div>
         </div>
       </div>
+      <Menu show={showMenu} onClose={() => setShowMenu(false)} />
+
     </div>
   );
 }

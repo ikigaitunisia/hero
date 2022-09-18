@@ -29,7 +29,6 @@ function FindCircle11(props) {
               className="logo mt-4"
             />
             <a
-              href="#"
               className={"headerButton menuBtn mt-4 mb-4"}
               onClick={() => setShowMenu(true)}
             >
@@ -48,7 +47,7 @@ function FindCircle11(props) {
             </button>
           </div>
 
-          <div className="section flex-center flex-col">
+          <div className="section flex-center flex-col" style={{marginTop:80}}>
             <h4 className="mt-3 white">
               Do you want to do more
               <br /> for the climate but you
@@ -66,12 +65,13 @@ function FindCircle11(props) {
             id="whiteLightBlueBtn"
             type="button"
             className="btn btn-primary rounded font-size-btn mb-4"
+            style={{width:198}}
           >
             <Link
               to="findcircle2"
               spy={true}
               smooth={true}
-              offset={50}
+              offset={30}
               duration={500}
             >
               <text style={{ color: "#8585FF" }}>Learn more about HERO</text>
@@ -81,7 +81,7 @@ function FindCircle11(props) {
             to="findcircle2"
             spy={true}
             smooth={true}
-            offset={50}
+            offset={30}
             duration={500}
           >
             <small className="white">Scroll Down</small>{" "}
@@ -90,7 +90,7 @@ function FindCircle11(props) {
             to="findcircle2"
             spy={true}
             smooth={true}
-            offset={50}
+            offset={30}
             duration={500}
           >
             <ion-icon
