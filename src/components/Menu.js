@@ -42,9 +42,9 @@ function Menu(props) {
       tabIndex="-1"
       role="dialog"
       data-backdrop={false}
-      style={{zIndex:-1}}
+      style={{zIndex:9999}}
     >
-      <div className="modal-dialog modal-dialog-centered w-100 " role="document" style={{zIndex:99999}}>
+      <div className="modal-dialog modal-dialog-centered w-100 " role="document" style={{zIndex:-1}}>
         <div className="modal-content w-100 d-flex align-items-center justify-content-center">
           <div className="modal-body p-0 d-flex flex-column justify-content-around">
             <div className=" pt-2 pb-2 xicon">
