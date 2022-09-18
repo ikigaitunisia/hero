@@ -42,3 +42,7 @@
 .learnMore{
   color:black;
 }
+
+#findcircle1 {
+  min-height: 100vh!important;
+}

@@ -20,8 +20,8 @@ function FindCircle11(props) {
   }, []);
   return (
     <div id="findcircle11">
-      <div style={{ minHeight: "90vh!important" }}>
-        <div className="">
+      <div id="findcirclecontainer" className="">
+        <div>
           <div className="p-t-h">
             <img
               src={"assets/img/heroLogoWhite.png"}
@@ -36,7 +36,7 @@ function FindCircle11(props) {
               <ion-icon name="menu-outline" class="menuBtnIcon"></ion-icon>
             </a>
           </div>
-          <div className="m-4 flex-center flex-col" >
+          <div className="m-4 flex-center flex-col">
             <button
               id="whiteBlueBtn"
               type="button"
@@ -60,24 +60,13 @@ function FindCircle11(props) {
               <br /> climate policy.
             </p>
           </div>
-          <div className=" mt-4 flex-col mb-4 mt-4"
-         
+        </div>
+        <div className=" mt-4 flex-col mb-4 mt-4">
+          <button
+            id="whiteLightBlueBtn"
+            type="button"
+            className="btn btn-primary rounded font-size-btn mb-4"
           >
-            <button
-              id="whiteLightBlueBtn"
-              type="button"
-              className="btn btn-primary rounded font-size-btn mb-4"
-            >
-              <Link
-                to="findcircle2"
-                spy={true}
-                smooth={true}
-                offset={50}
-                duration={500}
-              >
-                <text style={{ color: "#8585FF" }}>Learn more about HERO</text>
-              </Link>
-            </button>
             <Link
               to="findcircle2"
               spy={true}
@@ -85,26 +74,34 @@ function FindCircle11(props) {
               offset={50}
               duration={500}
             >
-              <small className="white">Scroll Down</small>{" "}
+              <text style={{ color: "#8585FF" }}>Learn more about HERO</text>
             </Link>
-            <Link
-              to="findcircle2"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-            >
-              <ion-icon
-                src="assets/img/svg/scroll-down.svg"
-                style={{ width: "18px", height: "26px" }}
-              ></ion-icon>
-            </Link>
-          </div>
+          </button>
+          <Link
+            to="findcircle2"
+            spy={true}
+            smooth={true}
+            offset={50}
+            duration={500}
+          >
+            <small className="white">Scroll Down</small>{" "}
+          </Link>
+          <Link
+            to="findcircle2"
+            spy={true}
+            smooth={true}
+            offset={50}
+            duration={500}
+          >
+            <ion-icon
+              src="assets/img/svg/scroll-down.svg"
+              style={{ width: "18px", height: "26px" }}
+            ></ion-icon>
+          </Link>
         </div>
       </div>
       <Menu show={showMenu} onClose={() => setShowMenu(false)} />
     </div>
-    
   );
 }
 
