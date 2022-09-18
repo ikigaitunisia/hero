@@ -1,7 +1,16 @@
 .mobilizer-profile {
   background: linear-gradient(0deg, white, blue);
 }
-
+.feed2 {
+  position: relative;
+  /* overflow: hidden; */
+  width: 80%;
+  height: 80vh;
+  padding: 0 !important;
+  min-height: 80vh !important;
+  scroll-snap-align: start;
+  margin: 60px auto;
+}
 .card-img-overlay {
   display: flex;
   flex-direction: column;
