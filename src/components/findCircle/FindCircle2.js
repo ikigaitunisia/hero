@@ -9,7 +9,10 @@ function FindCircle2(props) {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
+
     <div id="findcircle2">
+    <Menu show={showMenu} onClose={() => setShowMenu(false)} />
+
       <div className="" style={{ minHeight: "90vh!important" }}>
         <div className="">
           <div className="p-t-h">
@@ -101,7 +104,6 @@ function FindCircle2(props) {
           </div>
         </div>
       </div>
-      <Menu show={showMenu} onClose={() => setShowMenu(false)} />
 
     </div>
   );

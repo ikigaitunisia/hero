@@ -31,6 +31,8 @@ function FindCircle1(props) {
   };
   return (
     <div id="findcircle1">
+            <Menu show={showMenu} onClose={() => setShowMenu(false)} />
+
       <div className="feed" style={{ minHeight: "90vh!important" }}>
         <video playsInline autoPlay muted id="1">
           <source
@@ -125,7 +127,6 @@ function FindCircle1(props) {
           </div>
         </div>
       </div>
-      <Menu show={showMenu} onClose={() => setShowMenu(false)} />
     </div>
   );
 }
