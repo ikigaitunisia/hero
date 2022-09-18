@@ -1,0 +1,19 @@
+#findcircle11 {
+  background: linear-gradient(0deg, #0000ff30, blue);
+}
+#findcircle11 h4 {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 30px;
+}
+#findcircle11 p {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+}
+#whiteLightBlueBtn {
+  background-color: white !important;
+  display: flex;
+  color: #8585ff !important;
+  border: unset !important;
+}

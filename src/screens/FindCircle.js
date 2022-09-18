@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import FindCircle1 from "../components/findCircle/FindCircle1";
+import FindCircle11 from "../components/findCircle/FindCircle11";
 import FindCircle2 from "../components/findCircle/FindCircle2";
 import FindCircle3 from "../components/findCircle/FindCircle3";
 import FindCircle4 from "../components/findCircle/FindCircle4";
@@ -15,7 +15,7 @@ function FindCircle(props) {
       hasMore={true}
       loader={<h4></h4>}
     >
-      <FindCircle1 />
+      <FindCircle11 />
       <FindCircle2 />
       <FindCircle3 />
       <FindCircle4 />

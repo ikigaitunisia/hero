@@ -26,12 +26,12 @@
 }
 
 .menuBtn {
-  position: absolute;
-  right: 10px;
+  position: absolute!important;
+  right: 10px!important;
 }
 .menuBtnIcon {
-  width: 35px;
-  height: 35px;
+  width: 35px!important;
+  height: 35px!important;
 }
 .login-link {
   text-decoration: underline;
