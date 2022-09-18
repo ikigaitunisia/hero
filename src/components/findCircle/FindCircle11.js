@@ -18,18 +18,6 @@ function FindCircle11(props) {
       setLogedin(true);
     }
   }, []);
-  const playVideo = (id) => {
-    var v = document.getElementById(id);
-    if (v.paused) {
-      v.play();
-    } else {
-      v.pause();
-    }
-  };
-  const logout = () => {
-    localStorage.removeItem("user");
-    history.push("/");
-  };
   return (
     <div id="findcircle11">
       <div className="" style={{ minHeight: "90vh!important" }}>
@@ -114,6 +102,7 @@ function FindCircle11(props) {
       </div>
       <Menu show={showMenu} onClose={() => setShowMenu(false)} />
     </div>
+    
   );
 }
 
