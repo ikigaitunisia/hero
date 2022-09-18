@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Seravek";
+  src: url('/fonts/Seravek Basic.ttf');
+ 
+}
 #circleHome #whiteBlueBtn {
   font-size: 18px;
   font-weight: 500;
@@ -111,6 +116,8 @@
   font-weight: 500;
   line-height: 17.18px;
   color: blue;
+  font-family: "Seravek";
+  font-weight: bold; 
 }
 
 .circle-home .progress {

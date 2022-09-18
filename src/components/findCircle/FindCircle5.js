@@ -53,7 +53,7 @@ function FindCircle5(props) {
             <div className="card border-blue mb-3">
               <div className="card-body flex-center flex-col">
                 <img
-                  src="assets/img/image6.png"
+                  src="assets/img/Anne_Flore_lepeu.jpeg"
                   alt="image"
                   className="imaged w48 rounded"
                 />
@@ -69,7 +69,7 @@ function FindCircle5(props) {
             <div className="card border-blue mb-3">
               <div className="card-body flex-center flex-col">
                 <img
-                  src="assets/img/image7.png"
+                  src="assets/img/Leo.jpeg"
                   alt="image"
                   className="imaged w48 rounded"
                 />

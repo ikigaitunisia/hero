@@ -139,7 +139,7 @@ function CircleFeed(props) {
                     onClick={() =>
                       history.push(
                         "/circle-feed-details:" + currentCircle.name,
-                        { circle: circles, index: currentIndex }
+                        { circle: circles, index: currentIndex ,circlename:currentCircle.name}
                       )
                     }
                     className="white"

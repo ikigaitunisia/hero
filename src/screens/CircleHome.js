@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory,useParams } from "react-router-dom";
 import "./CircleHome.css";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 
 function CircleHome(props) {
   const history = useHistory();
+  const { circlename } = useParams();
   const circles = [
     {
       id: "1",
@@ -48,6 +49,7 @@ function CircleHome(props) {
         title={currentCircle.name}
         showBackBtn
         showMenuBtn
+        backTo={'/welcome-circle:'+circlename}
       />
       <div id="appCapsule" className="circle-home">
         <div className="flex-center mt-4 mb-4">
@@ -58,7 +60,7 @@ function CircleHome(props) {
           />
         </div>
         <div class="card mb-3 ml-3 me-3">
-          <div className="custom-div-header">
+          <div className="custom-div-header" onClick={() => history.push("/echo:" + circlename.replace(":", ""))}>
             <h5>
               <b>Echo this circle,</b>
               <br />
