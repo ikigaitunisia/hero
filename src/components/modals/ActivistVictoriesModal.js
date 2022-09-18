@@ -73,9 +73,6 @@ function ActivistVictoriesModal(props) {
                         <div className="mb-05">
                           <strong>Name of campaign</strong>
                         </div>
-                        <div className="mb-05">
-                          <strong>Name of organization</strong>
-                        </div>
                         <div className="text-small mb-05">Status</div>
                         <div className="text-xsmall">
                           Brief description of the campaign - Brief description
@@ -101,9 +98,6 @@ function ActivistVictoriesModal(props) {
                         <div className="mb-05">
                           <strong>Name of campaign</strong>
                         </div>
-                        <div className="mb-05">
-                          <strong>Name of organization</strong>
-                        </div>
                         <div className="text-small mb-05">Status</div>
                         <div className="text-xsmall">
                           Brief description of the campaign - Brief description
@@ -128,9 +122,6 @@ function ActivistVictoriesModal(props) {
                       <div>
                         <div className="mb-05">
                           <strong>Name of campaign</strong>
-                        </div>
-                        <div className="mb-05">
-                          <strong>Name of organization</strong>
                         </div>
                         <div className="text-small mb-05">Status</div>
                         <div className="text-xsmall">
