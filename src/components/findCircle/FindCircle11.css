@@ -1,5 +1,6 @@
 #findcircle11 {
   background: linear-gradient(0deg, #0000ff30, blue);
+  min-height: 100vh!important;
 }
 #findcircle11 h4 {
   font-size: 26px;
