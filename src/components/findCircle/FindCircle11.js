@@ -32,7 +32,7 @@ function FindCircle11(props) {
   };
   return (
     <div id="findcircle11">
-      <div className="" style={{ minHeight: "90vh!important" }}>
+      <div style={{ minHeight: "90vh!important" }}>
         <div className="">
           <div className="p-t-h">
             <img
@@ -48,7 +48,7 @@ function FindCircle11(props) {
               <ion-icon name="menu-outline" class="menuBtnIcon"></ion-icon>
             </a>
           </div>
-          <div className="m-4 flex-center flex-col">
+          <div className="m-4 flex-center flex-col" >
             <button
               id="whiteBlueBtn"
               type="button"
@@ -72,7 +72,9 @@ function FindCircle11(props) {
               <br /> climate policy.
             </p>
           </div>
-          <div className=" mt-4 flex-col mb-4 mt-4">
+          <div className=" mt-4 flex-col mb-4 mt-4"
+         
+          >
             <button
               id="whiteLightBlueBtn"
               type="button"
