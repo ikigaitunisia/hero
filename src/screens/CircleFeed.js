@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import "./CircleFeed.css";
 import axios from "axios";
 import ClubSelectMembershipModal from "../components/modals/ClubSelectMembershipModal";
+import Menu from "../components/Menu";
 
 function CircleFeed(props) {
   const history = useHistory();
@@ -99,11 +100,19 @@ function CircleFeed(props) {
 
     console.log(load);
   }, [currentIndex]);
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <>
       {load && (
         <>
           <Header whiteMode showHeroLogo transparent showBackBtn />
+          <a
+              href="#"
+              className={"headerButton menuBtn mt-5 mb-5 "}
+              onClick={() => setShowMenu(true)}
+            >
+              <ion-icon name="menu-outline" class="menuBtnIcon"></ion-icon>
+            </a>
 
           <div id="appCapsule" className="circle-feed-container">
             <div className="feed2" style={{ minHeight: "90vh!important" }}>
@@ -116,7 +125,7 @@ function CircleFeed(props) {
               <div className="feed-content">
                 <button
                   type="button"
-                  className="btn btn-primary rounded play-btn"
+                  className="btn btn-primary rounded play-btn margin"
                   onClick={() => playVideo(1)}
                 >
                   <ion-icon name="play" class="m-0"></ion-icon>
@@ -124,11 +133,11 @@ function CircleFeed(props) {
 
                 <div className="bottom mt-4 flex-col-start">
                   <h3 className="white mb-3">{currentCircle.name}</h3>
-                  <p className="white  mb-3">{currentCircle.description}</p>
+                  <p className="white  mb-3">{currentCircle.Description}</p>
                   <button
                     id="whiteBtn"
                     type="button"
-                    className="btn btn-primary rounded font-size-btn mb-4"
+                    className="btn btn-primary rounded font-size-btn mb-2"
                     onClick={() => setShowClubSelectMembershipModal(true)}
                   >
                     <ion-icon src="assets/img/svg/icon2.svg"></ion-icon>
@@ -142,7 +151,7 @@ function CircleFeed(props) {
                         { circle: circles, index: currentIndex ,circlename:currentCircle.name}
                       )
                     }
-                    className="white"
+                    className="white mt-2 mb-2 ml-2"
                   >
                     Learn more about this circle
                   </a>
@@ -178,8 +187,9 @@ function CircleFeed(props) {
             onClose={() => setShowClubSelectMembershipModal(false)}
             circle={currentCircle.name}
           />
+          <Menu show={showMenu} onClose={() => setShowMenu(false)} />
         </>
-      )}
+      )} 
     </>
   );
 }
