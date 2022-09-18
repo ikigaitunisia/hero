@@ -1,6 +1,12 @@
 #findcircle11 {
   background: linear-gradient(0deg, #0000ff30, blue);
-  min-height: 100vh!important;
+  min-height: 100vh !important;
+}
+#findcircle11 #findcirclecontainer {
+  min-height: 100vh !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 #findcircle11 h4 {
   font-size: 26px;
