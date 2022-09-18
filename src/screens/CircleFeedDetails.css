@@ -41,7 +41,7 @@
 }
 
 .circle-feed-details h5 {
-  font-weight: 500;
+  font-weight: 700;
   font-size: 15px;
   line-height: 30px;
   color: black;
@@ -67,4 +67,10 @@
 .circle-feed-details .progress {
   height: 28px;
   border-radius: 50px;
+}
+
+.circle-feed-details #whiteBlackBtn{
+  font-size: 12px;
+  font-weight: 700!important;
+  line-height: 14.72px;
 }

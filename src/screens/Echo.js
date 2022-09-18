@@ -18,7 +18,7 @@ import {
 } from "react-share";
 function Echo() {
   const history = useHistory();
-  const [Copied,setCopied] = useState("copie");
+  const [Copied,setCopied] = useState("copy");
   const { circlename } = useParams();
   const valueOF = "https://hegemony.donftify.digital:3001/circle-feed-details"+circlename;
   return (
@@ -28,6 +28,22 @@ function Echo() {
         className="echo"
         style={{ minHeight: "100vh" }}
       >
+          <div
+              className="modal-header"
+              style={{
+                justifyContent: "flex-end",
+                border: "unset",
+                background: "transparent",
+              }}
+              onClick={()=> history.goBack()}
+            >
+              <a href="#" data-bs-dismiss="modal">
+                <ion-icon
+                  name="close"
+                  style={ { color: "white" ,position:"absolute",top:20,left:"90%"} }
+                ></ion-icon>
+              </a>
+            </div>
         <div id="" className="echo-content section">
           <img src={"assets/img/echotransparent.png"} alt="logo" className="logo" />{" "}
           <p className="header-text mt-4 white">

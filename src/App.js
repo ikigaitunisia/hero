@@ -57,7 +57,7 @@ function App() {
           exact
           component={CircleFeedDetails}
         />
-        <Route path="/circle-home" exact component={CircleHome} />
+        <Route path="/circle-home:circlename" exact component={CircleHome} />
         <Route
           path="/mobilizer-profile2:circlename"
           exact

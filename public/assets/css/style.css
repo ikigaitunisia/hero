@@ -349,7 +349,7 @@ a:hover, a:active, a:focus {
 }
 
 #appCapsule {
-  padding: 56px 0;
+  padding: 74px 0;
   margin-bottom: env(safe-area-inset-bottom);
   margin-top: env(safe-area-inset-top);
 }

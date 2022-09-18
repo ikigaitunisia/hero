@@ -19,29 +19,38 @@ function CircleFeedDetails(props) {
   const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
     useState(false);
   const [MobilizersCircle,setMobilizersCircle] = useState([]);
-    const { circlename } = useParams();
     const {state} = useLocation();
     const [circles,setCircles] = useState([]);
   const goToNextCircle = () => {
-    if (currentIndex === circles.length - 1) {
+    console.log("index")
+    console.log(currentIndex);
+    if (currentIndex === state.circle.length - 1) {
       setCurrentIndex(0);
-      setCurrentCircle(circles[0]);
+      setCurrentCircle(state.circle[0]);
+      setMembers();
+
       return;
     }
+
+    
     setCurrentIndex(currentIndex + 1);
+    setMembers();
   };
-  useEffect(() => {
-    setCircles(state.circle)
-    setCurrentIndex(state.index);
+  const setMembers = () => {
     setLoad(true);
-    axios.get("https://hegemony.donftify.digital:8080/circle/members/"+circlename.replace(":",""))
-      .then((res) => {
-        console.log(res.data);
-        setMobilizersCircle(res.data);
-          
-        });
+    axios.get("https://hegemony.donftify.digital:8080/circle/members/"+state.circle[currentIndex].name)
+    .then((res) => {
+      console.log(res.data);
+      setMobilizersCircle(res.data);
         
+      });
+      
+  }
+  useEffect(() => {
     setCurrentCircle(state.circle[currentIndex]);
+
+    setMembers();
+    console.log(circles);
 
   }, [currentIndex]);
   return (
@@ -145,12 +154,12 @@ function CircleFeedDetails(props) {
         </div>
         <div className="circle-feed-bottom mb-4">
           <div style={{ display: "flex" }}>
-          {circles.map((item, i) => {
+          {state.circle.map((item, i) => {
                     return (
 
             <div
               className={currentIndex === i ? "active-dot me-1" : "dot me-1"}
-              onClick={goToNextCircle}
+              onClick={()=> goToNextCircle()}
             ></div>
                     )
             })
@@ -160,7 +169,7 @@ function CircleFeedDetails(props) {
           <button
             type="button"
             className="btn btn-icon rounded btn-primary social-btn"
-            onClick={goToNextCircle}
+            onClick={()=> goToNextCircle()}
           >
             <ion-icon name="arrow-forward-outline"></ion-icon>
           </button>
@@ -169,7 +178,7 @@ function CircleFeedDetails(props) {
       <ClubSelectMembershipModal
         show={showClubSelectMembershipModal}
         onClose={() => setShowClubSelectMembershipModal(false)}
-        circle={circlename.replace(":","")}
+        circle={props.circlename}
       />
       <ActivistCampaignsModal
         show={showMobilizerCampaignsModal}

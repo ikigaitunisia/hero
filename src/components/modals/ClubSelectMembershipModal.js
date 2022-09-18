@@ -33,7 +33,7 @@ function ClubSelectMembershipModal(props) {
   const [showForm1, setShowForm1] = useState(false);
   const [showWelcomeToClub, setShowWelcomeToClub] = useState(false);
   const [amount, setAmount] = useState(null);
-
+  const [validAmount , setValidAmount] = useState(true);
   const [HeroId, setHeroId] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -55,7 +55,9 @@ function ClubSelectMembershipModal(props) {
       return;
     }
   };
+  const validateAmount = async() => {
 
+  }
   const confirmAmount = async() => {
     if (!amount) {
       return;
@@ -251,6 +253,8 @@ function ClubSelectMembershipModal(props) {
                         className="form-control"
                         id="userid2"
                         placeholder="50"
+                        value={amount}
+                        onChange={() => validateAmount()}
                       />
                       <i className="clear-input">
                         <ion-icon

@@ -83,8 +83,8 @@ function MobilizerProfile(props) {
             transparent
             backTo={"/circle-home"}
           />
-          <div id="appCapsule" className="mobilizer-profile">
-            <div className="section mt-2 mb-4">
+          <div id="appCapsule" className="mobilizer-profile ">
+            <div className="section mt-2 mb-4 feed2">
               <div className="card bg-dark text-white">
                 <img
                   src="assets/img/bg-card.png"
