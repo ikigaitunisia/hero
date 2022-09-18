@@ -103,7 +103,13 @@ function Menu(props) {
             )}
             {loggedin && (
               <div className="listview-title mb-3">
-                <h5 className="text-start blue-text">FAQ</h5>
+                <a
+                  href="https://herolabsco.notion.site/HERO-FAQ-a74c18e9ad1d4f308a3ec06e0bb62732"
+                  className="item pt-0 pb-0"
+                  target="_blank"
+                >
+                  <h5 className="text-start blue-text">FAQ</h5>
+                </a>
               </div>
             )}
             <ul className="listview flush transparent no-line image-listview">
@@ -111,6 +117,7 @@ function Menu(props) {
                 <a
                   href="https://herolabsco.notion.site/Discover-how-HERO-Mobilizers-are-verified-a3b9028ab257499fafa9d724c2ecb11b"
                   className="item pt-0 pb-0"
+                  target="_blank"
                 >
                   <div className="in blue">How are mobilizers verified?</div>
                 </a>
@@ -119,6 +126,7 @@ function Menu(props) {
                 <a
                   href="https://herolabsco.notion.site/Why-a-Basic-Income-785bc36971f741baa728f3cb81a6a807"
                   className="item pt-0 pb-0"
+                  target="_blank"
                 >
                   <div className="in blue">What is Basic Income?</div>
                 </a>
@@ -175,7 +183,6 @@ function Menu(props) {
             </div>
 
             <ul className="listview flush transparent no-line image-listview">
-            
               <li>
                 <a href="" className="item pt-0 pb-0">
                   <div className="in blue">
