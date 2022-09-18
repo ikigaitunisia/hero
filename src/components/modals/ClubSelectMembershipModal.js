@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useHistory } from "react-router-dom";
 import WelcomeCirclesModal from "./WelcomeCirclesModal";
+import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 
 function ClubSelectMembershipModal(props) {
   const history = useHistory();
@@ -37,6 +38,7 @@ function ClubSelectMembershipModal(props) {
   const [HeroId, setHeroId] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [overAmount, setOverAmount] = useState(50);
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
   const chooseAmount = (a) => {
@@ -46,20 +48,33 @@ function ClubSelectMembershipModal(props) {
     }
     setAmount(a);
     if (a === 10) {
+      setValidAmount(true)
       return;
     }
     if (a === 20) {
+      setValidAmount(true)
+
       return;
     }
     if (a === 50) {
+      setValidAmount(false)
+
       return;
     }
   };
-  const validateAmount = async() => {
-
+  const validateAmount = async(ev) => {
+     if (ev > 50)
+     {
+      setValidAmount(true);
+     }
+     else
+     {
+      setValidAmount(false);
+     }
+     setOverAmount(ev);
   }
   const confirmAmount = async() => {
-    if (!amount) {
+    if (!amount || validAmount==false) {
       return;
     }
     setShowAmountSelect(false);
@@ -96,7 +111,10 @@ function ClubSelectMembershipModal(props) {
   };
   const validate = async () => {
     let a = JSON.parse(localStorage.getItem("user"));
-    
+    if(amount == 50)
+    {
+      setAmount(overAmount);
+    }
 
     console.log(a);
     const customerId = a.wallet.customerId;
@@ -168,7 +186,7 @@ function ClubSelectMembershipModal(props) {
                         ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
                         : "btn btn-outline-primary custom-btn me-1 mb-1"
                     }
-                    onClick={() =>     setAmount(10)}
+                    onClick={() =>     {setAmount(10);setValidAmount(true)}}
                   >
                     <img
                       src={
@@ -198,7 +216,7 @@ function ClubSelectMembershipModal(props) {
                         ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
                         : "btn btn-outline-primary custom-btn me-1 mb-1"
                     }
-                    onClick={() => setAmount(20)}
+                    onClick={() => {setAmount(20);setValidAmount(true)}}
                   >
                     <img
                       src={
@@ -253,8 +271,9 @@ function ClubSelectMembershipModal(props) {
                         className="form-control"
                         id="userid2"
                         placeholder="50"
-                        value={amount}
-                        onChange={() => validateAmount()}
+                        value={overAmount}
+                        onChange={(ev) => validateAmount(ev.target.value)}
+                        style={{color:"white",fontSize:25}}
                       />
                       <i className="clear-input">
                         <ion-icon
@@ -270,6 +289,10 @@ function ClubSelectMembershipModal(props) {
                   <h6 className="mt-1">
                     Everyone on HERO Advocate + Interactions
                   </h6>
+                  {!validAmount &&
+ <h3 className="mt-1" style={{color:"red"}}>
+you need to put amount over 50</h3>
+                  }
                 </div>
                 <button
                   type="button"

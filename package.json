@@ -63,6 +63,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/dom": "8.1.0",
     "webextension-polyfill": "^0.9.0"
   }
 }
