@@ -4,6 +4,10 @@ import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import "./AccountInformation.css";
 import axios from "axios";
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+
 
 function AccountInformation(props) {
   const history = useHistory();
@@ -15,6 +19,7 @@ function AccountInformation(props) {
   const [choosedFile, setChoosedFile] = useState(null);
   const [receiveMailUpdates, setReceiveMailUpdates] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
+  const [success,setSuccess] = useState(false);
   const inputFilePhoto = useRef(null);
   const clickedFile = () => {
     inputFilePhoto.current.click();
@@ -69,6 +74,7 @@ function AccountInformation(props) {
       )
       .then(function (response) {
         console.log(response.data);
+        setSuccess(true)
       });
   };
   useEffect(() => {
@@ -259,6 +265,23 @@ function AccountInformation(props) {
               >
                 Save
               </button>
+              <br />
+              <br />
+              {success &&
+              
+              <Alert severity="success" color="info"  action={
+                <IconButton
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                  onClick={() => {
+                    setSuccess(false);
+                  }}
+                >
+                  <CloseIcon fontSize="inherit" />
+                </IconButton>
+              }>informations has been updated</Alert>
+              }
             </div>
           </div>
         </div>

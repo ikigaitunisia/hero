@@ -175,13 +175,7 @@ function Menu(props) {
             </div>
 
             <ul className="listview flush transparent no-line image-listview">
-              <li>
-                <a href="" className="item pt-0 pb-0">
-                  <div className="in blue">
-                    <small>Founders 100% Pledge</small>
-                  </div>
-                </a>
-              </li>
+            
               <li>
                 <a href="" className="item pt-0 pb-0">
                   <div className="in blue">

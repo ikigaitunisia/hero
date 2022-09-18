@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter,useLocation } from "react-router-dom";
 import BlockLargeButton from "../components/buttons/BlockLargeButton";
 import SmsVerification from "../components/SmsVerification";
 import BasicInput from "../components/inputs/BasicInput";
@@ -20,13 +20,29 @@ function Login1() {
   const [codeSmsValidated, setCodeSmsValidated] = useState(false);
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
+  const [HeroID,setHeroID] = useState("");
   const [points, setPoints] = useState("");
+  const [loginOnly, setloginOnly] = useState(true);
+  const [amount, setAmount] = useState(0);
+  const [circle,setCircle] = useState("");
   const history = useHistory();
+  const location = useLocation();
   const clientId =
     "213045835379-hcm9r1um59u7dksk2h73773e6jfepinn.apps.googleusercontent.com";
 
   useEffect(() => {
     //setphoneNumberError(!checkIsPhoneFormat(phoneNumber));
+    const search=new URLSearchParams(location.search).get("fromSubsctiption")
+    if (search !== null)
+    {
+      setloginOnly(false);
+      const amnt=new URLSearchParams(location.search).get("amount");
+      setAmount(amnt);
+      const circ=new URLSearchParams(location.search).get("circle");
+      setCircle(circ);
+    }
+    
+    console.log(search);
     const initClient = () => {
       gapi.client.init({
         clientId: clientId,
@@ -46,6 +62,7 @@ function Login1() {
         imageUrl: res.profileObj.imageUrl,
         name: res.profileObj.givenName,
         lastname: res.profileObj.familyName,
+        HeroId: res.profileObj.email.split("@")[0]
       })
       .then(function (response) {
         console.log(response.data);
@@ -57,9 +74,37 @@ function Login1() {
             imageUrl: res.profileObj.imageUrl,
             name: res.profileObj.givenName,
             lastname: res.profileObj.familyName,
+            HeroId: res.profileObj.email.split("@")[0]
           })
         );
+        if(loginOnly == false)
+        {
+          let a = JSON.parse(localStorage.getItem("user"));
+          const customerId = a.wallet.customerId;
+  console.log({
+    mode: "subscription",
+    grName: circle,
+    amount: amount * 100,
+    customerId: customerId,
+  });
+  axios
+    .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
+      mode: "subscription",
+      grName:circle ,
+      amount: amount * 100,
+      customerId: customerId,
+    })
+    .then((res) => {
+      console.log(res.data);
+      window.location.href = res.data.url;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+        }
+        else {
         history.push("/");
+        }
       })
       .catch(function (error) {
         //handle error here
@@ -85,15 +130,42 @@ function Login1() {
           imageUrl: "",
           name: "",
           lastname: "",
+          HeroId: HeroID
         })
         .then(function (response) {
-          console.log(response.data);
-          console.log(phoneNumber);
+          
           localStorage.setItem(
             "user",
             JSON.stringify({ Email: phoneNumber, wallet: response.data })
           );
+          if(loginOnly == false)
+          {
+            let a = JSON.parse(localStorage.getItem("user"));
+            const customerId = a.wallet.customerId;
+    console.log({
+      mode: "subscription",
+      grName: circle,
+      amount: amount * 100,
+      customerId: customerId,
+    });
+    axios
+      .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
+        mode: "subscription",
+        grName: circle,
+        amount: amount * 100,
+        customerId: customerId,
+      })
+      .then((res) => {
+        console.log(res.data);
+        window.location.href = res.data.url;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+          }
+          else {
           history.push("/");
+          }
         })
         .catch(function (error) {
           //handle error here
@@ -106,7 +178,6 @@ function Login1() {
   };
 
   const validate = (e) => {
-    e.preventDefault();
     if (!password) {
       toast.error("Password is required");
       return;
@@ -119,7 +190,7 @@ function Login1() {
       toast.error("the passwords are not the same");
       return;
     }
-    console.log("Login successful :)");
+createWallet();
   };
   const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
 
@@ -222,8 +293,8 @@ function Login1() {
                   className="form-control"
                   id="password4b"
                   placeholder="Type your password again"
-                  value={password}
-                  onChange={(ev) => setPassword(ev.target.value)}
+                  value={rePassword}
+                  onChange={(ev) => setRePassword(ev.target.value)}
                 />
                 <i className="clear-input">
                   <ion-icon
@@ -238,16 +309,16 @@ function Login1() {
             <div className="form-group boxed">
               <div className="input-wrapper">
                 <label className="label mb-3" htmlFor="text4b">
-                  Full Name
+                  HeroID
                 </label>
                 <input
-                  type="password"
+                  type="text"
                   autoComplete="off"
                   className="form-control"
                   id="password4b"
                   placeholder="First Name Last Name"
-                  value={password}
-                  onChange={(ev) => setPassword(ev.target.value)}
+                  value={HeroID}
+                  onChange={(ev) => setHeroID(ev.target.value)}
                 />
                 <i className="clear-input">
                   <ion-icon
@@ -287,7 +358,7 @@ function Login1() {
               type="button"
               className="btn btn-primary rounded font-size-btn mt-4 mb-4 "
               /*onClick={() => setShowWelcomeCirclesModal(true)} */
-              onClick={() => createWallet()}
+              onClick={() => validate()}
             >
               Subscribe
             </button>

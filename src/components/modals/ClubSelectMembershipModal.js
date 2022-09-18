@@ -56,13 +56,20 @@ function ClubSelectMembershipModal(props) {
     }
   };
 
-  const confirmAmount = () => {
+  const confirmAmount = async() => {
     if (!amount) {
       return;
     }
     setShowAmountSelect(false);
     //setShowForm(true);
-    setShowForm1(true);
+    let a = JSON.parse(localStorage.getItem("user"));
+    if (a == null)
+    {
+        history.push("/login1?fromSubsctiption=true&amount="+amount+"&circle="+props.circle)
+    }
+    else {
+        await validate();
+    }
   };
   const createAccount = async () => {
     const response = await axios.post(
@@ -87,9 +94,7 @@ function ClubSelectMembershipModal(props) {
   };
   const validate = async () => {
     let a = JSON.parse(localStorage.getItem("user"));
-    if (a == null) {
-      a = await createAccount();
-    }
+    
 
     console.log(a);
     const customerId = a.wallet.customerId;
@@ -161,7 +166,7 @@ function ClubSelectMembershipModal(props) {
                         ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
                         : "btn btn-outline-primary custom-btn me-1 mb-1"
                     }
-                    onClick={() => chooseAmount(10)}
+                    onClick={() =>     setAmount(10)}
                   >
                     <img
                       src={
@@ -191,7 +196,7 @@ function ClubSelectMembershipModal(props) {
                         ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
                         : "btn btn-outline-primary custom-btn me-1 mb-1"
                     }
-                    onClick={() => chooseAmount(20)}
+                    onClick={() => setAmount(20)}
                   >
                     <img
                       src={
@@ -221,7 +226,7 @@ function ClubSelectMembershipModal(props) {
                         ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
                         : "btn btn-outline-primary custom-btn me-1 mb-1"
                     }
-                    onClick={() => chooseAmount(50)}
+                    onClick={() => setAmount(50)}
                   >
                     <img
                       src={
