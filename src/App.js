@@ -28,6 +28,7 @@ import EditPassword from "./screens/EditPassword";
 import Subscriptions from "./screens/Subscriptions";
 import WelcomeCircles from "./screens/WelcomeCircles";
 import Login1 from "./screens/Login1";
+import SubscriptionsAndPricing from "./screens/SubscriptionsAndPricing";
 
 function App() {
   return (
@@ -39,8 +40,12 @@ function App() {
         <Route path="/feed" exact component={Feed} />
         <Route path="/mobilizer-feed" exact component={MobilizerFeed} />
         <Route path="/mobilizer-profile" exact component={ActivistProfile} />
-        
-        <Route path="/circle-updates:circlename" exact component={CircleUpdates} />   
+
+        <Route
+          path="/circle-updates:circlename"
+          exact
+          component={CircleUpdates}
+        />
 
         <Route
           path="/african-leaders-circle-profile"
@@ -91,6 +96,11 @@ function App() {
 
         <Route path="/subscriptions" exact component={Subscriptions} />
         <Route path="/login1" exact component={Login1} />
+        <Route
+          path="/subscriptions-and-pricing"
+          exact
+          component={SubscriptionsAndPricing}
+        />
       </Router>
     </div>
   );

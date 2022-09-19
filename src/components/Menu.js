@@ -139,7 +139,11 @@ function Menu(props) {
                 </a>
               </li>
               <li>
-                <a href="" className="item pt-0 pb-0">
+                <a
+                  href=""
+                  onClick={() => history.push("/subscriptions-and-pricing")}
+                  className="item pt-0 pb-0"
+                >
                   <div className="in blue">Subscriptions & Pricing</div>
                 </a>
               </li>

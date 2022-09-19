@@ -1,0 +1,88 @@
+.subscriptions-pricing {
+  background: linear-gradient(0deg, rgb(162, 174, 241), #0000ffe5);
+}
+
+.subscriptions-pricing .logo {
+  margin-top: 0;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subscriptions-pricing .custom-btn {
+  background-color: transparent !important;
+  color: white !important;
+  border: white 1px solid !important;
+  border-radius: 20px !important;
+  font-size: 30px;
+  height: 54px;
+  width: 210px;
+}
+
+.subscriptions-pricing .custom-btn:active,
+.custom-btn:focus {
+  background: white !important;
+  color: blue !important;
+}
+
+.custom-btn-white,
+.custom-btn-white:hover,
+.custom-btn-white:focus {
+  background: white !important;
+  color: blue !important;
+  border: white 1px solid !important;
+  border-radius: 20px !important;
+  font-size: 30px;
+  height: 54px;
+  width: 210px;
+}
+
+.subscriptions-pricing .custom-btn-white span {
+  color: blue !important;
+}
+
+.subscriptions-pricing .custom-btn span {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-left: 5px;
+}
+
+.subscriptions-pricing .custom-btn img,
+.subscriptions-pricing .custom-btn-white img {
+  width: 93px;
+  height: 22px;
+  margin-top: unset !important;
+}
+
+.subscriptions-pricing .custom-btn,
+.subscriptions-pricing .custom-btn-white {
+  border-radius: 50px !important;
+}
+
+.subscriptions-pricing .input-wrapper {
+  width: 200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.subscriptions-pricing h6 {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.72px;
+  color: white;
+}
+
+.subscriptions-pricing sup {
+  top: -15px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-right: 5px;
+}
