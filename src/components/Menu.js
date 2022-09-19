@@ -220,7 +220,7 @@ function Menu(props) {
               </li>
               <li>
                 <a
-                  href=" https://www.notion.so/herolabsco/Terms-of-Service-2ad8469c5f5e414eab44966ed5ec1627"
+                  href="https://herolabsco.notion.site/Terms-of-Service-2ad8469c5f5e414eab44966ed5ec1627"
                   className="item pt-0 pb-0"
                   target="_blank"
                 >
