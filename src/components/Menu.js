@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Modal } from "bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Menu.css";
+import { Link } from "react-scroll";
 
 function Menu(props) {
   const history = useHistory();
@@ -42,9 +43,13 @@ function Menu(props) {
       tabIndex="-1"
       role="dialog"
       data-backdrop={false}
-      style={{zIndex:9999}}
+      style={{ zIndex: 9999 }}
     >
-      <div className="modal-dialog modal-dialog-centered w-100 " role="document" style={{zIndex:-1}}>
+      <div
+        className="modal-dialog modal-dialog-centered w-100 "
+        role="document"
+        style={{ zIndex: -1 }}
+      >
         <div className="modal-content w-100 d-flex align-items-center justify-content-center">
           <div className="modal-body p-0 d-flex flex-column">
             <div className=" pt-2 pb-2 xicon">
@@ -139,12 +144,16 @@ function Menu(props) {
                 </a>
               </li>
               <li>
-                <a
-                  href=""
-                  className="item pt-0 pb-0"
-                  onClick={() => history.push("/")}
-                >
-                  <div className="in blue">How HERO works</div>
+                <a href="" className="item pt-0 pb-0" data-bs-dismiss="modal">
+                  <Link
+                    to="findcircle3"
+                    spy={true}
+                    smooth={true}
+                    offset={30}
+                    duration={500}
+                  >
+                    <div className="in blue">How HERO works</div>
+                  </Link>
                 </a>
               </li>
             </ul>
