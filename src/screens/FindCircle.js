@@ -14,6 +14,7 @@ function FindCircle(props) {
       dataLength={5} //This is important field to render the next data
       hasMore={true}
       loader={<h4></h4>}
+      style={{ overflow: 'unset'}} //To put endMessage and loader to the top.
     >
       <FindCircle11 />
       <FindCircle2 />
