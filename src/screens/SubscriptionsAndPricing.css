@@ -86,3 +86,11 @@
   line-height: 16px;
   margin-right: 5px;
 }
+
+#menu .blue-list a:hover {
+  text-decoration: underline blue;
+}
+
+#menu .grey-list a:hover {
+  text-decoration: underline #8c8c8c;
+}

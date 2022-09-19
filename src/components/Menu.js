@@ -119,7 +119,7 @@ function Menu(props) {
                 </a>
               </div>
             )}
-            <ul className="listview flush transparent no-line image-listview">
+            <ul className="listview flush transparent no-line image-listview blue-list">
               <li>
                 <a
                   href="https://herolabsco.notion.site/Discover-how-HERO-Mobilizers-are-verified-a3b9028ab257499fafa9d724c2ecb11b"
@@ -197,7 +197,7 @@ function Menu(props) {
               </h6>
             </div>
 
-            <ul className="listview flush transparent no-line image-listview">
+            <ul className="listview flush transparent no-line image-listview grey-list">
               <li>
                 <a
                   href="https://herolabsco.notion.site/How-to-join-a-HERO-Circle-42834385f36f4a17bbaedf1a12d9dec5"
