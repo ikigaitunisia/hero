@@ -280,7 +280,7 @@ function AccountInformation(props) {
                 >
                   <CloseIcon fontSize="inherit" />
                 </IconButton>
-              }>informations has been updated</Alert>
+              }>Thank you, your information has been updated</Alert>
               }
             </div>
           </div>
