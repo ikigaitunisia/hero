@@ -132,7 +132,7 @@ function Login() {
             onClose={() => setShowWelcomeCirclesModal(false)}
           />
         )}
-        <img src={"assets/img/logo2.png"} alt="logo" className="logo" />
+        <img src={"assets/img/logo2.png"} alt="logo" className="logo mt-0" />
         <p className="header-text mt-4 white">Create your HERO Account</p>
         <div className="flex-center flex-col">
         <GoogleLogin
