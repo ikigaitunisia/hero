@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Modal } from "bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Menu.css";
-import { Link } from "react-scroll";
 
 function Menu(props) {
   const history = useHistory();
@@ -148,16 +147,18 @@ function Menu(props) {
                 </a>
               </li>
               <li>
-                <a href="" className="item pt-0 pb-0" data-bs-dismiss="modal">
-                  <Link
-                    to="findcircle3"
-                    spy={true}
-                    smooth={true}
-                    offset={30}
-                    duration={500}
-                  >
-                    <div className="in blue">How HERO works</div>
-                  </Link>
+                <a
+                  href=""
+                  className="item pt-0 pb-0"
+                  data-bs-dismiss="modal"
+                  onClick={() => {
+                    history.push({
+                      pathname: "/",
+                      state: { fromMenu: "fromMenu" },
+                    });
+                  }}
+                >
+                  <div className="in blue">How HERO works</div>
                 </a>
               </li>
             </ul>

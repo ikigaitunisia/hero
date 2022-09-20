@@ -292,7 +292,7 @@ function ClubSelectMembershipModal(props) {
                     </div>
                   </div>
                   <h6 className="mt-1">
-                    Everyone on HERO Advocate + Interactions
+                    Everything on HERO Advocate + Interactions
                   </h6>
                   {!validAmount && (
                     <h3 className="mt-1" style={{ color: "red" }}>

@@ -1,5 +1,5 @@
 #welcomeCircles .modal-content {
-  background: linear-gradient(0deg, white, blue) !important;
+  background: linear-gradient(0deg, #dee2e6, blue) !important;
 }
 
 #welcomeCircles button {
@@ -10,7 +10,7 @@
   font-size: 16px;
   line-height: 15px;
   background-color: white !important;
-  color: #6666ff !important;
+  color: #0000ff !important;
   border: unset !important;
   font-size: 16px !important;
   font-weight: 700 !important;
