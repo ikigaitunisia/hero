@@ -23,8 +23,8 @@ function SubscriptionsAndPricing(props) {
             type="button"
             className={
               amount === 10
-                ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
-                : "btn btn-outline-primary custom-btn me-1 mb-1"
+                ? "btn btn-outline-primary custom-btn-white me-1 mb-1 flex"
+                : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
             }
             onClick={() => {
               setAmount(10);
@@ -40,7 +40,7 @@ function SubscriptionsAndPricing(props) {
               alt="logo"
               className="logo"
             />
-            <sup>STARTER</sup>
+            <span>STARTER</span>
           </button>
           <div className="amount-div white mt-2">
             <sup>€</sup>10<span>/mo</span>
@@ -54,8 +54,8 @@ function SubscriptionsAndPricing(props) {
             type="button"
             className={
               amount === 20
-                ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
-                : "btn btn-outline-primary custom-btn me-1 mb-1"
+                ? "btn btn-outline-primary custom-btn-white me-1 mb-1 flex"
+                : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
             }
             onClick={() => {
               setAmount(20);
@@ -71,7 +71,7 @@ function SubscriptionsAndPricing(props) {
               alt="logo"
               className="logo"
             />
-            <sup>ADVOCATE</sup>
+            <span>ADVOCATE</span>
           </button>
           <div className="amount-div white mt-2">
             <sup>€</sup>20<span>/mo</span>
@@ -85,8 +85,8 @@ function SubscriptionsAndPricing(props) {
             type="button"
             className={
               amount === 50
-                ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
-                : "btn btn-outline-primary custom-btn me-1 mb-1"
+                ? "btn btn-outline-primary custom-btn-white me-1 mb-1 flex"
+                : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
             }
             onClick={() => {
               setAmount(50);
@@ -102,7 +102,7 @@ function SubscriptionsAndPricing(props) {
               alt="logo"
               className="logo"
             />
-            <sup>CHANGER</sup>
+            <span>CHANGER</span>
           </button>
           <div className="amount-div white mt-2">
             <sup>€</sup>50+<span>/mo</span>

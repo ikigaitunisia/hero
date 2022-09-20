@@ -34,7 +34,7 @@ function ClubSelectMembershipModal(props) {
   const [showForm1, setShowForm1] = useState(false);
   const [showWelcomeToClub, setShowWelcomeToClub] = useState(false);
   const [amount, setAmount] = useState(null);
-  const [validAmount , setValidAmount] = useState(true);
+  const [validAmount, setValidAmount] = useState(true);
   const [HeroId, setHeroId] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,44 +48,44 @@ function ClubSelectMembershipModal(props) {
     }
     setAmount(a);
     if (a === 10) {
-      setValidAmount(true)
+      setValidAmount(true);
       return;
     }
     if (a === 20) {
-      setValidAmount(true)
+      setValidAmount(true);
 
       return;
     }
     if (a === 50) {
-      setValidAmount(false)
+      setValidAmount(false);
 
       return;
     }
   };
-  const validateAmount = async(ev) => {
-     if (ev > 50)
-     {
+  const validateAmount = async (ev) => {
+    if (ev > 50) {
       setValidAmount(true);
-     }
-     else
-     {
+    } else {
       setValidAmount(false);
-     }
-     setOverAmount(ev);
-  }
-  const confirmAmount = async() => {
-    if (!amount || validAmount==false) {
+    }
+    setOverAmount(ev);
+  };
+  const confirmAmount = async () => {
+    if (!amount || validAmount == false) {
       return;
     }
     setShowAmountSelect(false);
     //setShowForm(true);
     let a = JSON.parse(localStorage.getItem("user"));
-    if (a == null)
-    {
-        history.push("/login1?fromSubsctiption=true&amount="+amount+"&circle="+props.circle)
-    }
-    else {
-        await validate();
+    if (a == null) {
+      history.push(
+        "/login1?fromSubsctiption=true&amount=" +
+          amount +
+          "&circle=" +
+          props.circle
+      );
+    } else {
+      await validate();
     }
   };
   const createAccount = async () => {
@@ -111,8 +111,7 @@ function ClubSelectMembershipModal(props) {
   };
   const validate = async () => {
     let a = JSON.parse(localStorage.getItem("user"));
-    if(amount == 50)
-    {
+    if (amount == 50) {
       setAmount(overAmount);
     }
 
@@ -183,10 +182,13 @@ function ClubSelectMembershipModal(props) {
                     type="button"
                     className={
                       amount === 10
-                        ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
-                        : "btn btn-outline-primary custom-btn me-1 mb-1"
+                        ? "btn btn-outline-primary custom-btn-white me-1 mb-1 flex"
+                        : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
                     }
-                    onClick={() =>     {setAmount(10);setValidAmount(true)}}
+                    onClick={() => {
+                      setAmount(10);
+                      setValidAmount(true);
+                    }}
                   >
                     <img
                       src={
@@ -197,14 +199,12 @@ function ClubSelectMembershipModal(props) {
                       alt="logo"
                       className="logo"
                     />
-                    <sup>STARTER</sup>
+                    <span>STARTER</span>
                   </button>
                   <div className="amount-div white mt-2">
                     <sup>€</sup>10<span>/mo</span>
                   </div>
-                  <h6 className="mt-1">
-                    Access to Circle Updates
-                  </h6>
+                  <h6 className="mt-1">Access to Circle Updates</h6>
                 </div>
                 <hr className="hr mt-2 mb-2" />
 
@@ -213,10 +213,13 @@ function ClubSelectMembershipModal(props) {
                     type="button"
                     className={
                       amount === 20
-                        ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
-                        : "btn btn-outline-primary custom-btn me-1 mb-1"
+                        ? "btn btn-outline-primary custom-btn-white me-1 mb-1 flex"
+                        : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
                     }
-                    onClick={() => {setAmount(20);setValidAmount(true)}}
+                    onClick={() => {
+                      setAmount(20);
+                      setValidAmount(true);
+                    }}
                   >
                     <img
                       src={
@@ -227,14 +230,12 @@ function ClubSelectMembershipModal(props) {
                       alt="logo"
                       className="logo"
                     />
-                    <sup>ADVOCATE</sup>
+                    <span>ADVOCATE</span>
                   </button>
                   <div className="amount-div white mt-2">
                     <sup>€</sup>20<span>/mo</span>
                   </div>
-                  <h6 className="mt-1">
-                    Access to Circle Updates + Videos
-                  </h6>
+                  <h6 className="mt-1">Access to Circle Updates + Videos</h6>
                 </div>
                 <hr className="hr mt-2 mb-2" />
 
@@ -243,8 +244,8 @@ function ClubSelectMembershipModal(props) {
                     type="button"
                     className={
                       amount === 50
-                        ? "btn btn-outline-primary custom-btn-white me-1 mb-1"
-                        : "btn btn-outline-primary custom-btn me-1 mb-1"
+                        ? "btn btn-outline-primary custom-btn-white me-1 mb-1 flex"
+                        : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
                     }
                     onClick={() => setAmount(50)}
                   >
@@ -257,7 +258,7 @@ function ClubSelectMembershipModal(props) {
                       alt="logo"
                       className="logo"
                     />
-                    <sup>CHANGER</sup>
+                    <span>CHANGER</span>
                   </button>
                   <h6 className="mt-1">
                     You can choose the monthly amount
@@ -273,7 +274,7 @@ function ClubSelectMembershipModal(props) {
                         placeholder="50"
                         value={overAmount}
                         onChange={(ev) => validateAmount(ev.target.value)}
-                        style={{color:"white",fontSize:25}}
+                        style={{ color: "white", fontSize: 25 }}
                       />
                       <i className="clear-input">
                         <ion-icon
@@ -289,10 +290,11 @@ function ClubSelectMembershipModal(props) {
                   <h6 className="mt-1">
                     Everyone on HERO Advocate + Interactions
                   </h6>
-                  {!validAmount &&
- <h3 className="mt-1" style={{color:"red"}}>
-you need to put amount over 50</h3>
-                  }
+                  {!validAmount && (
+                    <h3 className="mt-1" style={{ color: "red" }}>
+                      you need to put amount over 50
+                    </h3>
+                  )}
                 </div>
                 <button
                   type="button"
