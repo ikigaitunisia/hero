@@ -11,10 +11,10 @@ import InfiniteScroll from "react-infinite-scroll-component";
 function FindCircle(props) {
   return (
     <InfiniteScroll
-      dataLength={5} //This is important field to render the next data
+      dataLength={5} 
       hasMore={true}
       loader={<h4></h4>}
-      style={{ overflow: 'unset'}} //To put endMessage and loader to the top.
+      style={{ overflow: 'unset'}} 
     >
       <FindCircle11 />
       <FindCircle2 />
