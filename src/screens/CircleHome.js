@@ -3,9 +3,11 @@ import { useHistory,useParams } from "react-router-dom";
 import "./CircleHome.css";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
-
+import axios from "axios"
 function CircleHome(props) {
   const history = useHistory();
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const { circlename } = useParams();
   const circles = [
     {
@@ -38,8 +40,39 @@ function CircleHome(props) {
     }
     setCurrentIndex(currentIndex + 1);
   };
+  const isSubscribed = (index) => {
+    console.log(circles[index]);
+    if (user != null)
+    {
+      let circle = circles[index];
+    axios
+    .post("https://hegemony.donftify.digital:8080/supporter/isSubscribed", {     
+        email : user.Email ,
+        circlename : circlename   
+    })
+    .then(function (response) {
+      console.log();
+      if (response.data.subscribed == 1)
+      {
+        console.log("ok");
+      }
+      else
+      {
+       //history.push("/circle-feed");
+       console.log(user.Email);
+       console.log(circlename);
+      }
 
+     
+    })
+    .catch(function (error) {
+      //handle error here
+      console.log(error);
+    });
+  }
+  }
   useEffect(() => {
+    isSubscribed();
     setCurrentCircle(circles[currentIndex]);
   }, [currentIndex]);
   return (

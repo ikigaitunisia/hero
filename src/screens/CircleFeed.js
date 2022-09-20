@@ -53,18 +53,28 @@ function CircleFeed(props) {
     },
   ];
 */
-  const [currentCircle, setCurrentCircle] = useState(circles[0]);
+  const [currentCircle, setCurrentCircle] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [test, setTest] = useState(0);
   const [showClubSelectMembershipModal, setShowClubSelectMembershipModal] =
     useState(false);
+  const [subscribed,setSubscribed] = useState(false); 
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const goToNextCircle = () => {
     if (currentIndex === circles.length - 1) {
+      isSubscribed(0);
+
       setCurrentIndex(0);
       setCurrentCircle(circles[0]);
       return;
     }
+
     setCurrentIndex(currentIndex + 1);
+
+    setCurrentCircle(circles[currentIndex + 1]);
+    isSubscribed(currentIndex+1);
+
   };
   const playVideo = (id) => {
     var v = document.getElementById(id);
@@ -74,6 +84,36 @@ function CircleFeed(props) {
       v.pause();
     }
   };
+  const isSubscribed = (index) => {
+    console.log(circles[index]);
+    if (user != null)
+    {
+      let circle = circles[index];
+    axios
+    .post("https://hegemony.donftify.digital:8080/supporter/isSubscribed", {
+      
+        email : user.Email ,
+        circlename :circle.name
+        
+    })
+    .then(function (response) {
+      if (response.data.subscribed == 1)
+      {
+        setSubscribed(true);
+      }
+      else
+      {
+        setSubscribed(false);
+      }
+
+     
+    })
+    .catch(function (error) {
+      //handle error here
+      console.log(error);
+    });
+  }
+  }
   useEffect(() => {
     axios
       .post("https://hegemony.donftify.digital:8080/circle/all", {
@@ -91,15 +131,29 @@ function CircleFeed(props) {
             video: "short-video-for-test.mp4",
           });
         });
-
-        setCircles(A);
+       
+        setCircles(prevState => {
+          return (
+            
+            [...A]
+          );
+        });
+        if (A.toString() !== circles.toString())
+        {
+        setTest(test+1);
+        }
         setLoad(true);
         setCurrentCircle(A[currentIndex]);
+        console.log(circles);
+      
+        
+        if(currentCircle !== null)
+        {
+        isSubscribed(currentIndex);
+        }
       });
-    console.log(circles);
 
-    console.log(load);
-  }, [currentIndex]);
+  }, [test]);
   const [showMenu, setShowMenu] = useState(false);
   return (
     <>
@@ -138,7 +192,7 @@ function CircleFeed(props) {
                     id="whiteBtn"
                     type="button"
                     className="btn btn-primary rounded font-size-btn mb-2"
-                    onClick={() => setShowClubSelectMembershipModal(true)}
+                    onClick={() => !subscribed  ? setShowClubSelectMembershipModal(true) : history.push("/circle-home:"+currentCircle.name)}
                   >
                     <ion-icon src="assets/img/svg/icon2.svg"></ion-icon>
                     Fund this HERO Circle

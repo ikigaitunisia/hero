@@ -28,7 +28,7 @@ function WelcomeCirclesModal(props) {
     });
     const btn2 = document.getElementById("btn2");
     btn2.addEventListener("click", () => {
-      history.push("/circle-home");
+      history.push("/circle-home/"+props.circle);
       window.location.reload();
     });
     const btn3 = document.getElementById("btn3");

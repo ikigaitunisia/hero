@@ -10,15 +10,19 @@ import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 
 function ClubSelectMembershipModal(props) {
   const history = useHistory();
+
   useEffect(() => {
     if (props.show) {
+     
       const modal = new Modal(document.getElementById("clubSelectMembership"), {
         keyboard: false,
       });
       if (modal) {
         modal.show();
       }
-    }
+     }
+   
+    
 
     return () => {
       props.onClose();

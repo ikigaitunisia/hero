@@ -10,6 +10,8 @@ import Feed from "./screens/Feed";
 import ActivistProfile from "./screens/ActivistProfile";
 import AfricanLeadersCircleProfile from "./screens/AfricanLeadersCircleProfile";
 import MobilizerFeed from "./screens/MobilizerFeed";
+import Notion from "./screens/Notion";
+
 import ListSupporter from "./screens/ListSupporter";
 import ListMobilizer from "./screens/ListMobilizer";
 import FindCircle from "./screens/FindCircle";
@@ -57,6 +59,8 @@ function App() {
         <Route path="/mobilizers" exact component={ListMobilizer} />
         <Route path="/" exact component={FindCircle} />
         <Route path="/circle-feed" exact component={CircleFeed} />
+        <Route path="/Notion" exact component={Notion} />
+
         <Route
           path="/circle-feed-details:circlename"
           exact
