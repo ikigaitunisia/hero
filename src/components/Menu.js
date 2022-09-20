@@ -89,12 +89,12 @@ function Menu(props) {
             </ul>
             <div className="listview-title mt-3">
               <h5
-                className="text-start blue-text"
+                className="text-start blue-text log"
                 onClick={
                   loggedin
                     ? logout
                     : () => {
-                        history.push("/login");
+                        history.push("/login1");
                         window.location.reload();
                       }
                 }
@@ -103,18 +103,18 @@ function Menu(props) {
               </h5>
             </div>
             {loggedin && (
-              <div className="listview-title" onClick={() => goToProfil()}>
+              <div className="listview-title log" onClick={() => goToProfil()} style={{color:"#0000ff"}}>
                 <h5 className="text-start blue-text">Account Settings</h5>
               </div>
             )}
             {loggedin && (
-              <div className="listview-title mb-3">
+              <div className="listview-title mb-3 ">
                 <a
                   href="https://herolabsco.notion.site/HERO-FAQ-a74c18e9ad1d4f308a3ec06e0bb62732"
-                  className="item pt-0 pb-0"
+                  className="item pt-0 pb-0 "
                   target="_blank"
                 >
-                  <h5 className="text-start blue-text">FAQ</h5>
+                  <h5 className="text-start blue-text log">FAQ</h5>
                 </a>
               </div>
             )}

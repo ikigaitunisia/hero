@@ -88,6 +88,7 @@ function ClubSelectMembershipModal(props) {
           "&circle=" +
           props.circle
       );
+      window.location.reload();
     } else {
       await validate();
     }
@@ -115,23 +116,28 @@ function ClubSelectMembershipModal(props) {
   };
   const validate = async () => {
     let a = JSON.parse(localStorage.getItem("user"));
+    console.log(overAmount);
+    
+    var newAmount;
     if (amount == 50) {
-      setAmount(overAmount);
+      newAmount=overAmount * 100;
     }
-
+    else{
+      newAmount=amount*100;
+    }
     console.log(a);
     const customerId = a.wallet.customerId;
     console.log({
       mode: "subscription",
       grName: props.circle,
-      amount: amount * 100,
+      amount: newAmount,
       customerId: customerId,
     });
     axios
       .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
         mode: "subscription",
         grName: props.circle,
-        amount: amount * 100,
+        amount: newAmount,
         customerId: customerId,
       })
       .then((res) => {
@@ -279,6 +285,7 @@ function ClubSelectMembershipModal(props) {
                         value={overAmount}
                         onChange={(ev) => validateAmount(ev.target.value)}
                         style={{ color: "white", fontSize: 25 }}
+                        disabled = {(amount !== 50)? "disabled" : ""}
                       />
                       <i className="clear-input">
                         <ion-icon
@@ -295,9 +302,9 @@ function ClubSelectMembershipModal(props) {
                     Everything on HERO Advocate + Interactions
                   </h6>
                   {!validAmount && (
-                    <h3 className="mt-1" style={{ color: "red" }}>
-                      you need to put amount over 50
-                    </h3>
+                    <h6 className="mt-1" style={{ color: "red" }}>
+                      please input a monthly amount above €50. Thanks !
+                    </h6>
                   )}
                 </div>
                 <button

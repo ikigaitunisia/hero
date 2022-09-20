@@ -207,6 +207,10 @@ a {
   background-color: white !important;
   border: unset !important;
 }
+.mt-1 {
+  font-family: "Seravek";
+  color: red;
+}
 #form1 p {
   width: unset;
   font-size: 12px;

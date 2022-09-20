@@ -18,7 +18,10 @@
   line-height: 20px;
   font-weight: 700;
 }
-
+.log:hover {
+  text-decoration: underline;
+  text-decoration-color: "#0000ff";
+}
 #menu .listview div {
   font-size: 20px;
   line-height: 24px;
