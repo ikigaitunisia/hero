@@ -21,7 +21,7 @@ function WelcomeCircles(props) {
     });
     const btn2 = document.getElementById("btn2");
     btn2.addEventListener("click", () => {
-      history.push("/circle-home:"+circlename.replace(":", ""));
+      history.push("/circle-home:" + circlename.replace(":", ""));
       window.location.reload();
     });
     const btn3 = document.getElementById("btn3");
@@ -51,11 +51,16 @@ function WelcomeCircles(props) {
             ></div>
             <div className="modal-body">
               <div className="flex-center flex-col">
-                <img src={"assets/img/logo2.png"} alt="logo" className="logo" />
-                <p className="header-text mt-4 white">
-                  Welcome to Circle 1, John!
+                <img
+                  src={"assets/img/logo2.png"}
+                  alt="logo"
+                  className="logo mt-0"
+                />
+                <p className="header-text mt-4 white mb-0">
+                  Welcome to Circle 1,
+                  <br /> John!
                 </p>
-                <p className="mt-4 mb-4 pb-4 white center-text">
+                <p className="mt-4 mb-4 white center-text">
                   You are now supporting <b>the Circle 1</b> and will
                   <br /> have access to exclusive features.
                 </p>
@@ -66,9 +71,9 @@ function WelcomeCircles(props) {
                   className="btn btn-lg mb-4"
                   onClick={() => console.log("ok")}
                 >
-                  Echo this circle,
+                  <b>Echo this circle,</b>
                   <br />
-                  invite your friends to join!
+                  <span>invite your friends to join!</span>
                 </button>
                 <button
                   id="btn2"
@@ -76,7 +81,7 @@ function WelcomeCircles(props) {
                   className="btn btn-lg mb-4"
                   data-bs-dismiss="modal"
                 >
-                  Go to your HERO Circle
+                  <b>Go to your HERO Circle</b>
                 </button>
                 <button
                   id="btn3"
@@ -84,7 +89,7 @@ function WelcomeCircles(props) {
                   className="btn btn-lg mb-4"
                   data-bs-dismiss="modal"
                 >
-                  Go to your profile
+                  <b>Go to your profile</b>
                 </button>
               </div>
             </div>
