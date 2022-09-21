@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useHistory,useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import "./CircleHome.css";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 function CircleHome(props) {
   const history = useHistory();
   const user = JSON.parse(localStorage.getItem("user"));
@@ -42,35 +42,29 @@ function CircleHome(props) {
   };
   const isSubscribed = (index) => {
     console.log(circles[index]);
-    if (user != null)
-    {
+    if (user != null) {
       let circle = circles[index];
-    axios
-    .post("https://hegemony.donftify.digital:8080/supporter/isSubscribed", {     
-        email : user.Email ,
-        circlename : circlename   
-    })
-    .then(function (response) {
-      console.log();
-      if (response.data.subscribed == 1)
-      {
-        console.log("ok");
-      }
-      else
-      {
-       //history.push("/circle-feed");
-       console.log(user.Email);
-       console.log(circlename);
-      }
-
-     
-    })
-    .catch(function (error) {
-      //handle error here
-      console.log(error);
-    });
-  }
-  }
+      axios
+        .post("https://hegemony.donftify.digital:8080/supporter/isSubscribed", {
+          email: user.Email,
+          circlename: circlename,
+        })
+        .then(function (response) {
+          console.log();
+          if (response.data.subscribed == 1) {
+            console.log("ok");
+          } else {
+            //history.push("/circle-feed");
+            console.log(user.Email);
+            console.log(circlename);
+          }
+        })
+        .catch(function (error) {
+          //handle error here
+          console.log(error);
+        });
+    }
+  };
   useEffect(() => {
     isSubscribed();
     setCurrentCircle(circles[currentIndex]);
@@ -82,27 +76,30 @@ function CircleHome(props) {
         title={currentCircle.name}
         showBackBtn
         showMenuBtn
-        backTo={'/welcome-circle:'+circlename}
+        backTo={"/welcome-circle:" + circlename}
       />
-      <div id="appCapsule" className="circle-home">
-        <div className="flex-center mt-4 mb-4">
-          <img
-            src="assets/img/image8.png"
-            alt="image"
-            className="imaged  w36 mt-4"
-          />
+      <div id="appCapsule" className="circle-home pt-0">
+        <div id="bg-img" className="flex-center">
+          {/*<img
+                src="assets/img/image9.png"
+                alt="image"
+                className="imaged w100 mt-4"
+              />*/}
         </div>
         <div class="card mb-3 ml-3 me-3">
-          <div className="custom-div-header" onClick={() => history.push("/echo:" + circlename.replace(":", ""))}>
+          <div
+            className="custom-div-header"
+            onClick={() => history.push("/echo:" + circlename.replace(":", ""))}
+          >
             <h5>
               <b>Echo this circle,</b>
               <br />
-              invite your friends to join!
+              <span>invite your friends to join!</span>
             </h5>
           </div>
           <div class="card-body flex-center flex-col mt-3">
             <h4 className="blue">Circle’s Objective</h4>
-            <p>{currentCircle.description}</p>
+            <p className="m-0">{currentCircle.description}</p>
             <hr className="hr mt-4 mb-4" />
             <div className="flex-center flex-row">
               <div
@@ -113,7 +110,7 @@ function CircleHome(props) {
                   src="assets/img/svg/icon10.svg"
                   class="mb-2"
                 ></ion-icon>
-                <span>Mobilizers</span>
+                <span className="icon-title">Mobilizers</span>
               </div>
               <div
                 className="flex-center flex-col me-2"
@@ -123,7 +120,7 @@ function CircleHome(props) {
                   src="assets/img/svg/icon12.svg"
                   class="mb-2"
                 ></ion-icon>
-                <span>Updates</span>
+                <span className="icon-title">Updates</span>
               </div>
               <div
                 className="flex-center flex-col me-2"
@@ -133,7 +130,7 @@ function CircleHome(props) {
                   src="assets/img/svg/icon8.svg"
                   class="mb-2"
                 ></ion-icon>
-                <span>Videos</span>
+                <span className="icon-title">Videos</span>
               </div>
               <div
                 className="flex-center flex-col"
@@ -143,7 +140,7 @@ function CircleHome(props) {
                   src="assets/img/svg/icon9.svg"
                   class="mb-2"
                 ></ion-icon>
-                <span>Interactions</span>
+                <span className="icon-title">Interactions</span>
               </div>
             </div>
             <hr className="hr mt-4 mb-4" />
