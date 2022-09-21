@@ -82,6 +82,7 @@ function Login1() {
           JSON.stringify({
             Email: res.profileObj.email,
             wallet: response.data,
+            googleId: res.profileObj.googleId,
             imageUrl: res.profileObj.imageUrl,
             name: res.profileObj.givenName,
             lastname: res.profileObj.familyName,

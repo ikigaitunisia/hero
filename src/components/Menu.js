@@ -3,9 +3,10 @@ import { Modal } from "bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Menu.css";
 
+
 function Menu(props) {
   const history = useHistory();
-
+  
   const [loggedin, setLogedin] = useState(false);
   const goToProfil = () => {
     history.push("account-information");
@@ -31,7 +32,14 @@ function Menu(props) {
     }
   }, []);
   const logout = () => {
+    
+        window.sessionStorage.removeItem("access_token");
+        window.sessionStorage.removeItem("nama");      
+    
+
+    
     localStorage.removeItem("user");
+ 
     history.push("/");
     setLogedin(false);
   };
