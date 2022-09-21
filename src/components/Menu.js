@@ -2,12 +2,29 @@ import React, { useEffect, useState } from "react";
 import { Modal } from "bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Menu.css";
+import { useGoogleLogout } from 'react-google-login'
 
 
 function Menu(props) {
   const history = useHistory();
-  
+  const clientId =
+    "213045835379-hcm9r1um59u7dksk2h73773e6jfepinn.apps.googleusercontent.com";
+
   const [loggedin, setLogedin] = useState(false);
+  const { signOut, loaded } = useGoogleLogout({
+  
+    onFailure,
+    clientId,
+    onLogoutSuccess
+  })
+  const onLogoutSuccess = () => {
+    console.log("success");
+
+  }
+  const onFailure = () => {
+    console.log("failed");
+    
+  }
   const goToProfil = () => {
     history.push("account-information");
     window.location.reload(false);
@@ -33,9 +50,7 @@ function Menu(props) {
   }, []);
   const logout = () => {
     
-        window.sessionStorage.removeItem("access_token");
-        window.sessionStorage.removeItem("nama");      
-    
+    signOut();
 
     
     localStorage.removeItem("user");
