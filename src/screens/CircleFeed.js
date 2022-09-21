@@ -179,7 +179,7 @@ function CircleFeed(props) {
                 </button>
 
                 <div className="bottom mt-4 flex-col-start">
-                  <h3 className="white mb-3">{currentCircle.name}</h3>
+                  <h3 className="white mb-1">{currentCircle.name}</h3>
                   <p className="white  mb-3">{currentCircle.Description}</p>
                   <button
                     id="whiteBtn"
