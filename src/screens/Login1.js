@@ -1,30 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { withRouter,useLocation } from "react-router-dom";
-import BlockLargeButton from "../components/buttons/BlockLargeButton";
-import SmsVerification from "../components/SmsVerification";
-import BasicInput from "../components/inputs/BasicInput";
-import { checkIsPhoneFormat } from "../util/functions";
-import Toastbox, { toast } from "react-toastbox";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
+import validator from 'validator'
+
 
 import "./Login1.css";
 import WelcomeCirclesModal from "../components/modals/WelcomeCirclesModal";
 function Login1() {
   const [phoneNumber, setPhoneNumber] = useState();
   const [phoneNumberError, setphoneNumberError] = useState(false);
+  const [EmailError, setEmailError] = useState("");
+
   const [showSmsVerification, setShowSmsVerification] = useState(false);
   const [codeSmsValidated, setCodeSmsValidated] = useState(false);
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [HeroID,setHeroID] = useState("");
+  const [HeroIDError, setHeroIDError] = useState("");
+
   const [points, setPoints] = useState("");
   const [loginOnly, setloginOnly] = useState(true);
   const [amount, setAmount] = useState(0);
   const [circle,setCircle] = useState("");
+  const [checked,setChecked] = useState(false);
   const history = useHistory();
   const location = useLocation();
   const clientId =
@@ -42,7 +45,6 @@ function Login1() {
       setCircle(circ);
     }
     
-    console.log(search);
     const initClient = () => {
       gapi.client.init({
         clientId: clientId,
@@ -119,7 +121,7 @@ function Login1() {
     console.log("ok");
     const user = JSON.parse(localStorage.getItem("user"));
     if (user != null) {
-      console.log("utilisateur trouvé");
+      history.push("/");
     } else {
       setPoints("...");
       axios
@@ -165,6 +167,7 @@ function Login1() {
           }
           else {
           history.push("/");
+          
           }
         })
         .catch(function (error) {
@@ -178,24 +181,52 @@ function Login1() {
   };
 
   const validate = (e) => {
-    if (!password) {
-      toast.error("Password is required");
-      return;
+    
+    let x = true;
+    console.log(password);
+    if (password == "") {
+      setPasswordError("Password is required");
+      x=false;
     }
-    if (password.length < 8) {
-      toast.error("Make sure to include at least 8 characters");
-      return;
+    else{
+      setPasswordError("");
+      if (password.length < 6) {
+        setPasswordError("Make sure to include at least 6 characters");
+        x=false;
+        
+      }
+      else{
+        setPasswordError("");
+        if (password !== rePassword) {
+          setPasswordError("the passwords are not the same");
+          x=false;
+        }
+        else{
+          setPasswordError("");
+        }
+      }
+      
     }
-    if (password !== rePassword) {
-      toast.error("the passwords are not the same");
-      return;
+    
+   
+    if (/\S+@\S+\.\S+/.test(phoneNumber)){
+      setEmailError("");
     }
-createWallet();
+    else
+    {
+      setEmailError("the email is not valid");
+      x=false;
+    }
+     if (x == true && checked)
+     {
+     createWallet();
+     }
   };
   const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
 
   return (
     <>
+      
       <div
         id="appCapsule"
         className="bg-g login"
@@ -249,6 +280,7 @@ createWallet();
                   ></ion-icon>
                 </i>
               </div>
+              <h6 style={{color:"red"}}>{EmailError}</h6>
             </div>
 
             <div className="form-group boxed">
@@ -280,6 +312,7 @@ createWallet();
                   ></ion-icon>
                 </i>
               </div>
+
             </div>
 
             <div className="form-group boxed">
@@ -305,6 +338,8 @@ createWallet();
                   ></ion-icon>
                 </i>
               </div>
+              <h6 style={{color:"red"}}>{passwordError}</h6>
+
             </div>
             <div className="form-group boxed">
               <div className="input-wrapper">
@@ -335,6 +370,7 @@ createWallet();
                 type="checkbox"
                 className="form-check-input"
                 id="customCheckb1"
+               
               />
               <label className="form-check-label white" htmlFor="customCheckb1">
                 Make my subscription private
@@ -345,6 +381,8 @@ createWallet();
                 type="checkbox"
                 className="form-check-input"
                 id="customCheckb2"
+                value= {checked}
+                onChange={(ev)=> setChecked(ev.target.value)}
               />
               <label className="form-check-label white" htmlFor="customCheckb2">
                 I agree to the{" "}
@@ -352,18 +390,22 @@ createWallet();
                   HERO Terms and Conditions
                 </a>
               </label>
+              {!checked && <h6 style={{color:"red"}}>{"you should accept the hero terms and conditons"}</h6>}
+
             </div>
+
             <button
               id="whiteBlueBtn"
               type="button"
               className="btn btn-primary rounded font-size-btn mt-4 mb-4 "
               /*onClick={() => setShowWelcomeCirclesModal(true)} */
-              onClick={() => validate()}
+              onClick={(e) => validate(e)}
             >
               Subscribe
             </button>
           </form>
         </div>
+
       </div>
     </>
   );
