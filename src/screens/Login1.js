@@ -5,7 +5,6 @@ import axios from "axios";
 import Header from "../components/Header";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
-import validator from 'validator'
 
 
 import "./Login1.css";
@@ -167,7 +166,7 @@ function Login1() {
           }
           else {
           history.push("/");
-          
+
           }
         })
         .catch(function (error) {
