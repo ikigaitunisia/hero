@@ -8,3 +8,11 @@
   font-weight: 700;
   line-height: 30.67px;
 }
+
+.appHeader .left,
+.appHeader .right {
+  height: 86px !important;
+}
+.appHeader {
+  height: 86px !important;
+}
