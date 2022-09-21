@@ -159,14 +159,7 @@ function CircleFeed(props) {
     <>
       {load && (
         <>
-          <Header whiteMode showHeroLogo transparent showBackBtn />
-          <a
-              href="#"
-              className={"headerButton menuBtn mt-5 mb-5 "}
-              onClick={() => setShowMenu(true)}
-            >
-              <ion-icon name="menu-outline" class="menuBtnIcon"></ion-icon>
-            </a>
+          <Header whiteMode showHeroLogo transparent showBackBtn showMenuBtn/>
 
           <div id="appCapsule" className="circle-feed-container">
             <div className="feed2" style={{ minHeight: "90vh!important" }}>
