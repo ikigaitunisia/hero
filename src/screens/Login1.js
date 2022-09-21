@@ -32,7 +32,17 @@ function Login1() {
   const clientId =
     "213045835379-hcm9r1um59u7dksk2h73773e6jfepinn.apps.googleusercontent.com";
 
-  useEffect(() => {
+    const isSubscribed = async(email) => {
+      let K = await axios
+      .post("https://hegemony.donftify.digital:8080/supporter/get-subscriptions", {
+        email : email,
+       
+      })
+    
+        console.log(K.data);
+        return K.data;
+}
+    useEffect(() => {
     //setphoneNumberError(!checkIsPhoneFormat(phoneNumber));
     const search=new URLSearchParams(location.search).get("fromSubsctiption")
     if (search !== null)
@@ -43,7 +53,7 @@ function Login1() {
       const circ=new URLSearchParams(location.search).get("circle");
       setCircle(circ);
     }
-    
+
     const initClient = () => {
       gapi.client.init({
         clientId: clientId,
@@ -52,7 +62,7 @@ function Login1() {
     };
     gapi.load("client:auth2", initClient);
   });
-  const onSuccess = (res) => {
+  const onSuccess = async(res) => {
     console.log("success:", res);
     setPoints("...");
     axios
@@ -78,9 +88,10 @@ function Login1() {
             HeroId: res.profileObj.email.split("@")[0]
           })
         );
+        let a = JSON.parse(localStorage.getItem("user"));
+
         if(loginOnly == false)
         {
-          let a = JSON.parse(localStorage.getItem("user"));
           const customerId = a.wallet.customerId;
   console.log({
     mode: "subscription",
@@ -104,7 +115,17 @@ function Login1() {
     });
         }
         else {
-        history.push("/");
+          isSubscribed(res.profileObj.email).then( (response) =>{
+            if(response.length==0)
+            {
+          history.push("/circle-feed");
+            }
+            else
+            {
+              history.push("/circle-home:"+response[0].grName); 
+            }
+          })
+        
         }
       })
       .catch(function (error) {
@@ -116,11 +137,19 @@ function Login1() {
   const onFailure = (err) => {
     console.log("failed:", err);
   };
-  const createWallet = () => {
+  const createWallet = async() => {
     console.log("ok");
     const user = JSON.parse(localStorage.getItem("user"));
     if (user != null) {
-      history.push("/");
+      const A = await isSubscribed(user.Email);
+        if(A.length==0)
+        {
+      history.push("/circle-feed");
+        }
+        else
+        {
+          history.push("/circle-home:"+A[0].grName); 
+        }
     } else {
       setPoints("...");
       axios
@@ -140,8 +169,8 @@ function Login1() {
             JSON.stringify({ Email: phoneNumber, wallet: response.data })
           );
           if(loginOnly == false)
-          {
-            let a = JSON.parse(localStorage.getItem("user"));
+          {             let a = JSON.parse(localStorage.getItem("user"));
+
             const customerId = a.wallet.customerId;
     console.log({
       mode: "subscription",
@@ -165,8 +194,16 @@ function Login1() {
       });
           }
           else {
-          history.push("/");
-
+            let data= isSubscribed(phoneNumber).then( (response) =>{
+              if(response.length==0)
+              {
+            history.push("/circle-feed");
+              }
+              else
+              {
+                history.push("/circle-home:"+response[0].grName); 
+              }
+            })
           }
         })
         .catch(function (error) {
