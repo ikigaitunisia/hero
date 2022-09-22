@@ -41,7 +41,6 @@ function Menu(props) {
       props.onClose();
     };
   }, [props.show]);
-
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user != null) {
