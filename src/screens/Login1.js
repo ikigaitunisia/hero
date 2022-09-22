@@ -156,9 +156,10 @@ function Login1() {
           password: password,
           googleId: "",
           imageUrl: "",
-          name: "",
+          name: HeroID,
           lastname: "",
-          HeroId: HeroID,
+          HeroId: phoneNumber.email.split("@")[0],
+
         })
         .then(function (response) {
           localStorage.setItem(
@@ -239,16 +240,8 @@ function Login1() {
     }
     else
     {
-      const number = await isHeroExist(HeroID);
-      if (number == 0)
-      {
-        setFullnameError("");
-      }
-      else
-      {
-        setFullnameError("The userName exist");
-        x = false;
-      }
+      setFullnameError("");
+
     }
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
