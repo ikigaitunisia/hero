@@ -381,7 +381,7 @@ function Login1() {
             <div className="form-group boxed">
               <div className="input-wrapper">
                 <label className="label mb-3" htmlFor="text4b">
-                  HeroID
+                Full Name
                 </label>
                 <input
                   type="text"
