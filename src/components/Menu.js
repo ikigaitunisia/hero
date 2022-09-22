@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Modal } from "bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Menu.css";
-import { useGoogleLogout } from "react-google-login";
+import { gapi } from "gapi-script";
+
 
 function Menu(props) {
   const history = useHistory();
@@ -10,18 +11,8 @@ function Menu(props) {
     "213045835379-hcm9r1um59u7dksk2h73773e6jfepinn.apps.googleusercontent.com";
 
   const [loggedin, setLogedin] = useState(false);
-  const onFailure = () => {
-    console.log("failed");
-  };
-  const onLogoutSuccess = () => {
-    console.log("success");
-  };
-  const { signOut, loaded } = useGoogleLogout({
-    onFailure,
-    clientId,
-    onLogoutSuccess,
-  });
-
+  
+ 
   const goToProfil = () => {
     history.push("account-information");
     window.location.reload(false);
@@ -45,10 +36,15 @@ function Menu(props) {
     }
   }, []);
   const logout = () => {
-    signOut();
+   
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+    });
+    auth2.disconnect();
 
+    
     localStorage.removeItem("user");
-
+ 
     history.push("/");
     setLogedin(false);
   };
@@ -120,11 +116,7 @@ function Menu(props) {
               </h5>
             </div>
             {loggedin && (
-              <div
-                className="listview-title log"
-                onClick={() => goToProfil()}
-                style={{ color: "#0000ff" }}
-              >
+              <div className="listview-title log" onClick={() => goToProfil()} style={{color:"#0000ff"}}>
                 <h5 className="text-start blue-text">Account Settings</h5>
               </div>
             )}
@@ -183,7 +175,7 @@ function Menu(props) {
                 </a>
               </li>
             </ul>
-            <div id="social-btn-container2" className="row mb-4 mt-4 ml-3">
+            <div id="social-btn-container2" className="row mb-4 mt-4 pl-3">
               <button
                 type="button"
                 className="btn btn-icon rounded btn-primary social-btn me-2"
