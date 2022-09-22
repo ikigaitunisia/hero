@@ -20,6 +20,7 @@ function Login1() {
   const [passwordError, setPasswordError] = useState("");
   const [HeroID, setHeroID] = useState("");
   const [HeroIDError, setHeroIDError] = useState("");
+  const [checkedError, setCheckedError] = useState("");
 
   const [points, setPoints] = useState("");
   const [loginOnly, setloginOnly] = useState(true);
@@ -205,6 +206,10 @@ function Login1() {
   const validate = (e) => {
     let x = true;
     console.log(password);
+    if (!checked) {
+      setCheckedError("You should accept the hero terms and conditons");
+      x = false;
+    }
     if (password == "") {
       setPasswordError("Password is required");
       x = false;
@@ -398,11 +403,7 @@ function Login1() {
                   HERO Terms and Conditions
                 </a>
               </label>
-              {!checked && (
-                <h6 style={{ color: "red" }}>
-                  {"you should accept the hero terms and conditons"}
-                </h6>
-              )}
+              {checkedError && <h6 style={{ color: "red" }}>{checkedError}</h6>}
             </div>
 
             <button
