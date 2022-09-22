@@ -296,7 +296,7 @@ function Login1() {
                   ></ion-icon>
                 </i>
               </div>
-              <h6 style={{ color: "red" }}>{EmailError}</h6>
+              {EmailError && <h6  className="error-message">{EmailError}</h6>}
             </div>
 
             <div className="form-group boxed">
@@ -353,7 +353,7 @@ function Login1() {
                   ></ion-icon>
                 </i>
               </div>
-              <h6 style={{ color: "red" }}>{passwordError}</h6>
+              {passwordError && <h6 className="error-message">{passwordError}</h6>}
             </div>
             <div className="form-group boxed">
               <div className="input-wrapper">
@@ -406,7 +406,7 @@ function Login1() {
                   HERO Terms of Use
                 </a>
               </label>
-              {checkedError && <h6 style={{ color: "red" }}>{checkedError}</h6>}
+              {checkedError && <h6  className="error-message">{checkedError}</h6>}
             </div>
 
             <button
