@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-scroll";
 import "./FindCircle2.css";
@@ -9,9 +9,8 @@ function FindCircle2(props) {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-
     <div id="findcircle2">
-    <Menu show={showMenu} onClose={() => setShowMenu(false)} />
+      <Menu show={showMenu} onClose={() => setShowMenu(false)} />
 
       <div className="" style={{ minHeight: "90vh!important" }}>
         <div className="">
@@ -21,8 +20,15 @@ function FindCircle2(props) {
               alt="logo"
               className="logo mt-4"
             />
-            <a  className={"headerButton menuBtn mt-4 mb-4"} onClick={() => setShowMenu(true)}>
-              <ion-icon name="menu-outline" class="menuBtnIcon" style={{color:"#0000ff"}}></ion-icon>
+            <a
+              className={"headerButton menuBtn mt-4 mb-4"}
+              onClick={() => setShowMenu(true)}
+            >
+              <ion-icon
+                name="menu-outline"
+                class="menuBtnIcon"
+                style={{ color: "#0000ff" }}
+              ></ion-icon>
             </a>
           </div>
           <div className="m-4 flex-center flex-col">
@@ -53,8 +59,11 @@ function FindCircle2(props) {
           <div className="section flex-center flex-col">
             <h2 className="mt-3 blue">What are HERO Circles?</h2>
             <p className="blue">
-              <b>Circles are groups of 5-10 mobilizers</b> working
-              <br /> towards a same climate policy objective.
+              <b>
+                Circles are climate think tanks and research
+                <br /> groups of 5-10 mobilizers
+              </b>{" "}
+              working towards a<br /> same climate policy objective.
             </p>
             <p className="blue">
               By paying a <b>monthly subscription</b> to a HERO
@@ -104,7 +113,6 @@ function FindCircle2(props) {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
