@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-scroll";
 import "./FindCircle3.css";
@@ -7,21 +7,27 @@ import Menu from "../Menu";
 function FindCircle3(props) {
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
+  const [muted, setMuted] = useState(true);
 
   const playVideo = (id) => {
     var v = document.getElementById(id);
     if (v.paused) {
       v.play();
+      setMuted(false)
     } else {
       v.pause();
+      setMuted(true)
     }
   };
   return (
     <div id="findcircle3">
-      <div className="feed" style={{ minHeight: "90vh!important" ,height:"104vh"}}>
-        <video playsInline autoPlay muted id="2">
+      <div
+        className="feed"
+        style={{ minHeight: "90vh!important", height: "104vh" }}
+      >
+        <video playsInline id="2" muted={muted}>
           <source
-            src={"assets/videos/" + "short-video-for-test.mp4"}
+            src={"assets/videos/" + "howHeroWorks.mp4"}
             type="video/mp4"
           />
         </video>
@@ -32,23 +38,18 @@ function FindCircle3(props) {
               alt="logo"
               className="logo mt-4"
             />
-            <a className={"headerButton menuBtn mt-4 mb-4"} onClick={() => setShowMenu(true)}>
+            <a
+              className={"headerButton menuBtn mt-4 mb-4"}
+              onClick={() => setShowMenu(true)}
+            >
               <ion-icon name="menu-outline" class="menuBtnIcon"></ion-icon>
             </a>
           </div>
           <div className="mt-4 flex-center flex-col">
-            <h4 className="white">
-              <b>
-                Climate mobilizers have the
-                <br /> most important job of our time,
-              </b>
-              <br />
-              but its not being paid.
-            </h4>
             <button
               id="whiteBtn"
               type="button"
-              className="btn btn-primary rounded font-size-btn mt-4 mb-4 "
+              className="btn btn-primary rounded font-size-btn mt-2 mb-4 "
               onClick={() => history.push("/circle-feed")}
             >
               <ion-icon src="assets/img/svg/icon2.svg"></ion-icon>
@@ -107,7 +108,6 @@ function FindCircle3(props) {
         </div>
       </div>
       <Menu show={showMenu} onClose={() => setShowMenu(false)} />
-
     </div>
   );
 }

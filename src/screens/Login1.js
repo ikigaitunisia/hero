@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { withRouter,useLocation } from "react-router-dom";
+import { withRouter, useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
-
 
 import "./Login1.css";
 import WelcomeCirclesModal from "../components/modals/WelcomeCirclesModal";
@@ -19,38 +18,39 @@ function Login1() {
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [HeroID,setHeroID] = useState("");
+  const [HeroID, setHeroID] = useState("");
   const [HeroIDError, setHeroIDError] = useState("");
+  const [checkedError, setCheckedError] = useState("");
 
   const [points, setPoints] = useState("");
   const [loginOnly, setloginOnly] = useState(true);
   const [amount, setAmount] = useState(0);
-  const [circle,setCircle] = useState("");
-  const [checked,setChecked] = useState(false);
+  const [circle, setCircle] = useState("");
+  const [checked, setChecked] = useState(false);
   const history = useHistory();
   const location = useLocation();
   const clientId =
     "213045835379-hcm9r1um59u7dksk2h73773e6jfepinn.apps.googleusercontent.com";
 
-    const isSubscribed = async(email) => {
-      let K = await axios
-      .post("https://hegemony.donftify.digital:8080/supporter/get-subscriptions", {
-        email : email,
-       
-      })
-    
-        console.log(K.data);
-        return K.data;
-}
-    useEffect(() => {
+  const isSubscribed = async (email) => {
+    let K = await axios.post(
+      "https://hegemony.donftify.digital:8080/supporter/get-subscriptions",
+      {
+        email: email,
+      }
+    );
+
+    console.log(K.data);
+    return K.data;
+  };
+  useEffect(() => {
     //setphoneNumberError(!checkIsPhoneFormat(phoneNumber));
-    const search=new URLSearchParams(location.search).get("fromSubsctiption")
-    if (search !== null)
-    {
+    const search = new URLSearchParams(location.search).get("fromSubsctiption");
+    if (search !== null) {
       setloginOnly(false);
-      const amnt=new URLSearchParams(location.search).get("amount");
+      const amnt = new URLSearchParams(location.search).get("amount");
       setAmount(amnt);
-      const circ=new URLSearchParams(location.search).get("circle");
+      const circ = new URLSearchParams(location.search).get("circle");
       setCircle(circ);
     }
 
@@ -62,7 +62,7 @@ function Login1() {
     };
     gapi.load("client:auth2", initClient);
   });
-  const onSuccess = async(res) => {
+  const onSuccess = async (res) => {
     console.log("success:", res);
     setPoints("...");
     axios
@@ -73,7 +73,7 @@ function Login1() {
         imageUrl: res.profileObj.imageUrl,
         name: res.profileObj.givenName,
         lastname: res.profileObj.familyName,
-        HeroId: res.profileObj.email.split("@")[0]
+        HeroId: res.profileObj.email.split("@")[0],
       })
       .then(function (response) {
         console.log(response.data);
@@ -86,47 +86,41 @@ function Login1() {
             imageUrl: res.profileObj.imageUrl,
             name: res.profileObj.givenName,
             lastname: res.profileObj.familyName,
-            HeroId: res.profileObj.email.split("@")[0]
+            HeroId: res.profileObj.email.split("@")[0],
           })
         );
         let a = JSON.parse(localStorage.getItem("user"));
 
-        if(loginOnly == false)
-        {
+        if (loginOnly == false) {
           const customerId = a.wallet.customerId;
-  console.log({
-    mode: "subscription",
-    grName: circle,
-    amount: amount * 100,
-    customerId: customerId,
-  });
-  axios
-    .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
-      mode: "subscription",
-      grName:circle ,
-      amount: amount * 100,
-      customerId: customerId,
-    })
-    .then((res) => {
-      console.log(res.data);
-      window.location.href = res.data.url;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-        }
-        else {
-          isSubscribed(res.profileObj.email).then( (response) =>{
-            if(response.length==0)
-            {
-          history.push("/circle-feed");
+          console.log({
+            mode: "subscription",
+            grName: circle,
+            amount: amount * 100,
+            customerId: customerId,
+          });
+          axios
+            .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
+              mode: "subscription",
+              grName: circle,
+              amount: amount * 100,
+              customerId: customerId,
+            })
+            .then((res) => {
+              console.log(res.data);
+              window.location.href = res.data.url;
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        } else {
+          isSubscribed(res.profileObj.email).then((response) => {
+            if (response.length == 0) {
+              history.push("/circle-feed");
+            } else {
+              history.push("/circle-home:" + response[0].grName);
             }
-            else
-            {
-              history.push("/circle-home:"+response[0].grName); 
-            }
-          })
-        
+          });
         }
       })
       .catch(function (error) {
@@ -138,19 +132,16 @@ function Login1() {
   const onFailure = (err) => {
     console.log("failed:", err);
   };
-  const createWallet = async() => {
+  const createWallet = async () => {
     console.log("ok");
     const user = JSON.parse(localStorage.getItem("user"));
     if (user != null) {
       const A = await isSubscribed(user.Email);
-        if(A.length==0)
-        {
-      history.push("/circle-feed");
-        }
-        else
-        {
-          history.push("/circle-home:"+A[0].grName); 
-        }
+      if (A.length == 0) {
+        history.push("/circle-feed");
+      } else {
+        history.push("/circle-home:" + A[0].grName);
+      }
     } else {
       setPoints("...");
       axios
@@ -161,50 +152,45 @@ function Login1() {
           imageUrl: "",
           name: "",
           lastname: "",
-          HeroId: HeroID
+          HeroId: HeroID,
         })
         .then(function (response) {
-          
           localStorage.setItem(
             "user",
             JSON.stringify({ Email: phoneNumber, wallet: response.data })
           );
-          if(loginOnly == false)
-          {             let a = JSON.parse(localStorage.getItem("user"));
+          if (loginOnly == false) {
+            let a = JSON.parse(localStorage.getItem("user"));
 
             const customerId = a.wallet.customerId;
-    console.log({
-      mode: "subscription",
-      grName: circle,
-      amount: amount * 100,
-      customerId: customerId,
-    });
-    axios
-      .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
-        mode: "subscription",
-        grName: circle,
-        amount: amount * 100,
-        customerId: customerId,
-      })
-      .then((res) => {
-        console.log(res.data);
-        window.location.href = res.data.url;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-          }
-          else {
-            let data= isSubscribed(phoneNumber).then( (response) =>{
-              if(response.length==0)
-              {
-            history.push("/circle-feed");
+            console.log({
+              mode: "subscription",
+              grName: circle,
+              amount: amount * 100,
+              customerId: customerId,
+            });
+            axios
+              .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
+                mode: "subscription",
+                grName: circle,
+                amount: amount * 100,
+                customerId: customerId,
+              })
+              .then((res) => {
+                console.log(res.data);
+                window.location.href = res.data.url;
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          } else {
+            let data = isSubscribed(phoneNumber).then((response) => {
+              if (response.length == 0) {
+                history.push("/circle-feed");
+              } else {
+                history.push("/circle-home:" + response[0].grName);
               }
-              else
-              {
-                history.push("/circle-home:"+response[0].grName); 
-              }
-            })
+            });
           }
         })
         .catch(function (error) {
@@ -218,52 +204,45 @@ function Login1() {
   };
 
   const validate = (e) => {
-    
     let x = true;
     console.log(password);
+    if (!checked) {
+      setCheckedError("You should accept the hero terms and conditons");
+      x = false;
+    }
     if (password == "") {
       setPasswordError("Password is required");
-      x=false;
-    }
-    else{
+      x = false;
+    } else {
       setPasswordError("");
       if (password.length < 6) {
         setPasswordError("Make sure to include at least 6 characters");
-        x=false;
-        
-      }
-      else{
+        x = false;
+      } else {
         setPasswordError("");
         if (password !== rePassword) {
           setPasswordError("the passwords are not the same");
-          x=false;
-        }
-        else{
+          x = false;
+        } else {
           setPasswordError("");
         }
       }
-      
     }
-    
-   
-    if (/\S+@\S+\.\S+/.test(phoneNumber)){
+
+    if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
-    }
-    else
-    {
+    } else {
       setEmailError("the email is not valid");
-      x=false;
+      x = false;
     }
-     if (x == true && checked)
-     {
-     createWallet();
-     }
+    if (x == true && checked) {
+      createWallet();
+    }
   };
   const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
 
   return (
     <>
-      
       <div
         id="appCapsule"
         className="bg-g login"
@@ -317,7 +296,7 @@ function Login1() {
                   ></ion-icon>
                 </i>
               </div>
-              <h6 style={{color:"red"}}>{EmailError}</h6>
+              <h6 style={{ color: "red" }}>{EmailError}</h6>
             </div>
 
             <div className="form-group boxed">
@@ -326,9 +305,9 @@ function Login1() {
                   Password
                   <br />
                   <small className="mt-3">
-                    Your password must be at least 6 characters
-                    <br /> and should include a combination of numbers,
-                    <br /> letters and special characters (!$@%)
+                    Your password must be at least 8 characters
+                    <br /> and should include a combination of letters and
+                    <br /> numbers or special characters (!$@%)
                   </small>
                 </label>
                 <input
@@ -349,7 +328,6 @@ function Login1() {
                   ></ion-icon>
                 </i>
               </div>
-
             </div>
 
             <div className="form-group boxed">
@@ -375,13 +353,12 @@ function Login1() {
                   ></ion-icon>
                 </i>
               </div>
-              <h6 style={{color:"red"}}>{passwordError}</h6>
-
+              <h6 style={{ color: "red" }}>{passwordError}</h6>
             </div>
             <div className="form-group boxed">
               <div className="input-wrapper">
                 <label className="label mb-3" htmlFor="text4b">
-                  HeroID
+                  Full Name
                 </label>
                 <input
                   type="text"
@@ -407,7 +384,6 @@ function Login1() {
                 type="checkbox"
                 className="form-check-input"
                 id="customCheckb1"
-               
               />
               <label className="form-check-label white" htmlFor="customCheckb1">
                 Make my subscription private
@@ -418,8 +394,8 @@ function Login1() {
                 type="checkbox"
                 className="form-check-input"
                 id="customCheckb2"
-                value= {checked}
-                onChange={(ev)=> setChecked(ev.target.value)}
+                value={checked}
+                onChange={(ev) => setChecked(ev.target.value)}
               />
               <label className="form-check-label white" htmlFor="customCheckb2">
                 I agree to the{" "}
@@ -427,8 +403,7 @@ function Login1() {
                   HERO Terms and Conditions
                 </a>
               </label>
-              {!checked && <h6 style={{color:"red"}}>{"you should accept the hero terms and conditons"}</h6>}
-
+              {checkedError && <h6 style={{ color: "red" }}>{checkedError}</h6>}
             </div>
 
             <button
@@ -442,7 +417,6 @@ function Login1() {
             </button>
           </form>
         </div>
-
       </div>
     </>
   );

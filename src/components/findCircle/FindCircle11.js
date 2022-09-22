@@ -46,26 +46,24 @@ function FindCircle11(props) {
               Fund a HERO Circle
             </button>
           </div>
-
-          <div className="section flex-center flex-col" style={{marginTop:80}}>
-            <h4 className="mt-3 white">
-              Do you want to do more
-              <br /> for the climate but you
-              <br /> don’t know how?
-            </h4>
-            <p className="white">
-              Citizens around the world have a<br /> new way to effectively act
-              on
-              <br /> climate policy.
-            </p>
-          </div>
+        </div>
+        <div className="section flex-center flex-col">
+          <h4 className="white">
+            Do you want to do more
+            <br /> for the climate but you
+            <br /> don’t know how?
+          </h4>
+          <p className="white">
+            Citizens around the world have a<br /> new way to effectively act on
+            <br /> climate policy.
+          </p>
         </div>
         <div className=" mt-4 flex-col mb-4 mt-4">
           <button
             id="whiteLightBlueBtn"
             type="button"
             className="btn btn-primary rounded font-size-btn mb-4"
-            style={{width:198}}
+            style={{ width: 198 }}
           >
             <Link
               to="findcircle2"
