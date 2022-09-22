@@ -1,0 +1,35 @@
+.subscriptions {
+  background: linear-gradient(0deg, white, blue);
+}
+
+.subscriptions .card {
+  border-radius: 50px;
+}
+.subscriptions span {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17.18px;
+}
+.subscriptions .in strong {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17.18px;
+}
+
+.subscriptions .in p {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.72px;
+}
+
+.subscriptions .amount-div {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 29.45px;
+}
+
+/*.subscriptions .amount-div sup {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}*/
