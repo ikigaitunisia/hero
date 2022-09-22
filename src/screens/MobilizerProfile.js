@@ -53,7 +53,6 @@ function MobilizerProfile(props) {
         setCurrentCircle(res.data[currentIndex]);
         console.log(res.data[currentIndex]);
         setMobilizers(res.data);
-        console.log(res.data.Socials);
         let socials = JSON.parse(res.data[currentIndex].Socials);
 
         if ("Instagram" in socials) {
@@ -93,7 +92,7 @@ function MobilizerProfile(props) {
                 />
                 <div className="card-img-overlay">
                   {currentCircle.name && (
-                    <h2 className="white">{currentCircle.name}</h2>
+                    <h2 className="white">{currentCircle.Name}</h2>
                   )}
                   {currentCircle.id && (
                     <div className="flex-center">

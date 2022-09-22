@@ -67,7 +67,6 @@ function CircleFeedDetails(props) {
             <h4 className="blue mt-4 m-0">{currentCircle.name}</h4>
             <small className="blue flex-center">
               {currentCircle.description}{" "}
-              <ion-icon src="assets/img/svg/icon7.svg" class="ml-1"></ion-icon>
             </small>
             <h6 className="blue mt-4 mb-3">Mobilizers in this circle</h6>
             <div className="me-4 ml-4 mb-0">
