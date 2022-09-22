@@ -38,6 +38,17 @@ function Login1() {
     console.log(K.data);
     return K.data;
   };
+  const isHeroExist = async (HeroID) => {
+    let K = await axios.post(
+      "https://hegemony.donftify.digital:8080/supporter/HeroIDExist ",
+      {
+        HeroID: HeroID,
+      }
+    );
+
+    console.log(K.data);
+    return K.data;
+  };
   useEffect(() => {
     //setphoneNumberError(!checkIsPhoneFormat(phoneNumber));
     const search = new URLSearchParams(location.search).get("fromSubsctiption");
@@ -145,9 +156,10 @@ function Login1() {
           password: password,
           googleId: "",
           imageUrl: "",
-          name: "",
+          name: HeroID,
           lastname: "",
-          HeroId: HeroID,
+          HeroId: phoneNumber.split("@")[0],
+
         })
         .then(function (response) {
           localStorage.setItem(
@@ -195,11 +207,11 @@ function Login1() {
     }
   };
 
-  const validate = (e) => {
+  const validate = async(e) => {
     let x = true;
     console.log(password);
     if (!checked) {
-      setCheckedError("You should accept the hero terms and conditons");
+      setCheckedError("You should accept the HERO Terms of Use");
       x = false;
     }
     if (password == "") {
@@ -221,9 +233,15 @@ function Login1() {
         }
       }
     }
+    
+    if (HeroID == "") {
+      setFullnameError("Please enter your fullname");
+      x = false;
+    }
+    else
+    {
+      setFullnameError("");
 
-    if (!HeroID) {
-      setFullnameError("Please enter your name");
     }
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
