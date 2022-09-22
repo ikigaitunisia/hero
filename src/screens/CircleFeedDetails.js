@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { withRouter ,useParams,useLocation} from "react-router-dom";
 import Header from "../components/Header";
 import "./CircleFeed.css";
@@ -7,10 +8,12 @@ import ClubSelectMembershipModal from "../components/modals/ClubSelectMembership
 import ActivistVictoriesModal from "../components/modals/ActivistVictoriesModal";
 import ActivistCampaignsModal from "../components/modals/ActivistCampaignsModal";
 import axios from "axios";
+import Menu from "../components/Menu";
 function CircleFeedDetails(props) {
-  
+  const history = useHistory();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCircle, setCurrentCircle] = useState({});
+  const [showMenu, setShowMenu] = useState(false);
   const [load,setLoad] = useState(false);
   const [showClubSelectMembershipModal, setShowClubSelectMembershipModal] =
     useState(false);
@@ -53,16 +56,68 @@ function CircleFeedDetails(props) {
     console.log(circles);
 
   }, [currentIndex]);
+  const whiteMode = props.whiteMode;
+  const showMenuBtn = props.showMenuBtn;
+  const showLoginBtn = props.showLoginBtn;
+  const showCloseBtn = props.showCloseBtn;
+  const showLogo = props.showLogo;
+  const showBackBtn = props.showBackBtn;
+  const showHeroLogo = props.showHeroLogo;
+  const transparent = props.transparent;
+  const showTitlePage = props.showTitlePage;
+  const title = props.title;
+  const backTo = props.backTo;
+
+  const colorClass = whiteMode ? "white-text" : "blue-text";
+  const [loggedin, setLogedin] = useState(false);
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user != null) {
+      setLogedin(true);
+    }
+  }, []);
+  const closeB = () => {
+    history.push(history.goBack());
+  };
+  const logout = () => {
+    localStorage.removeItem("user");
+    history.push("/");
+  };
   return (
    
     <>
    
    {load &&
    <>
-      <Header whiteMode showHeroLogo transparent showBackBtn />
-
       <div id="appCapsule" className="circle-feed-details">
-        <div class="card m-4">
+      <div className="headerCircle">
+            <img
+              src={"assets/img/heroLogoWhite.png"}
+              alt="logo"
+              className="logo mt-4 logo1"
+            />
+            <a
+              className={"headerButton menuBtn btnn mt-4 mb-4"}
+              onClick={() => setShowMenu(true)}
+            >
+              <ion-icon name="menu-outline" class="menuBtnIcon"></ion-icon>
+            </a>
+           
+            <a
+              href="#"
+              className="arrow position-absolute top-0 start-0"
+              data-bs-toggle="modal"
+              data-bs-target="#sidebarPanel"
+              onClick={() =>
+                backTo ? history.push(backTo) : history.push("/circle-feed")
+              }
+            >
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </a>
+           
+           
+      </div>
+        <div class="card m-5">
           <div class="card-body flex-center flex-col">
             <h4 className="blue mt-4 m-0">{currentCircle.name}</h4>
             <small className="blue flex-center">
@@ -188,6 +243,7 @@ function CircleFeedDetails(props) {
         show={showMobilizerVictoriesModal}
         onClose={() => setShowMobilizerVictoriesModal(false)}
       />
+      <Menu show={showMenu} onClose={() => setShowMenu(false)} />
       </>
         }
     </>

@@ -284,7 +284,7 @@ function ClubSelectMembershipModal(props) {
                         placeholder="50"
                         value={overAmount}
                         onChange={(ev) => validateAmount(ev.target.value)}
-                        style={{ color: "white", fontSize: 25 }}
+                        style={{ color: "white", fontSize: 25, textAlign:"center"}}
                         disabled = {(amount !== 50)? "disabled" : ""}
                       />
                       <i className="clear-input">
