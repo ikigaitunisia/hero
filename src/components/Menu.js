@@ -36,13 +36,12 @@ function Menu(props) {
     }
   }, []);
   const logout = () => {
-    var auth2 = gapi.auth2.getAuthInstance({
-      client_id: clientId,
-      
-  });
-    auth2.signOut().then(function () {
-    });
-    auth2.disconnect();
+    const auth2 = window.gapi.auth2.getAuthInstance()
+    if (auth2 != null) {
+      auth2.signOut().then(
+        auth2.disconnect().then(this.props.onLogoutSuccess)
+      )
+    }
 
     
     localStorage.removeItem("user");
