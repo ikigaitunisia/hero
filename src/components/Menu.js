@@ -44,9 +44,11 @@ function Menu(props) {
 
     
     localStorage.removeItem("user");
- 
-    history.push("/");
     setLogedin(false);
+    history.push("/");
+    window.location.reload();
+    
+    
   };
   return (
     <div
