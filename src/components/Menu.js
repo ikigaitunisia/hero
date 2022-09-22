@@ -11,8 +11,14 @@ function Menu(props) {
     "213045835379-hcm9r1um59u7dksk2h73773e6jfepinn.apps.googleusercontent.com";
 
   const [loggedin, setLogedin] = useState(false);
-  
- 
+  const onLogoutSuccess = () =>
+  {
+    localStorage.removeItem("user");
+    setLogedin(false);
+    history.push("/");
+    window.location.reload();
+    
+  }
   const goToProfil = () => {
     history.push("account-information");
     window.location.reload(false);
@@ -42,15 +48,11 @@ function Menu(props) {
     const auth2 = window.gapi.auth2.getAuthInstance()
     if (auth2 != null) {
       auth2.signOut().then(
-        auth2.disconnect().then(this.props.onLogoutSuccess)
+        auth2.disconnect().then(onLogoutSuccess)
       )
     }
 
     
-    localStorage.removeItem("user");
-    setLogedin(false);
-    history.push("/");
-    window.location.reload();
     
     
   };
