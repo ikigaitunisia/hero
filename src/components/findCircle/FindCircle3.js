@@ -7,13 +7,16 @@ import Menu from "../Menu";
 function FindCircle3(props) {
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
+  const [muted, setMuted] = useState(true);
 
   const playVideo = (id) => {
     var v = document.getElementById(id);
     if (v.paused) {
       v.play();
+      setMuted(false)
     } else {
       v.pause();
+      setMuted(true)
     }
   };
   return (
@@ -22,7 +25,7 @@ function FindCircle3(props) {
         className="feed"
         style={{ minHeight: "90vh!important", height: "104vh" }}
       >
-        <video playsInline autoPlay id="2">
+        <video playsInline id="2" muted={muted}>
           <source
             src={"assets/videos/" + "howHeroWorks.mp4"}
             type="video/mp4"
