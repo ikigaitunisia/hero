@@ -36,8 +36,10 @@ function Menu(props) {
     }
   }, []);
   const logout = () => {
-   
-    var auth2 = gapi.auth2.getAuthInstance();
+    var auth2 = gapi.auth2.getAuthInstance({
+      client_id: clientId,
+      
+  });
     auth2.signOut().then(function () {
     });
     auth2.disconnect();
