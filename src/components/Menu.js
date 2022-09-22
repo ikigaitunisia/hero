@@ -184,7 +184,7 @@ function Menu(props) {
                 </a>
               </li>
             </ul>
-            <div id="social-btn-container2" className="row mb-4 mt-4 pl-3">
+            <div id="social-btn-container2" className="row mb-4 mt-4 ml-3">
               <button
                 type="button"
                 className="btn btn-icon rounded btn-primary social-btn me-2"
