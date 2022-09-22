@@ -158,7 +158,7 @@ function Login1() {
           imageUrl: "",
           name: HeroID,
           lastname: "",
-          HeroId: phoneNumber.email.split("@")[0],
+          HeroId: phoneNumber.split("@")[0],
 
         })
         .then(function (response) {
