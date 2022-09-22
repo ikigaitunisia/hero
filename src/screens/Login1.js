@@ -211,7 +211,7 @@ function Login1() {
     let x = true;
     console.log(password);
     if (!checked) {
-      setCheckedError("You should accept the hero terms and conditons");
+      setCheckedError("You should accept the HERO Terms of Use");
       x = false;
     }
     if (password == "") {
