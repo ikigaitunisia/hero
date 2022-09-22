@@ -50,6 +50,10 @@ function Menu(props) {
     }
   }, []);
   const logout = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (user.googleId != null)
+    {
     const auth2 = window.gapi.auth2.getAuthInstance()
     if (auth2 != null) {
       auth2.signOut().then(
@@ -57,7 +61,11 @@ function Menu(props) {
       )
     }
 
-    
+   }
+   else
+   {
+    onLogoutSuccess();
+   }
     
     
   };
