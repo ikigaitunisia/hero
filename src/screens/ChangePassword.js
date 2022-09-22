@@ -70,11 +70,11 @@ function ChangePassword() {
                 >
                   I agree to the{" "}
                   <a
-                    href="https://herolabsco.notion.site/Private-Policy-3da3d0ebdd3849dfa7d48fb13cf27564"
+                    href="https://herolabsco.notion.site/Terms-of-Use-2ad8469c5f5e414eab44966ed5ec1627"
                     className="white-text"
                     target="_blank"
                   >
-                    HERO Terms and Conditions
+                    HERO Terms of Use
                   </a>
                 </label>
               </div>

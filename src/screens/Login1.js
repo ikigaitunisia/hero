@@ -399,8 +399,11 @@ function Login1() {
               />
               <label className="form-check-label white" htmlFor="customCheckb2">
                 I agree to the{" "}
-                <a href="#" style={{ textDecoration: "underline" }}>
-                  HERO Terms and Conditions
+                <a
+                  href="https://herolabsco.notion.site/Terms-of-Use-2ad8469c5f5e414eab44966ed5ec1627"
+                  style={{ textDecoration: "underline" }}
+                >
+                  HERO Terms of Use
                 </a>
               </label>
               {checkedError && <h6 style={{ color: "red" }}>{checkedError}</h6>}

@@ -220,7 +220,7 @@ function Login() {
                 id="customCheckb1"
               />
               <label className="form-check-label white" htmlFor="customCheckb1">
-                I agree to the <a href="#">HERO Terms and Conditions</a>
+                I agree to the <a href="https://herolabsco.notion.site/Terms-of-Use-2ad8469c5f5e414eab44966ed5ec1627">HERO Terms of Use</a>
               </label>
             </div>
             <button
