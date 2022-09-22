@@ -41,9 +41,10 @@ function EditPassword(props) {
         <div className="section mt-2">
           <div className="card flex-center pt-4 pb-4">
             <span>
-              Your password must be at least 6 characters
-              <br /> and should include a combination of numbers,
-              <br /> letters and special characters (!$@%)
+              Your password must be at least 8 characters
+              <br />
+              and should include a combination of letters and numbers
+              <br /> or special characters (!$@%)
             </span>
             <hr className="hr mt-4 mb-4" />
             <div id="">
