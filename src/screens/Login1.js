@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { withRouter, useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import Header from "../components/Header";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 
@@ -10,16 +9,12 @@ import "./Login1.css";
 import WelcomeCirclesModal from "../components/modals/WelcomeCirclesModal";
 function Login1() {
   const [phoneNumber, setPhoneNumber] = useState();
-  const [phoneNumberError, setphoneNumberError] = useState(false);
   const [EmailError, setEmailError] = useState("");
-
-  const [showSmsVerification, setShowSmsVerification] = useState(false);
-  const [codeSmsValidated, setCodeSmsValidated] = useState(false);
+  const [fullnameError, setFullnameError] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [HeroID, setHeroID] = useState("");
-  const [HeroIDError, setHeroIDError] = useState("");
   const [checkedError, setCheckedError] = useState("");
 
   const [points, setPoints] = useState("");
@@ -199,9 +194,6 @@ function Login1() {
         });
     }
   };
-  const onCodeValidate = () => {
-    setCodeSmsValidated(true);
-  };
 
   const validate = (e) => {
     let x = true;
@@ -215,13 +207,14 @@ function Login1() {
       x = false;
     } else {
       setPasswordError("");
+
       if (password.length < 8) {
-        setPasswordError("Make sure to include at least 8 characters");
+        setPasswordError("Your password is not strong enough");
         x = false;
       } else {
         setPasswordError("");
         if (password !== rePassword) {
-          setPasswordError("the passwords are not the same");
+          setPasswordError("The password you entered doesn’t match");
           x = false;
         } else {
           setPasswordError("");
@@ -229,10 +222,13 @@ function Login1() {
       }
     }
 
+    if (!HeroID) {
+      setFullnameError("Please enter your name");
+    }
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
     } else {
-      setEmailError("the email is not valid");
+      setEmailError("Please type a valid email");
       x = false;
     }
     if (x == true && checked) {
@@ -296,7 +292,7 @@ function Login1() {
                   ></ion-icon>
                 </i>
               </div>
-              <h6 style={{ color: "red" }}>{EmailError}</h6>
+              {EmailError && <h6 className="error-message">{EmailError}</h6>}
             </div>
 
             <div className="form-group boxed">
@@ -353,7 +349,9 @@ function Login1() {
                   ></ion-icon>
                 </i>
               </div>
-              <h6 style={{ color: "red" }}>{passwordError}</h6>
+              {passwordError && (
+                <h6 className="error-message">{passwordError}</h6>
+              )}
             </div>
             <div className="form-group boxed">
               <div className="input-wrapper">
@@ -378,6 +376,9 @@ function Login1() {
                   ></ion-icon>
                 </i>
               </div>
+              {fullnameError && (
+                <h6 className="error-message">{fullnameError}</h6>
+              )}
             </div>
             <div className="form-check p-0 mt-2">
               <input
@@ -406,7 +407,9 @@ function Login1() {
                   HERO Terms of Use
                 </a>
               </label>
-              {checkedError && <h6 style={{ color: "red" }}>{checkedError}</h6>}
+              {checkedError && (
+                <h6 className="error-message">{checkedError}</h6>
+              )}
             </div>
 
             <button
