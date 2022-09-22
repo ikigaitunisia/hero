@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Modal } from "bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Menu.css";
-import { useGoogleLogout } from 'react-google-login'
-
+import { useGoogleLogout } from "react-google-login";
 
 function Menu(props) {
   const history = useHistory();
@@ -11,20 +10,18 @@ function Menu(props) {
     "213045835379-hcm9r1um59u7dksk2h73773e6jfepinn.apps.googleusercontent.com";
 
   const [loggedin, setLogedin] = useState(false);
-  const { signOut, loaded } = useGoogleLogout({
-  
-    onFailure,
-    clientId,
-    onLogoutSuccess
-  })
-  const onLogoutSuccess = () => {
-    console.log("success");
-
-  }
   const onFailure = () => {
     console.log("failed");
-    
-  }
+  };
+  const onLogoutSuccess = () => {
+    console.log("success");
+  };
+  const { signOut, loaded } = useGoogleLogout({
+    onFailure,
+    clientId,
+    onLogoutSuccess,
+  });
+
   const goToProfil = () => {
     history.push("account-information");
     window.location.reload(false);
@@ -49,12 +46,10 @@ function Menu(props) {
     }
   }, []);
   const logout = () => {
-    
     signOut();
 
-    
     localStorage.removeItem("user");
- 
+
     history.push("/");
     setLogedin(false);
   };
@@ -126,7 +121,11 @@ function Menu(props) {
               </h5>
             </div>
             {loggedin && (
-              <div className="listview-title log" onClick={() => goToProfil()} style={{color:"#0000ff"}}>
+              <div
+                className="listview-title log"
+                onClick={() => goToProfil()}
+                style={{ color: "#0000ff" }}
+              >
                 <h5 className="text-start blue-text">Account Settings</h5>
               </div>
             )}
