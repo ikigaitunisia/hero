@@ -24,14 +24,8 @@ function Menu(props) {
     window.location.reload(false);
   };
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
 
-    if (user.googleId != null)
-    {
-    gapi.load('auth2', function() {
-      gapi.auth2.init();
-    })
-   }
+    
     if (props.show) {
       const modal = new Modal(document.getElementById("menu"), {
         keyboard: false,
@@ -47,7 +41,14 @@ function Menu(props) {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user != null) {
       setLogedin(true);
+      if (user.googleId != null)
+      {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      })
+      }
     }
+   
   }, []);
   const logout = () => {
     const user = JSON.parse(localStorage.getItem("user"));
