@@ -215,8 +215,8 @@ function Login1() {
       x = false;
     } else {
       setPasswordError("");
-      if (password.length < 6) {
-        setPasswordError("Make sure to include at least 6 characters");
+      if (password.length < 8) {
+        setPasswordError("Make sure to include at least 8 characters");
         x = false;
       } else {
         setPasswordError("");
