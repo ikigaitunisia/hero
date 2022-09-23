@@ -3,7 +3,7 @@ import { Modal } from "bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Menu.css";
 import { gapi } from "gapi-script";
-import axios from "axios"
+import axios from "axios";
 
 function Menu(props) {
   const history = useHistory();
@@ -13,14 +13,12 @@ function Menu(props) {
   const [loggedin, setLogedin] = useState(false);
   const [subbscibed, setSubbscibed] = useState(0);
   const [subbscibedCircles, setSubbscibedCircles] = useState([]);
-  const onLogoutSuccess = () =>
-  {
+  const onLogoutSuccess = () => {
     localStorage.removeItem("user");
     setLogedin(false);
     history.push("/");
     window.location.reload();
-    
-  }
+  };
 
   const isSubscribed = async (email) => {
     let K = await axios.post(
@@ -38,8 +36,6 @@ function Menu(props) {
     window.location.reload(false);
   };
   useEffect(() => {
-
-    
     if (props.show) {
       const modal = new Modal(document.getElementById("menu"), {
         keyboard: false,
@@ -55,11 +51,10 @@ function Menu(props) {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user != null) {
       setLogedin(true);
-      if (user.googleId != null)
-      {
-      gapi.load('auth2', function() {
-        gapi.auth2.init();
-      })
+      if (user.googleId != null) {
+        gapi.load("auth2", function () {
+          gapi.auth2.init();
+        });
       }
       isSubscribed(user.Email).then((response) => {
         setSubbscibed(response.length);
@@ -67,27 +62,18 @@ function Menu(props) {
         console.log(subbscibed);
       });
     }
-   
   }, []);
   const logout = () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
-    if (user.googleId != null)
-    {
-    const auth2 = window.gapi.auth2.getAuthInstance()
-    if (auth2 != null) {
-      auth2.signOut().then(
-        auth2.disconnect().then(onLogoutSuccess)
-      )
+    if (user.googleId != null) {
+      const auth2 = window.gapi.auth2.getAuthInstance();
+      if (auth2 != null) {
+        auth2.signOut().then(auth2.disconnect().then(onLogoutSuccess));
+      }
+    } else {
+      onLogoutSuccess();
     }
-
-   }
-   else
-   {
-    onLogoutSuccess();
-   }
-    
-    
   };
   return (
     <div
@@ -156,14 +142,24 @@ function Menu(props) {
                 {loggedin ? "Log out" : "Log in"}
               </h5>
             </div>
-            {(subbscibed>0) && (
-              <div className="listview-title log" onClick={() => {history.push("/circle-home:" + subbscibedCircles[0].grName);    window.location.reload();
-            }} style={{color:"#0000ff"}}>
+            {subbscibed > 0 && (
+              <div
+                className="listview-title log"
+                onClick={() => {
+                  history.push("/circle-home:" + subbscibedCircles[0].grName);
+                  window.location.reload();
+                }}
+                style={{ color: "#0000ff" }}
+              >
                 <h5 className="text-start blue-text">Go to my Circles</h5>
               </div>
             )}
             {loggedin && (
-              <div className="listview-title log" onClick={() => goToProfil()} style={{color:"#0000ff"}}>
+              <div
+                className="listview-title log"
+                onClick={() => goToProfil()}
+                style={{ color: "#0000ff" }}
+              >
                 <h5 className="text-start blue-text">Account Settings</h5>
               </div>
             )}
@@ -172,7 +168,6 @@ function Menu(props) {
                 <a
                   href="https://herolabsco.notion.site/HERO-FAQ-a74c18e9ad1d4f308a3ec06e0bb62732"
                   className="item pt-0 pb-0 "
-                  target="_blank"
                 >
                   <h5 className="text-start blue-text log">FAQ</h5>
                 </a>
@@ -183,7 +178,6 @@ function Menu(props) {
                 <a
                   href="https://herolabsco.notion.site/Discover-how-HERO-Mobilizers-are-verified-a3b9028ab257499fafa9d724c2ecb11b"
                   className="item pt-0 pb-0"
-                  target="_blank"
                 >
                   <div className="in blue">How are mobilizers verified?</div>
                 </a>
@@ -192,7 +186,6 @@ function Menu(props) {
                 <a
                   href="https://herolabsco.notion.site/Why-a-Basic-Income-785bc36971f741baa728f3cb81a6a807"
                   className="item pt-0 pb-0"
-                  target="_blank"
                 >
                   <div className="in blue">What is Basic Income?</div>
                 </a>
@@ -262,7 +255,6 @@ function Menu(props) {
               <li>
                 <a
                   href="https://herolabsco.notion.site/How-to-join-a-HERO-Circle-42834385f36f4a17bbaedf1a12d9dec5"
-                  target="_blank"
                   className="item pt-0 pb-0"
                 >
                   <div className="in blue">
@@ -284,7 +276,6 @@ function Menu(props) {
               <li>
                 <a
                   href="https://herolabsco.notion.site/Contact-us-af4234ecdbd9440c8c3f94d394277e64"
-                  target="_blank"
                   className="item pt-0 pb-0"
                 >
                   <div className="in blue">
@@ -296,7 +287,6 @@ function Menu(props) {
                 <a
                   href="https://herolabsco.notion.site/Terms-of-Service-2ad8469c5f5e414eab44966ed5ec1627"
                   className="item pt-0 pb-0"
-                  target="_blank"
                 >
                   <div className="in blue">
                     <small>Terms of Service</small>
@@ -307,7 +297,6 @@ function Menu(props) {
                 <a
                   href="https://herolabsco.notion.site/Privacy-Policy-3da3d0ebdd3849dfa7d48fb13cf27564"
                   className="item pt-0 pb-0"
-                  target="_blank"
                 >
                   <div className="in blue">
                     <small>Data & Privacy</small>
