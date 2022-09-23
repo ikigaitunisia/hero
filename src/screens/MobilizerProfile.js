@@ -26,7 +26,7 @@ function MobilizerProfile(props) {
       return;
     }
     setCurrentIndex(currentIndex + 1);
-    let socials = JSON.parse(mobilizers[currentIndex].Socials);
+    let socials = JSON.parse(mobilizers[currentIndex + 1].Socials);
 
     if ("Instagram" in socials) {
       setInstagram(socials.Instagram);

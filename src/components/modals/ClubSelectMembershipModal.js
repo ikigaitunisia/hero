@@ -277,9 +277,9 @@ function ClubSelectMembershipModal(props) {
                         type="text"
                         className="form-control"
                         id="userid2"
-                        placeholder="50"
                         value={overAmount}
-                        onChange={(ev) => validateAmount(ev.target.value)}
+                        onChange={(ev) => validateAmount(ev.target.value) }
+                        onClick={() => setOverAmount("")}
                         style={{
                           color: "white",
                           fontSize: 25,

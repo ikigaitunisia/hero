@@ -3,7 +3,7 @@ import { Modal } from "bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Menu.css";
 import { gapi } from "gapi-script";
-
+import axios from "axios"
 
 function Menu(props) {
   const history = useHistory();
@@ -11,6 +11,8 @@ function Menu(props) {
     "213045835379-hcm9r1um59u7dksk2h73773e6jfepinn.apps.googleusercontent.com";
 
   const [loggedin, setLogedin] = useState(false);
+  const [subbscibed, setSubbscibed] = useState(0);
+  const [subbscibedCircles, setSubbscibedCircles] = useState([]);
   const onLogoutSuccess = () =>
   {
     localStorage.removeItem("user");
@@ -19,6 +21,18 @@ function Menu(props) {
     window.location.reload();
     
   }
+
+  const isSubscribed = async (email) => {
+    let K = await axios.post(
+      "https://hegemony.donftify.digital:8080/supporter/get-subscriptions",
+      {
+        email: email,
+      }
+    );
+
+    console.log(K.data);
+    return K.data;
+  };
   const goToProfil = () => {
     history.push("account-information");
     window.location.reload(false);
@@ -47,6 +61,11 @@ function Menu(props) {
         gapi.auth2.init();
       })
       }
+      isSubscribed(user.Email).then((response) => {
+        setSubbscibed(response.length);
+        setSubbscibedCircles(response);
+        console.log(subbscibed);
+      });
     }
    
   }, []);
@@ -137,6 +156,12 @@ function Menu(props) {
                 {loggedin ? "Log out" : "Log in"}
               </h5>
             </div>
+            {(subbscibed>0) && (
+              <div className="listview-title log" onClick={() => {history.push("/circle-home:" + subbscibedCircles[0].grName);    window.location.reload();
+            }} style={{color:"#0000ff"}}>
+                <h5 className="text-start blue-text">Go to my Circles</h5>
+              </div>
+            )}
             {loggedin && (
               <div className="listview-title log" onClick={() => goToProfil()} style={{color:"#0000ff"}}>
                 <h5 className="text-start blue-text">Account Settings</h5>
