@@ -15,7 +15,9 @@ line-height: 20px;
 text-align: center;
 color: #191919;
 }
-
+.buttonplay{
+  margin-top: 107px;
+}
 #findcircle3 {
   min-height: 110vh!important;
 }

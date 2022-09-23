@@ -51,7 +51,7 @@ function FindCircle3(props) {
             </button>
           </div>
           <div className="feed2" style={{ minHeight: "90vh!important" }}>
-            <video playsInline autoPlay loop id="2" muted={muted}>
+            <video preLoad="auto" playsInline autoPlay loop id="2" muted={muted}>
             <source
               src={"assets/videos/" + "howHeroWorks.mp4"}
               type="video/mp4"
@@ -75,16 +75,15 @@ function FindCircle3(props) {
                 </text>
               </Link>
             </button>
-            
+          
           </div>
           </div>
           <button
             type="button"
-            className="btn btn-primary rounded play-btn"
-            onClick={() => playVideo(2)}
-          >
+            className="btn btn-primary rounded play-btn buttonplay"
+            onClick={() => playVideo(2)}>
             <ion-icon name="play" class="m-0"></ion-icon>
-          </button>
+            </button>
 
          
         </div>

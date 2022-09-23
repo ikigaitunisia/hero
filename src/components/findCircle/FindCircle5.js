@@ -49,7 +49,7 @@ function FindCircle5(props) {
                 <small className="blue mb-2">Amsterdam, Netherlands</small>
                 <p className="blue">
                   “I wanted to do more for climate, but I just
-                  <br /> didn’t Know how. HERO has allowed me to 
+                  <br /> didn’t know how. HERO has allowed me to 
                   <br /> act in a super effective way on climate.”
                 </p>
               </div>
