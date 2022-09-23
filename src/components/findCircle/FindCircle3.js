@@ -25,7 +25,11 @@ function FindCircle3(props) {
         className="feed"
         style={{ minHeight: "90vh!important", height: "104vh" }}
       >
-        <video playsInline id="2" muted={muted}>
+        <video playsInline autoPlay loop id="2" muted={muted} style={{
+              objectFit: "none",
+              position: "relative",
+              pointerEvents: "none",
+            }}>
           <source
             src={"assets/videos/" + "howHeroWorks.mp4"}
             type="video/mp4"
