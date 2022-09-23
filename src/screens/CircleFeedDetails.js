@@ -121,17 +121,19 @@ function CircleFeedDetails(props) {
                 </small>
                 <h6 className="blue mt-4 mb-3">Mobilizers in this circle</h6>
                 <div className="me-4 ml-4 mb-0">
-                  {MobilizersCircle.map((item) => {
+                  {MobilizersCircle.map((item, index) => {
                     return (
                       <img
                         src={"assets/img/" + item.imgProfil}
                         alt="image"
                         className="imaged w48 rounded m-2"
                         onClick={() =>
-                          history.push(
-                            "/mobilizer-profile2:" +
-                              currentCircle.name.replace(":", "")
-                          )
+                          history.push({
+                            pathname:
+                              "/mobilizer-profile2:" +
+                              currentCircle.name.replace(":", ""),
+                            state: { index: index },
+                          })
                         }
                       />
                     );

@@ -7,9 +7,10 @@ import axios from "axios";
 import "./MobilizerProfile.css";
 
 function MobilizerProfile(props) {
+  const index = props.location.state ? props.location.state.index : null;
   const history = useHistory();
   const [mobilizers, setMobilizers] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(index !== null ? index : 0);
   const [currentCircle, setCurrentCircle] = useState({});
   const [load, setLoad] = useState(false);
   const { circlename } = useParams();
@@ -53,7 +54,7 @@ function MobilizerProfile(props) {
         setCurrentCircle(res.data[currentIndex]);
         console.log(res.data[currentIndex]);
         setMobilizers(res.data);
-        let socials = res.data[currentIndex] ? JSON.parse(res.data[currentIndex].Socials): [];
+        let socials = JSON.parse(res.data[currentIndex].Socials);
         if ("Instagram" in socials) {
           setInstagram(socials.Instagram);
         }
@@ -85,7 +86,11 @@ function MobilizerProfile(props) {
             <div className="section mt-2 mb-4 feed2">
               <div className="card bg-dark text-white">
                 <img
-                  src={currentCircle.imgProfil ? "assets/img/"+ currentCircle.imgProfil : "assets/img/bg-card.png"}
+                  src={
+                    currentCircle.imgProfil
+                      ? "assets/img/" + currentCircle.imgProfil
+                      : "assets/img/bg-card.png"
+                  }
                   className="card-img overlay-img"
                   alt="image"
                 />
