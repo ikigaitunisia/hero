@@ -20,21 +20,11 @@ function FindCircle3(props) {
     }
   };
   return (
-    <div id="findcircle3">
+    <div id="findcircle3" className="circle-feed-container">
       <div
         className="feed"
         style={{ minHeight: "90vh!important", height: "104vh" }}
       >
-        <video playsInline autoPlay loop id="2" muted={muted} style={{
-              objectFit: "none",
-              position: "relative",
-              pointerEvents: "none",
-            }}>
-          <source
-            src={"assets/videos/" + "howHeroWorks.mp4"}
-            type="video/mp4"
-          />
-        </video>
         <div className="feed-content">
           <div className="p-t-h">
             <img
@@ -60,20 +50,18 @@ function FindCircle3(props) {
               Fund a HERO Circle
             </button>
           </div>
-
-          <button
-            type="button"
-            className="btn btn-primary rounded play-btn"
-            onClick={() => playVideo(2)}
-          >
-            <ion-icon name="play" class="m-0"></ion-icon>
-          </button>
-
-          <div className="bottom mt-4 flex-col">
+          <div className="feed2" style={{ minHeight: "90vh!important" }}>
+            <video playsInline autoPlay loop id="2" muted={muted}>
+            <source
+              src={"assets/videos/" + "howHeroWorks.mp4"}
+              type="video/mp4"
+            />
+            </video>
+            <div className="bottom mt-4 flex-col">
             <button
               id="whiteBtn"
               type="button"
-              className="btn btn-primary rounded font-size-btn mb-4"
+              className="btn btn-primary rounded font-size-btn mb-2"
             >
               <Link
                 to="findCircle4"
@@ -87,28 +75,18 @@ function FindCircle3(props) {
                 </text>
               </Link>
             </button>
-            <Link
-              to="findCircle4"
-              spy={true}
-              smooth={true}
-              offset={30}
-              duration={500}
-            >
-              <small>Scroll Down</small>{" "}
-            </Link>
-            <Link
-              to="findCircle4"
-              spy={true}
-              smooth={true}
-              offset={30}
-              duration={500}
-            >
-              <ion-icon
-                src="assets/img/svg/scroll-down.svg"
-                style={{ width: "18px", height: "26px" }}
-              ></ion-icon>
-            </Link>
+            
           </div>
+          </div>
+          <button
+            type="button"
+            className="btn btn-primary rounded play-btn"
+            onClick={() => playVideo(2)}
+          >
+            <ion-icon name="play" class="m-0"></ion-icon>
+          </button>
+
+         
         </div>
       </div>
       <Menu show={showMenu} onClose={() => setShowMenu(false)} />
