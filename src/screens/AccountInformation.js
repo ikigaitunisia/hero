@@ -4,10 +4,9 @@ import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import "./AccountInformation.css";
 import axios from "axios";
-import Alert from '@mui/material/Alert';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-
+import Alert from "@mui/material/Alert";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 function AccountInformation(props) {
   const history = useHistory();
@@ -17,15 +16,27 @@ function AccountInformation(props) {
   const [livingCountry, setLivingCountry] = useState("");
   const [profilePhoto, setProfilePhoto] = useState("");
   const [choosedFile, setChoosedFile] = useState(null);
-  const [receiveMailUpdates, setReceiveMailUpdates] = useState(false);
+  const [receiveMailUpdates, setReceiveMailUpdates] = useState(true);
   const user = JSON.parse(localStorage.getItem("user"));
-  const [success,setSuccess] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [heroIdError, setHeroIdError] = useState("");
+  const [emailError, setEmailError] = useState("");
+
   const inputFilePhoto = useRef(null);
   const clickedFile = () => {
     inputFilePhoto.current.click();
     console.log(choosedFile);
   };
   console.log(choosedFile);
+
+  const onChangeEmail = (ev) => {
+    setEmail(ev.target.value);
+    if (/\S+@\S+\.\S+/.test(ev.target.value)) {
+      setEmailError("");
+    } else {
+      setEmailError("Please enter a valid email");
+    }
+  };
 
   const getUserInfo = () => {
     axios
@@ -74,7 +85,7 @@ function AccountInformation(props) {
       )
       .then(function (response) {
         console.log(response.data);
-        setSuccess(true)
+        setSuccess(true);
       });
   };
   useEffect(() => {
@@ -187,6 +198,9 @@ function AccountInformation(props) {
                       <ion-icon name="close-circle"></ion-icon>
                     </i>
                   </div>
+                  {heroIdError && (
+                    <h6 className="error-message">{heroIdError}</h6>
+                  )}
                 </div>
                 <div className="form-group boxed">
                   <div className="input-wrapper">
@@ -199,12 +213,15 @@ function AccountInformation(props) {
                       id="email4b"
                       placeholder={Email}
                       value={Email}
-                      onChange={(ev) => setEmail(ev.target.value)}
+                      onChange={(ev) => onChangeEmail(ev)}
                     />
                     <i className="clear-input">
                       <ion-icon name="close-circle"></ion-icon>
                     </i>
                   </div>
+                  {emailError && (
+                    <h6 className="error-message">{emailError}</h6>
+                  )}
                 </div>
                 <div className="form-group boxed">
                   <div className="input-wrapper">
@@ -241,7 +258,9 @@ function AccountInformation(props) {
                       type="checkbox"
                       id="SwitchCheckDefault4"
                       checked={receiveMailUpdates}
-                      onChange={() => {setReceiveMailUpdates(current => !current)}}
+                      onChange={() => {
+                        setReceiveMailUpdates((current) => !current);
+                      }}
                     />
                     <label
                       className="form-check-label"
@@ -262,26 +281,32 @@ function AccountInformation(props) {
                 type="button"
                 className="btn btn-outline-secondary btn-lg mt-4"
                 onClick={() => updateUserInfo()}
+                disabled={emailError || heroIdError}
               >
                 Save
               </button>
               <br />
               <br />
-              {success &&
-              
-              <Alert severity="success" color="info"  action={
-                <IconButton
-                  aria-label="close"
-                  color="inherit"
-                  size="small"
-                  onClick={() => {
-                    setSuccess(false);
-                  }}
+              {success && (
+                <Alert
+                  severity="success"
+                  color="info"
+                  action={
+                    <IconButton
+                      aria-label="close"
+                      color="inherit"
+                      size="small"
+                      onClick={() => {
+                        setSuccess(false);
+                      }}
+                    >
+                      <CloseIcon fontSize="inherit" />
+                    </IconButton>
+                  }
                 >
-                  <CloseIcon fontSize="inherit" />
-                </IconButton>
-              }>Thank you, your information has been updated</Alert>
-              }
+                  Thank you, your information has been updated
+                </Alert>
+              )}
             </div>
           </div>
         </div>

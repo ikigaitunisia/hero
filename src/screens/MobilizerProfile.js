@@ -53,8 +53,7 @@ function MobilizerProfile(props) {
         setCurrentCircle(res.data[currentIndex]);
         console.log(res.data[currentIndex]);
         setMobilizers(res.data);
-        let socials = JSON.parse(res.data[currentIndex].Socials);
-
+        let socials = res.data[currentIndex] ? JSON.parse(res.data[currentIndex].Socials): [];
         if ("Instagram" in socials) {
           setInstagram(socials.Instagram);
         }
@@ -86,17 +85,17 @@ function MobilizerProfile(props) {
             <div className="section mt-2 mb-4 feed2">
               <div className="card bg-dark text-white">
                 <img
-                  src="assets/img/bg-card.png"
+                  src={currentCircle.imgProfil ? "assets/img/"+ currentCircle.imgProfil : "assets/img/bg-card.png"}
                   className="card-img overlay-img"
                   alt="image"
                 />
                 <div className="card-img-overlay">
-                  {currentCircle.name && (
+                  {currentCircle.Name && (
                     <h2 className="white">{currentCircle.Name}</h2>
                   )}
-                  {currentCircle.id && (
+                  {currentCircle.accountId && (
                     <div className="flex-center">
-                      <span>{currentCircle.id}</span>
+                      <span>{currentCircle.accountId}</span>
                       <ion-icon
                         src="assets/img/svg/icon15.svg"
                         class="ml-1"

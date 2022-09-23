@@ -16,6 +16,7 @@ function Login1() {
   const [passwordError, setPasswordError] = useState("");
   const [HeroID, setHeroID] = useState("");
   const [checkedError, setCheckedError] = useState("");
+  const [rePasswordError, setRePasswordError] = useState("");
 
   const [points, setPoints] = useState("");
   const [loginOnly, setloginOnly] = useState(true);
@@ -159,7 +160,6 @@ function Login1() {
           name: HeroID,
           lastname: "",
           HeroId: phoneNumber.split("@")[0],
-
         })
         .then(function (response) {
           localStorage.setItem(
@@ -207,7 +207,7 @@ function Login1() {
     }
   };
 
-  const validate = async(e) => {
+  const validate = async (e) => {
     let x = true;
     console.log(password);
     if (!checked) {
@@ -226,22 +226,19 @@ function Login1() {
       } else {
         setPasswordError("");
         if (password !== rePassword) {
-          setPasswordError("The password you entered doesn’t match");
+          setRePasswordError("The password you entered doesn’t match");
           x = false;
         } else {
-          setPasswordError("");
+          setRePasswordError("");
         }
       }
     }
-    
-    if (HeroID == "") {
-      setFullnameError("Please enter your fullname");
-      x = false;
-    }
-    else
-    {
-      setFullnameError("");
 
+    if (HeroID == "") {
+      setFullnameError("Please enter your name");
+      x = false;
+    } else {
+      setFullnameError("");
     }
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
@@ -254,7 +251,61 @@ function Login1() {
     }
   };
   const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
+  const onChangeFullName = (ev) => {
+    setHeroID(ev.target.value);
+    if (!ev.target.value) {
+      setFullnameError("Please enter your name");
+    } else {
+      setFullnameError("");
+    }
+  };
 
+  const onChangeEmail = (ev) => {
+    setPhoneNumber(ev.target.value);
+    if (/\S+@\S+\.\S+/.test(ev.target.value)) {
+      setEmailError("");
+    } else {
+      setEmailError("Please type a valid email");
+    }
+  };
+
+  const onChangePassword = (ev) => {
+    setPassword(ev.target.value);
+    if (ev.target.value == "") {
+      setPasswordError("Password is required");
+    } else {
+      setPasswordError("");
+      if (ev.target.value.length < 6) {
+        setPasswordError("Your password is not strong enough");
+      } else {
+        setPasswordError("");
+        if (ev.target.value !== rePassword) {
+          setRePasswordError("The password you entered doesn’t match");
+        } else {
+          setRePasswordError("");
+        }
+      }
+    }
+  };
+
+  const onChangeRePassword = (ev) => {
+    setRePassword(ev.target.value);
+    if (ev.target.value !== password) {
+      setRePasswordError("The password you entered doesn’t match");
+    } else {
+      setRePasswordError("");
+    }
+  };
+
+  const onChangeChecked = (ev) => {
+    setChecked(ev.target.value);
+    console.log(ev.target.value);
+    if (!ev.target.value) {
+      setCheckedError("You should accept the hero terms and conditons");
+    } else {
+      setCheckedError("");
+    }
+  };
   return (
     <>
       <div
@@ -299,7 +350,7 @@ function Login1() {
                   id="email4b"
                   placeholder="Your email"
                   value={phoneNumber}
-                  onChange={(ev) => setPhoneNumber(ev.target.value)}
+                  onChange={(ev) => onChangeEmail(ev)}
                 />
                 <i className="clear-input">
                   <ion-icon
@@ -331,32 +382,7 @@ function Login1() {
                   id="password4b"
                   placeholder="Password"
                   value={password}
-                  onChange={(ev) => setPassword(ev.target.value)}
-                />
-                <i className="clear-input">
-                  <ion-icon
-                    name="close-circle"
-                    role="img"
-                    className="md hydrated"
-                    aria-label="close circle"
-                  ></ion-icon>
-                </i>
-              </div>
-            </div>
-
-            <div className="form-group boxed">
-              <div className="input-wrapper">
-                <label className="label mb-3" htmlFor="text4b">
-                  Confirm your password
-                </label>
-                <input
-                  type="password"
-                  autoComplete="off"
-                  className="form-control"
-                  id="password4b"
-                  placeholder="Type your password again"
-                  value={rePassword}
-                  onChange={(ev) => setRePassword(ev.target.value)}
+                  onChange={(ev) => onChangePassword(ev)}
                 />
                 <i className="clear-input">
                   <ion-icon
@@ -371,6 +397,34 @@ function Login1() {
                 <h6 className="error-message">{passwordError}</h6>
               )}
             </div>
+
+            <div className="form-group boxed">
+              <div className="input-wrapper">
+                <label className="label mb-3" htmlFor="text4b">
+                  Confirm your password
+                </label>
+                <input
+                  type="password"
+                  autoComplete="off"
+                  className="form-control"
+                  id="password4b"
+                  placeholder="Type your password again"
+                  value={rePassword}
+                  onChange={(ev) => onChangeRePassword(ev)}
+                />
+                <i className="clear-input">
+                  <ion-icon
+                    name="close-circle"
+                    role="img"
+                    className="md hydrated"
+                    aria-label="close circle"
+                  ></ion-icon>
+                </i>
+              </div>
+              {rePasswordError && (
+                <h6 className="error-message">{rePasswordError}</h6>
+              )}
+            </div>
             <div className="form-group boxed">
               <div className="input-wrapper">
                 <label className="label mb-3" htmlFor="text4b">
@@ -383,7 +437,7 @@ function Login1() {
                   id="password4b"
                   placeholder="First Name Last Name"
                   value={HeroID}
-                  onChange={(ev) => setHeroID(ev.target.value)}
+                  onChange={(ev) => onChangeFullName(ev)}
                 />
                 <i className="clear-input">
                   <ion-icon
@@ -414,7 +468,7 @@ function Login1() {
                 className="form-check-input"
                 id="customCheckb2"
                 value={checked}
-                onChange={(ev) => setChecked(ev.target.value)}
+                onChange={(ev) => onChangeChecked(ev)}
               />
               <label className="form-check-label white" htmlFor="customCheckb2">
                 I agree to the{" "}

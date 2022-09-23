@@ -3,10 +3,17 @@ import { useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import "./EditPassword.css";
+import Alert from "@mui/material/Alert";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 function EditPassword(props) {
   const history = useHistory();
-
+  const [success, setSuccess] = useState(false);
+  const [passwordError, setPasswordError] = useState("");
+  const updateUserPassword = () => {
+    setSuccess(true);
+  };
   return (
     <>
       <Header
@@ -96,15 +103,41 @@ function EditPassword(props) {
                       <ion-icon name="close-circle"></ion-icon>
                     </i>
                   </div>
+                  {passwordError && (
+                    <h6 className="error-message">{passwordError}</h6>
+                  )}
                 </div>
               </form>
 
               <button
                 type="button"
                 className="btn btn-outline-secondary btn-lg mt-4"
+                onClick={() => updateUserPassword()}
               >
                 Save
               </button>
+              <br />
+              <br />
+              {success && (
+                <Alert
+                  severity="success"
+                  color="info"
+                  action={
+                    <IconButton
+                      aria-label="close"
+                      color="inherit"
+                      size="small"
+                      onClick={() => {
+                        setSuccess(false);
+                      }}
+                    >
+                      <CloseIcon fontSize="inherit" />
+                    </IconButton>
+                  }
+                >
+                  Thank you, your password has been updated
+                </Alert>
+              )}
             </div>
           </div>
         </div>
