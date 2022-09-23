@@ -11,6 +11,36 @@
   scroll-snap-align: start;
   margin: 60px auto;
 }
+.feed2 video {
+  border-radius: 30px;
+}
+.feed2 h3 {
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.feed2 p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.feed2 #whiteBtn {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22.09px;
+}
+
+.feed2 a {
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.feed2 .play-btn {
+  top: 35% !important;
+}
 .card-img-overlay {
   display: flex;
   flex-direction: column;

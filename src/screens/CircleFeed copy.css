@@ -2,11 +2,15 @@
   background: linear-gradient(0deg, white, blue);
 }
 
-.circle-feed-container .feed4 {
+.feed2 {
   position: relative;
-  margin: 60px auto;
+  /* overflow: hidden; */
+  width: 80%;
+  height: 80vh;
   padding: 0 !important;
+  min-height: 80vh !important;
   scroll-snap-align: start;
+  margin: 60px auto;
 }
 
 .flex-col-start {
@@ -16,16 +20,8 @@
   text-align: start;
 }
 
-.feed4 video {
+.feed2 video {
   border-radius: 30px;
-}
-
-.overlay-image{
-  background-color: #0000ff38;
-    width: 367px;
-    /* margin: 0; */
-    width: 100%;
-    border-radius: 30px;
 }
 
 .circle-feed-container .social-btn {
@@ -57,31 +53,31 @@
   margin: 0 auto;
 }
 
-.feed4 h3 {
+.feed2 h3 {
   font-size: 35px;
   font-weight: 700;
   line-height: 40px;
 }
 
-.feed4 p {
+.feed2 p {
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
 }
 
-.feed4 #whiteBtn {
+.feed2 #whiteBtn {
   font-size: 18px;
   font-weight: 500;
   line-height: 22.09px;
 }
 
-.feed4 a {
+.feed2 a {
   font-size: 16px;
   font-weight: 400;
   text-decoration: underline;
 }
 
-.feed4 .play-btn {
+.feed2 .play-btn {
   top: 35% !important;
 }
 .margin{
@@ -89,7 +85,7 @@
 }
 
 @media screen and (min-width: 600px) {
-  .circle-feed-container .feed4 {
+  .circle-feed-container .feed2 {
     width: 400px!important;
   }
   .circle-feed-container .circle-feed-bottom{

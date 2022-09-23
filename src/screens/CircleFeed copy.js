@@ -162,19 +162,21 @@ function CircleFeed(props) {
           <Header whiteMode showHeroLogo transparent showBackBtn showMenuBtn/>
 
           <div id="appCapsule" className="circle-feed-container">
-            <div className="feed4" style={{ minHeight: "90vh!important" }}>
-              {/*<video playsInline autoPlay id="1">
+            <div className="feed2" style={{ minHeight: "90vh!important" }}>
+              <video playsInline autoPlay id="1">
                 <source
                   src={"assets/videos/" + currentCircle.video}
                   type="video/mp4"
                 />
-      </video>*/}
-              <img
-             src="assets/img/bg4.png"
-             alt="image"
-             style={{    width: "100%"}}
-           />
-              <div className="feed-content overlay-image">
+              </video>
+              <div className="feed-content">
+                <button
+                  type="button"
+                  className="btn btn-primary rounded play-btn margin"
+                  onClick={() => playVideo(1)}
+                >
+                  <ion-icon name="play" class="m-0"></ion-icon>
+                </button>
 
                 <div className="bottom mt-4 flex-col-start">
                   <h3 className="white mb-1">{currentCircle.name}</h3>
