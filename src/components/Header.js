@@ -27,7 +27,7 @@ function Header(props) {
     }
   }, []);
   const closeB = () => {
-    history.push(history.goBack());
+    history.goBack();
   };
   const logout = () => {
     localStorage.removeItem("user");
