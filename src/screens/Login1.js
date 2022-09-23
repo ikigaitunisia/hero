@@ -235,7 +235,7 @@ function Login1() {
     }
 
     if (HeroID == "") {
-      setFullnameError("Please enter your fullname");
+      setFullnameError("Please enter your name");
       x = false;
     } else {
       setFullnameError("");
