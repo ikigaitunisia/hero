@@ -275,6 +275,7 @@ function AccountInformation(props) {
                 id="file"
                 ref={inputFilePhoto}
                 style={{ display: "none" }}
+                accept="image/*"
                 onChange={(file) => setChoosedFile(file.target.files[0])}
               />
 

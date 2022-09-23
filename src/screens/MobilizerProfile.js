@@ -80,7 +80,7 @@ function MobilizerProfile(props) {
             showMenuBtn
             whiteMode
             transparent
-            backTo={"/circle-home"}
+            backTo={"/circle-feed"}
           />
           <div id="appCapsule" className="mobilizer-profile ">
             <div className="section mt-2 mb-4 feed2">
