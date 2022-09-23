@@ -16,7 +16,7 @@ function AccountInformation(props) {
   const [livingCountry, setLivingCountry] = useState("");
   const [profilePhoto, setProfilePhoto] = useState("");
   const [choosedFile, setChoosedFile] = useState(null);
-  const [receiveMailUpdates, setReceiveMailUpdates] = useState(false);
+  const [receiveMailUpdates, setReceiveMailUpdates] = useState(true);
   const user = JSON.parse(localStorage.getItem("user"));
   const [success, setSuccess] = useState(false);
   const [heroIdError, setHeroIdError] = useState("");
@@ -28,6 +28,15 @@ function AccountInformation(props) {
     console.log(choosedFile);
   };
   console.log(choosedFile);
+
+  const onChangeEmail = (ev) => {
+    setEmail(ev.target.value);
+    if (/\S+@\S+\.\S+/.test(ev.target.value)) {
+      setEmailError("");
+    } else {
+      setEmailError("Please enter a valid email");
+    }
+  };
 
   const getUserInfo = () => {
     axios
@@ -204,7 +213,7 @@ function AccountInformation(props) {
                       id="email4b"
                       placeholder={Email}
                       value={Email}
-                      onChange={(ev) => setEmail(ev.target.value)}
+                      onChange={(ev) => onChangeEmail(ev)}
                     />
                     <i className="clear-input">
                       <ion-icon name="close-circle"></ion-icon>
@@ -272,6 +281,7 @@ function AccountInformation(props) {
                 type="button"
                 className="btn btn-outline-secondary btn-lg mt-4"
                 onClick={() => updateUserInfo()}
+                disabled={emailError || heroIdError}
               >
                 Save
               </button>

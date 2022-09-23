@@ -49,3 +49,7 @@
   border: 1px solid #8080804a;
   border-radius: 50px;
 }
+
+.btn-outline-secondary:disabled {
+  border: 1px solid grey!important;
+}
