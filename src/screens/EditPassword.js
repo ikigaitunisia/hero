@@ -39,6 +39,7 @@ function EditPassword(props) {
           <ion-icon
             src="assets/img/svg/notification.svg"
             class="mb-2 icon-btn me-2"
+            onClick={() => history.push("/subscriptions")}
           ></ion-icon>
           <ion-icon
             src="assets/img/svg/card.svg"
