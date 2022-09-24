@@ -51,7 +51,7 @@ function Menu(props) {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user != null) {
       setLogedin(true);
-      if (user.googleId != null) {
+      if (user.googleId != "") {
         gapi.load("auth2", function () {
           gapi.auth2.init();
         });
@@ -66,7 +66,7 @@ function Menu(props) {
   const logout = () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
-    if (user.googleId != null) {
+    if (user.googleId != "") {
       const auth2 = window.gapi.auth2.getAuthInstance();
       if (auth2 != null) {
         auth2.signOut().then(auth2.disconnect().then(onLogoutSuccess));
@@ -134,7 +134,7 @@ function Menu(props) {
                   loggedin
                     ? logout
                     : () => {
-                        history.push("/login1");
+                        history.push("/login");
                         window.location.reload();
                       }
                 }

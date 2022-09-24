@@ -62,7 +62,7 @@ function Login2() {
       const circ = new URLSearchParams(location.search).get("circle");
       setCircle(circ);
     }
-
+    
     const initClient = () => {
       gapi.client.init({
         clientId: clientId,
@@ -70,6 +70,18 @@ function Login2() {
       });
     };
     gapi.load("client:auth2", initClient);
+    const testSubsc = async() => {
+      const user = JSON.parse(localStorage.getItem("user"));
+      if (user != null) {
+        const A = await isSubscribed(user.Email);
+        if (A.length == 0) {
+          history.push("/circle-feed");
+        } else {
+          history.push("/circle-home:" + A[0].grName);
+        }
+      }
+    }
+    testSubsc();
   });
   const onSuccess = async (res) => {
     console.log("success:", res);
@@ -100,29 +112,7 @@ function Login2() {
         );
         let a = JSON.parse(localStorage.getItem("user"));
 
-        if (loginOnly == false) {
-          const customerId = a.wallet.customerId;
-          console.log({
-            mode: "subscription",
-            grName: circle,
-            amount: amount * 100,
-            customerId: customerId,
-          });
-          axios
-            .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
-              mode: "subscription",
-              grName: circle,
-              amount: amount * 100,
-              customerId: customerId,
-            })
-            .then((res) => {
-              console.log(res.data);
-              window.location.href = res.data.url;
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        } else {
+     
           isSubscribed(res.profileObj.email).then((response) => {
             if (response.length == 0) {
               history.push("/circle-feed");
@@ -130,7 +120,7 @@ function Login2() {
               history.push("/circle-home:" + response[0].grName);
             }
           });
-        }
+        
       })
       .catch(function (error) {
         //handle error here
@@ -141,17 +131,36 @@ function Login2() {
   const onFailure = (err) => {
     console.log("failed:", err);
   };
+  const login = () => {
+    axios
+    .post("https://hegemony.donftify.digital:8080/CheckPassword/", {
+      email: phoneNumber,
+      password: password,
+    })
+    .then(function (response) {
+        if (response.data.found=="")
+        {
+          localStorage.setItem(
+            "user",
+            JSON.stringify(response.data.infor)
+          );
+         isSubscribed(phoneNumber).then((response) => {
+            if (response.length == 0) {
+              history.push("/circle-feed");
+
+            } else {
+              history.push("/circle-home:" + response[0].grName);
+            }
+          });
+        }
+        else
+        {
+          setPasswordError("Incorrect email or password");
+        }
+    });
+  }
   const createWallet = async () => {
-    console.log("ok");
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user != null) {
-      const A = await isSubscribed(user.Email);
-      if (A.length == 0) {
-        history.push("/circle-feed");
-      } else {
-        history.push("/circle-home:" + A[0].grName);
-      }
-    } else {
+
       setPoints("...");
       axios
         .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
@@ -166,7 +175,7 @@ function Login2() {
         .then(function (response) {
           localStorage.setItem(
             "user",
-            JSON.stringify({ Email: phoneNumber, wallet: response.data })
+            JSON.stringify({ Email: phoneNumber,googleId:"", wallet: response.data })
           );
           if (loginOnly == false) {
             let a = JSON.parse(localStorage.getItem("user"));
@@ -206,124 +215,13 @@ function Login2() {
           //handle error here
           console.log(error);
         });
-    }
+    
   };
-  const checkPassword = () => {
-    axios
-      .post(`https://hegemony.donftify.digital:8080/CheckPassword`, {
-        email: phoneNumber,
-        password: password,
-      })
-      .then((K) => {
-        console.log(K.data);
-        return K.data;
-      });
-  };
-  const validate = async (e) => {
-    let x = true;
-    console.log(password);
-    if (!checked) {
-      setCheckedError("You should accept the HERO Terms of Use");
-      x = false;
-    }
-    if (password == "") {
-      setPasswordError("Password is required");
-      x = false;
-    } else {
-      setPasswordError("");
+ 
+  
+ 
 
-      if (password.length < 8) {
-        setPasswordError("Your password is not strong enough");
-        x = false;
-      } else {
-        const t = checkPassword();
-        if (true) {
-          setPasswordError("");
-          if (password !== rePassword) {
-            setRePasswordError("The passwords you entered do not match");
-            x = false;
-          } else {
-            setRePasswordError("");
-          }
-        } else {
-          setRePasswordError("Please check password");
-          x = false;
-        }
-      }
-    }
-
-    if (HeroID == "") {
-      setFullnameError("Please enter your name");
-      x = false;
-    } else {
-      setFullnameError("");
-    }
-    if (/\S+@\S+\.\S+/.test(phoneNumber)) {
-      setEmailError("");
-    } else {
-      setEmailError("Please type a valid email");
-      x = false;
-    }
-    if (x == true && checked) {
-      createWallet();
-    }
-  };
-  const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
-  const onChangeFullName = (ev) => {
-    setHeroID(ev.target.value);
-    if (!ev.target.value) {
-      setFullnameError("Please enter your name");
-    } else {
-      setFullnameError("");
-    }
-  };
-
-  const onChangeEmail = (ev) => {
-    setPhoneNumber(ev.target.value);
-    if (/\S+@\S+\.\S+/.test(ev.target.value)) {
-      setEmailError("");
-    } else {
-      setEmailError("Please type a valid email");
-    }
-  };
-
-  const onChangePassword = (ev) => {
-    setPassword(ev.target.value);
-    if (ev.target.value == "") {
-      setPasswordError("Password is required");
-    } else {
-      setPasswordError("");
-      if (ev.target.value.length < 6) {
-        setPasswordError("Your password is not strong enough");
-      } else {
-        setPasswordError("");
-        if (ev.target.value !== rePassword) {
-          setRePasswordError("The password you entered doesn’t match");
-        } else {
-          setRePasswordError("");
-        }
-      }
-    }
-  };
-
-  const onChangeRePassword = (ev) => {
-    setRePassword(ev.target.value);
-    if (ev.target.value !== password) {
-      setRePasswordError("The password you entered doesn’t match");
-    } else {
-      setRePasswordError("");
-    }
-  };
-
-  const onChangeChecked = (ev) => {
-    setChecked(ev.target.value);
-    console.log(ev.target.value);
-    if (!ev.target.value) {
-      setCheckedError("You should accept the hero terms and conditons");
-    } else {
-      setCheckedError("");
-    }
-  };
+ 
   return (
     <>
       <Header whiteMode showCloseBtn transparent={true} />
@@ -332,14 +230,14 @@ function Login2() {
         className="bg-g login"
         style={{ minHeight: "100vh" }}
       >
-        {showWelcomeCirclesModal && (
-          <WelcomeCirclesModal
-            show={showWelcomeCirclesModal}
-            onClose={() => setShowWelcomeCirclesModal(false)}
-          />
-        )}
+     
         <img src={"assets/img/logo2.png"} alt="logo" className="logo mt-0" />
-        <p className="header-text mt-4 white">Create your HERO Account</p>
+        <p className="header-text mt-4 white">HERO Log In
+        <br/>
+        <h6 style={{color:"white",fontSize:"16px",marginTop:10}}>For existing HERO Supporters</h6>
+
+        </p>
+        
         <div className="flex-center flex-col">
           <GoogleLogin
             clientId={clientId}
@@ -369,7 +267,7 @@ function Login2() {
                   id="email4b"
                   placeholder="Your email"
                   value={phoneNumber}
-                  onChange={(ev) => onChangeEmail(ev)}
+                  onChange={(ev) => setPhoneNumber(ev.target.value)}
                 />
                 <i className="clear-input">
                   <ion-icon
@@ -397,7 +295,7 @@ function Login2() {
                   id="password4b"
                   placeholder="Password"
                   value={password}
-                  onChange={(ev) => onChangePassword(ev)}
+                  onChange={(ev) => setPassword(ev.target.value)}
                 />
                 <i className="clear-input">
                   <ion-icon
@@ -417,14 +315,19 @@ function Login2() {
               type="button"
               className="btn btn-primary rounded font-size-btn mt-4 mb-4 "
               /*onClick={() => setShowWelcomeCirclesModal(true)} */
-              onClick={(e) => validate(e)}
+              onClick={() => login()}
             >
               Log in
             </button>
-            <hr/>
-            <small className="mt-3">
+            <hr className="hr bg-white" style={{width:500}} />
+            <h5 className="mt-3" style={{color:"white",fontHeight:"bold"}}>
             For new HERO Supporters
+                  </h5>
+                  <small className="mt-3" style={{color:"white"}}>
+
+                  Join a HERO Circle to create an account
                   </small>
+
             <div className="form-group boxed">
               <div className="input-wrapper">
               <div className="mt-4 flex-center flex-col">
