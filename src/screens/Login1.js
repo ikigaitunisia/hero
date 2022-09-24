@@ -4,9 +4,10 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
-
+import Header from "../components/Header";
 import "./Login1.css";
 import WelcomeCirclesModal from "../components/modals/WelcomeCirclesModal";
+
 function Login1() {
   const [phoneNumber, setPhoneNumber] = useState();
   const [EmailError, setEmailError] = useState("");
@@ -51,6 +52,7 @@ function Login1() {
     return K.data;
   };
   useEffect(() => {
+    window.scrollTo(0, 0);
     //setphoneNumberError(!checkIsPhoneFormat(phoneNumber));
     const search = new URLSearchParams(location.search).get("fromSubsctiption");
     if (search !== null) {
@@ -207,21 +209,17 @@ function Login1() {
     }
   };
   const checkPassword = () => {
-  
-      axios
+    axios
       .post(`https://hegemony.donftify.digital:8080/CheckPassword`, {
-        email:phoneNumber,
-        password:password,
+        email: phoneNumber,
+        password: password,
       })
       .then((K) => {
         console.log(K.data);
         return K.data;
-      })
-    
-  
-
-  }
-    const validate = async (e) => {
+      });
+  };
+  const validate = async (e) => {
     let x = true;
     console.log(password);
     if (!checked) {
@@ -238,22 +236,19 @@ function Login1() {
         setPasswordError("Your password is not strong enough");
         x = false;
       } else {
-        const t =checkPassword();
-        if(true)
-        {
-        setPasswordError("");
-        if (password !== rePassword) {
-          setRePasswordError("The passwords you entered do not match");
-          x = false;
+        const t = checkPassword();
+        if (true) {
+          setPasswordError("");
+          if (password !== rePassword) {
+            setRePasswordError("The passwords you entered do not match");
+            x = false;
+          } else {
+            setRePasswordError("");
+          }
         } else {
-          setRePasswordError("");
+          setRePasswordError("Please check password");
+          x = false;
         }
-       }
-       else
-       {
-        setRePasswordError("Please check password");
-        x = false;
-       }
       }
     }
 
@@ -331,6 +326,7 @@ function Login1() {
   };
   return (
     <>
+      <Header whiteMode showCloseBtn transparent={true} />
       <div
         id="appCapsule"
         className="bg-g login"
