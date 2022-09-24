@@ -279,13 +279,15 @@ function ClubSelectMembershipModal(props) {
                         id="userid2"
                         value={overAmount}
                         onChange={(ev) => validateAmount(ev.target.value) }
-                        onClick={() => setOverAmount("")}
+                        onClick={() => {setOverAmount("");
+                        setAmount(50);
+                        }}
                         style={{
                           color: "white",
                           fontSize: 25,
                           textAlign: "center",
                         }}
-                        disabled={amount !== 50 ? "disabled" : ""}
+                        //disabled={amount !== 50 ? "disabled" : ""}
                       />
                       <i className="clear-input">
                         <ion-icon

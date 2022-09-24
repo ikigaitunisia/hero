@@ -13535,6 +13535,11 @@ react-refresh@^0.4.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.4.3.tgz#966f1750c191672e76e16c2efa569150cc73ab53"
   integrity sha512-Hwln1VNuGl/6bVwnd0Xdn1e84gT/8T9aYNL+HAKDArLCS7LWjwr7StE30IEYbIkx0Vi3vs+coQxe+SQDbGbbpA==
 
+react-rounded-image@^2.0.14:
+  version "2.0.14"
+  resolved "https://registry.yarnpkg.com/react-rounded-image/-/react-rounded-image-2.0.14.tgz#38335128e543a767e084b383765411f09b1b70bb"
+  integrity sha512-kTfjC73j2PCuwrFTtz8KEUhg8T4olJypazIy7BC4TwXLiPKJEIVP8e26MvQnHhXz1JUu73Li+9mLV3QIoX+TXw==
+
 react-router-dom@^5.2.0:
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.3.3.tgz#8779fc28e6691d07afcaf98406d3812fe6f11199"

@@ -84,7 +84,7 @@ function MobilizerProfile(props) {
           />
           <div id="appCapsule" className="mobilizer-profile ">
             <div className="section mt-2 mb-4 feed2">
-              <div className="card bg-dark text-white">
+              <div className="card bg-dark text-white round-container">
                 <img
                   src={
                     currentCircle.imgProfil
@@ -93,6 +93,7 @@ function MobilizerProfile(props) {
                   }
                   className="card-img overlay-img"
                   alt="image"
+                  style={{backgroundImage : 'url()'}}
                 />
                 <div className="card-img-overlay">
                   {currentCircle.Name && (

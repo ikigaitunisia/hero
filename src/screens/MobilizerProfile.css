@@ -47,11 +47,14 @@
   align-items: flex-start;
   align-content: flex-start;
   justify-content: flex-end;
+  object-fit: contain;
+
 }
 
 .card .card-img-overlay {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 19px!important;
+
 }
 
 .card-img-overlay h2 {

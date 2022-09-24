@@ -31,12 +31,11 @@ import Subscriptions from "./screens/Subscriptions";
 import WelcomeCircles from "./screens/WelcomeCircles";
 import Login1 from "./screens/Login1";
 import SubscriptionsAndPricing from "./screens/SubscriptionsAndPricing";
-
+import Login2 from './screens/Login2'
 function App() {
   return (
     <div className="App">
       <Router>
-        <Route path="/login" exact component={Login} />
         <Route path="/home" exact component={Home} />
         <Route path="/search-filters" exact component={SearchFilters} />
         <Route path="/feed" exact component={Feed} />
@@ -100,6 +99,7 @@ function App() {
 
         <Route path="/subscriptions" exact component={Subscriptions} />
         <Route path="/login1" exact component={Login1} />
+        <Route path="/login" exact component={Login2}/>
         <Route
           path="/subscriptions-and-pricing"
           exact

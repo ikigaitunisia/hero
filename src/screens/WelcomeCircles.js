@@ -6,12 +6,16 @@ import { Modal } from "bootstrap";
 function WelcomeCircles(props) {
   const history = useHistory();
   const { circlename } = useParams();
+  const [user,setUser] = useState({});
+  const user1 = JSON.parse(localStorage.getItem("user"));
+
   useEffect(() => {
     const modal = new Modal(document.getElementById("welcomeCircles"), {
       keyboard: false,
     });
 
     modal.show();
+   
   }, []);
   useEffect(() => {
     const btn1 = document.getElementById("btn1");
@@ -29,6 +33,8 @@ function WelcomeCircles(props) {
       history.push("/account-information");
       window.location.reload();
     });
+    console.log(user1.wallet.name);
+   
   }, []);
   return (
     <>
@@ -58,10 +64,10 @@ function WelcomeCircles(props) {
                 />
                 <p className="header-text mt-4 white mb-0">
                   Welcome to Circle 1,
-                  <br /> John!
+                  <br /> {user1.wallet.name!= null ? user1.wallet.name : ""}
                 </p>
                 <p className="mt-4 mb-4 white center-text">
-                  You are now supporting <b>the Circle 1</b> and will
+                  You are now supporting <b>the {circlename.replace(':',"")}</b> and will
                   <br /> have access to exclusive features.
                 </p>
 

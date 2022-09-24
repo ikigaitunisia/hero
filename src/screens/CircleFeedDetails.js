@@ -123,6 +123,7 @@ function CircleFeedDetails(props) {
                 <div className="me-4 ml-4 mb-0">
                   {MobilizersCircle.map((item, index) => {
                     return (
+                      
                       <img
                         src={"assets/img/" + item.imgProfil}
                         alt="image"
