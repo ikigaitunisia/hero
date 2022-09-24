@@ -57,17 +57,17 @@ function ClubSelectMembershipModal(props) {
 
       return;
     }
-    if (a === 50) {
+    if (a < 50) {
       setValidAmount(false);
 
       return;
     }
   };
   const validateAmount = async (ev) => {
-    if (ev > 50) {
-      setValidAmount(true);
-    } else {
+    if (ev < 50) {
       setValidAmount(false);
+    } else {
+      setValidAmount(true);
     }
     setOverAmount(ev);
   };
