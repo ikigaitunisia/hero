@@ -429,7 +429,8 @@ if(!/[!@$#\+\-\$%\^&\*/]/.test(password)){
                   <small className="mt-3">
                     Your password must be at least 8 characters
                     <br /> and should include a combination of letters and
-                    <br /> numbers and at least one special character (!$@%+-*/)
+                    minimum one UpperCase ,
+                    <br /> one number and at least one special character (!$@%+-*/)
                   </small>
                 </label>
                 <input
