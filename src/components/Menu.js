@@ -51,11 +51,7 @@ function Menu(props) {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user != null) {
       setLogedin(true);
-      if (user.googleId != "") {
-        gapi.load("auth2", function () {
-          gapi.auth2.init();
-        });
-      }
+      
       isSubscribed(user.Email).then((response) => {
         setSubbscibed(response.length);
         setSubbscibedCircles(response);
