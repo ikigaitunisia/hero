@@ -251,9 +251,7 @@ function Login1() {
         setPasswordError("Your password is not strong enough");
         x = false;
       } else {
-        const t =checkPassword();
-        if(true)
-        {
+       
         setPasswordError("");
         if (password !== rePassword) {
           setRePasswordError("The passwords you entered do not match");
@@ -261,12 +259,8 @@ function Login1() {
         } else {
           setRePasswordError("");
         }
-       }
-       else
-       {
-        setRePasswordError("Please check password");
-        x = false;
-       }
+       
+      
       }
     }
 
