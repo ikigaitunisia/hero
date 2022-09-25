@@ -206,7 +206,7 @@ function Login1() {
         });
     }
   };
-  const checkPassword = () => {
+  const checkPassword = async() => {
   
       axios
       .post(`https://hegemony.donftify.digital:8080/CheckPassword`, {
@@ -221,13 +221,32 @@ function Login1() {
   
 
   }
+    const EmailExis = () => {
+      axios
+      .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
+        email:phoneNumber,
+      })
+      .then((K) => {
+        if (K.data.found)
+        {
+          setEmailError("Account already exists, please login");
+        }
+        else
+        {
+          setEmailError("");
+
+        }
+      })
+    }
     const validate = async (e) => {
     let x = true;
     console.log(password);
+    EmailExis();
     if (!checked) {
       setCheckedError("You should accept the HERO Terms of Use");
       x = false;
     }
+   
     if (password == "") {
       setPasswordError("Password is required");
       x = false;
@@ -263,13 +282,15 @@ function Login1() {
     } else {
       setFullnameError("");
     }
+    
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
+      
     } else {
       setEmailError("Please type a valid email");
       x = false;
     }
-    if (x == true && checked) {
+    if (x == true && checked && EmailError=="") {
       createWallet();
     }
   };
