@@ -36,9 +36,7 @@ function Menu(props) {
     window.location.reload(false);
   };
   useEffect(() => {
-    gapi.load('auth2', function() {
-      gapi.auth2.init();
-    });
+    
     if (props.show) {
       const modal = new Modal(document.getElementById("menu"), {
         keyboard: false,
@@ -66,12 +64,10 @@ function Menu(props) {
   const logout = () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
-    if (user.googleId != "") {
+    if (user.googleId != "" && !"googleId" in user) {
       
-      const auth2 = gapi.auth2.getAuthInstance();
-      if (auth2 != null) {
-        auth2.signOut().then(auth2.disconnect().then(onLogoutSuccess));
-      }
+      window.sessionStorage.removeItem("access_token");
+      window.sessionStorage.removeItem("nama");
     } else {
       onLogoutSuccess();
     }
