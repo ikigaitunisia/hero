@@ -142,15 +142,6 @@ function Login1() {
   };
   const createWallet = async () => {
     console.log("ok");
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user != null) {
-      const A = await isSubscribed(user.Email);
-      if (A.length == 0) {
-        history.push("/circle-feed");
-      } else {
-        history.push("/circle-home:" + A[0].grName);
-      }
-    } else {
       setPoints("...");
       axios
         .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
@@ -205,7 +196,7 @@ function Login1() {
           //handle error here
           console.log(error);
         });
-    }
+    
   };
   const checkPassword = async() => {
   
