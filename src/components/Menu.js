@@ -49,6 +49,9 @@ function Menu(props) {
   }, [props.show]);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
+    gapi.load('auth2', function() {
+      gapi.auth2.init();
+    });
     if (user != null) {
       setLogedin(true);
       
