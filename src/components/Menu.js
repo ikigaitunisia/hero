@@ -66,7 +66,7 @@ function Menu(props) {
   const logout = () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
-    if (user.googleId != "null") {
+    if (user.googleId != "") {
       
       const auth2 = gapi.auth2.getAuthInstance();
       if (auth2 != null) {
