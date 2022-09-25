@@ -75,12 +75,14 @@ function Menu(props) {
   }, []);
   const logout = () => {
     const user = JSON.parse(localStorage.getItem("user"));
-
-    if (user.googleId != "" && !"googleId" in user) {
-      
+    
+    if ("googleId" in user) {
+      if(user.googleId !="")
+      {
       window.sessionStorage.removeItem("access_token");
       window.sessionStorage.removeItem("nama");
       signOut();
+      }
     } else {
       onLogoutSuccess();
     }

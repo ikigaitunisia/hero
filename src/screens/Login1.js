@@ -278,7 +278,8 @@ function Login1() {
       setEmailError("Please type a valid email");
       x = false;
     }
-    if (x == true && checked && !EmailExist && passStreing(phoneNumber)) {
+    console.log(!EmailExist)
+    if (x == true && checked && !EmailExist && passwordError=="") {
       createWallet();
     }
   };
