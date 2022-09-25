@@ -51,11 +51,7 @@ function Menu(props) {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user != null) {
       setLogedin(true);
-      /*if (user.googleId != "") {
-        gapi.load("auth2", function () {
-          gapi.auth2.init();
-        });
-      }*/
+     
       isSubscribed(user.Email).then((response) => {
         setSubbscibed(response.length);
         setSubbscibedCircles(response);
@@ -66,11 +62,14 @@ function Menu(props) {
   const logout = () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
-    if (user.googleId != "") {
+    if (user.googleId != "null") {
+      gapi.load("auth2", function () {
+
       const auth2 = gapi.auth2.getAuthInstance();
       if (auth2 != null) {
         auth2.signOut().then(auth2.disconnect().then(onLogoutSuccess));
       }
+    });
     } else {
       onLogoutSuccess();
     }
