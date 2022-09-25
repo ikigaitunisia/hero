@@ -3,6 +3,9 @@ import { Modal } from "bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Menu.css";
 import { gapi } from "gapi-script";
+import { useGoogleLogout } from 'react-google-login'
+
+
 import axios from "axios";
 
 function Menu(props) {
@@ -21,6 +24,12 @@ function Menu(props) {
   };
 
   const isSubscribed = async (email) => {
+    const { signOut, loaded } = useGoogleLogout({
+      
+      clientId:clientId,
+      scope:"",
+      onLogoutSuccess
+    })
     let K = await axios.post(
       "https://hegemony.donftify.digital:8080/supporter/get-subscriptions",
       {
@@ -35,6 +44,7 @@ function Menu(props) {
     history.push("account-information");
     window.location.reload(false);
   };
+
   useEffect(() => {
     
     if (props.show) {
@@ -68,6 +78,7 @@ function Menu(props) {
       
       window.sessionStorage.removeItem("access_token");
       window.sessionStorage.removeItem("nama");
+      signOut();
     } else {
       onLogoutSuccess();
     }
