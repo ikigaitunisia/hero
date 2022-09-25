@@ -84,8 +84,13 @@ function Login2() {
     testSubsc();
   });
   const onSuccess = async (res) => {
-    console.log("success:", res);
-    setPoints("...");
+    isSubscribed(res.profileObj.email).then((response) => {
+      if (response.length == 0) {
+        history.push("/circle-feed");
+      } else {
+        history.push("/circle-home:" + response[0].grName);
+      }
+    });
     axios
       .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
         Email: res.profileObj.email,
@@ -110,16 +115,9 @@ function Login2() {
             HeroId: res.profileObj.email.split("@")[0],
           })
         );
-        let a = JSON.parse(localStorage.getItem("user"));
 
      
-          isSubscribed(res.profileObj.email).then((response) => {
-            if (response.length == 0) {
-              history.push("/circle-feed");
-            } else {
-              history.push("/circle-home:" + response[0].grName);
-            }
-          });
+         
         
       })
       .catch(function (error) {
