@@ -174,7 +174,6 @@ function Login2() {
             "user",
             JSON.stringify({ Email: phoneNumber,googleId:"", wallet: response.data })
           );
-          if (loginOnly == false) {
             let a = JSON.parse(localStorage.getItem("user"));
 
             const customerId = a.wallet.customerId;
@@ -198,7 +197,6 @@ function Login2() {
               .catch((err) => {
                 console.log(err);
               });
-          } else {
             let data = isSubscribed(phoneNumber).then((response) => {
               if (response.length == 0) {
                 history.push("/circle-feed");
@@ -206,7 +204,7 @@ function Login2() {
                 history.push("/circle-home:" + response[0].grName);
               }
             });
-          }
+          
         })
         .catch(function (error) {
           //handle error here
