@@ -278,7 +278,7 @@ function Login1() {
       setEmailError("Please type a valid email");
       x = false;
     }
-    if (x == true && checked && !EmailExist) {
+    if (x == true && checked && !EmailExist && passStreing(phoneNumber)) {
       createWallet();
     }
   };
@@ -300,14 +300,38 @@ function Login1() {
       setEmailError("Please type a valid email");
     }
   };
+  const passStreing = (password) => {
+    var k = true;
+    if(!/[a-z]/.test(password)){
+      k = false;
+  }
 
+  // Check if password contains at least 1 Uppercase letter
+  if(!/[A-Z]/.test(password)){
+    k = false;
+  }
+
+  // Check if password contains at least 1 number
+  if(!/[0-9]/.test(password)){
+    k = false;
+  }
+if(!/[!@$#\+\-\$%\^&\*/]/.test(password)){
+    k = false;
+  }
+  if(password.length < 8){
+    k = false;
+  }
+  return k;
+  }
   const onChangePassword = (ev) => {
     setPassword(ev.target.value);
+    console.log(passStreing(ev.target.value));
+
     if (ev.target.value == "") {
       setPasswordError("Password is required");
     } else {
       setPasswordError("");
-      if (ev.target.value.length < 6) {
+      if (!passStreing(ev.target.value)) {
         setPasswordError("Your password is not strong enough");
       } else {
         setPasswordError("");
@@ -404,7 +428,7 @@ function Login1() {
                   <small className="mt-3">
                     Your password must be at least 8 characters
                     <br /> and should include a combination of letters and
-                    <br /> numbers or special characters (!$@%)
+                    <br /> numbers and at least one special character (!$@%+-*/)
                   </small>
                 </label>
                 <input

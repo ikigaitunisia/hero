@@ -16,18 +16,19 @@ function Menu(props) {
   const [loggedin, setLogedin] = useState(false);
   const [subbscibed, setSubbscibed] = useState(0);
   const [subbscibedCircles, setSubbscibedCircles] = useState([]);
-  const { signOut, loaded } = useGoogleLogout({
-      
-    clientId:clientId,
-    scope:"",
-    onLogoutSuccess
-  })
   const onLogoutSuccess = () => {
     localStorage.removeItem("user");
     setLogedin(false);
     history.push("/");
     window.location.reload();
   };
+  const { signOut, loaded } = useGoogleLogout({
+      
+    clientId:clientId,
+    scope:"",
+    onLogoutSuccess
+  })
+
 
   const isSubscribed = async (email) => {
  

@@ -63,7 +63,7 @@ function WelcomeCircles(props) {
                   className="logo mt-0"
                 />
                 <p className="header-text mt-4 white mb-0">
-                  Welcome to Circle 1,
+                  Welcome to {circlename.replace(':',"")},
                   <br /> {user1.wallet.name!= null ? user1.wallet.name : ""}
                 </p>
                 <p className="mt-4 mb-4 white center-text">
