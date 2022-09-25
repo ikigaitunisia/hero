@@ -50,7 +50,7 @@ function Menu(props) {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     gapi.load('auth2', function() {
-      gapi.client.init({
+       gapi.auth2.init({
         clientId: clientId,
       });
     });
