@@ -83,7 +83,7 @@ function Login2() {
     }
     testSubsc();
   });
-  const onSuccess = async (res) => {
+  const onSuccess = (res) => {
     isSubscribed(res.profileObj.email).then((response) => {
       if (response.length == 0) {
         history.push("/circle-feed");
