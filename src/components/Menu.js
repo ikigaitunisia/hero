@@ -36,6 +36,9 @@ function Menu(props) {
     window.location.reload(false);
   };
   useEffect(() => {
+    gapi.load('auth2', function() {
+      gapi.auth2.init();
+    });
     if (props.show) {
       const modal = new Modal(document.getElementById("menu"), {
         keyboard: false,
