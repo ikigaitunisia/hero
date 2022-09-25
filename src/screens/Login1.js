@@ -23,6 +23,7 @@ function Login1() {
   const [amount, setAmount] = useState(0);
   const [circle, setCircle] = useState("");
   const [checked, setChecked] = useState(false);
+  const [EmailExist, setEmailExist] = useState(false);
   const history = useHistory();
   const location = useLocation();
   const clientId =
@@ -230,10 +231,12 @@ function Login1() {
         if (K.data.found)
         {
           setEmailError("Account already exists, please login");
+          setEmailExist(true);
         }
         else
         {
           setEmailError("");
+          setEmailExist(false);
 
         }
       })
@@ -290,7 +293,7 @@ function Login1() {
       setEmailError("Please type a valid email");
       x = false;
     }
-    if (x == true && checked && EmailError=="") {
+    if (x == true && checked && !EmailExist) {
       createWallet();
     }
   };
