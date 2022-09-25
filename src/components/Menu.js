@@ -16,6 +16,12 @@ function Menu(props) {
   const [loggedin, setLogedin] = useState(false);
   const [subbscibed, setSubbscibed] = useState(0);
   const [subbscibedCircles, setSubbscibedCircles] = useState([]);
+  const { signOut, loaded } = useGoogleLogout({
+      
+    clientId:clientId,
+    scope:"",
+    onLogoutSuccess
+  })
   const onLogoutSuccess = () => {
     localStorage.removeItem("user");
     setLogedin(false);
@@ -24,12 +30,7 @@ function Menu(props) {
   };
 
   const isSubscribed = async (email) => {
-    const { signOut, loaded } = useGoogleLogout({
-      
-      clientId:clientId,
-      scope:"",
-      onLogoutSuccess
-    })
+ 
     let K = await axios.post(
       "https://hegemony.donftify.digital:8080/supporter/get-subscriptions",
       {
