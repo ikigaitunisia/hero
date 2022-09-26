@@ -71,12 +71,13 @@ function ActivistVictoriesModal(props) {
                     >
                       <div>
                         <div className="mb-05">
-                          <strong>Name of campaign</strong>
+                          <strong>Stop Cambo</strong>
                         </div>
-                        <div className="text-small mb-05">Status</div>
+                        <div className="text-small mb-05">Project paused</div>
                         <div className="text-xsmall">
-                          Brief description of the campaign - Brief description
-                          of the campaign.
+                        After 6 months of campaigning, Shell pulled out of the controversial Cambo oil field, which led to the project being paused.
+Dominique, Francesca, Jessica were involved in this campaign.
+
                         </div>
                       </div>
                     </div>
@@ -96,42 +97,19 @@ function ActivistVictoriesModal(props) {
                     >
                       <div>
                         <div className="mb-05">
-                          <strong>Name of campaign</strong>
+                          <strong>UK climate emergency</strong>
                         </div>
-                        <div className="text-small mb-05">Status</div>
+                        <div className="text-small mb-05">Declared. With legal Net Zero target</div>
                         <div className="text-xsmall">
-                          Brief description of the campaign - Brief description
-                          of the campaign.
+                        The UK government declared a climate emergency after a shut down of London for 10 days. 
+Liba and Jessica were involved as XR North London members.
+
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="card mb-4">
-                  <div style={{ display: "flex" }} className="card-body">
-                    <div>
-                      <ion-icon
-                        src="assets/img/svg/campaign.svg"
-                        class="custom-icon-size"
-                      ></ion-icon>
-                    </div>
-                    <div
-                      className="in"
-                      style={{ textAlign: "start", marginLeft: "20px" }}
-                    >
-                      <div>
-                        <div className="mb-05">
-                          <strong>Name of campaign</strong>
-                        </div>
-                        <div className="text-small mb-05">Status</div>
-                        <div className="text-xsmall">
-                          Brief description of the campaign - Brief description
-                          of the campaign.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+      
               </div>
             </div>
           </div>

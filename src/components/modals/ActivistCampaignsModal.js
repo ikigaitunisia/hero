@@ -71,67 +71,17 @@ function ActivistCampaignsModal(props) {
                       >
                         <div className="blue">
                           <div className="mb-05">
-                            <strong>Name of campaign</strong>
+                            <strong>Stop Fossil Fuels</strong>
                           </div>
-                          <div className="text-small mb-05">Status</div>
+                          <div className="text-small mb-05">Launched</div>
                           <div className="text-xsmall">
-                            Brief description of the campaign - Brief
-                            description of the campaign.
+                          Our campaign will primarily target politicians, decision makers and influential corporations to advocate for a rapid fossil fuel exit focused on climate and biodiversity as closely interconnected issues, together with social justice.
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="card mb-4">
-                    <div style={{ display: "flex" }} className="card-body">
-                      <div>
-                        <ion-icon
-                          src="assets/img/svg/campaign.svg"
-                          class="custom-icon-size"
-                        ></ion-icon>
-                      </div>
-                      <div
-                        className="in"
-                        style={{ textAlign: "start", marginLeft: "20px" }}
-                      >
-                        <div className="blue">
-                          <div className="mb-05">
-                            <strong>Name of campaign</strong>
-                          </div>
-                          <div className="text-small mb-05">Status</div>
-                          <div className="text-xsmall">
-                            Brief description of the campaign - Brief
-                            description of the campaign.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card mb-4">
-                    <div style={{ display: "flex" }} className="card-body">
-                      <div>
-                        <ion-icon
-                          src="assets/img/svg/campaign.svg"
-                          class="custom-icon-size"
-                        ></ion-icon>
-                      </div>
-                      <div
-                        className="in"
-                        style={{ textAlign: "start", marginLeft: "20px" }}
-                      >
-                        <div className="blue">
-                          <div className="mb-05">
-                            <strong>Name of campaign</strong>
-                          </div>
-                          <div className="text-small mb-05">Status</div>
-                          <div className="text-xsmall">
-                            Brief description of the campaign - Brief
-                            description of the campaign.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                 
                 </div>
               </div>
             </div>
