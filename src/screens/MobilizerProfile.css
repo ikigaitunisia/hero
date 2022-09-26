@@ -51,7 +51,7 @@
 }
 
 .card .card-img-overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.27);
   border-radius: 19px !important;
 }
 
@@ -94,11 +94,11 @@
 
 .mobilizer-profile .card {
   border-radius: 26px;
-  height: 70vh;
+  height: 80vh;
 }
 
 .mobilizer-profile .card .overlay-img {
-  height: 70vh;
+  height: 80vh;
   object-fit: cover;
   border-radius: 26px !important;
 }
