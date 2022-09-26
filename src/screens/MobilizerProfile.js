@@ -19,7 +19,7 @@ function MobilizerProfile(props) {
   const [Facebook, setFacebook] = useState("");
   const [Twitter, setTwitter] = useState("");
   const [TikTok, setTikTok] = useState("");
-  const [subbscibed,setSubbscibed] = useState(false);
+  const [subbscibed,setSubbscibed] = useState(0);
   const isSubscribed = async (email) => {
  
     let K = await axios.post(
@@ -57,6 +57,7 @@ function MobilizerProfile(props) {
   };
 
   useEffect(() => {
+    console.log("circle");
   const user = JSON.parse(localStorage.getItem("user"));
     
   if (user != null) {
@@ -64,6 +65,10 @@ function MobilizerProfile(props) {
     isSubscribed(user.Email).then((response) => {
       setSubbscibed(response.length);
     });
+  }
+  else
+  {
+    setSubbscibed(0);
   }
 }, []);
   useEffect(() => {
@@ -91,8 +96,16 @@ function MobilizerProfile(props) {
           setTikTok(socials.TikTok);
         }
         setLoad(true);
+        const user = JSON.parse(localStorage.getItem("user"));
+       console.log(user);
+      if (user != null) {
+        
+        isSubscribed(user.Email).then((response) => {
+          setSubbscibed(response.length);
+        });
+      }
       });
-  
+      
   }, [currentIndex]);
   return (
     <>
@@ -104,7 +117,7 @@ function MobilizerProfile(props) {
             showMenuBtn
             whiteMode
             transparent
-            backTo={subbscibed ? "/circle-feed" : "/circle-home"+circlename}
+            backTo={subbscibed==0 ? "/circle-feed" : "/circle-home"+circlename}
           />
           <div
             id="appCapsule"
