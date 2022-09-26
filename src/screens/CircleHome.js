@@ -163,7 +163,7 @@ function CircleHome(props) {
               />
             </div>
             <span id="list-supporters">
-              <b>Supporter 1, Support 2, Supporter 3</b>
+              <b>Marc, Fabiola,Max </b>
               <br /> recently joined this circle.
             </span>
             <hr className="hr mt-4 mb-4" />

@@ -176,7 +176,7 @@ function CircleFeedDetails(props) {
                     aria-valuemax="100"
                   ></div>
                 </div>
-                <p>200 memberships left to complete this circle</p>
+                <p>190 memberships left to complete this circle</p>
                 <div className="me-4 ml-4 mb-0">
                   <img
                     src="assets/img/sample/photo/1.jpg"
@@ -196,8 +196,8 @@ function CircleFeedDetails(props) {
                 </div>
                 <div className="flex-center flex-col">
                   <span className="black">
-                    <b>Supporter 1, Support 2, Supporter 3</b>
-                    <br /> and 150 others are part of this circle.
+                    <b>Marc, Fabiola,Max</b>
+                    <br /> and 10 others are part of this circle.
                   </span>
                   <button
                     id="blueBtn"
