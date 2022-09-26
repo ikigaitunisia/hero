@@ -74,6 +74,7 @@ function Login1() {
   const onSuccess = async (res) => {
     console.log("success:", res);
     setPoints("...");
+    console.log(res.profileObj);
     axios
       .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
         Email: res.profileObj.email,
