@@ -172,6 +172,7 @@ function CircleHome(props) {
             </h6>
           </div>
         </div>
+        {/*
         <div className="circle-feed-bottom mb-4">
           <div style={{ display: "flex" }}>
             <div
@@ -189,6 +190,7 @@ function CircleHome(props) {
             </button>
           }
         </div>
+        */}
       </div>
     </>
   );

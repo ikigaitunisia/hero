@@ -203,6 +203,7 @@ function CircleFeed(props) {
                 </div>
               </div>
             </div>
+            {circles.length > 1 &&
             <div className="circle-feed-bottom mb-4">
               <div style={{ display: "flex" }}>
                 {circles.map((item, i) => {
@@ -226,7 +227,9 @@ function CircleFeed(props) {
                 </button>
               }
             </div>
+}           
           </div>
+            
           <ClubSelectMembershipModal
             show={showClubSelectMembershipModal}
             onClose={() => setShowClubSelectMembershipModal(false)}
