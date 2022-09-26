@@ -79,10 +79,11 @@ function MobilizerProfile(props) {
       )
       .then((res) => {
         console.log(res.data);
-        setCurrentCircle(res.data[currentIndex]);
-        console.log(res.data[currentIndex]);
-        setMobilizers(res.data);
-        let socials = JSON.parse(res.data[currentIndex].Socials);
+        let k = res.data.sort((a, b) => a.priority.low > b.priority.low ? 1 : -1)
+        setCurrentCircle(k[currentIndex]);
+        console.log(k[currentIndex]);
+        setMobilizers(k);
+        let socials = JSON.parse(k[currentIndex].Socials);
         if ("Instagram" in socials) {
           setInstagram(socials.Instagram);
         }

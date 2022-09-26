@@ -47,7 +47,8 @@ function CircleFeedDetails(props) {
       )
       .then((res) => {
         console.log(res.data);
-        setMobilizersCircle(res.data);
+        let  k = res.data.sort((a, b) => a.priority.low > b.priority.low ? 1 : -1)
+        setMobilizersCircle(k);
       });
   };
   useEffect(() => {
