@@ -103,3 +103,52 @@
   line-height: 1em !important;
   padding: 0 !important;
 }
+
+.login h6 {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 19.63px !important;
+}
+
+.or span {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 17.18px !important;
+}
+
+.login a {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 17.18px !important;
+  text-decoration: underline;
+}
+
+.login .bottom-text p {
+  font-weight: 500 !important;
+}
+
+.login .bottom-text span {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 16px !important;
+  font-style: italic;
+}
+
+.login #whiteBlueBtn2 {
+  background-color: white !important;
+  display: flex;
+  color: blue !important;
+  border: unset !important;
+  margin: 0 auto;
+  width: unset;
+  height: 50px;
+  border-radius: 50px;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 22.09px !important;
+}
+
+.login {
+  padding-left: 10px!important;
+  padding-right: 10px!important;
+}

@@ -277,11 +277,11 @@ function Login2() {
         style={{ minHeight: "100vh" }}
       >
         <img src={"assets/img/logo2.png"} alt="logo" className="logo mt-0" />
-        <p className="header-text mt-4 white">HERO Log In</p>
-        <h6 style={{ color: "white", fontSize: "16px" }}>
+        <p className="header-text mt-3 white mb-1">HERO Log In</p>
+        <h6 className="white">
           For existing HERO Supporters
         </h6>
-        <div className="flex-center flex-col">
+        <div className="flex-center flex-col mt-3">
           <GoogleLogin
             clientId={clientId}
             buttonText="Sign in with Google"
@@ -321,7 +321,7 @@ function Login2() {
               {EmailError && <h6 className="error-message">{EmailError}</h6>}
             </div>
 
-            <div className="form-group boxed">
+            <div className="form-group boxed mb-2">
               <div className="input-wrapper">
                 <input
                   type="password"
@@ -348,14 +348,13 @@ function Login2() {
             <a
               href=""
               className="white"
-              style={{ textDecoration: "underline" }}
             >
               Forgot my password
             </a>
             <button
               id="whiteBlueBtn"
               type="button"
-              className="btn btn-primary rounded font-size-btn mt-4 mb-4 "
+              className="btn btn-primary rounded font-size-btn mt-3 mb-4 "
               /*onClick={() => setShowWelcomeCirclesModal(true)} */
               onClick={() => login()}
             >
@@ -365,12 +364,12 @@ function Login2() {
         </div>
         <hr className="hr bg-white" />
 
-        <p className="header-text mt-4 white">For new HERO Supporters</p>
-        <h6 style={{ color: "white", fontSize: "16px" }}>
+        <div className="bottom-text"><p className="header-text mt-4 white mb-1">For new HERO Supporters</p>
+        <span style={{ color: "white", fontSize: "16px" }}>
           Join a HERO Circle to create an account
-        </h6>
+        </span></div>
         <button
-          id="whiteBlueBtn"
+          id="whiteBlueBtn2"
           type="button"
           className="btn btn-primary rounded font-size-btn mt-4 mb-4 "
           onClick={() => history.push("/circle-feed")}
