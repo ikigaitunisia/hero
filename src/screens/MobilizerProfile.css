@@ -14,31 +14,31 @@
 .feed2 video {
   border-radius: 30px;
 }
-.feed2 h3 {
+.feed4 h3 {
   font-size: 35px;
   font-weight: 700;
   line-height: 40px;
 }
 
-.feed2 p {
+.feed4 p {
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
 }
 
-.feed2 #whiteBtn {
+.feed4 #whiteBtn {
   font-size: 18px;
   font-weight: 500;
   line-height: 22.09px;
 }
 
-.feed2 a {
+.feed4 a {
   font-size: 16px;
   font-weight: 400;
   text-decoration: underline;
 }
 
-.feed2 .play-btn {
+.feed4 .play-btn {
   top: 35% !important;
 }
 .card-img-overlay {
@@ -48,13 +48,11 @@
   align-content: flex-start;
   justify-content: flex-end;
   object-fit: contain;
-
 }
 
 .card .card-img-overlay {
   background: rgba(0, 0, 0, 0.5);
-  border-radius: 19px!important;
-
+  border-radius: 19px !important;
 }
 
 .card-img-overlay h2 {
@@ -96,4 +94,11 @@
 
 .mobilizer-profile .card {
   border-radius: 26px;
+  height: 70vh;
+}
+
+.mobilizer-profile .card .overlay-img {
+  height: 70vh;
+  object-fit: cover;
+  border-radius: 26px !important;
 }
