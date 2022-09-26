@@ -210,7 +210,7 @@ function Login1() {
         return K.data;
       });
   };
-  const EmailExis = () => {
+  const EmailExis = async() => {
     axios
       .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
         email: phoneNumber,
@@ -228,7 +228,7 @@ function Login1() {
   const validate = async (e) => {
     let x = true;
     console.log(password);
-    EmailExis();
+    await EmailExis();
     if (!checked) {
       setCheckedError("You should accept the HERO Terms of Use");
       x = false;
