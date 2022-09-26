@@ -199,17 +199,6 @@ function Login1() {
         console.log(error);
       });
   };
-  const checkPassword = async () => {
-    axios
-      .post(`https://hegemony.donftify.digital:8080/CheckPassword`, {
-        email: phoneNumber,
-        password: password,
-      })
-      .then((K) => {
-        console.log(K.data);
-        return K.data;
-      });
-  };
   const EmailExis = async() => {
     axios
       .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
@@ -226,6 +215,18 @@ function Login1() {
         }
       });
   };
+  const checkPassword = async () => {
+    axios
+      .post(`https://hegemony.donftify.digital:8080/CheckPassword`, {
+        email: phoneNumber,
+        password: password,
+      })
+      .then((K) => {
+        console.log(K.data);
+        return K.data;
+      });
+  };
+  
   const validate = async (e) => {
     let x = true;
     console.log(password);
@@ -270,7 +271,8 @@ function Login1() {
     }
     let found = await EmailExis();
     console.log(EmailExist);
-    if (x == true && checked && !found && passwordError == "") {
+    
+    if (x == true && checked && EmailError!="" && passwordError == "") {
       createWallet();
     }
   };
@@ -299,9 +301,7 @@ function Login1() {
     }
 
     // Check if password contains at least 1 Uppercase letter
-    if (!/[A-Z]/.test(password)) {
-      k = false;
-    }
+    
 
     // Check if password contains at least 1 number
     if (!/[0-9]/.test(password)) {
@@ -421,8 +421,8 @@ function Login1() {
                   <small className="mt-3">
                     Your password must be at least 8 characters
                     <br /> and should include a combination of letters and
-                    minimum one UpperCase ,
-                    <br /> one number and at least one special character
+                     
+                    <br /> minimum one number and at least one special character
                     (!$@%+-*/)
                   </small>
                 </label>
