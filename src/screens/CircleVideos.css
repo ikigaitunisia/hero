@@ -85,6 +85,12 @@
 }
 
 .circle-videos .card {
-  background: transparent !important;
-  border-radius: 30px;
+  border-radius: 50px;
+}
+
+@media screen and (min-width: 600px) {
+  .circle-videos .card {
+    width: 500px;
+    margin: 0 auto;
+  }
 }
