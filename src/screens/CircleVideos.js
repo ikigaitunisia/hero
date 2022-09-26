@@ -66,7 +66,7 @@ function CircleVideos(props) {
           <ion-icon
             src="assets/img/svg/icon24.svg"
             class="mb-2 icon-btn me-2"
-            onClick={() => history.push("/circle-updates")}
+            onClick={() => history.push("/circle-updates:Hero%20UK%20Climate%20Justice%20Circle")}
           ></ion-icon>
           <ion-icon
             src="assets/img/svg/icon22.svg"
