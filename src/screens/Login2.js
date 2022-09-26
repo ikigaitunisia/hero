@@ -90,6 +90,8 @@ function Login2() {
         history.push("/circle-home:" + response[0].grName);
       }
     });
+    console.log(res.profileObj);
+
     axios
       .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
         Email: res.profileObj.email,
@@ -157,7 +159,7 @@ function Login2() {
     });
   }
   const createWallet = async () => {
-
+     
       setPoints("...");
       axios
         .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
