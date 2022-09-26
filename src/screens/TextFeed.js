@@ -48,14 +48,14 @@ useEffect(() => {
             <div className="blue">
               <div className="">
                 <strong>
-                  {item.mobilizer} <small>{item.time}</small>
+                UK Climate Justice Circle
                 </strong>
               </div>
               <div className="mb-05">
-                <span>{"@"+item.mobilizer}</span>
+                <span>@UK Climate Justice Circle</span>
               </div>
               <div className="text-xsmall">
-              {item.desc}
+              Welcome to the Circle. We are thrilled to have you amongst our supporters. Stay tuned for updates about the projects we are working on
 
               </div>
             </div>
@@ -66,9 +66,8 @@ useEffect(() => {
                   src="assets/img/svg/icon20.svg"
                   style={{ width: "15px", height: "15px" }}
                   class="me-1"
-                  key={i+item.id}
                 ></ion-icon>
-                <span className="me-2">{item.likes}</span>
+                <span className="me-2">0</span>
               </div>
               <div className="flex-center flex-row">
                 <ion-icon
@@ -76,7 +75,7 @@ useEffect(() => {
                   style={{ width: "15px", height: "15px" }}
                   class="me-1"
                 ></ion-icon>
-                <span>250</span>
+                <span>0</span>
               </div>
             </div>
           </div>

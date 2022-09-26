@@ -232,7 +232,7 @@ client.onmessage = (msg) => {
               
                       <>
                       {/*feedHtml*/}
-                      <TextFeed item={item} key={i} index={i} />
+                      <TextFeed item={null} key={1} index={1} />
                       </>
                   
                   
