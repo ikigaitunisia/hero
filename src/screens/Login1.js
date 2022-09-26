@@ -216,6 +216,7 @@ function Login1() {
         email: phoneNumber,
       })
       .then((K) => {
+        console.log(K.data)
         if (K.data.found) {
           setEmailError("Account already exists, please login");
           setEmailExist(true);
@@ -228,7 +229,7 @@ function Login1() {
   const validate = async (e) => {
     let x = true;
     console.log(password);
-    await EmailExis();
+    
     if (!checked) {
       setCheckedError("You should accept the HERO Terms of Use");
       x = false;
@@ -267,6 +268,8 @@ function Login1() {
       setEmailError("Please type a valid email");
       x = false;
     }
+    await EmailExis();
+    console.log(EmailExist);
     if (x == true && checked && !EmailExist && passwordError == "") {
       createWallet();
     }
