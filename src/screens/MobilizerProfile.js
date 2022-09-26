@@ -19,6 +19,19 @@ function MobilizerProfile(props) {
   const [Facebook, setFacebook] = useState("");
   const [Twitter, setTwitter] = useState("");
   const [TikTok, setTikTok] = useState("");
+  const [subbscibed,setSubbscibed] = useState(false);
+  const isSubscribed = async (email) => {
+ 
+    let K = await axios.post(
+      "https://hegemony.donftify.digital:8080/supporter/get-subscriptions",
+      {
+        email: email,
+      }
+    );
+
+    console.log(K.data);
+    return K.data;
+  };
   const goToNextCircle = () => {
     if (currentIndex === mobilizers.length - 1) {
       setCurrentIndex(0);
@@ -43,6 +56,16 @@ function MobilizerProfile(props) {
     }
   };
 
+  useEffect(() => {
+  const user = JSON.parse(localStorage.getItem("user"));
+    
+  if (user != null) {
+    
+    isSubscribed(user.Email).then((response) => {
+      setSubbscibed(response.length);
+    });
+  }
+}, []);
   useEffect(() => {
     axios
       .get(
@@ -69,6 +92,7 @@ function MobilizerProfile(props) {
         }
         setLoad(true);
       });
+  
   }, [currentIndex]);
   return (
     <>
@@ -80,7 +104,7 @@ function MobilizerProfile(props) {
             showMenuBtn
             whiteMode
             transparent
-            backTo={"/circle-feed"}
+            backTo={subbscibed ? "/circle-feed" : "/circle-home"+circlename}
           />
           <div
             id="appCapsule"
