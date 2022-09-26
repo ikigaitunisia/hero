@@ -102,7 +102,7 @@ Dominique, Francesca, Jessica were involved in this campaign.
                         <div className="text-small mb-05">Declared. With legal Net Zero target</div>
                         <div className="text-xsmall">
                         The UK government declared a climate emergency after a shut down of London for 10 days. 
-Liba and Jessica were involved as XR North London members.
+Liba and Jessica were involved.
 
                         </div>
                       </div>
