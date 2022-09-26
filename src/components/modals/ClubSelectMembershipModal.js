@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { Modal } from "bootstrap";
 import "./ClubSelectMembershipModal.css";
 import axios from "axios";
@@ -41,6 +41,7 @@ function ClubSelectMembershipModal(props) {
   const [password, setPassword] = useState("");
   const [overAmount, setOverAmount] = useState(50);
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+  const validationMessageRef = useRef(null);
 
   const chooseAmount = (a) => {
     if (amount) {
@@ -144,7 +145,10 @@ function ClubSelectMembershipModal(props) {
         console.log(err);
       });
   };
-
+  const setAddModalErrorMsg = () => {
+    // scrolls the validation message into view, and the block: 'nearest' ensures it scrolls the modal and not the window
+    validationMessageRef.current.scrollTo(0, 1000)
+  }
   return (
     <>
       <div
@@ -177,7 +181,7 @@ function ClubSelectMembershipModal(props) {
               </a>
             </div>
             {showAmountSelect && !showForm && !showWelcomeToClub && !showForm1 && (
-              <div id="amount-select" className="modal-body">
+              <div id="amount-select" className="modal-body" ref={validationMessageRef}>
                 <img src={"assets/img/logo2.png"} alt="logo" className="logo" />
                 <p className="header-text mt-4 white">
                   Choose your HERO Circle
@@ -194,6 +198,7 @@ function ClubSelectMembershipModal(props) {
                     onClick={() => {
                       setAmount(10);
                       setValidAmount(true);
+                      setAddModalErrorMsg();
                     }}
                   >
                     <img
@@ -225,6 +230,7 @@ function ClubSelectMembershipModal(props) {
                     onClick={() => {
                       setAmount(20);
                       setValidAmount(true);
+                      setAddModalErrorMsg();
                     }}
                   >
                     <img
