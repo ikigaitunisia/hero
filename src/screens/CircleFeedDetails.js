@@ -210,6 +210,8 @@ function CircleFeedDetails(props) {
                 </div>
               </div>
             </div>
+            {circles.length > 1 &&
+
             <div className="circle-feed-bottom mb-4">
               <div style={{ display: "flex" }}>
                 {state.circle.map((item, i) => {
@@ -231,6 +233,7 @@ function CircleFeedDetails(props) {
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </button>
             </div>
+      }
           </div>
           <ClubSelectMembershipModal
             show={showClubSelectMembershipModal}
