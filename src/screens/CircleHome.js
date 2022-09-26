@@ -12,22 +12,11 @@ function CircleHome(props) {
   const circles = [
     {
       id: "1",
-      name: "HERO First Circle",
+      name: "Hero UK Climate Justice Circle",
       description:
-        "This is the circle objective. A brief description of the focus of the circle for the first year.",
+        "A future without fossil fuels and associated injustices",
     },
-    {
-      id: "2",
-      name: "HERO Second Circle",
-      description:
-        "This is the circle objective. A brief description of the focus of the circle for the first year.",
-    },
-    {
-      id: "3",
-      name: "HERO Third Circle",
-      description:
-        "This is the circle objective. A brief description of the focus of the circle for the first year.",
-    },
+   
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCircle, setCurrentCircle] = useState(circles[0]);
