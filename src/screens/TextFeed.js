@@ -55,13 +55,12 @@ useEffect(() => {
                 <span>@UK Climate Justice Circle</span>
               </div>
               <div className="text-xsmall">
-              Welcome to the Circle. We are thrilled to have you amongst our supporters. Stay tuned for updates about the projects we are working on
+              Welcome to the Circle. We are thrilled to have you amongst our supporters. Stay tuned for updates about the projects we are working on !
 
               </div>
             </div>
             <div className="flex-row mt-3" key={i}>
               <div className="flex-center flex-row" >
-                <button onClick={() => console.log("ok")}></button>
                 <ion-icon
                   src="assets/img/svg/icon20.svg"
                   style={{ width: "15px", height: "15px" }}
