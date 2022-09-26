@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
+import Header from "../components/Header";
 
 import "./Login1.css";
 import WelcomeCirclesModal from "../components/modals/WelcomeCirclesModal";
@@ -142,97 +143,88 @@ function Login1() {
   };
   const createWallet = async () => {
     console.log("ok");
-      setPoints("...");
-      axios
-        .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
-          Email: phoneNumber,
-          password: password,
-          googleId: "",
-          imageUrl: "",
-          name: HeroID,
-          lastname: "",
-          HeroId: phoneNumber.split("@")[0],
-        })
-        .then(function (response) {
-          localStorage.setItem(
-            "user",
-            JSON.stringify({ Email: phoneNumber, wallet: response.data })
-          );
-          if (loginOnly == false) {
-            let a = JSON.parse(localStorage.getItem("user"));
+    setPoints("...");
+    axios
+      .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
+        Email: phoneNumber,
+        password: password,
+        googleId: "",
+        imageUrl: "",
+        name: HeroID,
+        lastname: "",
+        HeroId: phoneNumber.split("@")[0],
+      })
+      .then(function (response) {
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ Email: phoneNumber, wallet: response.data })
+        );
+        if (loginOnly == false) {
+          let a = JSON.parse(localStorage.getItem("user"));
 
-            const customerId = a.wallet.customerId;
-            console.log({
+          const customerId = a.wallet.customerId;
+          console.log({
+            mode: "subscription",
+            grName: circle,
+            amount: amount * 100,
+            customerId: customerId,
+          });
+          axios
+            .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
               mode: "subscription",
               grName: circle,
               amount: amount * 100,
               customerId: customerId,
+            })
+            .then((res) => {
+              console.log(res.data);
+              window.location.href = res.data.url;
+            })
+            .catch((err) => {
+              console.log(err);
             });
-            axios
-              .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
-                mode: "subscription",
-                grName: circle,
-                amount: amount * 100,
-                customerId: customerId,
-              })
-              .then((res) => {
-                console.log(res.data);
-                window.location.href = res.data.url;
-              })
-              .catch((err) => {
-                console.log(err);
-              });
-          } else {
-            let data = isSubscribed(phoneNumber).then((response) => {
-              if (response.length == 0) {
-                history.push("/circle-feed");
-              } else {
-                history.push("/circle-home:" + response[0].grName);
-              }
-            });
-          }
-        })
-        .catch(function (error) {
-          //handle error here
-          console.log(error);
-        });
-    
+        } else {
+          let data = isSubscribed(phoneNumber).then((response) => {
+            if (response.length == 0) {
+              history.push("/circle-feed");
+            } else {
+              history.push("/circle-home:" + response[0].grName);
+            }
+          });
+        }
+      })
+      .catch(function (error) {
+        //handle error here
+        console.log(error);
+      });
   };
-  const checkPassword = async() => {
-  
-      axios
+  const checkPassword = async () => {
+    axios
       .post(`https://hegemony.donftify.digital:8080/CheckPassword`, {
-        email:phoneNumber,
-        password:password,
+        email: phoneNumber,
+        password: password,
       })
       .then((K) => {
         console.log(K.data);
         return K.data;
-      })
-    
-  
-
-  }
-    const EmailExis = () => {
-      axios
+      });
+  };
+  const EmailExis = () => {
+    axios
       .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
-        email:phoneNumber,
+        email: phoneNumber,
       })
       .then((K) => {
-        if (K.data.found)
-        {
+        if (K.data.found) {
           setEmailError("Account already exists, please login");
           setEmailExist(true);
-        }
-        else
-        {
+        } else {
           setEmailError("");
           setEmailExist(false);
-
         }
-      })
-    }
-    const validate = async (e) => {
+      });
+  };
+  const validate = async (e) => {
     let x = true;
     console.log(password);
     EmailExis();
@@ -240,7 +232,7 @@ function Login1() {
       setCheckedError("You should accept the HERO Terms of Use");
       x = false;
     }
-   
+
     if (password == "") {
       setPasswordError("Password is required");
       x = false;
@@ -251,7 +243,6 @@ function Login1() {
         setPasswordError("Your password is not strong enough");
         x = false;
       } else {
-       
         setPasswordError("");
         if (password !== rePassword) {
           setRePasswordError("The passwords you entered do not match");
@@ -259,8 +250,6 @@ function Login1() {
         } else {
           setRePasswordError("");
         }
-       
-      
       }
     }
 
@@ -270,16 +259,15 @@ function Login1() {
     } else {
       setFullnameError("");
     }
-    
+
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
-      
     } else {
       setEmailError("Please type a valid email");
       x = false;
     }
-    console.log(!EmailExist)
-    if (x == true && checked && !EmailExist && passwordError=="") {
+    console.log(!EmailExist);
+    if (x == true && checked && !EmailExist && passwordError == "") {
       createWallet();
     }
   };
@@ -303,27 +291,27 @@ function Login1() {
   };
   const passStreing = (password) => {
     var k = true;
-    if(!/[a-z]/.test(password)){
+    if (!/[a-z]/.test(password)) {
       k = false;
-  }
+    }
 
-  // Check if password contains at least 1 Uppercase letter
-  if(!/[A-Z]/.test(password)){
-    k = false;
-  }
+    // Check if password contains at least 1 Uppercase letter
+    if (!/[A-Z]/.test(password)) {
+      k = false;
+    }
 
-  // Check if password contains at least 1 number
-  if(!/[0-9]/.test(password)){
-    k = false;
-  }
-if(!/[!@$#\+\-\$%\^&\*/]/.test(password)){
-    k = false;
-  }
-  if(password.length < 8){
-    k = false;
-  }
-  return k;
-  }
+    // Check if password contains at least 1 number
+    if (!/[0-9]/.test(password)) {
+      k = false;
+    }
+    if (!/[!@$#\+\-\$%\^&\*/]/.test(password)) {
+      k = false;
+    }
+    if (password.length < 8) {
+      k = false;
+    }
+    return k;
+  };
   const onChangePassword = (ev) => {
     setPassword(ev.target.value);
     console.log(passStreing(ev.target.value));
@@ -365,6 +353,7 @@ if(!/[!@$#\+\-\$%\^&\*/]/.test(password)){
   };
   return (
     <>
+      <Header whiteMode showCloseBtn transparent={true} />
       <div
         id="appCapsule"
         className="bg-g login"
@@ -430,7 +419,8 @@ if(!/[!@$#\+\-\$%\^&\*/]/.test(password)){
                     Your password must be at least 8 characters
                     <br /> and should include a combination of letters and
                     minimum one UpperCase ,
-                    <br /> one number and at least one special character (!$@%+-*/)
+                    <br /> one number and at least one special character
+                    (!$@%+-*/)
                   </small>
                 </label>
                 <input

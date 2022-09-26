@@ -213,7 +213,56 @@ function Login2() {
     
   };
  
-  
+  const onChangeEmail = (ev) => {
+    setPhoneNumber(ev.target.value);
+    if (/\S+@\S+\.\S+/.test(ev.target.value)) {
+      setEmailError("");
+    } else {
+      setEmailError("Please type a valid email");
+    }
+  };
+  const passStreing = (password) => {
+    var k = true;
+    if (!/[a-z]/.test(password)) {
+      k = false;
+    }
+
+    // Check if password contains at least 1 Uppercase letter
+    if (!/[A-Z]/.test(password)) {
+      k = false;
+    }
+
+    // Check if password contains at least 1 number
+    if (!/[0-9]/.test(password)) {
+      k = false;
+    }
+    if (!/[!@$#\+\-\$%\^&\*/]/.test(password)) {
+      k = false;
+    }
+    if (password.length < 8) {
+      k = false;
+    }
+    return k;
+  };
+  const onChangePassword = (ev) => {
+    setPassword(ev.target.value);
+
+    if (ev.target.value == "") {
+      setPasswordError("Password is required");
+    } else {
+      setPasswordError("");
+      if (!passStreing(ev.target.value)) {
+        setPasswordError("Your password is not strong enough");
+      } else {
+        setPasswordError("");
+        if (ev.target.value !== rePassword) {
+          setRePasswordError("The password you entered doesn’t match");
+        } else {
+          setRePasswordError("");
+        }
+      }
+    }
+  };
  
 
  
@@ -225,14 +274,11 @@ function Login2() {
         className="bg-g login"
         style={{ minHeight: "100vh" }}
       >
-     
         <img src={"assets/img/logo2.png"} alt="logo" className="logo mt-0" />
-        <p className="header-text mt-4 white">HERO Log In
-        <br/>
-        <h6 style={{color:"white",fontSize:"16px",marginTop:10}}>For existing HERO Supporters</h6>
-
-        </p>
-        
+        <p className="header-text mt-4 white">HERO Log In</p>
+        <h6 style={{ color: "white", fontSize: "16px" }}>
+          For existing HERO Supporters
+        </h6>
         <div className="flex-center flex-col">
           <GoogleLogin
             clientId={clientId}
@@ -253,16 +299,13 @@ function Login2() {
           <form id="login-form">
             <div className="form-group boxed">
               <div className="input-wrapper">
-                <label className="label mb-3" htmlFor="text4b">
-                  Email
-                </label>
                 <input
                   type="email"
                   className="form-control"
                   id="email4b"
                   placeholder="Your email"
                   value={phoneNumber}
-                  onChange={(ev) => setPhoneNumber(ev.target.value)}
+                  onChange={(ev) => onChangeEmail(ev)}
                 />
                 <i className="clear-input">
                   <ion-icon
@@ -278,11 +321,6 @@ function Login2() {
 
             <div className="form-group boxed">
               <div className="input-wrapper">
-                <label className="label mb-3" htmlFor="text4b">
-                  Password
-                  <br />
-                 
-                </label>
                 <input
                   type="password"
                   autoComplete="off"
@@ -290,7 +328,7 @@ function Login2() {
                   id="password4b"
                   placeholder="Password"
                   value={password}
-                  onChange={(ev) => setPassword(ev.target.value)}
+                  onChange={(ev) => onChangePassword(ev)}
                 />
                 <i className="clear-input">
                   <ion-icon
@@ -305,6 +343,13 @@ function Login2() {
                 <h6 className="error-message">{passwordError}</h6>
               )}
             </div>
+            <a
+              href=""
+              className="white"
+              style={{ textDecoration: "underline" }}
+            >
+              Forgot my password
+            </a>
             <button
               id="whiteBlueBtn"
               type="button"
@@ -314,38 +359,23 @@ function Login2() {
             >
               Log in
             </button>
-            <hr className="hr bg-white" style={{width:500}} />
-            <h5 className="mt-3" style={{color:"white",fontHeight:"bold"}}>
-            For new HERO Supporters
-                  </h5>
-                  <small className="mt-3" style={{color:"white"}}>
-
-                  Join a HERO Circle to create an account
-                  </small>
-
-            <div className="form-group boxed">
-              <div className="input-wrapper">
-              <div className="mt-4 flex-center flex-col">
-            <button
-              id="whiteBtn"
-              type="button"
-              className="btn btn-primary rounded font-size-btn mt-2 mb-4 "
-              onClick={() => history.push("/circle-feed")}
-            >
-              <ion-icon src="assets/img/svg/icon2.svg"></ion-icon>
-              Fund a HERO Circle
-            </button>
-          </div>
-              </div>
-             
-            </div>
-           
-           
-            
-
-           
           </form>
         </div>
+        <hr className="hr bg-white" />
+
+        <p className="header-text mt-4 white">For new HERO Supporters</p>
+        <h6 style={{ color: "white", fontSize: "16px" }}>
+          Join a HERO Circle to create an account
+        </h6>
+        <button
+          id="whiteBlueBtn"
+          type="button"
+          className="btn btn-primary rounded font-size-btn mt-4 mb-4 "
+          onClick={() => history.push("/circle-feed")}
+        >
+          <ion-icon src="assets/img/svg/icon3.svg"></ion-icon>
+          Fund a HERO Circle
+        </button>
       </div>
     </>
   );

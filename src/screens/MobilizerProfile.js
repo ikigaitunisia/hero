@@ -82,8 +82,11 @@ function MobilizerProfile(props) {
             transparent
             backTo={"/circle-feed"}
           />
-          <div id="appCapsule" className="mobilizer-profile ">
-            <div className="section mt-2 mb-4 feed2">
+          <div
+            id="appCapsule"
+            className="circle-feed-container mobilizer-profile"
+          >
+            <div className="section mt-2 mb-4 feed4">
               <div className="card bg-dark text-white round-container">
                 <img
                   src={
@@ -93,9 +96,8 @@ function MobilizerProfile(props) {
                   }
                   className="card-img overlay-img"
                   alt="image"
-                  style={{backgroundImage : 'url()'}}
                 />
-                <div className="card-img-overlay">
+                <div className="feed-content overlay-image card-img-overlay">
                   {currentCircle.Name && (
                     <h2 className="white">{currentCircle.Name}</h2>
                   )}
