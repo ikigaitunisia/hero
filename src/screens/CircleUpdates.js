@@ -231,7 +231,8 @@ client.onmessage = (msg) => {
              
               
                       <>
-                      {feedHtml}
+                      {/*feedHtml*/}
+                      <TextFeed item={item} key={i} index={i} />
                       </>
                   
                   
