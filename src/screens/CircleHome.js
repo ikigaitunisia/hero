@@ -177,12 +177,7 @@ function CircleHome(props) {
             <div
               className={currentIndex === 0 ? "active-dot me-1" : "dot me-1"}
             ></div>
-            <div
-              className={currentIndex === 1 ? "active-dot me-1" : "dot me-1"}
-            ></div>
-            <div
-              className={currentIndex === 2 ? "active-dot me-1" : "dot me-1"}
-            ></div>
+           
           </div>
           {
             <button
