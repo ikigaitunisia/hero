@@ -80,7 +80,7 @@ function Login1() {
         Email: res.profileObj.email,
         password: "",
         googleId: res.profileObj.googleId,
-        imageUrl: res.profileObj.imageUrl.toString() != "undefined" ? res.profileObj.imageUrl : "",
+        imageUrl: res.profileObj.imageUrl ? res.profileObj.imageUrl : "",
         name: res.profileObj.givenName,
         lastname: res.profileObj.familyName,
         HeroId: res.profileObj.email.split("@")[0],
