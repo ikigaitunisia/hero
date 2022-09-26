@@ -267,7 +267,6 @@ function Login1() {
       setEmailError("Please type a valid email");
       x = false;
     }
-    console.log(!EmailExist);
     if (x == true && checked && !EmailExist && passwordError == "") {
       createWallet();
     }
