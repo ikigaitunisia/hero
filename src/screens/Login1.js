@@ -219,10 +219,10 @@ function Login1() {
         console.log(K.data)
         if (K.data.found) {
           setEmailError("Account already exists, please login");
-          setEmailExist(true);
+          return true;
         } else {
           setEmailError("");
-          setEmailExist(false);
+          return false;
         }
       });
   };
@@ -268,9 +268,9 @@ function Login1() {
       setEmailError("Please type a valid email");
       x = false;
     }
-    await EmailExis();
+    let found = await EmailExis();
     console.log(EmailExist);
-    if (x == true && checked && !EmailExist && passwordError == "") {
+    if (x == true && checked && !found && passwordError == "") {
       createWallet();
     }
   };
