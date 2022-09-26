@@ -79,7 +79,7 @@ function CircleVideos(props) {
             onClick={() => history.push("/circle-interactions")}
           ></ion-icon>
         </div>
-        <div className="section mt-2">
+        {/*<div className="section mt-2">
           <div className="card">
             <video playsInline id={currentVideo.video}>
               <source
@@ -122,6 +122,34 @@ function CircleVideos(props) {
               onClick={() => goToNextVideo(5)}
               className={currentIndex === 4 ? "active-dot me-1" : "dot me-1"}
             ></div>
+          </div>
+        </div>*/}
+        <div className="section mt-2">
+          <div className="card flex-center">
+            <img
+              src={"assets/img/image11.png"}
+              alt="logo"
+              className="logo imaged w36 mt-3"
+            />
+            <p className="header-text mt-3 blue mb-1">
+              We are working on the first
+              <br /> circle videos. We will be
+              <br /> sharing them soon.
+            </p>
+            <img
+              src={"assets/img/image12.png"}
+              alt="logo"
+              className="logo imaged w180 mt-3"
+            />
+            <div className="mt-4 mb-4">
+              <div className="flex-center">
+                <div
+                  className={
+                    currentIndex === 0 ? "active-dot me-1" : "dot me-1"
+                  }
+                ></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
