@@ -203,7 +203,7 @@ function Login1() {
   
   const validate = async (e) => {
     
-    if (checked && EmailError=="" && passwordError == "") {
+    if (checked && EmailError =="" && passwordError == "" && fullnameError=="") {
       createWallet();
     }
   };
@@ -238,6 +238,8 @@ function Login1() {
     setPhoneNumber(ev.target.value);
     if (/\S+@\S+\.\S+/.test(ev.target.value)) {
       setEmailError("");
+
+
     } else {
       setEmailError("Please type a valid email");
     }
@@ -348,6 +350,7 @@ function Login1() {
                   placeholder="Your email"
                   value={phoneNumber}
                   onChange={(ev) => onChangeEmail(ev)}
+                  onBlur={() => EmailExis()}
                 />
                 <i className="clear-input">
                   <ion-icon
