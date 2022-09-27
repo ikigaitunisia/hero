@@ -6,11 +6,59 @@ import "./EditPassword.css";
 import Alert from "@mui/material/Alert";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import { checkIsValidPassword } from "../util/functions";
 
 function EditPassword(props) {
   const history = useHistory();
-  const [success, setSuccess] = useState(false);
+
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [password, setPassword] = useState("");
+  const [rePassword, setRePassword] = useState("");
+
+  const [currentPasswordError, setCurrentPasswordError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [rePasswordError, setRePasswordError] = useState("");
+
+  const [success, setSuccess] = useState(false);
+
+
+  const onChangeCurrentPassword = (ev) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user)
+    setCurrentPassword(ev.target.value);
+    if (ev.target.value !== password) {
+      setCurrentPasswordError("Current password incorrect");
+    } else {
+      setCurrentPasswordError("");
+    }
+  };
+  const onChangePassword = (ev) => {
+    setPassword(ev.target.value);
+    if (ev.target.value == "") {
+      setPasswordError("Password is required");
+    } else {
+      setPasswordError("");
+      if (!checkIsValidPassword(ev.target.value)) {
+        setPasswordError("Your password is not strong enough");
+      } else {
+        setPasswordError("");
+        if (ev.target.value !== rePassword) {
+          setRePasswordError("The password you entered doesn’t match");
+        } else {
+          setRePasswordError("");
+        }
+      }
+    }
+  };
+
+  const onChangeRePassword = (ev) => {
+    setRePassword(ev.target.value);
+    if (ev.target.value !== password) {
+      setRePasswordError("The password you entered doesn’t match");
+    } else {
+      setRePasswordError("");
+    }
+  };
   const updateUserPassword = () => {
     setSuccess(true);
   };
@@ -59,7 +107,7 @@ function EditPassword(props) {
               <form>
                 <div className="form-group boxed">
                   <div className="input-wrapper">
-                    <label className="label mb-3" for="text4b">
+                    <label className="label mb-3" htmlFor="text4b">
                       Current Password
                     </label>
                     <input
@@ -67,15 +115,20 @@ function EditPassword(props) {
                       className="form-control"
                       id="text4b"
                       placeholder=""
+                      value={currentPassword}
+                      onChange={(ev) => onChangeCurrentPassword(ev)}
                     />
                     <i className="clear-input">
                       <ion-icon name="close-circle"></ion-icon>
                     </i>
                   </div>
+                  {currentPasswordError && (
+                    <h6 className="error-message">{currentPasswordError}</h6>
+                  )}
                 </div>
                 <div className="form-group boxed">
                   <div className="input-wrapper">
-                    <label className="label mb-3" for="text4b">
+                    <label className="label mb-3" htmlFor="text4b">
                       New Password
                     </label>
                     <input
@@ -83,22 +136,8 @@ function EditPassword(props) {
                       className="form-control"
                       id="text4b"
                       placeholder=""
-                    />
-                    <i className="clear-input">
-                      <ion-icon name="close-circle"></ion-icon>
-                    </i>
-                  </div>
-                </div>
-                <div className="form-group boxed">
-                  <div className="input-wrapper">
-                    <label className="label mb-3" for="text4b">
-                      Confirm New Password
-                    </label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      id="text4b"
-                      placeholder=""
+                      value={password}
+                      onChange={(ev) => onChangePassword(ev)}
                     />
                     <i className="clear-input">
                       <ion-icon name="close-circle"></ion-icon>
@@ -106,6 +145,27 @@ function EditPassword(props) {
                   </div>
                   {passwordError && (
                     <h6 className="error-message">{passwordError}</h6>
+                  )}
+                </div>
+                <div className="form-group boxed">
+                  <div className="input-wrapper">
+                    <label className="label mb-3" htmlFor="text4b">
+                      Confirm New Password
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="text4b"
+                      placeholder=""
+                      value={rePassword}
+                      onChange={(ev) => onChangeRePassword(ev)}
+                    />
+                    <i className="clear-input">
+                      <ion-icon name="close-circle"></ion-icon>
+                    </i>
+                  </div>
+                  {rePasswordError && (
+                    <h6 className="error-message">{rePasswordError}</h6>
                   )}
                 </div>
               </form>
