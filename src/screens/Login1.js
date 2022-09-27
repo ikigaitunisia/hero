@@ -236,33 +236,19 @@ function Login1() {
     } else {
       setFullnameError("");
     }
-    let exist = false ;
+   
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
-      axios
-      .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
-        email: phoneNumber,
-      })
-      .then((K) => {
-        console.log(K.data)
-        exist=K.data.found;
-        if (K.data.found) {
-          setEmailError("Account already exists, please login");
-          
-        } else {
-          setEmailError("");
-          if (x == true && checked &&  passwordError == "") {
-            createWallet();
-          }
-        }
-      });
+      EmailExis();
     } else {
       setEmailError("Please type a valid email");
       x = false;
     }
     
-    console.log(exist);
-   
+    console.log(EmailExist.found);
+    if (x == true && checked && !EmailExist.found && passwordError == "") {
+      createWallet();
+    }
   };
   const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
   const onChangeFullName = (ev) => {
