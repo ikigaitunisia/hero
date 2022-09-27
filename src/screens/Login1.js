@@ -239,14 +239,14 @@ function Login1() {
    
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
-      await EmailExis();
+      EmailExis();
     } else {
       setEmailError("Please type a valid email");
       x = false;
     }
     
     console.log(EmailExist.found);
-    if (x == true && checked && !EmailExist.found && passwordError == "") {
+    if (x == true && checked && EmailError=="" && passwordError == "") {
       createWallet();
     }
   };
