@@ -25,6 +25,7 @@ function Login1() {
   const [circle, setCircle] = useState("");
   const [checked, setChecked] = useState(false);
   const [EmailExist, setEmailExist] = useState({});
+  const [loading,setLoading] = useState(false);
   const history = useHistory();
   const location = useLocation();
   const clientId =

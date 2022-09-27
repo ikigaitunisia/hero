@@ -7,30 +7,25 @@ import Alert from "@mui/material/Alert";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { checkIsValidPassword } from "../util/functions";
-
+import axios from "axios";
 function EditPassword(props) {
   const history = useHistory();
 
   const [currentPassword, setCurrentPassword] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
-
+  const [errormessage,setErrormessage] = useState(false);
   const [currentPasswordError, setCurrentPasswordError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [rePasswordError, setRePasswordError] = useState("");
 
   const [success, setSuccess] = useState(false);
+  const user = JSON.parse(localStorage.getItem("user"));
 
 
   const onChangeCurrentPassword = (ev) => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user)
     setCurrentPassword(ev.target.value);
-    if (ev.target.value !== password) {
-      setCurrentPasswordError("Current password incorrect");
-    } else {
-      setCurrentPasswordError("");
-    }
+    
   };
   const onChangePassword = (ev) => {
     setPassword(ev.target.value);
@@ -60,7 +55,27 @@ function EditPassword(props) {
     }
   };
   const updateUserPassword = () => {
-    setSuccess(true);
+
+    axios
+        .post("https://hegemony.donftify.digital:8080/supporter/change-password", {
+          email : user.Email,
+     oldPassword : currentPassword,
+     newPassword : password
+        })
+        .then(function (response) {
+          setSuccess(true);
+          setErrormessage(false);
+          setPassword("");
+          setRePassword("");
+          setCurrentPassword("");
+        })
+        .catch(function (error) {
+          //handle error here
+          setSuccess(false);
+          setErrormessage(true);
+        });
+    
+
   };
   return (
     <>
@@ -197,6 +212,26 @@ function EditPassword(props) {
                   }
                 >
                   Thank you, your password has been updated
+                </Alert>
+              )}
+               {errormessage && (
+                <Alert
+                  severity="error"
+                  color="error"
+                  action={
+                    <IconButton
+                      aria-label="close"
+                      color="inherit"
+                      size="small"
+                      onClick={() => {
+                        setSuccess(false);
+                      }}
+                    >
+                      <CloseIcon fontSize="inherit" />
+                    </IconButton>
+                  }
+                >
+                  Current password incorrect!
                 </Alert>
               )}
             </div>
