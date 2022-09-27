@@ -251,6 +251,9 @@ function Login1() {
           
         } else {
           setEmailError("");
+          if (x == true && checked &&  passwordError == "") {
+            createWallet();
+          }
         }
       });
     } else {
@@ -259,9 +262,7 @@ function Login1() {
     }
     
     console.log(exist);
-    if (x == true && checked && !exist && passwordError == "") {
-      createWallet();
-    }
+   
   };
   const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
   const onChangeFullName = (ev) => {
