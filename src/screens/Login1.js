@@ -24,7 +24,7 @@ function Login1() {
   const [amount, setAmount] = useState(0);
   const [circle, setCircle] = useState("");
   const [checked, setChecked] = useState(false);
-  const [EmailExist, setEmailExist] = useState({found:false});
+  const [EmailExist, setEmailExist] = useState({});
   const history = useHistory();
   const location = useLocation();
   const clientId =
@@ -263,19 +263,19 @@ function Login1() {
     } else {
       setFullnameError("");
     }
-    EmailExis();
+   
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
     } else {
       setEmailError("Please type a valid email");
       x = false;
     }
-    
-    console.log(EmailExist);
+    EmailExis().then(() => {
 
     if (x == true && checked && !EmailExist.found && passwordError == "") {
       createWallet();
     }
+  })
   };
   const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
   const onChangeFullName = (ev) => {
