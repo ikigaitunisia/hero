@@ -239,16 +239,16 @@ function Login1() {
    
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
+      EmailExis();
     } else {
       setEmailError("Please type a valid email");
       x = false;
     }
-    EmailExis().then(() => {
+    
     console.log(EmailExist.found);
     if (x == true && checked && !EmailExist.found && passwordError == "") {
       createWallet();
     }
-  })
   };
   const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
   const onChangeFullName = (ev) => {
