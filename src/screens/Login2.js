@@ -18,6 +18,7 @@ function Login2() {
   const [HeroID, setHeroID] = useState("");
   const [checkedError, setCheckedError] = useState("");
   const [rePasswordError, setRePasswordError] = useState("");
+  const [resetPassword, setResetPassword] = useState(false);
 
   const [points, setPoints] = useState("");
   const [loginOnly, setloginOnly] = useState(true);
@@ -345,12 +346,15 @@ function Login2() {
                 <h6 className="error-message">{passwordError}</h6>
               )}
             </div>
-            <a
-              href=""
+            <h5
+              onClick={() => setResetPassword(true)}
               className="white"
             >
               Forgot my password
-            </a>
+            </h5>
+            {resetPassword && (
+                <h6 className="error-message">We have sent you an email, please check<br/> your email to reset your password</h6>
+              )}
             <button
               id="whiteBlueBtn"
               type="button"
