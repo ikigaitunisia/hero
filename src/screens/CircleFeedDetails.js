@@ -128,7 +128,7 @@ function CircleFeedDetails(props) {
                       <img
                         src={"assets/img/" + item.imgProfil}
                         alt="image"
-                        className="imaged w48 rounded m-2"
+                        className="mobilizer-img m-2"
                         onClick={() =>
                           history.push({
                             pathname:
@@ -181,17 +181,17 @@ function CircleFeedDetails(props) {
                   <img
                     src="assets/img/sample/photo/1.jpg"
                     alt="image"
-                    className="imaged w48 rounded m-2"
+                    className="mobilizer-img m-2"
                   />
                   <img
                     src="assets/img/sample/photo/1.jpg"
                     alt="image"
-                    className="imaged w48 rounded m-2"
+                    className="mobilizer-img m-2"
                   />
                   <img
                     src="assets/img/sample/photo/1.jpg"
                     alt="image"
-                    className="imaged w48 rounded m-2"
+                    className="mobilizer-img m-2"
                   />
                 </div>
                 <div className="flex-center flex-col">

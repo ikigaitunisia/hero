@@ -91,3 +91,10 @@
   margin:50px;
   cursor: pointer;
 }
+
+.circle-feed-details .mobilizer-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}

@@ -93,11 +93,11 @@
 
 #mobilizerVictories .modal-content {
   background-color: #8585FF !important;
-  opacity: 90%;
+  opacity: 1;
 }
 #activistCampaigns .modal-content {
-  background-color: #0000ffe5 !important;
-  opacity: 90%;
+  background-color: #0000ff !important;
+  opacity: 1;
 }
 
 .cardCapsule #mobilizerVictories .modal-content {
