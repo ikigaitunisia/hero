@@ -236,7 +236,7 @@ function Login1() {
     } else {
       setFullnameError("");
     }
-   
+    let exist = false ;
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
       axios
@@ -245,7 +245,7 @@ function Login1() {
       })
       .then((K) => {
         console.log(K.data)
-        setEmailExist(K.data)
+        exist=K.data.found;
         if (K.data.found) {
           setEmailError("Account already exists, please login");
           
@@ -258,8 +258,8 @@ function Login1() {
       x = false;
     }
     
-    console.log(EmailExist.found);
-    if (x == true && checked && EmailError=="" && passwordError == "") {
+    console.log(exist);
+    if (x == true && checked && !exist && passwordError == "") {
       createWallet();
     }
   };
