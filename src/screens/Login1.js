@@ -199,34 +199,7 @@ function Login1() {
         console.log(error);
       });
   };
-  const EmailExis = () => {
-    axios
-      .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
-        email: phoneNumber,
-      })
-      .then((K) => {
-        console.log(K.data)
-        setEmailExist(K.data)
-        if (K.data.found) {
-          setEmailError("Account already exists, please login");
-          
-        } else {
-          setEmailError("");
-          return false;
-        }
-      });
-  };
-  const checkPassword = async () => {
-    axios
-      .post(`https://hegemony.donftify.digital:8080/CheckPassword`, {
-        email: phoneNumber,
-        password: password,
-      })
-      .then((K) => {
-        console.log(K.data);
-        return K.data;
-      });
-  };
+
   
   const validate = async (e) => {
     let x = true;
@@ -286,7 +259,23 @@ function Login1() {
       setFullnameError("");
     }
   };
-
+  const EmailExis = async() => {
+    axios
+      .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
+        email: phoneNumber,
+      })
+      .then((K) => {
+        console.log(K.data)
+        setEmailExist(K.data)
+        if (K.data.found) {
+          setEmailError("Account already exists, please login");
+          
+        } else {
+          setEmailError("");
+          return false;
+        }
+      });
+  };
   const onChangeEmail = (ev) => {
     setPhoneNumber(ev.target.value);
     if (/\S+@\S+\.\S+/.test(ev.target.value)) {
