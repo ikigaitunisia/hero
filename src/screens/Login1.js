@@ -269,10 +269,11 @@ function Login1() {
         setEmailExist(K.data)
         if (K.data.found) {
           setEmailError("Account already exists, please login");
+          return; 
           
         } else {
           setEmailError("");
-          return false;
+          return;
         }
       });
   };
