@@ -8,6 +8,7 @@ import Header from "../components/Header";
 
 import "./Login1.css";
 import WelcomeCirclesModal from "../components/modals/WelcomeCirclesModal";
+import LoadingSpinner from "../components/LoadingSpinner";
 function Login1() {
   const [phoneNumber, setPhoneNumber] = useState();
   const [EmailError, setEmailError] = useState("");
@@ -18,6 +19,7 @@ function Login1() {
   const [HeroID, setHeroID] = useState("");
   const [checkedError, setCheckedError] = useState("");
   const [rePasswordError, setRePasswordError] = useState("");
+  const [isLoading, setIsLoading] = useState(0);
 
   const [points, setPoints] = useState("");
   const [loginOnly, setloginOnly] = useState(true);
@@ -156,6 +158,7 @@ function Login1() {
         HeroId: phoneNumber.split("@")[0],
       })
       .then(function (response) {
+        setIsLoading(2);
         localStorage.setItem(
           "user",
           JSON.stringify({ Email: phoneNumber, wallet: response.data })
@@ -200,10 +203,14 @@ function Login1() {
       });
   };
 
-  
   const validate = async (e) => {
-    
-    if (checked && EmailError =="" && passwordError == "" && fullnameError=="") {
+    setIsLoading(1);
+    if (
+      checked &&
+      EmailError == "" &&
+      passwordError == "" &&
+      fullnameError == ""
+    ) {
       createWallet();
     }
   };
@@ -216,18 +223,17 @@ function Login1() {
       setFullnameError("");
     }
   };
-  const EmailExis = async() => {
+  const EmailExis = async () => {
     axios
       .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
         email: phoneNumber,
       })
       .then((K) => {
-        console.log(K.data)
-        setEmailExist(K.data)
+        console.log(K.data);
+        setEmailExist(K.data);
         if (K.data.found) {
           setEmailError("Account already exists, please login");
-          return; 
-          
+          return;
         } else {
           setEmailError("");
           return;
@@ -238,8 +244,6 @@ function Login1() {
     setPhoneNumber(ev.target.value);
     if (/\S+@\S+\.\S+/.test(ev.target.value)) {
       setEmailError("");
-
-
     } else {
       setEmailError("Please type a valid email");
     }
@@ -251,7 +255,6 @@ function Login1() {
     }
 
     // Check if password contains at least 1 Uppercase letter
-    
 
     // Check if password contains at least 1 number
     if (!/[0-9]/.test(password)) {
@@ -306,198 +309,214 @@ function Login1() {
   };
   return (
     <>
-      <Header whiteMode showCloseBtn transparent={true} />
-      <div
-        id="appCapsule"
-        className="bg-g login"
-        style={{ minHeight: "100vh" }}
-      >
-        {showWelcomeCirclesModal && (
-          <WelcomeCirclesModal
-            show={showWelcomeCirclesModal}
-            onClose={() => setShowWelcomeCirclesModal(false)}
-          />
-        )}
-        <img src={"assets/img/logo2.png"} alt="logo" className="logo mt-0" />
-        <p className="header-text mt-4 white">Create your HERO Account</p>
-        <div className="flex-center flex-col">
-          <GoogleLogin
-            clientId={clientId}
-            buttonText="Sign in with Google"
-            onSuccess={onSuccess}
-            onFailure={onFailure}
-            cookiePolicy={"single_host_origin"}
-            isSignedIn={false}
-            className="google-btn"
-          />
+      {isLoading === 0 && <Header whiteMode showCloseBtn transparent={true} />}
+      {isLoading !== 0 && (
+        <div
+          id="appCapsule"
+          className="bg-g login flex-center"
+          style={{ minHeight: "100vh" }}
+        >
+          <LoadingSpinner />
         </div>
-        <div className="or">
-          <hr className="hr bg-white" />
-          <span className="white m-3">OR</span>
-          <hr className="hr bg-white" />
-        </div>
-        <div className="flex-center">
-          <form id="login-form">
-            <div className="form-group boxed">
-              <div className="input-wrapper">
-                <label className="label mb-3" htmlFor="text4b">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email4b"
-                  placeholder="Your email"
-                  value={phoneNumber}
-                  onChange={(ev) => onChangeEmail(ev)}
-                  onBlur={() => EmailExis()}
-                />
-                <i className="clear-input">
-                  <ion-icon
-                    name="close-circle"
-                    role="img"
-                    class="md hydrated"
-                    aria-label="close circle"
-                  ></ion-icon>
-                </i>
+      )}
+      {isLoading === 0 && (
+        <div
+          id="appCapsule"
+          className="bg-g login"
+          style={{ minHeight: "100vh" }}
+        >
+          {showWelcomeCirclesModal && (
+            <WelcomeCirclesModal
+              show={showWelcomeCirclesModal}
+              onClose={() => setShowWelcomeCirclesModal(false)}
+            />
+          )}
+          <img src={"assets/img/logo2.png"} alt="logo" className="logo mt-0" />
+          <p className="header-text mt-4 white">Create your HERO Account</p>
+          <div className="flex-center flex-col">
+            <GoogleLogin
+              clientId={clientId}
+              buttonText="Sign in with Google"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={"single_host_origin"}
+              isSignedIn={false}
+              className="google-btn"
+            />
+          </div>
+          <div className="or">
+            <hr className="hr bg-white" />
+            <span className="white m-3">OR</span>
+            <hr className="hr bg-white" />
+          </div>
+          <div className="flex-center">
+            <form id="login-form">
+              <div className="form-group boxed">
+                <div className="input-wrapper">
+                  <label className="label mb-3" htmlFor="text4b">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email4b"
+                    placeholder="Your email"
+                    value={phoneNumber}
+                    onChange={(ev) => onChangeEmail(ev)}
+                    onBlur={() => EmailExis()}
+                  />
+                  <i className="clear-input">
+                    <ion-icon
+                      name="close-circle"
+                      role="img"
+                      class="md hydrated"
+                      aria-label="close circle"
+                    ></ion-icon>
+                  </i>
+                </div>
+                {EmailError && <h6 className="error-message">{EmailError}</h6>}
               </div>
-              {EmailError && <h6 className="error-message">{EmailError}</h6>}
-            </div>
 
-            <div className="form-group boxed">
-              <div className="input-wrapper">
-                <label className="label mb-3" htmlFor="text4b">
-                  Password
-                  <br />
-                  <small className="mt-3">
-                    Your password must be at least 8 characters
-                    <br /> and should include a combination of letters and
-                     
-                    <br /> minimum one number and at least one special character
-                    (!$@%+-*/)
-                  </small>
-                </label>
-                <input
-                  type="password"
-                  autoComplete="off"
-                  className="form-control"
-                  id="password4b"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(ev) => onChangePassword(ev)}
-                />
-                <i className="clear-input">
-                  <ion-icon
-                    name="close-circle"
-                    role="img"
-                    className="md hydrated"
-                    aria-label="close circle"
-                  ></ion-icon>
-                </i>
+              <div className="form-group boxed">
+                <div className="input-wrapper">
+                  <label className="label mb-3" htmlFor="text4b">
+                    Password
+                    <br />
+                    <small className="mt-3">
+                      Your password must be at least 8 characters
+                      <br /> and should include a combination of letters and
+                      <br /> minimum one number and at least one special
+                      character (!$@%+-*/)
+                    </small>
+                  </label>
+                  <input
+                    type="password"
+                    autoComplete="off"
+                    className="form-control"
+                    id="password4b"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(ev) => onChangePassword(ev)}
+                  />
+                  <i className="clear-input">
+                    <ion-icon
+                      name="close-circle"
+                      role="img"
+                      className="md hydrated"
+                      aria-label="close circle"
+                    ></ion-icon>
+                  </i>
+                </div>
+                {passwordError && (
+                  <h6 className="error-message">{passwordError}</h6>
+                )}
               </div>
-              {passwordError && (
-                <h6 className="error-message">{passwordError}</h6>
-              )}
-            </div>
 
-            <div className="form-group boxed">
-              <div className="input-wrapper">
-                <label className="label mb-3" htmlFor="text4b">
-                  Confirm your password
-                </label>
-                <input
-                  type="password"
-                  autoComplete="off"
-                  className="form-control"
-                  id="password4b"
-                  placeholder="Type your password again"
-                  value={rePassword}
-                  onChange={(ev) => onChangeRePassword(ev)}
-                />
-                <i className="clear-input">
-                  <ion-icon
-                    name="close-circle"
-                    role="img"
-                    className="md hydrated"
-                    aria-label="close circle"
-                  ></ion-icon>
-                </i>
+              <div className="form-group boxed">
+                <div className="input-wrapper">
+                  <label className="label mb-3" htmlFor="text4b">
+                    Confirm your password
+                  </label>
+                  <input
+                    type="password"
+                    autoComplete="off"
+                    className="form-control"
+                    id="password4b"
+                    placeholder="Type your password again"
+                    value={rePassword}
+                    onChange={(ev) => onChangeRePassword(ev)}
+                  />
+                  <i className="clear-input">
+                    <ion-icon
+                      name="close-circle"
+                      role="img"
+                      className="md hydrated"
+                      aria-label="close circle"
+                    ></ion-icon>
+                  </i>
+                </div>
+                {rePasswordError && (
+                  <h6 className="error-message">{rePasswordError}</h6>
+                )}
               </div>
-              {rePasswordError && (
-                <h6 className="error-message">{rePasswordError}</h6>
-              )}
-            </div>
-            <div className="form-group boxed">
-              <div className="input-wrapper">
-                <label className="label mb-3" htmlFor="text4b">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  autoComplete="off"
-                  className="form-control"
-                  id="password4b"
-                  placeholder="First Name Last Name"
-                  value={HeroID}
-                  onChange={(ev) => onChangeFullName(ev)}
-                />
-                <i className="clear-input">
-                  <ion-icon
-                    name="close-circle"
-                    role="img"
-                    className="md hydrated"
-                    aria-label="close circle"
-                  ></ion-icon>
-                </i>
+              <div className="form-group boxed">
+                <div className="input-wrapper">
+                  <label className="label mb-3" htmlFor="text4b">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    autoComplete="off"
+                    className="form-control"
+                    id="password4b"
+                    placeholder="First Name Last Name"
+                    value={HeroID}
+                    onChange={(ev) => onChangeFullName(ev)}
+                  />
+                  <i className="clear-input">
+                    <ion-icon
+                      name="close-circle"
+                      role="img"
+                      className="md hydrated"
+                      aria-label="close circle"
+                    ></ion-icon>
+                  </i>
+                </div>
+                {fullnameError && (
+                  <h6 className="error-message">{fullnameError}</h6>
+                )}
               </div>
-              {fullnameError && (
-                <h6 className="error-message">{fullnameError}</h6>
-              )}
-            </div>
-            <div className="form-check p-0 mt-2">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="customCheckb1"
-              />
-              <label className="form-check-label white" htmlFor="customCheckb1">
-                Make my subscription private
-              </label>
-            </div>
-            <div className="form-check p-0 mt-2">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="customCheckb2"
-                value={checked}
-                onChange={(ev) => onChangeChecked(ev)}
-              />
-              <label className="form-check-label white" htmlFor="customCheckb2">
-                I agree to the{" "}
-                <a
-                  href="https://herolabsco.notion.site/Terms-of-Use-2ad8469c5f5e414eab44966ed5ec1627"
-                  style={{ textDecoration: "underline" }}
+              <div className="form-check p-0 mt-2">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="customCheckb1"
+                />
+                <label
+                  className="form-check-label white"
+                  htmlFor="customCheckb1"
                 >
-                  HERO Terms of Use
-                </a>
-              </label>
-              {checkedError && (
-                <h6 className="error-message">{checkedError}</h6>
-              )}
-            </div>
+                  Make my subscription private
+                </label>
+              </div>
+              <div className="form-check p-0 mt-2">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="customCheckb2"
+                  value={checked}
+                  onChange={(ev) => onChangeChecked(ev)}
+                />
+                <label
+                  className="form-check-label white"
+                  htmlFor="customCheckb2"
+                >
+                  I agree to the{" "}
+                  <a
+                    href="https://herolabsco.notion.site/Terms-of-Use-2ad8469c5f5e414eab44966ed5ec1627"
+                    style={{ textDecoration: "underline" }}
+                  >
+                    HERO Terms of Use
+                  </a>
+                </label>
+                {checkedError && (
+                  <h6 className="error-message">{checkedError}</h6>
+                )}
+              </div>
 
-            <button
-              id="whiteBlueBtn"
-              type="button"
-              className="btn btn-primary rounded font-size-btn mt-4 mb-4 "
-              /*onClick={() => setShowWelcomeCirclesModal(true)} */
-              onClick={(e) => validate(e)}
-            >
-              Subscribe
-            </button>
-          </form>
+              <button
+                id="whiteBlueBtn"
+                type="button"
+                className="btn btn-primary rounded font-size-btn mt-4 mb-4 "
+                /*onClick={() => setShowWelcomeCirclesModal(true)} */
+                onClick={(e) => validate(e)}
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
