@@ -53,7 +53,7 @@ function FindCircle3(props) {
           <div className="feed2" style={{ minHeight: "90vh!important" }}>
             <video preLoad="none" playsInline id="2"   muted={muted} poster="assets/img/C0502 1.png">
             <source
-              src={"assets/videos/" + "howHeroWorks.mp4"}
+              src={"assets/videos/" + "howHeroWorks_Trim.mp4"}
               type="video/mp4"
             />
             </video>
