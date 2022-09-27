@@ -239,7 +239,7 @@ function Login1() {
    
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
-      EmailExis();
+      await EmailExis();
     } else {
       setEmailError("Please type a valid email");
       x = false;
