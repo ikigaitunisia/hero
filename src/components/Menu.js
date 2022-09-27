@@ -82,6 +82,12 @@ function Menu(props) {
       window.sessionStorage.removeItem("access_token");
       window.sessionStorage.removeItem("nama");
       signOut();
+      onLogoutSuccess();
+      }
+      else
+      {
+        onLogoutSuccess();
+
       }
     } else {
       onLogoutSuccess();
