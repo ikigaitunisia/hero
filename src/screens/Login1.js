@@ -202,51 +202,8 @@ function Login1() {
 
   
   const validate = async (e) => {
-    let x = true;
-    console.log(password);
     
-    if (!checked) {
-      setCheckedError("You should accept the HERO Terms of Use");
-      x = false;
-    }
-
-    if (password == "") {
-      setPasswordError("Password is required");
-      x = false;
-    } else {
-      setPasswordError("");
-
-      if (password.length < 8) {
-        setPasswordError("Your password is not strong enough");
-        x = false;
-      } else {
-        setPasswordError("");
-        if (password !== rePassword) {
-          setRePasswordError("The passwords you entered do not match");
-          x = false;
-        } else {
-          setRePasswordError("");
-        }
-      }
-    }
-
-    if (HeroID == "") {
-      setFullnameError("Please enter your name");
-      x = false;
-    } else {
-      setFullnameError("");
-    }
-   
-    if (/\S+@\S+\.\S+/.test(phoneNumber)) {
-      setEmailError("");
-      EmailExis();
-    } else {
-      setEmailError("Please type a valid email");
-      x = false;
-    }
-    
-    console.log(EmailExist.found);
-    if (x == true && checked && !EmailExist.found && passwordError == "") {
+    if (checked && EmailError=="" && passwordError == "") {
       createWallet();
     }
   };
