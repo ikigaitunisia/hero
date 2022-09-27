@@ -206,9 +206,10 @@ function Login1() {
       })
       .then((K) => {
         console.log(K.data)
+        setEmailExist(K.data)
         if (K.data.found) {
           setEmailError("Account already exists, please login");
-          return true;
+          
         } else {
           setEmailError("");
           return false;
