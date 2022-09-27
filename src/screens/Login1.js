@@ -244,7 +244,7 @@ function Login1() {
       x = false;
     }
     EmailExis().then(() => {
-
+    console.log(EmailExist.found);
     if (x == true && checked && !EmailExist.found && passwordError == "") {
       createWallet();
     }
