@@ -271,8 +271,8 @@ function Login1() {
     }
     let found = await EmailExis();
     console.log(EmailExist);
-    
-    if (x == true && checked && EmailError!="" && passwordError == "") {
+
+    if (x == true && checked && !found.found && passwordError == "") {
       createWallet();
     }
   };
