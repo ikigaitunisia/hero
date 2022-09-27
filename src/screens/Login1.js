@@ -239,7 +239,20 @@ function Login1() {
    
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
-      EmailExis();
+      axios
+      .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
+        email: phoneNumber,
+      })
+      .then((K) => {
+        console.log(K.data)
+        setEmailExist(K.data)
+        if (K.data.found) {
+          setEmailError("Account already exists, please login");
+          
+        } else {
+          setEmailError("");
+        }
+      });
     } else {
       setEmailError("Please type a valid email");
       x = false;
