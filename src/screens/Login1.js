@@ -199,7 +199,7 @@ function Login1() {
         console.log(error);
       });
   };
-  const EmailExis = async() => {
+  const EmailExis = () => {
     axios
       .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
         email: phoneNumber,
@@ -263,14 +263,14 @@ function Login1() {
     } else {
       setFullnameError("");
     }
-
+    EmailExis();
     if (/\S+@\S+\.\S+/.test(phoneNumber)) {
       setEmailError("");
     } else {
       setEmailError("Please type a valid email");
       x = false;
     }
-    let found = await EmailExis();
+    
     console.log(EmailExist);
 
     if (x == true && checked && !EmailExist.found && passwordError == "") {
