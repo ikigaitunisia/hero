@@ -19,9 +19,8 @@ function MobilizerProfile(props) {
   const [Facebook, setFacebook] = useState("");
   const [Twitter, setTwitter] = useState("");
   const [TikTok, setTikTok] = useState("");
-  const [subbscibed,setSubbscibed] = useState(0);
+  const [subbscibed, setSubbscibed] = useState(0);
   const isSubscribed = async (email) => {
- 
     let K = await axios.post(
       "https://hegemony.donftify.digital:8080/supporter/get-subscriptions",
       {
@@ -58,19 +57,16 @@ function MobilizerProfile(props) {
 
   useEffect(() => {
     console.log("circle");
-  const user = JSON.parse(localStorage.getItem("user"));
-    
-  if (user != null) {
-    
-    isSubscribed(user.Email).then((response) => {
-      setSubbscibed(response.length);
-    });
-  }
-  else
-  {
-    setSubbscibed(0);
-  }
-}, []);
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (user != null) {
+      isSubscribed(user.Email).then((response) => {
+        setSubbscibed(response.length);
+      });
+    } else {
+      setSubbscibed(0);
+    }
+  }, []);
   useEffect(() => {
     axios
       .get(
@@ -79,7 +75,9 @@ function MobilizerProfile(props) {
       )
       .then((res) => {
         console.log(res.data);
-        let k = res.data.sort((a, b) => a.priority.low > b.priority.low ? 1 : -1)
+        let k = res.data.sort((a, b) =>
+          a.priority.low > b.priority.low ? 1 : -1
+        );
         setCurrentCircle(k[currentIndex]);
         console.log(k[currentIndex]);
         setMobilizers(k);
@@ -98,15 +96,13 @@ function MobilizerProfile(props) {
         }
         setLoad(true);
         const user = JSON.parse(localStorage.getItem("user"));
-       console.log(user);
-      if (user != null) {
-        
-        isSubscribed(user.Email).then((response) => {
-          setSubbscibed(response.length);
-        });
-      }
+        console.log(user);
+        if (user != null) {
+          isSubscribed(user.Email).then((response) => {
+            setSubbscibed(response.length);
+          });
+        }
       });
-      
   }, [currentIndex]);
   return (
     <>
@@ -118,7 +114,9 @@ function MobilizerProfile(props) {
             showMenuBtn
             whiteMode
             transparent
-            backTo={subbscibed==0 ? "/circle-feed" : "/circle-home"+circlename}
+            backTo={
+              subbscibed == 0 ? "/circle-feed" : "/circle-home" + circlename
+            }
           />
           <div
             id="appCapsule"
@@ -221,30 +219,32 @@ function MobilizerProfile(props) {
                 </div>
               </div>
             </div>
-            <div className="circle-feed-bottom mb-4">
-              <div style={{ display: "flex" }}>
-                {mobilizers.map((item, i) => {
-                  return (
-                    <div
-                      className={
-                        currentIndex === i ? "active-dot me-1" : "dot me-1"
-                      }
-                      key={i}
-                      onClick={goToNextCircle}
-                    ></div>
-                  );
-                })}
+            {mobilizers.length > 1 && (
+              <div className="circle-feed-bottom mb-4">
+                <div style={{ display: "flex" }}>
+                  {mobilizers.map((item, i) => {
+                    return (
+                      <div
+                        className={
+                          currentIndex === i ? "active-dot me-1" : "dot me-1"
+                        }
+                        key={i}
+                        onClick={goToNextCircle}
+                      ></div>
+                    );
+                  })}
+                </div>
+                {
+                  <button
+                    type="button"
+                    className="btn btn-icon rounded btn-primary social-btn"
+                    onClick={goToNextCircle}
+                  >
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </button>
+                }
               </div>
-              {
-                <button
-                  type="button"
-                  className="btn btn-icon rounded btn-primary social-btn"
-                  onClick={goToNextCircle}
-                >
-                  <ion-icon name="arrow-forward-outline"></ion-icon>
-                </button>
-              }
-            </div>
+            )}
           </div>
         </>
       )}

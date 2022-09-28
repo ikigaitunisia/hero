@@ -27,7 +27,8 @@ function Login1() {
   const [circle, setCircle] = useState("");
   const [checked, setChecked] = useState(false);
   const [EmailExist, setEmailExist] = useState({});
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [hiddenPassword, setHiddenPassword] = useState(true);
   const history = useHistory();
   const location = useLocation();
   const clientId =
@@ -159,7 +160,6 @@ function Login1() {
         HeroId: phoneNumber.split("@")[0],
       })
       .then(function (response) {
-        setIsLoading(2);
         localStorage.setItem(
           "user",
           JSON.stringify({ Email: phoneNumber, wallet: response.data })
@@ -182,6 +182,7 @@ function Login1() {
               customerId: customerId,
             })
             .then((res) => {
+              setIsLoading(2);
               console.log(res.data);
               window.location.href = res.data.url;
             })
@@ -366,14 +367,6 @@ function Login1() {
                     onChange={(ev) => onChangeEmail(ev)}
                     onBlur={() => EmailExis()}
                   />
-                  <i className="clear-input">
-                    <ion-icon
-                      name="close-circle"
-                      role="img"
-                      class="md hydrated"
-                      aria-label="close circle"
-                    ></ion-icon>
-                  </i>
                 </div>
                 {EmailError && <h6 className="error-message">{EmailError}</h6>}
               </div>
@@ -391,7 +384,7 @@ function Login1() {
                     </small>
                   </label>
                   <input
-                    type="password"
+                    type={hiddenPassword ? "password" : "text"}
                     autoComplete="off"
                     className="form-control"
                     id="password4b"
@@ -399,11 +392,14 @@ function Login1() {
                     value={password}
                     onChange={(ev) => onChangePassword(ev)}
                   />
-                  <i className="clear-input">
+                  <i
+                    className="clear-input"
+                    onClick={() => setHiddenPassword((current) => !current)}
+                  >
                     <ion-icon
-                      name="close-circle"
+                      name={hiddenPassword ? "eye-off" : "eye"}
                       role="img"
-                      className="md hydrated"
+                      className="md hydrated white"
                       aria-label="close circle"
                     ></ion-icon>
                   </i>
@@ -419,7 +415,7 @@ function Login1() {
                     Confirm your password
                   </label>
                   <input
-                    type="password"
+                    type={hiddenPassword ? "password" : "text"}
                     autoComplete="off"
                     className="form-control"
                     id="password4b"
@@ -427,11 +423,14 @@ function Login1() {
                     value={rePassword}
                     onChange={(ev) => onChangeRePassword(ev)}
                   />
-                  <i className="clear-input">
+                  <i
+                    className="clear-input"
+                    onClick={() => setHiddenPassword((current) => !current)}
+                  >
                     <ion-icon
-                      name="close-circle"
+                      name={hiddenPassword ? "eye-off" : "eye"}
                       role="img"
-                      className="md hydrated"
+                      className="md hydrated white"
                       aria-label="close circle"
                     ></ion-icon>
                   </i>
@@ -454,14 +453,6 @@ function Login1() {
                     value={HeroID}
                     onChange={(ev) => onChangeFullName(ev)}
                   />
-                  <i className="clear-input">
-                    <ion-icon
-                      name="close-circle"
-                      role="img"
-                      className="md hydrated"
-                      aria-label="close circle"
-                    ></ion-icon>
-                  </i>
                 </div>
                 {fullnameError && (
                   <h6 className="error-message">{fullnameError}</h6>

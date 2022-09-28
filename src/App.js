@@ -71,10 +71,10 @@ function App() {
           exact
           component={MobilizerProfile}
         />
-        <Route path="/circle-updates" exact component={CircleUpdates} />
-        <Route path="/circle-videos" exact component={CircleVideos} />
+        <Route path="/circle-updates:circlename" exact component={CircleUpdates} />
+        <Route path="/circle-videos:circlename" exact component={CircleVideos} />
         <Route
-          path="/circle-interactions"
+          path="/circle-interactions:circlename"
           exact
           component={CircleInteractions}
         />

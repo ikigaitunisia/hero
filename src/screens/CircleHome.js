@@ -65,7 +65,7 @@ function CircleHome(props) {
         title={currentCircle.name}
         showBackBtn
         showMenuBtn
-        backTo={"/welcome-circle:" + circlename}
+        backTo={"/welcome-circle:" + circlename.replace(":", "")}
       />
       <div id="appCapsule" className="circle-home pt-0">
         <div id="bg-img" className="flex-center">
@@ -113,7 +113,7 @@ function CircleHome(props) {
               </div>
               <div
                 className="flex-center flex-col me-2"
-                onClick={() => history.push("/circle-videos")}
+                onClick={() => history.push("/circle-videos" + circlename)}
               >
                 <ion-icon
                   src="assets/img/svg/icon8.svg"
@@ -123,7 +123,7 @@ function CircleHome(props) {
               </div>
               <div
                 className="flex-center flex-col"
-                onClick={() => history.push("/circle-interactions")}
+                onClick={() => history.push("/circle-interactions" + circlename)}
               >
                 <ion-icon
                   src="assets/img/svg/icon9.svg"

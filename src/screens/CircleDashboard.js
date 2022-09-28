@@ -80,24 +80,24 @@ client.onmessage = (message) => {
         showMenuBtn
         transparent
         whiteMode
-        backTo={"/circle-home"}
+        backTo={"/circle-home" + circlename}
       />
       <div id="appCapsule" className="circles-updates">
         <div className="mt-4">
           <ion-icon
             src="assets/img/svg/icon18.svg"
             class="mb-2 icon-btn me-2"
-            onClick={() => history.push("/circle-updates")}
+            onClick={() => history.push("/circle-updates" + circlename)}
           ></ion-icon>
           <ion-icon
             src="assets/img/svg/icon16.svg"
             class="mb-2 icon-btn me-2"
-            onClick={() => history.push("/circle-videos")}
-          ></ion-icon>
+            onClick={() => history.push("/circle-videos" + circlename)}
+            ></ion-icon>
           <ion-icon
             src="assets/img/svg/icon17.svg"
             class="mb-2 icon-btn me-2"
-            onClick={() => history.push("/circle-interactions")}
+            onClick={() => history.push("/circle-interactions" + circlename)}
           ></ion-icon>
         </div>
         <div className="section mt-2">

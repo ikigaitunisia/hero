@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import "./CircleVideos.css";
 
 function CircleVideos(props) {
+  const { circlename } = useParams();
   const videos = [
     {
       id: 1,
@@ -59,24 +60,24 @@ function CircleVideos(props) {
         showMenuBtn
         transparent
         whiteMode
-        backTo={"/circle-home:Hero%20UK%20Climate%20Justice%20Circle"}
+        backTo={"/circle-home"}
       />
       <div id="appCapsule" className="circle-videos">
         <div className="mt-4">
           <ion-icon
             src="assets/img/svg/icon24.svg"
             class="mb-2 icon-btn me-2"
-            onClick={() => history.push("/circle-updates:Hero%20UK%20Climate%20Justice%20Circle")}
+            onClick={() => history.push("/circle-updates" + circlename)}
           ></ion-icon>
           <ion-icon
             src="assets/img/svg/icon22.svg"
             class="mb-2 icon-btn me-2"
-            onClick={() => history.push("/circle-videos")}
-          ></ion-icon>
+            onClick={() => history.push("/circle-videos" + circlename)}
+            ></ion-icon>
           <ion-icon
             src="assets/img/svg/icon17.svg"
             class="mb-2 icon-btn me-2"
-            onClick={() => history.push("/circle-interactions")}
+            onClick={() => history.push("/circle-interactions" + circlename)}
           ></ion-icon>
         </div>
         {/*<div className="section mt-2">

@@ -14,18 +14,19 @@ function EditPassword(props) {
   const [currentPassword, setCurrentPassword] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
-  const [errormessage,setErrormessage] = useState(false);
+  const [errormessage, setErrormessage] = useState(false);
   const [currentPasswordError, setCurrentPasswordError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [rePasswordError, setRePasswordError] = useState("");
+  const [hiddenCurrentPassword, setHiddenCurrentPassword] = useState(true);
+  const [hiddenNewPassword, setHiddenNewPassword] = useState(true);
+  const [hiddenNewRePassword, setHiddenNewRePassword] = useState(true);
 
   const [success, setSuccess] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
 
-
   const onChangeCurrentPassword = (ev) => {
     setCurrentPassword(ev.target.value);
-    
   };
   const onChangePassword = (ev) => {
     setPassword(ev.target.value);
@@ -55,27 +56,27 @@ function EditPassword(props) {
     }
   };
   const updateUserPassword = () => {
-
     axios
-        .post("https://hegemony.donftify.digital:8080/supporter/change-password", {
-          email : user.Email,
-     oldPassword : currentPassword,
-     newPassword : password
-        })
-        .then(function (response) {
-          setSuccess(true);
-          setErrormessage(false);
-          setPassword("");
-          setRePassword("");
-          setCurrentPassword("");
-        })
-        .catch(function (error) {
-          //handle error here
-          setSuccess(false);
-          setErrormessage(true);
-        });
-    
-
+      .post(
+        "https://hegemony.donftify.digital:8080/supporter/change-password",
+        {
+          email: user.Email,
+          oldPassword: currentPassword,
+          newPassword: password,
+        }
+      )
+      .then(function (response) {
+        setSuccess(true);
+        setErrormessage(false);
+        setPassword("");
+        setRePassword("");
+        setCurrentPassword("");
+      })
+      .catch(function (error) {
+        //handle error here
+        setSuccess(false);
+        setErrormessage(true);
+      });
   };
   return (
     <>
@@ -126,15 +127,25 @@ function EditPassword(props) {
                       Current Password
                     </label>
                     <input
-                      type="password"
+                      type={hiddenCurrentPassword ? "password" : "text"}
                       className="form-control"
                       id="text4b"
                       placeholder=""
                       value={currentPassword}
                       onChange={(ev) => onChangeCurrentPassword(ev)}
                     />
-                    <i className="clear-input">
-                      <ion-icon name="close-circle"></ion-icon>
+                    <i
+                      className="clear-input"
+                      onClick={() =>
+                        setHiddenCurrentPassword((current) => !current)
+                      }
+                    >
+                      <ion-icon
+                        name={hiddenCurrentPassword ? "eye-off" : "eye"}
+                        role="img"
+                        className="md hydrated white"
+                        aria-label="close circle"
+                      ></ion-icon>
                     </i>
                   </div>
                   {currentPasswordError && (
@@ -147,15 +158,25 @@ function EditPassword(props) {
                       New Password
                     </label>
                     <input
-                      type="password"
+                      type={hiddenNewPassword ? "password" : "text"}
                       className="form-control"
                       id="text4b"
                       placeholder=""
                       value={password}
                       onChange={(ev) => onChangePassword(ev)}
                     />
-                    <i className="clear-input">
-                      <ion-icon name="close-circle"></ion-icon>
+                    <i
+                      className="clear-input"
+                      onClick={() =>
+                        setHiddenNewPassword((current) => !current)
+                      }
+                    >
+                      <ion-icon
+                        name={hiddenNewPassword ? "eye-off" : "eye"}
+                        role="img"
+                        className="md hydrated white"
+                        aria-label="close circle"
+                      ></ion-icon>
                     </i>
                   </div>
                   {passwordError && (
@@ -168,15 +189,25 @@ function EditPassword(props) {
                       Confirm New Password
                     </label>
                     <input
-                      type="password"
+                      type={hiddenNewRePassword ? "password" : "text"}
                       className="form-control"
                       id="text4b"
                       placeholder=""
                       value={rePassword}
                       onChange={(ev) => onChangeRePassword(ev)}
                     />
-                    <i className="clear-input">
-                      <ion-icon name="close-circle"></ion-icon>
+                    <i
+                      className="clear-input"
+                      onClick={() =>
+                        setHiddenNewRePassword((current) => !current)
+                      }
+                    >
+                      <ion-icon
+                        name={hiddenNewRePassword ? "eye-off" : "eye"}
+                        role="img"
+                        className="md hydrated white"
+                        aria-label="close circle"
+                      ></ion-icon>
                     </i>
                   </div>
                   {rePasswordError && (
@@ -214,7 +245,7 @@ function EditPassword(props) {
                   Thank you, your password has been updated
                 </Alert>
               )}
-               {errormessage && (
+              {errormessage && (
                 <Alert
                   severity="error"
                   color="error"
