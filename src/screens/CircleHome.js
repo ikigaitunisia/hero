@@ -200,7 +200,7 @@ function CircleHome(props) {
               <br /> recently joined this circle.
             </span>
             <hr className="hr mt-4 mb-4" />
-            {showSwipe > 0 &&
+            {showSwipe  &&
             <h6 id="bottom-text">
               Swipe right to move between circles you support
             </h6>
