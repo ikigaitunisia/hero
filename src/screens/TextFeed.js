@@ -56,11 +56,11 @@ function TextFeed(props) {
               <span className="me-2">0</span>
             </div>
             <div className="flex-center flex-row">
-              <ion-icon
-                src="assets/img/svg/icon21.svg"
+              <img
+                src="assets/img/image13.png"
                 style={{ width: "15px", height: "15px" }}
-                class="me-1"
-              ></ion-icon>
+                className="me-1"
+              />
               <span>0</span>
             </div>
           </div>
