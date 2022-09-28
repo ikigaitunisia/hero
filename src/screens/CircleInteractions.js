@@ -17,14 +17,14 @@ function CircleInteractions(props) {
         showMenuBtn
         transparent
         whiteMode
-        backTo={"/circle-home:Hero%20UK%20Climate%20Justice%20Circle"}
+        backTo={"/circle-home" + circlename}
       />
       <div id="appCapsule" className="circle-interactions">
         <div className="mt-4">
           <ion-icon
             src="assets/img/svg/icon24.svg"
             class="mb-2 icon-btn me-2"
-            onClick={() => history.push("/circle-updates:Hero%20UK%20Climate%20Justice%20Circle")}
+            onClick={() => history.push("/circle-updates" + circlename)}
           ></ion-icon>
           <ion-icon
             src="assets/img/svg/icon16.svg"
@@ -34,7 +34,7 @@ function CircleInteractions(props) {
           <ion-icon
             src="assets/img/svg/icon23.svg"
             class="mb-2 icon-btn me-2"
-            onClick={() => history.push("/circle-interactions")}
+            onClick={() => history.push("/circle-interactions" + circlename)}
           ></ion-icon>
         </div>
         <div className="section mt-2">

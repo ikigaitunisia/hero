@@ -123,7 +123,7 @@ function CircleHome(props) {
               </div>
               <div
                 className="flex-center flex-col"
-                onClick={() => history.push("/circle-interactions")}
+                onClick={() => history.push("/circle-interactions" + circlename)}
               >
                 <ion-icon
                   src="assets/img/svg/icon9.svg"

@@ -67,7 +67,7 @@ function CircleVideos(props) {
           <ion-icon
             src="assets/img/svg/icon24.svg"
             class="mb-2 icon-btn me-2"
-            onClick={() => history.push("/circle-updates:Hero%20UK%20Climate%20Justice%20Circle")}
+            onClick={() => history.push("/circle-updates" + circlename)}
           ></ion-icon>
           <ion-icon
             src="assets/img/svg/icon22.svg"
@@ -77,7 +77,7 @@ function CircleVideos(props) {
           <ion-icon
             src="assets/img/svg/icon17.svg"
             class="mb-2 icon-btn me-2"
-            onClick={() => history.push("/circle-interactions")}
+            onClick={() => history.push("/circle-interactions" + circlename)}
           ></ion-icon>
         </div>
         {/*<div className="section mt-2">
