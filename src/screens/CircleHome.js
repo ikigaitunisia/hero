@@ -89,7 +89,7 @@ function CircleHome(props) {
      <>
       <Header
         showTitlePage
-        title={currentCircle.grName}
+        title={currentCircle.grName.replace("Hero","")}
         showBackBtn
         showMenuBtn
         backTo={"/welcome-circle:" + circlename.replace(":", "")}
