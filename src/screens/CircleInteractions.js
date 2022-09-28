@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import "./CircleInteractions.css";
 
 function CircleInteractions(props) {
   const history = useHistory();
+  const { circlename } = useParams();
 
   return (
     <>
@@ -28,8 +29,8 @@ function CircleInteractions(props) {
           <ion-icon
             src="assets/img/svg/icon16.svg"
             class="mb-2 icon-btn me-2"
-            onClick={() => history.push("/circle-videos")}
-          ></ion-icon>
+            onClick={() => history.push("/circle-videos" + circlename)}
+            ></ion-icon>
           <ion-icon
             src="assets/img/svg/icon23.svg"
             class="mb-2 icon-btn me-2"
