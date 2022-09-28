@@ -197,7 +197,7 @@ function CircleUpdates(props) {
         showMenuBtn
         transparent
         whiteMode
-        backTo={"/circle-home/"+ circlename}
+        backTo={"/circle-home"+ circlename}
       />
       <div id="appCapsule" className="circles-updates">
         <div className="mt-4">

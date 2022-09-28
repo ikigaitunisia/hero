@@ -5,11 +5,17 @@ import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 function CircleHome(props) {
+  const [load,setLoad] = useState(false);
+
+  const [test,setTest] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentCircle, setCurrentCircle] = useState({});
   const history = useHistory();
   const user = JSON.parse(localStorage.getItem("user"));
 
   const { circlename } = useParams();
-  const [circles,setCircles] = useState([]);
+  const [ circles , setCircles] = useState([]);
+
   /*const circles = [
     {
       id: "1",
@@ -19,9 +25,6 @@ function CircleHome(props) {
     },
    
   ];*/
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentCircle, setCurrentCircle] = useState(circles[0]);
-
   const goToNextCircle = () => {
     if (currentIndex === 2) {
       setCurrentIndex(0);
@@ -30,45 +33,68 @@ function CircleHome(props) {
     }
     setCurrentIndex(currentIndex + 1);
   };
-  const isSubscribed = (index) => {
-    console.log(circles[index]);
+
+  useEffect( () => {
+    
     if (user != null) {
-      let circle = circles[index];
+    
       axios
-        .post("https://hegemony.donftify.digital:8080/supporter/isSubscribed", {
+        .post("https://hegemony.donftify.digital:8080/supporter/get-subscriptions", {
           email: user.Email,
-          circlename: circlename,
         })
-        .then(function (response) {
-          console.log();
-          if (response.data.subscribed == 1) {
-            console.log("ok");
+        .then((response)=> {
+         
+          if (response.data.length == 1) {
+            let A = [];
+            response.data.map((item, i) => {
+              A.push(item);
+            });
+            console.log(A);
+            setCurrentCircle(A[currentIndex]);
+            setLoad(true);
+            setCircles(prevState => {
+              return (
+                
+                [...A]
+              );
+            });
+
+            if (A.toString() !== circles.toString())
+            {
+            setTest(test+1);
+            }
+            
+            return ;
+         
           } else {
-            //history.push("/circle-feed");
+            history.push("/circle-feed");
             console.log(user.Email);
             console.log(circlename);
+            return;
           }
+
         })
-        .catch(function (error) {
+        .catch((error) =>{
           //handle error here
           console.log(error);
         });
     }
-  };
-  useEffect(() => {
-    isSubscribed();
     setCurrentCircle(circles[currentIndex]);
-    
-  }, [currentIndex]);
+    console.log(circles);
+  }, [test]);
   return (
+    
     <>
+     {load &&
+     <>
       <Header
         showTitlePage
-        title={currentCircle.name}
+        title={currentCircle.grName}
         showBackBtn
         showMenuBtn
         backTo={"/welcome-circle:" + circlename.replace(":", "")}
       />
+     
       <div id="appCapsule" className="circle-home pt-0">
         <div id="bg-img" className="flex-center">
           {/*<img
@@ -90,7 +116,7 @@ function CircleHome(props) {
           </div>
           <div class="card-body flex-center flex-col mt-3">
             <h4 className="blue">Circle’s Objective</h4>
-            <p className="m-0">{currentCircle.description}</p>
+            <p className="m-0">{currentCircle.grDescription}</p>
             <hr className="hr mt-4 mb-4" />
             <div className="flex-center flex-row">
               <div
@@ -194,7 +220,10 @@ function CircleHome(props) {
         </div>
         */}
       </div>
+      </>
+}
     </>
+      
   );
 }
 
