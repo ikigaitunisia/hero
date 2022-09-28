@@ -9,7 +9,8 @@ function CircleHome(props) {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const { circlename } = useParams();
-  const circles = [
+  const [circles,setCircles] = useState([]);
+  /*const circles = [
     {
       id: "1",
       name: "Hero UK Climate Justice Circle",
@@ -17,7 +18,7 @@ function CircleHome(props) {
         "A future without fossil fuels and associated injustices",
     },
    
-  ];
+  ];*/
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCircle, setCurrentCircle] = useState(circles[0]);
 
@@ -57,6 +58,7 @@ function CircleHome(props) {
   useEffect(() => {
     isSubscribed();
     setCurrentCircle(circles[currentIndex]);
+    
   }, [currentIndex]);
   return (
     <>
