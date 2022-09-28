@@ -152,3 +152,9 @@
   padding-left: 10px!important;
   padding-right: 10px!important;
 }
+
+.login .clear-input {
+  display: flex!important;
+  color: white!important;
+  bottom: 3px!important;
+}
