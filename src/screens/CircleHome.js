@@ -10,6 +10,7 @@ function CircleHome(props) {
   const [test,setTest] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCircle, setCurrentCircle] = useState({});
+  const [showSwipe, setShowSwipe] = useState(false);
   const history = useHistory();
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -81,6 +82,10 @@ function CircleHome(props) {
     }
     setCurrentCircle(circles[currentIndex]);
     console.log(circles);
+    if(circles.length > 0)
+    {
+      setShowSwipe(true);
+    }
   }, [test]);
   return (
     
@@ -195,9 +200,11 @@ function CircleHome(props) {
               <br /> recently joined this circle.
             </span>
             <hr className="hr mt-4 mb-4" />
+            {showSwipe > 0 &&
             <h6 id="bottom-text">
               Swipe right to move between circles you support
             </h6>
+            }
           </div>
         </div>
         {/*
