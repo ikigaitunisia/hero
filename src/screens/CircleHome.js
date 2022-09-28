@@ -82,7 +82,7 @@ function CircleHome(props) {
     }
     setCurrentCircle(circles[currentIndex]);
     console.log(circles);
-    if(circles.length > 0)
+    if(circles.length > 1)
     {
       setShowSwipe(true);
     }
