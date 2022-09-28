@@ -65,7 +65,7 @@ function CircleHome(props) {
         title={currentCircle.name}
         showBackBtn
         showMenuBtn
-        backTo={"/welcome-circle:" + circlename}
+        backTo={"/welcome-circle:" + circlename.replace(":", "")}
       />
       <div id="appCapsule" className="circle-home pt-0">
         <div id="bg-img" className="flex-center">
