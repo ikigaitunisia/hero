@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Modal } from "bootstrap";
 import "./ClubSelectMembershipModal.css";
 import axios from "axios";
@@ -147,8 +147,8 @@ function ClubSelectMembershipModal(props) {
   };
   const setAddModalErrorMsg = () => {
     // scrolls the validation message into view, and the block: 'nearest' ensures it scrolls the modal and not the window
-    validationMessageRef.current.scrollTo(0, 1000)
-  }
+    validationMessageRef.current.scrollTo(0, 1000);
+  };
   return (
     <>
       <div
@@ -181,7 +181,11 @@ function ClubSelectMembershipModal(props) {
               </a>
             </div>
             {showAmountSelect && !showForm && !showWelcomeToClub && !showForm1 && (
-              <div id="amount-select" className="modal-body" ref={validationMessageRef}>
+              <div
+                id="amount-select"
+                className="modal-body"
+                ref={validationMessageRef}
+              >
                 <img src={"assets/img/logo2.png"} alt="logo" className="logo" />
                 <p className="header-text mt-4 white">
                   Choose your HERO Circle
@@ -216,6 +220,9 @@ function ClubSelectMembershipModal(props) {
                     <sup>€</sup>10<span>/mo</span>
                   </div>
                   <h6 className="mt-1">Access to Circle Updates</h6>
+                  <h6 className="italic">
+                    Follow the discussions at the front lines of climate action
+                  </h6>
                 </div>
                 <hr className="hr mt-2 mb-2" />
 
@@ -248,6 +255,9 @@ function ClubSelectMembershipModal(props) {
                     <sup>€</sup>20<span>/mo</span>
                   </div>
                   <h6 className="mt-1">Access to Circle Updates + Videos</h6>
+                  <h6 className="italic">
+                    Behind the scenes videos of campaigns and events
+                  </h6>
                 </div>
                 <hr className="hr mt-2 mb-2" />
 
@@ -284,9 +294,10 @@ function ClubSelectMembershipModal(props) {
                         className="form-control"
                         id="userid2"
                         value={overAmount}
-                        onChange={(ev) => validateAmount(ev.target.value) }
-                        onClick={() => {setOverAmount("");
-                        setAmount(50);
+                        onChange={(ev) => validateAmount(ev.target.value)}
+                        onClick={() => {
+                          setOverAmount("");
+                          setAmount(50);
                         }}
                         style={{
                           color: "white",
@@ -307,7 +318,10 @@ function ClubSelectMembershipModal(props) {
                     </div>
                   </div>
                   <h6 className="mt-1">
-                    Everything on HERO Advocate + Interactions
+                    Access to Circle Updates + Videos + Interactions{" "}
+                  </h6>
+                  <h6 className="italic">
+                    Everything you ever wanted to ask to those driving change
                   </h6>
                   {!validAmount && (
                     <h6 className="error-message">
