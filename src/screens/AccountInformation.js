@@ -87,6 +87,11 @@ function AccountInformation(props) {
       .then(function (response) {
         console.log(response.data);
         setSuccess(true);
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          left: 0,
+          behavior: 'smooth'
+        });
       });
   };
   useEffect(() => {
