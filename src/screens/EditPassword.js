@@ -71,11 +71,21 @@ function EditPassword(props) {
         setPassword("");
         setRePassword("");
         setCurrentPassword("");
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          left: 0,
+          behavior: 'smooth'
+        });
       })
       .catch(function (error) {
         //handle error here
         setSuccess(false);
         setErrormessage(true);
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          left: 0,
+          behavior: 'smooth'
+        });
       });
   };
   return (
