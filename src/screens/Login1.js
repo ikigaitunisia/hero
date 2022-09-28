@@ -160,7 +160,6 @@ function Login1() {
         HeroId: phoneNumber.split("@")[0],
       })
       .then(function (response) {
-        setIsLoading(2);
         localStorage.setItem(
           "user",
           JSON.stringify({ Email: phoneNumber, wallet: response.data })
@@ -183,6 +182,7 @@ function Login1() {
               customerId: customerId,
             })
             .then((res) => {
+              setIsLoading(2);
               console.log(res.data);
               window.location.href = res.data.url;
             })
