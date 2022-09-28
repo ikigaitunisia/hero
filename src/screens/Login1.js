@@ -206,13 +206,14 @@ function Login1() {
   };
 
   const validate = async (e) => {
-    setIsLoading(1);
+    
     if (
       checked &&
       EmailError == "" &&
       passwordError == "" &&
       fullnameError == ""
     ) {
+      setIsLoading(1);
       createWallet();
     }
   };
