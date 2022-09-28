@@ -377,10 +377,10 @@ function Login1() {
                     Password
                     <br />
                     <small className="mt-3">
-                      Your password must be at least 8 characters
-                      <br /> and should include a combination of letters and
-                      <br /> minimum one number and at least one special
-                      character (!$@%+-*/)
+                      Your password must be at least 8 characters <br /> and
+                      should include a combination of letters and
+                      <br /> at least one number and one special character
+                      (!$@%+-*/)
                     </small>
                   </label>
                   <input
