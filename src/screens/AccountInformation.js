@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import { useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
@@ -7,6 +7,7 @@ import axios from "axios";
 import Alert from "@mui/material/Alert";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import countryList from "react-select-country-list";
 
 function AccountInformation(props) {
   const history = useHistory();
@@ -21,7 +22,7 @@ function AccountInformation(props) {
   const [success, setSuccess] = useState(false);
   const [heroIdError, setHeroIdError] = useState("");
   const [emailError, setEmailError] = useState("");
-
+  const options = useMemo(() => countryList().getData(), []);
   const inputFilePhoto = useRef(null);
   const clickedFile = () => {
     inputFilePhoto.current.click();
@@ -245,9 +246,13 @@ function AccountInformation(props) {
                       value={livingCountry}
                       onChange={(ev) => setLivingCountry(ev.target.value)}
                     >
-                      <option value=""></option>
-                      <option value="Netherlands">Netherlands</option>
-                      <option value="France">France</option>
+                      {options.map((item) => {
+                        return (
+                          <option key={item.value} value={item.value}>
+                            {item.label}
+                          </option>
+                        );
+                      })}
                     </select>
                   </div>
                 </div>
