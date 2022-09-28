@@ -307,7 +307,7 @@ function Menu(props) {
                   className="item pt-0 pb-0"
                 >
                   <div className="in blue">
-                    <small>Terms of Service</small>
+                    <small>Terms of Use</small>
                   </div>
                 </a>
               </li>
