@@ -214,7 +214,9 @@ function Login1() {
       fullnameError == ""
     ) {
       setIsLoading(1);
+
       createWallet();
+      
     }
   };
   const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
