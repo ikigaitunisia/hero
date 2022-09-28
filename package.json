@@ -31,6 +31,7 @@
     "react-rounded-image": "^2.0.14",
     "react-router-dom": "^5.2.0",
     "react-scroll": "^1.8.7",
+    "react-select-country-list": "^2.2.3",
     "react-share": "^4.4.0",
     "react-toastbox": "^1.2.6",
     "styled-components": "^5.3.5",
