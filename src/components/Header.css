@@ -7,6 +7,7 @@
   font-size: 25px;
   font-weight: 700;
   line-height: 30.67px;
+  margin: 0;
 }
 
 .appHeader .left,
@@ -15,4 +16,22 @@
 }
 .appHeader {
   height: 86px !important;
+}
+
+@media screen and (max-width: 600px) {
+  .appHeader h3 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .appHeader h3 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .appHeader h3 {
+    font-size: 14px;
+  }
 }
