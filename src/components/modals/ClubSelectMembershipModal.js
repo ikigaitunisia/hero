@@ -16,6 +16,7 @@ function ClubSelectMembershipModal(props) {
     if (props.show) {
       const modal = new Modal(document.getElementById("clubSelectMembership"), {
         keyboard: false,
+        backdrop:false
       });
       if (modal) {
         modal.show();
@@ -33,18 +34,7 @@ function ClubSelectMembershipModal(props) {
     };
   }, [props.show]);
 
-  useEffect(() => {
-    return history.listen((location) => {
-      console.log(history);
 
-      if (history.action === "POP") {
-        if(here==1)
-        {
-       window.location.reload();
-        }
-      }
-    });
-  },[]);
   const [isLoading, setIsLoading] = useState(0);
   const [showAmountSelect, setShowAmountSelect] = useState(true);
   const [showForm, setShowForm] = useState(false);
@@ -192,7 +182,7 @@ function ClubSelectMembershipModal(props) {
         id="clubSelectMembership"
         tabIndex="-1"
         role="dialog"
-        backdrop={false}
+        backdrop="static"
       >
         <div className="modal-dialog" role="document">
           <div
