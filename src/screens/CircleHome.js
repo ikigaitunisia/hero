@@ -192,17 +192,17 @@ function CircleHome(props) {
             <h6>200 memberships left to complete this circle</h6>
             <div className="me-4 ml-4 mb-0">
               <img
-                src={Supporters[0].googleID == "" ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[0].profileImage : Supporters[0].profileImage}
+                src={Supporters[0].profileImage.indexOf("https") == -1 ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[0].profileImage : Supporters[0].profileImage}
                 alt="profile"
                 className="imaged w48 rounded m-2"
               />
               <img
-                src={Supporters[1].googleID == "" ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[1].profileImage : Supporters[1].profileImage}
+                src={Supporters[1].profileImage.indexOf("https") == -1 ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[1].profileImage : Supporters[1].profileImage}
                 alt="profile"
                 className="imaged w48 rounded m-2"
               />
               <img
-                src={Supporters[2].googleID == "" ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[2].profileImage : Supporters[2].profileImage}
+                src={Supporters[2].profileImage.indexOf("https") == -1  ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[2].profileImage : Supporters[2].profileImage}
                 alt="profile"
                 className="imaged w48 rounded m-2"
               />

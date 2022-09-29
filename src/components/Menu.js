@@ -44,7 +44,7 @@ function Menu(props) {
   };
   const goToProfil = () => {
     history.push("account-information");
-    window.location.reload(false);
+    window.location.reload();
   };
 
   useEffect(() => {
