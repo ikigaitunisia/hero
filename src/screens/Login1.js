@@ -9,6 +9,7 @@ import Header from "../components/Header";
 import "./Login1.css";
 import WelcomeCirclesModal from "../components/modals/WelcomeCirclesModal";
 import LoadingSpinner from "../components/LoadingSpinner";
+import { checkIsValidPassword } from "../util/functions";
 function Login1() {
   const [phoneNumber, setPhoneNumber] = useState();
   const [EmailError, setEmailError] = useState("");
@@ -206,7 +207,6 @@ function Login1() {
   };
 
   const validate = async (e) => {
-    
     if (
       checked &&
       EmailError == "" &&
@@ -216,7 +216,6 @@ function Login1() {
       setIsLoading(1);
 
       createWallet();
-      
     }
   };
   const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
@@ -253,35 +252,15 @@ function Login1() {
       setEmailError("Please type a valid email");
     }
   };
-  const passStreing = (password) => {
-    var k = true;
-    if (!/[a-z]/.test(password)) {
-      k = false;
-    }
 
-    // Check if password contains at least 1 Uppercase letter
-
-    // Check if password contains at least 1 number
-    if (!/[0-9]/.test(password)) {
-      k = false;
-    }
-    if (!/[!@$#\+\-\$%\^&\*/]/.test(password)) {
-      k = false;
-    }
-    if (password.length < 8) {
-      k = false;
-    }
-    return k;
-  };
   const onChangePassword = (ev) => {
     setPassword(ev.target.value);
-    console.log(passStreing(ev.target.value));
 
     if (ev.target.value == "") {
       setPasswordError("Password is required");
     } else {
       setPasswordError("");
-      if (!passStreing(ev.target.value)) {
+      if (!checkIsValidPassword(ev.target.value)) {
         setPasswordError("Your password is not strong enough");
       } else {
         setPasswordError("");
