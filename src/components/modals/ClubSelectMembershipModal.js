@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useHistory } from "react-router-dom";
 import WelcomeCirclesModal from "./WelcomeCirclesModal";
 import { editableInputTypes } from "@testing-library/user-event/dist/utils";
+import LoadingSpinner from "../LoadingSpinner";
 
 function ClubSelectMembershipModal(props) {
   const history = useHistory();
@@ -29,22 +30,18 @@ function ClubSelectMembershipModal(props) {
       setShowAmountSelect(true);
       setAmount(null);
     };
-
-    
-
   }, [props.show]);
 
   useEffect(() => {
-  return history.listen(location => {
-    console.log(history.action);
-  
+    return history.listen((location) => {
+      console.log(history.action);
 
-    if (history.action === 'POP') {
-      window.location.reload();
-    }
-  })
-
-})
+      if (history.action === "POP") {
+        window.location.reload();
+      }
+    });
+  });
+  const [isLoading, setIsLoading] = useState(0);
   const [showAmountSelect, setShowAmountSelect] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [showForm1, setShowForm1] = useState(false);
@@ -57,7 +54,7 @@ function ClubSelectMembershipModal(props) {
   const [overAmount, setOverAmount] = useState(50);
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   const validationMessageRef = useRef(null);
-  
+
   const chooseAmount = (a) => {
     if (amount) {
       setAmount(null);
@@ -103,6 +100,7 @@ function ClubSelectMembershipModal(props) {
       );
       window.location.reload();
     } else {
+      setIsLoading(1);
       await validate();
     }
   };
@@ -154,6 +152,7 @@ function ClubSelectMembershipModal(props) {
       })
       .then((res) => {
         console.log(res.data);
+        setIsLoading(2);
         window.location.href = res.data.url;
       })
       .catch((err) => {
@@ -195,258 +194,178 @@ function ClubSelectMembershipModal(props) {
                 ></ion-icon>
               </a>
             </div>
-            {showAmountSelect && !showForm && !showWelcomeToClub && !showForm1 && (
-              <div
-                id="amount-select"
-                className="modal-body"
-                ref={validationMessageRef}
-              >
-                <img src={"assets/img/logo2.png"} alt="logo" className="logo" />
-                <p className="header-text mt-4 white">
-                  Choose your HERO Circle
-                  <br /> Membership
-                </p>
-                <div className="button-wrapper mt-4">
-                  <button
-                    type="button"
-                    className={
-                      amount === 10
-                        ? "btn btn-outline-primary custom-btn-white me-1 mb-1 flex"
-                        : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
-                    }
-                    onClick={() => {
-                      setAmount(10);
-                      setValidAmount(true);
-                      setAddModalErrorMsg();
-                    }}
-                  >
-                    <img
-                      src={
-                        amount === 10
-                          ? "assets/img/heroLogoBlue.png"
-                          : "assets/img/heroLogoWhite.png"
-                      }
-                      alt="logo"
-                      className="logo"
-                    />
-                    <span>STARTER</span>
-                  </button>
-                  <div className="amount-div white mt-2">
-                    <sup>€</sup>10<span>/mo</span>
-                  </div>
-                  <h6 className="mt-1">Access to Circle Updates</h6>
-                  <h6 className="italic">
-                    Follow the discussions at the front lines of climate action
-                  </h6>
-                </div>
-                <hr className="hr mt-2 mb-2" />
-
-                <div className="button-wrapper mt-4">
-                  <button
-                    type="button"
-                    className={
-                      amount === 20
-                        ? "btn btn-outline-primary custom-btn-white me-1 mb-1 flex"
-                        : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
-                    }
-                    onClick={() => {
-                      setAmount(20);
-                      setValidAmount(true);
-                      setAddModalErrorMsg();
-                    }}
-                  >
-                    <img
-                      src={
-                        amount === 20
-                          ? "assets/img/heroLogoBlue.png"
-                          : "assets/img/heroLogoWhite.png"
-                      }
-                      alt="logo"
-                      className="logo"
-                    />
-                    <span>ADVOCATE</span>
-                  </button>
-                  <div className="amount-div white mt-2">
-                    <sup>€</sup>20<span>/mo</span>
-                  </div>
-                  <h6 className="mt-1">Access to Circle Updates + Videos</h6>
-                  <h6 className="italic">
-                    Behind the scenes videos of campaigns and events
-                  </h6>
-                </div>
-                <hr className="hr mt-2 mb-2" />
-
-                <div className="button-wrapper mt-4">
-                  <button
-                    type="button"
-                    className={
-                      amount === 50
-                        ? "btn btn-outline-primary custom-btn-white me-1 mb-1 flex"
-                        : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
-                    }
-                    onClick={() => setAmount(50)}
-                  >
-                    <img
-                      src={
-                        amount === 50
-                          ? "assets/img/heroLogoBlue.png"
-                          : "assets/img/heroLogoWhite.png"
-                      }
-                      alt="logo"
-                      className="logo"
-                    />
-                    <span>CHANGER</span>
-                  </button>
-                  <h6 className="mt-1">
-                    You can choose the monthly amount
-                    <br /> you want to contribute, starting at €50
-                  </h6>
-                  <div className="form-group basic animated">
-                    <div className="input-wrapper">
-                      <span>€</span>
-                      <input
-                        type="number"
-                        className="form-control"
-                        id="userid2"
-                        value={overAmount}
-                        onChange={(ev) => validateAmount(ev.target.value)}
-                        onClick={() => {
-                          setOverAmount("");
-                          setAmount(50);
-                        }}
-                        style={{
-                          color: "white",
-                          fontSize: 25,
-                          textAlign: "center",
-                        }}
-                        //disabled={amount !== 50 ? "disabled" : ""}
-                      />
-                      <i className="clear-input">
-                        <ion-icon
-                          name="close-circle"
-                          role="img"
-                          class="md hydrated"
-                          aria-label="close circle"
-                        ></ion-icon>
-                      </i>
-                      <span>/mo</span>
-                    </div>
-                  </div>
-                  <h6 className="mt-1">
-                    Access to Circle Updates + Videos + Interactions{" "}
-                  </h6>
-                  <h6 className="italic">
-                    Everything you ever wanted to ask to those driving change
-                  </h6>
-                  {!validAmount && (
-                    <h6 className="error-message">
-                      Please input an amont above € 50{" "}
-                    </h6>
-                  )}
-                </div>
-                <button
-                  type="button"
-                  className="btn btn-icon rounded btn-primary submit-btn-rounded me-1 mb-1 mt-4"
-                  onClick={confirmAmount}
+            {showAmountSelect &&
+              !showForm &&
+              !showWelcomeToClub &&
+              !showForm1 &&
+              isLoading === 0 && (
+                <div
+                  id="amount-select"
+                  className="modal-body"
+                  ref={validationMessageRef}
                 >
-                  <ion-icon
-                    src="assets/img/svg/next.svg"
-                    style={{ color: "blue" }}
-                  ></ion-icon>
-                </button>
-              </div>
-            )}
-            {/*showForm && !showWelcomeToClub && (
-              <div id="form" className="modal-body">
-                <img
-                  src={"assets/img/heroLogo.png"}
-                  alt="logo"
-                  className="logo"
-                />
-                <p className="header-text mt-4 mb-1">Action is your power!</p>
-                <p>
-                  Please leave us your details so that we
-                  <br />
-                  can send you a link for our launch!*
-                </p>
-                <div className="section">
-                  <form id="white-form">
-                    <div className="form-group basic">
-                      <label className="label">Your Name</label>
-                      <div className="input-group mb-2">
+                  <img
+                    src={"assets/img/logo2.png"}
+                    alt="logo"
+                    className="logo"
+                  />
+                  <p className="header-text mt-4 white">
+                    Choose your HERO Circle
+                    <br /> Membership
+                  </p>
+                  <div className="button-wrapper mt-4">
+                    <button
+                      type="button"
+                      className={
+                        amount === 10
+                          ? "btn btn-outline-primary custom-btn-white me-1 mb-1 flex"
+                          : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
+                      }
+                      onClick={() => {
+                        setAmount(10);
+                        setValidAmount(true);
+                        setAddModalErrorMsg();
+                      }}
+                    >
+                      <img
+                        src={
+                          amount === 10
+                            ? "assets/img/heroLogoBlue.png"
+                            : "assets/img/heroLogoWhite.png"
+                        }
+                        alt="logo"
+                        className="logo"
+                      />
+                      <span>STARTER</span>
+                    </button>
+                    <div className="amount-div white mt-2">
+                      <sup>€</sup>10<span>/mo</span>
+                    </div>
+                    <h6 className="mt-1">Access to Circle Updates</h6>
+                    <h6 className="italic">
+                      Follow the discussions at the front lines of climate
+                      action
+                    </h6>
+                  </div>
+                  <hr className="hr mt-2 mb-2" />
+
+                  <div className="button-wrapper mt-4">
+                    <button
+                      type="button"
+                      className={
+                        amount === 20
+                          ? "btn btn-outline-primary custom-btn-white me-1 mb-1 flex"
+                          : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
+                      }
+                      onClick={() => {
+                        setAmount(20);
+                        setValidAmount(true);
+                        setAddModalErrorMsg();
+                      }}
+                    >
+                      <img
+                        src={
+                          amount === 20
+                            ? "assets/img/heroLogoBlue.png"
+                            : "assets/img/heroLogoWhite.png"
+                        }
+                        alt="logo"
+                        className="logo"
+                      />
+                      <span>ADVOCATE</span>
+                    </button>
+                    <div className="amount-div white mt-2">
+                      <sup>€</sup>20<span>/mo</span>
+                    </div>
+                    <h6 className="mt-1">Access to Circle Updates + Videos</h6>
+                    <h6 className="italic">
+                      Behind the scenes videos of campaigns and events
+                    </h6>
+                  </div>
+                  <hr className="hr mt-2 mb-2" />
+
+                  <div className="button-wrapper mt-4">
+                    <button
+                      type="button"
+                      className={
+                        amount === 50
+                          ? "btn btn-outline-primary custom-btn-white me-1 mb-1 flex"
+                          : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
+                      }
+                      onClick={() => setAmount(50)}
+                    >
+                      <img
+                        src={
+                          amount === 50
+                            ? "assets/img/heroLogoBlue.png"
+                            : "assets/img/heroLogoWhite.png"
+                        }
+                        alt="logo"
+                        className="logo"
+                      />
+                      <span>CHANGER</span>
+                    </button>
+                    <h6 className="mt-1">
+                      You can choose the monthly amount
+                      <br /> you want to contribute, starting at €50
+                    </h6>
+                    <div className="form-group basic animated">
+                      <div className="input-wrapper">
+                        <span>€</span>
                         <input
-                          type="text"
-                          className="form-control AmountAc"
-                          placeholder="John Doe"
-                          onChange={(e) => setName(e.target.value)}
+                          type="number"
+                          className="form-control"
+                          id="userid2"
+                          value={overAmount}
+                          onChange={(ev) => validateAmount(ev.target.value)}
+                          onClick={() => {
+                            setOverAmount("");
+                            setAmount(50);
+                          }}
+                          style={{
+                            color: "white",
+                            fontSize: 25,
+                            textAlign: "center",
+                          }}
+                          //disabled={amount !== 50 ? "disabled" : ""}
                         />
+                        <i className="clear-input">
+                          <ion-icon
+                            name="close-circle"
+                            role="img"
+                            class="md hydrated"
+                            aria-label="close circle"
+                          ></ion-icon>
+                        </i>
+                        <span>/mo</span>
                       </div>
                     </div>
-                    <div className="form-group basic">
-                      <label className="label">Email</label>
-                      <div className="input-group mb-2">
-                        <input
-                          type="text"
-                          className="form-control AmountAc"
-                          placeholder="john@doe.com"
-                          onChange={(e) => setEmail(e.target.value)}
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group basic">
-                      <label className="label">Birth Date</label>
-                      <div className="input-group mb-2">
-                        <input
-                          type="text"
-                          className="form-control AmountAc"
-                          placeholder="24/10/2022"
-                          onChange={(e) => setBirthDate(e.target.value)}
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group basic">
-                      <label className="label">City</label>
-                      <div className="input-group mb-2">
-                        <input
-                          type="text"
-                          className="form-control AmountAc"
-                          placeholder="Amsterdam"
-                          onChange={(e) => setCity(e.target.value)}
-                        />
-                      </div>
-                    </div>
-                    <div className="mt-2 mb-4">
-                      <div class="form-check mb-1">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="flexRadioDefault"
-                          id="flexRadioDefault1"
-                        />
-                        <label
-                          class="form-check-label"
-                          for="flexRadioDefault1"
-                          style={{ fontSize: "14px" }}
-                        >
-                          I accept to receive emails from HERO.
-                        </label>
-                      </div>
-                    </div>
-                    <div className="form-group basic">
-                      <button
-                        type="button"
-                        className="btn btn-link rounded btn-lg"
-                        onClick={validate}
-                      >
-                        Become a HERO Supporter
-                      </button>
-                    </div>
-                  </form>
+                    <h6 className="mt-1">
+                      Access to Circle Updates + Videos + Interactions{" "}
+                    </h6>
+                    <h6 className="italic">
+                      Everything you ever wanted to ask to those driving change
+                    </h6>
+                    {!validAmount && (
+                      <h6 className="error-message">
+                        Please input an amont above € 50{" "}
+                      </h6>
+                    )}
+                  </div>
+                  <button
+                    type="button"
+                    className="btn btn-icon rounded btn-primary submit-btn-rounded me-1 mb-1 mt-4"
+                    onClick={confirmAmount}
+                  >
+                    <ion-icon
+                      src="assets/img/svg/next.svg"
+                      style={{ color: "blue" }}
+                    ></ion-icon>
+                  </button>
                 </div>
-              </div>
-            )
-            */}
-            {showWelcomeToClub && (
+              )}
+
+            {showWelcomeToClub && isLoading === 0 && (
               <WelcomeCirclesModal
                 show={true}
                 onClose={() => setShowWelcomeToClub(false)}
@@ -454,7 +373,7 @@ function ClubSelectMembershipModal(props) {
               />
             )}
 
-            {showForm1 && !showWelcomeToClub && (
+            {showForm1 && !showWelcomeToClub && isLoading === 0 && (
               <div id="form1" className="modal-body">
                 <div className="section center">
                   <div className="flex">
@@ -621,6 +540,14 @@ function ClubSelectMembershipModal(props) {
                       />
                     </div>
                 </div>*/}
+                </div>
+              </div>
+            )}
+
+            {isLoading !== 0 && (
+              <div id="loading" className="modal-body">
+                <div className="flex-center" style={{ height: "100%" }}>
+                  <LoadingSpinner />
                 </div>
               </div>
             )}
