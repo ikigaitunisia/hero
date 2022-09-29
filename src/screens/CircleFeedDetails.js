@@ -116,7 +116,7 @@ function CircleFeedDetails(props) {
             </div>
             <div class="card m-5">
               <div class="card-body flex-center flex-col">
-                <h4 className="blue mt-4 m-0">{currentCircle.name}</h4>
+                <h4 className="blue mt-4 m-0">{currentCircle.name.replace("Hero","Hero".toUpperCase())}</h4>
                 <small className="blue flex-center">
                   {currentCircle.description}{" "}
                 </small>

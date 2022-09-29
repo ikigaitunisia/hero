@@ -305,7 +305,7 @@ function ClubSelectMembershipModal(props) {
                     <div className="input-wrapper">
                       <span>€</span>
                       <input
-                        type="text"
+                        type="number"
                         className="form-control"
                         id="userid2"
                         value={overAmount}
