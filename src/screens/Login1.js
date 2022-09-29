@@ -11,6 +11,11 @@ import WelcomeCirclesModal from "../components/modals/WelcomeCirclesModal";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { checkIsValidPassword } from "../util/functions";
 function Login1() {
+  const history = useHistory();
+  const location = useLocation();
+  const clientId =
+    "213045835379-hcm9r1um59u7dksk2h73773e6jfepinn.apps.googleusercontent.com";
+
   const [phoneNumber, setPhoneNumber] = useState();
   const [EmailError, setEmailError] = useState("");
   const [fullnameError, setFullnameError] = useState("");
@@ -21,19 +26,14 @@ function Login1() {
   const [checkedError, setCheckedError] = useState("");
   const [rePasswordError, setRePasswordError] = useState("");
   const [isLoading, setIsLoading] = useState(0);
-
   const [points, setPoints] = useState("");
   const [loginOnly, setloginOnly] = useState(true);
   const [amount, setAmount] = useState(0);
   const [circle, setCircle] = useState("");
   const [checked, setChecked] = useState(false);
   const [EmailExist, setEmailExist] = useState({});
-  const [loading, setLoading] = useState(false);
   const [hiddenPassword, setHiddenPassword] = useState(true);
-  const history = useHistory();
-  const location = useLocation();
-  const clientId =
-    "213045835379-hcm9r1um59u7dksk2h73773e6jfepinn.apps.googleusercontent.com";
+  const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
 
   const isSubscribed = async (email) => {
     let K = await axios.post(
@@ -46,6 +46,7 @@ function Login1() {
     console.log(K.data);
     return K.data;
   };
+
   const isHeroExist = async (HeroID) => {
     let K = await axios.post(
       "https://hegemony.donftify.digital:8080/supporter/HeroIDExist ",
@@ -58,7 +59,6 @@ function Login1() {
     return K.data;
   };
   useEffect(() => {
-    //setphoneNumberError(!checkIsPhoneFormat(phoneNumber));
     const search = new URLSearchParams(location.search).get("fromSubsctiption");
     if (search !== null) {
       setloginOnly(false);
@@ -214,19 +214,59 @@ function Login1() {
       fullnameError == ""
     ) {
       setIsLoading(1);
-
       createWallet();
     }
   };
-  const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
-  const onChangeFullName = (ev) => {
-    setHeroID(ev.target.value);
-    if (!ev.target.value) {
+
+  const checkFullName = (fullName) => {
+    if (!fullName) {
       setFullnameError("Please enter your name");
     } else {
       setFullnameError("");
     }
   };
+  const checkEmail = (email) => {
+    if (/\S+@\S+\.\S+/.test(email)) {
+      setEmailError("");
+    } else {
+      setEmailError("Please type a valid email");
+    }
+  };
+
+  const checkPassword = (password) => {
+    if (password == "") {
+      setPasswordError("Password is required");
+    } else {
+      setPasswordError("");
+      if (!checkIsValidPassword(password)) {
+        setPasswordError("Your password is not strong enough");
+      } else {
+        setPasswordError("");
+        if (password !== rePassword) {
+          setRePasswordError("The password you entered doesn’t match");
+        } else {
+          setRePasswordError("");
+        }
+      }
+    }
+  };
+
+  const checkRePassword = (rePassword) => {
+    if (rePassword !== password) {
+      setRePasswordError("The password you entered doesn’t match");
+    } else {
+      setRePasswordError("");
+    }
+  };
+
+  const checkIsChecked = (checked) => {
+    if (!checked) {
+      setCheckedError("You should accept the hero terms and conditons");
+    } else {
+      setCheckedError("");
+    }
+  };
+
   const EmailExis = async () => {
     axios
       .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
@@ -244,52 +284,28 @@ function Login1() {
         }
       });
   };
+  const onChangeFullName = (ev) => {
+    setHeroID(ev.target.value);
+    checkFullName(ev.target.value);
+  };
   const onChangeEmail = (ev) => {
     setPhoneNumber(ev.target.value);
-    if (/\S+@\S+\.\S+/.test(ev.target.value)) {
-      setEmailError("");
-    } else {
-      setEmailError("Please type a valid email");
-    }
+    checkEmail(ev.target.value);
   };
 
   const onChangePassword = (ev) => {
     setPassword(ev.target.value);
-
-    if (ev.target.value == "") {
-      setPasswordError("Password is required");
-    } else {
-      setPasswordError("");
-      if (!checkIsValidPassword(ev.target.value)) {
-        setPasswordError("Your password is not strong enough");
-      } else {
-        setPasswordError("");
-        if (ev.target.value !== rePassword) {
-          setRePasswordError("The password you entered doesn’t match");
-        } else {
-          setRePasswordError("");
-        }
-      }
-    }
+    checkPassword(ev.target.value);
   };
 
   const onChangeRePassword = (ev) => {
     setRePassword(ev.target.value);
-    if (ev.target.value !== password) {
-      setRePasswordError("The password you entered doesn’t match");
-    } else {
-      setRePasswordError("");
-    }
+    checkRePassword(ev.target.value);
   };
 
   const onChangeChecked = (ev) => {
     setChecked(ev.target.value);
-    console.log(ev.target.value);
-    if (!ev.target.value) {
-      setCheckedError("You should accept the hero terms and conditons");
-    } else {
-      setCheckedError("");
-    }
+    checkIsChecked(ev.target.value);
   };
   return (
     <>
