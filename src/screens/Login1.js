@@ -34,6 +34,7 @@ function Login1() {
   const [EmailExist, setEmailExist] = useState({});
   const [hiddenPassword, setHiddenPassword] = useState(true);
   const [showWelcomeCirclesModal, setShowWelcomeCirclesModal] = useState(false);
+  const [isSubmitted, setIsSubmited] = useState(false);
 
   const isSubscribed = async (email) => {
     let K = await axios.post(
@@ -207,6 +208,7 @@ function Login1() {
   };
 
   const validate = async (e) => {
+    setIsSubmited(true);
     if (
       checked &&
       EmailError == "" &&
@@ -267,6 +269,14 @@ function Login1() {
     }
   };
 
+  useEffect(() => {
+    console.log(checked);
+    checkFullName(HeroID);
+    checkEmail(phoneNumber);
+    checkPassword(password);
+    checkRePassword(rePassword);
+    checkIsChecked(checked);
+  }, [HeroID, phoneNumber, password, rePassword, checked]);
   const EmailExis = async () => {
     axios
       .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
@@ -304,7 +314,7 @@ function Login1() {
   };
 
   const onChangeChecked = (ev) => {
-    setChecked(ev.target.value);
+    setChecked((current) => !current);
     checkIsChecked(ev.target.value);
   };
   return (
@@ -366,7 +376,9 @@ function Login1() {
                     onBlur={() => EmailExis()}
                   />
                 </div>
-                {EmailError && <h6 className="error-message">{EmailError}</h6>}
+                {EmailError && isSubmitted && (
+                  <h6 className="error-message">{EmailError}</h6>
+                )}
               </div>
 
               <div className="form-group boxed">
@@ -402,7 +414,7 @@ function Login1() {
                     ></ion-icon>
                   </i>
                 </div>
-                {passwordError && (
+                {passwordError && isSubmitted && (
                   <h6 className="error-message">{passwordError}</h6>
                 )}
               </div>
@@ -433,7 +445,7 @@ function Login1() {
                     ></ion-icon>
                   </i>
                 </div>
-                {rePasswordError && (
+                {rePasswordError && isSubmitted && (
                   <h6 className="error-message">{rePasswordError}</h6>
                 )}
               </div>
@@ -452,7 +464,7 @@ function Login1() {
                     onChange={(ev) => onChangeFullName(ev)}
                   />
                 </div>
-                {fullnameError && (
+                {fullnameError && isSubmitted && (
                   <h6 className="error-message">{fullnameError}</h6>
                 )}
               </div>
@@ -489,7 +501,7 @@ function Login1() {
                     HERO Terms of Use
                   </a>
                 </label>
-                {checkedError && (
+                {checkedError && isSubmitted && (
                   <h6 className="error-message">{checkedError}</h6>
                 )}
               </div>
