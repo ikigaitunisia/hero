@@ -125,17 +125,15 @@ function ClubSelectMembershipModal(props) {
     );
     return { Email: email, wallet: response.data };
   };
-  const validate = async () => {
+  const validate = async (selectedAmount = null) => {
     let a = JSON.parse(localStorage.getItem("user"));
-    console.log(overAmount);
 
     var newAmount;
     if (amount == 50) {
       newAmount = overAmount * 100;
     } else {
-      newAmount = amount * 100;
+      newAmount = selectedAmount * 100;
     }
-    console.log(a);
     const customerId = a.wallet.customerId;
     console.log({
       mode: "subscription",
@@ -162,6 +160,26 @@ function ClubSelectMembershipModal(props) {
   const setAddModalErrorMsg = () => {
     // scrolls the validation message into view, and the block: 'nearest' ensures it scrolls the modal and not the window
     validationMessageRef.current.scrollTo(0, 1000);
+  };
+  const confirmAmountAction = async (selectedAmount) => {
+    setAmount(selectedAmount);
+    setValidAmount(true);
+    setAddModalErrorMsg();
+    setShowAmountSelect(false);
+    //setShowForm(true);
+    let a = JSON.parse(localStorage.getItem("user"));
+    if (a == null) {
+      history.push(
+        "/login1?fromSubsctiption=true&amount=" +
+          selectedAmount +
+          "&circle=" +
+          props.circle
+      );
+      window.location.reload();
+    } else {
+      setIsLoading(1);
+      await validate(selectedAmount);
+    }
   };
   return (
     <>
@@ -222,9 +240,7 @@ function ClubSelectMembershipModal(props) {
                           : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
                       }
                       onClick={() => {
-                        setAmount(10);
-                        setValidAmount(true);
-                        setAddModalErrorMsg();
+                        confirmAmountAction(10);
                       }}
                     >
                       <img
@@ -258,9 +274,7 @@ function ClubSelectMembershipModal(props) {
                           : "btn btn-outline-primary custom-btn me-1 mb-1 flex"
                       }
                       onClick={() => {
-                        setAmount(20);
-                        setValidAmount(true);
-                        setAddModalErrorMsg();
+                        confirmAmountAction(20);
                       }}
                     >
                       <img
