@@ -10,6 +10,7 @@ function CircleHome(props) {
   const [test,setTest] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCircle, setCurrentCircle] = useState({});
+  const [Supporters, setSupporters] = useState({});
   const [showSwipe, setShowSwipe] = useState(false);
   const history = useHistory();
   const user = JSON.parse(localStorage.getItem("user"));
@@ -26,15 +27,23 @@ function CircleHome(props) {
     },
    
   ];*/
-  const goToNextCircle = () => {
-    if (currentIndex === 2) {
-      setCurrentIndex(0);
-      setCurrentCircle(circles[0]);
-      return;
-    }
-    setCurrentIndex(currentIndex + 1);
+  const getSupporters = (grname) => {
+    console.log(grname);
+    axios
+    .get("https://hegemony.donftify.digital:8080/circle/supporters/"+grname, {
+     
+    })
+    .then((response)=> {
+        setSupporters(response.data);
+        setLoad(true);
+        console.log(response.data)
+    })
+    .catch((error) =>{
+      //handle error here
+      console.log(error);
+    });
   };
-
+  
   useEffect( () => {
     
     if (user != null) {
@@ -52,7 +61,6 @@ function CircleHome(props) {
             });
             console.log(A);
             setCurrentCircle(A[currentIndex]);
-            setLoad(true);
             setCircles(prevState => {
               return (
                 
@@ -85,6 +93,10 @@ function CircleHome(props) {
     if(circles.length > 1)
     {
       setShowSwipe(true);
+    }
+    if (currentCircle.grName != undefined)
+    {
+    getSupporters(currentCircle.grName);
     }
   }, [test]);
   return (
@@ -180,23 +192,23 @@ function CircleHome(props) {
             <h6>200 memberships left to complete this circle</h6>
             <div className="me-4 ml-4 mb-0">
               <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
+                src={Supporters[0].googleID == "" ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[0].profileImage : Supporters[0].profileImage}
+                alt="profile"
                 className="imaged w48 rounded m-2"
               />
               <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
+                src={Supporters[1].googleID == "" ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[1].profileImage : Supporters[1].profileImage}
+                alt="profile"
                 className="imaged w48 rounded m-2"
               />
               <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
+                src={Supporters[2].googleID == "" ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[2].profileImage : Supporters[2].profileImage}
+                alt="profile"
                 className="imaged w48 rounded m-2"
               />
             </div>
             <span id="list-supporters">
-              <b>Marc, Fabiola,Max </b>
+              <b>{Supporters[0].fullname+","+Supporters[1].fullname+","+Supporters[2].fullname }</b>
               <br /> recently joined this circle.
             </span>
             <hr className="hr mt-4 mb-4" />
