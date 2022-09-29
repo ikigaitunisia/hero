@@ -6,31 +6,26 @@ import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 import Header from "../components/Header";
 import "./Login1.css";
-import WelcomeCirclesModal from "../components/modals/WelcomeCirclesModal";
+import { checkIsValidPassword } from "../util/functions";
 
 function Login2() {
-  const [phoneNumber, setPhoneNumber] = useState();
-  const [EmailError, setEmailError] = useState("");
-  const [fullnameError, setFullnameError] = useState("");
-  const [password, setPassword] = useState("");
-  const [rePassword, setRePassword] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [HeroID, setHeroID] = useState("");
-  const [checkedError, setCheckedError] = useState("");
-  const [rePasswordError, setRePasswordError] = useState("");
-  const [resetPassword, setResetPassword] = useState(false);
-
-  const [points, setPoints] = useState("");
-  const [loginOnly, setloginOnly] = useState(true);
-  const [amount, setAmount] = useState(0);
-  const [circle, setCircle] = useState("");
-  const [checked, setChecked] = useState(false);
-  const [hiddenPassword, setHiddenPassword] = useState(true);
-
   const history = useHistory();
   const location = useLocation();
   const clientId =
     "213045835379-hcm9r1um59u7dksk2h73773e6jfepinn.apps.googleusercontent.com";
+
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [EmailError, setEmailError] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [HeroID, setHeroID] = useState("");
+  const [resetPassword, setResetPassword] = useState(false);
+  const [points, setPoints] = useState("");
+  const [loginOnly, setloginOnly] = useState(true);
+  const [amount, setAmount] = useState(0);
+  const [circle, setCircle] = useState("");
+  const [hiddenPassword, setHiddenPassword] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const isSubscribed = async (email) => {
     let K = await axios.post(
@@ -130,6 +125,7 @@ function Login2() {
     console.log("failed:", err);
   };
   const login = () => {
+    setIsSubmitted(true);
     axios
       .post("https://hegemony.donftify.digital:8080/CheckPassword/", {
         email: phoneNumber,
@@ -150,113 +146,41 @@ function Login2() {
         }
       });
   };
-  const createWallet = async () => {
-    setPoints("...");
-    axios
-      .post("https://hegemony.donftify.digital:8080/CreateWallet/", {
-        Email: phoneNumber,
-        password: password,
-        googleId: "",
-        imageUrl: "",
-        name: HeroID,
-        lastname: "",
-        HeroId: phoneNumber.split("@")[0],
-      })
-      .then(function (response) {
-        localStorage.setItem(
-          "user",
-          JSON.stringify({
-            Email: phoneNumber,
-            googleId: "",
-            wallet: response.data,
-          })
-        );
-        let a = JSON.parse(localStorage.getItem("user"));
 
-        const customerId = a.wallet.customerId;
-        console.log({
-          mode: "subscription",
-          grName: circle,
-          amount: amount * 100,
-          customerId: customerId,
-        });
-        axios
-          .post(`https://hegemony.donftify.digital:8080/create-checkout`, {
-            mode: "subscription",
-            grName: circle,
-            amount: amount * 100,
-            customerId: customerId,
-          })
-          .then((res) => {
-            console.log(res.data);
-            window.location.href = res.data.url;
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        let data = isSubscribed(phoneNumber).then((response) => {
-          if (response.length == 0) {
-            history.push("/circle-feed");
-          } else {
-            history.push("/circle-home:" + response[0].grName);
-          }
-        });
-      })
-      .catch(function (error) {
-        //handle error here
-        console.log(error);
-      });
-  };
-
-  const onChangeEmail = (ev) => {
-    setPhoneNumber(ev.target.value);
-    if (/\S+@\S+\.\S+/.test(ev.target.value)) {
+  const checkEmail = (email) => {
+    if (/\S+@\S+\.\S+/.test(email)) {
       setEmailError("");
     } else {
       setEmailError("Please type a valid email");
     }
   };
-  const passStreing = (password) => {
-    var k = true;
-    if (!/[a-z]/.test(password)) {
-      k = false;
-    }
 
-    // Check if password contains at least 1 Uppercase letter
-    if (!/[A-Z]/.test(password)) {
-      k = false;
-    }
-
-    // Check if password contains at least 1 number
-    if (!/[0-9]/.test(password)) {
-      k = false;
-    }
-    if (!/[!@$#\+\-\$%\^&\*/]/.test(password)) {
-      k = false;
-    }
-    if (password.length < 8) {
-      k = false;
-    }
-    return k;
-  };
-  const onChangePassword = (ev) => {
-    setPassword(ev.target.value);
-
-    if (ev.target.value == "") {
+  const checkPassword = (password) => {
+    if (password == "") {
       setPasswordError("Password is required");
     } else {
       setPasswordError("");
-      if (!passStreing(ev.target.value)) {
+      if (!checkIsValidPassword(password)) {
         setPasswordError("Your password is not strong enough");
       } else {
         setPasswordError("");
-        if (ev.target.value !== rePassword) {
-          setRePasswordError("The password you entered doesn’t match");
-        } else {
-          setRePasswordError("");
-        }
       }
     }
+  };
+
+  useEffect(() => {
+    checkEmail(phoneNumber);
+    checkPassword(password);
+  }, [phoneNumber, password]);
+
+  const onChangeEmail = (ev) => {
+    setPhoneNumber(ev.target.value);
+    checkEmail(ev.target.value);
+  };
+
+  const onChangePassword = (ev) => {
+    setPassword(ev.target.value);
+    checkPassword(ev.target.value);
   };
 
   return (
@@ -299,7 +223,9 @@ function Login2() {
                   onChange={(ev) => onChangeEmail(ev)}
                 />
               </div>
-              {EmailError && <h6 className="error-message">{EmailError}</h6>}
+              {EmailError && isSubmitted && (
+                <h6 className="error-message">{EmailError}</h6>
+              )}
             </div>
 
             <div className="form-group boxed mb-2">
@@ -325,7 +251,7 @@ function Login2() {
                   ></ion-icon>
                 </i>
               </div>
-              {passwordError && (
+              {passwordError && isSubmitted && (
                 <h6 className="error-message">{passwordError}</h6>
               )}
             </div>
