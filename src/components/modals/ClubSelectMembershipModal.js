@@ -29,7 +29,22 @@ function ClubSelectMembershipModal(props) {
       setShowAmountSelect(true);
       setAmount(null);
     };
+
+    
+
   }, [props.show]);
+
+  useEffect(() => {
+  return history.listen(location => {
+    console.log(history.action);
+  
+
+    if (history.action === 'POP') {
+      window.location.reload();
+    }
+  })
+
+})
   const [showAmountSelect, setShowAmountSelect] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [showForm1, setShowForm1] = useState(false);
@@ -42,7 +57,7 @@ function ClubSelectMembershipModal(props) {
   const [overAmount, setOverAmount] = useState(50);
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   const validationMessageRef = useRef(null);
-
+  
   const chooseAmount = (a) => {
     if (amount) {
       setAmount(null);
