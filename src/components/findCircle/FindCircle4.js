@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-scroll";
 import "./FindCircle4.css";
@@ -18,12 +18,19 @@ function FindCircle4(props) {
               alt="logo"
               className="logo mt-4"
             />
-            <a className={"headerButton menuBtn mt-4 mb-4"} onClick={() => setShowMenu(true)}>
-              <ion-icon name="menu-outline" class="menuBtnIcon" style={{color:"#0000ff"}}></ion-icon>
+            <a
+              className={"headerButton menuBtn mt-4 mb-4"}
+              onClick={() => setShowMenu(true)}
+            >
+              <ion-icon
+                name="menu-outline"
+                class="menuBtnIcon"
+                style={{ color: "#0000ff" }}
+              ></ion-icon>
             </a>
           </div>
           <div className="mt-4 flex-center flex-col">
-            <h1 className="blue mb-3" style={{fontSize:""}}>
+            <h1 className="blue mb-3" style={{ fontSize: "" }}>
               100 times
               <br /> more effective.{" "}
             </h1>
@@ -34,7 +41,12 @@ function FindCircle4(props) {
               <br />
               carbon credits according to the
               <br />
-              <b className="underline">Stanford Social Innovation Review</b>
+              <a
+                href="https://ssir.org/articles/entry/protest_movements_could_be_more_effective_than_the_best_charities"
+                className="blue underline"
+              >
+                <b>Stanford Social Innovation Review</b>
+              </a>
             </p>
             <button
               id="blueBtn"
@@ -67,7 +79,9 @@ function FindCircle4(props) {
                 >
                   <div className="accordion-body accordion-body-1 p-4">
                     <p>Example:</p>
-                    <b style={{fontWeight: "bold"}}>The European Union Green Deal.</b>
+                    <b style={{ fontWeight: "bold" }}>
+                      The European Union Green Deal.
+                    </b>
                     <p>
                       Mobilizers propose to change from 40%
                       <br /> to 55% the carbon reduction target for
@@ -201,7 +215,6 @@ function FindCircle4(props) {
         </div>
       </div>
       <Menu show={showMenu} onClose={() => setShowMenu(false)} />
-
     </div>
   );
 }
