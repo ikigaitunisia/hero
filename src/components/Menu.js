@@ -219,6 +219,7 @@ function Menu(props) {
                 <a
                   href=""
                   className="item pt-0 pb-0"
+                  data-bs-dismiss="modal"
                   onClick={() => {
                     history.push({
                       pathname: "/",
