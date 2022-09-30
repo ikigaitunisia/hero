@@ -4,6 +4,7 @@ import "./CircleHome.css";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
+import { CoPresent } from "@mui/icons-material";
 function CircleHome(props) {
   const [load,setLoad] = useState(false);
 
@@ -11,7 +12,10 @@ function CircleHome(props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCircle, setCurrentCircle] = useState({});
   const [Supporters, setSupporters] = useState({});
+  const [percentage,setPercentage] = useState(0);
   const [showSwipe, setShowSwipe] = useState(false);
+  const [mobilength,setMobiLength] = useState(0);
+  const [Memberships,setMemberships] = useState(0);
   const history = useHistory();
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -27,8 +31,32 @@ function CircleHome(props) {
     },
    
   ];*/
+
+  useEffect(() => {
+
+    if(load)
+    {
+    console.log(Supporters[0].nbSupporters);
+
+    let k = ((Supporters[0].nbSupporters * 15) / (416 * mobilength)) * 100
+    let kRend = Math.round(k);
+    let mem = (416 * mobilength) / 15
+    setMemberships(Math.round(mem-Supporters[0].nbSupporters))
+    setPercentage(kRend);
+    }
+  }, [load]);
+  const setMembers = (grname) => {
+    axios
+      .get(
+        "https://hegemony.donftify.digital:8080/circle/members/" +
+        grname
+      )
+      .then((res) => {
+       setMobiLength(res.data.length);
+        
+      });
+  };
   const getSupporters = (grname) => {
-    console.log(grname);
     axios
     .get("https://hegemony.donftify.digital:8080/circle/supporters/"+grname, {
      
@@ -61,6 +89,7 @@ function CircleHome(props) {
             });
             console.log(A);
             setCurrentCircle(A[currentIndex]);
+            
             setCircles(prevState => {
               return (
                 
@@ -96,6 +125,8 @@ function CircleHome(props) {
     }
     if (currentCircle.grName != undefined)
     {
+      setMembers(currentCircle.grName);
+
     getSupporters(currentCircle.grName);
     }
   }, [test]);
@@ -183,13 +214,13 @@ function CircleHome(props) {
               <div
                 className="progress-bar"
                 role="progressbar"
-                style={{ width: "25%" }}
+                style={{ width: percentage+"%" }}
                 aria-valuenow="25"
                 aria-valuemin="0"
                 aria-valuemax="100"
               ></div>
             </div>
-            <h6>200 memberships left to complete this circle</h6>
+            <h6>{Memberships+" memberships left to complete this circle"} </h6>
             <div className="me-4 ml-4 mb-0">
               <img
                 src={Supporters[0].profileImage.indexOf("https") == -1 ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[0].profileImage : Supporters[0].profileImage}

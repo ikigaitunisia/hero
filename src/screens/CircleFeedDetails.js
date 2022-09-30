@@ -15,6 +15,7 @@ function CircleFeedDetails(props) {
   const [currentCircle, setCurrentCircle] = useState({});
   const [Supporters,setSupporters] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
+  
   const [load, setLoad] = useState(false);
   const [showClubSelectMembershipModal, setShowClubSelectMembershipModal] =
     useState(false);
@@ -22,6 +23,8 @@ function CircleFeedDetails(props) {
     useState(false);
   const [showMobilizerVictoriesModal, setShowMobilizerVictoriesModal] =
     useState(false);
+    const [percentage,setPercentage] = useState(0);
+  const [Memberships,setMemberships] = useState(0);
   const [MobilizersCircle, setMobilizersCircle] = useState([]);
   const { state } = useLocation();
   const [circles, setCircles] = useState([]);
@@ -54,6 +57,7 @@ function CircleFeedDetails(props) {
       console.log(error);
     });
   };
+  
   const setMembers = () => {
     axios
       .get(
@@ -67,6 +71,19 @@ function CircleFeedDetails(props) {
       });
   };
   useEffect(() => {
+
+    if(load)
+    {
+    console.log(Supporters[0].nbSupporters);
+
+    let k = ((Supporters[0].nbSupporters * 15) / (416 * MobilizersCircle.length)) * 100
+    let kRend = Math.round(k);
+    let mem = (416 * MobilizersCircle.length) / 15
+    setMemberships(Math.round(mem-Supporters[0].nbSupporters))
+    setPercentage(kRend);
+    }
+  }, [load]);
+  useEffect(() => {
     setCurrentCircle(state.circle[currentIndex]);
 
     setMembers();
@@ -75,6 +92,12 @@ function CircleFeedDetails(props) {
     {
     getSupporters(state.circle[currentIndex].name);
     }
+    
+
+    console.log(Supporters.length);
+    console.log(MobilizersCircle.length);
+   
+    
   }, [currentIndex]);
   const whiteMode = props.whiteMode;
   const showMenuBtn = props.showMenuBtn;
@@ -189,13 +212,13 @@ function CircleFeedDetails(props) {
                   <div
                     className="progress-bar"
                     role="progressbar"
-                    style={{ width: "25%" }}
+                    style={{ width: percentage+'%' }}
                     aria-valuenow="25"
                     aria-valuemin="0"
                     aria-valuemax="100"
                   ></div>
                 </div>
-                <p>190 memberships left to complete this circle</p>
+                <p>{Memberships +" memberships left to complete this circle"}</p>
                 <div className="me-4 ml-4 mb-0">
                   <img
                    src={Supporters[0].profileImage.indexOf("https") == -1 ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[0].profileImage : Supporters[0].profileImage}

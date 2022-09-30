@@ -13,7 +13,12 @@ function ClubSelectMembershipModal(props) {
   const history = useHistory();
   const [here,setHere] = useState(0);
   const [showing,setShowing] = useState(true);
+
+ 
+  
+
   useEffect(() => {
+
     if (props.show) {
       const modal = new Modal(document.getElementById("clubSelectMembership"), {
         keyboard: true,
@@ -24,7 +29,7 @@ function ClubSelectMembershipModal(props) {
 
    
     }
-
+    
     return () => {
       props.onClose();
       setShowForm(false);
@@ -33,9 +38,13 @@ function ClubSelectMembershipModal(props) {
       setShowAmountSelect(true);
       setAmount(null);
       setHere(1);
-   
+      
+      
     };
   }, [props.show]);
+
+
+  
 
   const [isLoading, setIsLoading] = useState(0);
   const [showAmountSelect, setShowAmountSelect] = useState(true);

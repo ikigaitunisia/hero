@@ -60,7 +60,7 @@ function CircleFeed(props) {
     useState(false);
   const [subscribed,setSubscribed] = useState(false); 
   const user = JSON.parse(localStorage.getItem("user"));
-
+  
   const goToNextCircle = () => {
     if (currentIndex === circles.length - 1) {
       isSubscribed(0);
@@ -153,7 +153,7 @@ function CircleFeed(props) {
         isSubscribed(currentIndex);
         }
       });
-
+     
   }, [test]);
   const [showMenu, setShowMenu] = useState(false);
   return (

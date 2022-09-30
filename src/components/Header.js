@@ -125,7 +125,7 @@ function Header(props) {
           )}
         </div>
       </div>
-      <Menu show={showMenu} onClose={() => setShowMenu(false)} />
+      <Menu show={showMenu} onClose={() => setShowMenu(false)}  head={"header"}/>
     </>
   );
 }
