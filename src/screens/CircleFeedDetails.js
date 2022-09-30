@@ -257,7 +257,7 @@ function CircleFeedDetails(props) {
           <ClubSelectMembershipModal
             show={showClubSelectMembershipModal}
             onClose={() => setShowClubSelectMembershipModal(false)}
-            circle={props.circlename}
+            circle={currentCircle.name}
           />
           <ActivistCampaignsModal
             show={showMobilizerCampaignsModal}

@@ -12,15 +12,17 @@ import LoadingSpinner from "../LoadingSpinner";
 function ClubSelectMembershipModal(props) {
   const history = useHistory();
   const [here,setHere] = useState(0);
+  const [showing,setShowing] = useState(true);
   useEffect(() => {
     if (props.show) {
       const modal = new Modal(document.getElementById("clubSelectMembership"), {
-        keyboard: false,
-        backdrop:false
+        keyboard: true,
       });
       if (modal) {
         modal.show();
       }
+
+   
     }
 
     return () => {
@@ -31,9 +33,19 @@ function ClubSelectMembershipModal(props) {
       setShowAmountSelect(true);
       setAmount(null);
       setHere(1);
+   
     };
   }, [props.show]);
+  useEffect(() => {
+  return history.listen(location => {
+    if (history.action === "POP") {
+      // Do your stuff
+console.log(history); 
+window.location.reload();
+}
+  });
 
+})
 
   const [isLoading, setIsLoading] = useState(0);
   const [showAmountSelect, setShowAmountSelect] = useState(true);
@@ -182,7 +194,6 @@ function ClubSelectMembershipModal(props) {
         id="clubSelectMembership"
         tabIndex="-1"
         role="dialog"
-        backdrop="static"
       >
         <div className="modal-dialog" role="document">
           <div
