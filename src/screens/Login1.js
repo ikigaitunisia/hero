@@ -18,6 +18,7 @@ function Login1() {
 
   const [phoneNumber, setPhoneNumber] = useState();
   const [EmailError, setEmailError] = useState("");
+  const [EmailExistError, setEmailExistError] = useState("");
   const [fullnameError, setFullnameError] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
@@ -286,10 +287,10 @@ function Login1() {
         console.log(K.data);
         setEmailExist(K.data);
         if (K.data.found) {
-          setEmailError("Account already exists, please login");
+          setEmailExistError("Account already exists, please login");
           return;
         } else {
-          setEmailError("");
+          setEmailExistError("");
           return;
         }
       });
@@ -378,6 +379,9 @@ function Login1() {
                 </div>
                 {EmailError && isSubmitted && (
                   <h6 className="error-message">{EmailError}</h6>
+                )}
+                {EmailExistError && (
+                  <h6 className="error-message">{EmailExistError}</h6>
                 )}
               </div>
 

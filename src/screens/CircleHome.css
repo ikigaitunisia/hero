@@ -140,3 +140,10 @@
   font-weight: 700;
   line-height: 16px;
 }
+
+.circle-home .mobilizer-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}

@@ -237,6 +237,7 @@ function Menu(props) {
               <button
                 type="button"
                 className="btn btn-icon rounded btn-primary social-btn me-2"
+                onClick={() => window.open("https://www.instagram.com/herolabs_co", "_self")}
               >
                 <ion-icon name="logo-instagram"></ion-icon>
               </button>
@@ -249,6 +250,7 @@ function Menu(props) {
               <button
                 type="button"
                 className="btn btn-icon rounded btn-primary social-btn me-2"
+                onClick={() => window.open("http://twitter.com/herolabs_co", "_self")}
               >
                 <ion-icon name="logo-twitter"></ion-icon>
               </button>
