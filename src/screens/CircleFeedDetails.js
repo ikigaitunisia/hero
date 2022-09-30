@@ -13,6 +13,7 @@ function CircleFeedDetails(props) {
   const history = useHistory();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCircle, setCurrentCircle] = useState({});
+  const [Supporters,setSupporters] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
   const [load, setLoad] = useState(false);
   const [showClubSelectMembershipModal, setShowClubSelectMembershipModal] =
@@ -38,8 +39,22 @@ function CircleFeedDetails(props) {
     setCurrentIndex(currentIndex + 1);
     setMembers();
   };
+  const getSupporters = (grname) => {
+    axios
+    .get("https://hegemony.donftify.digital:8080/circle/supporters/"+grname, {
+     
+    })
+    .then((response)=> {
+        setSupporters(response.data);
+        setLoad(true);
+        console.log(response.data)
+    })
+    .catch((error) =>{
+      //handle error here
+      console.log(error);
+    });
+  };
   const setMembers = () => {
-    setLoad(true);
     axios
       .get(
         "https://hegemony.donftify.digital:8080/circle/members/" +
@@ -55,7 +70,11 @@ function CircleFeedDetails(props) {
     setCurrentCircle(state.circle[currentIndex]);
 
     setMembers();
-    console.log(circles);
+    console.log(state.circle);
+    if (state.circle[currentIndex].name != undefined)
+    {
+    getSupporters(state.circle[currentIndex].name);
+    }
   }, [currentIndex]);
   const whiteMode = props.whiteMode;
   const showMenuBtn = props.showMenuBtn;
@@ -179,24 +198,24 @@ function CircleFeedDetails(props) {
                 <p>190 memberships left to complete this circle</p>
                 <div className="me-4 ml-4 mb-0">
                   <img
-                    src="assets/img/sample/photo/1.jpg"
-                    alt="image"
+                   src={Supporters[0].profileImage.indexOf("https") == -1 ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[0].profileImage : Supporters[0].profileImage}
+                   alt="profile"
                     className="mobilizer-img m-2"
                   />
                   <img
-                    src="assets/img/sample/photo/1.jpg"
-                    alt="image"
+                    src={Supporters[1].profileImage.indexOf("https") == -1 ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[1].profileImage : Supporters[1].profileImage}
+                    alt="profile"
                     className="mobilizer-img m-2"
                   />
                   <img
-                    src="assets/img/sample/photo/1.jpg"
-                    alt="image"
+                    src={Supporters[2].profileImage.indexOf("https") == -1 ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[2].profileImage : Supporters[2].profileImage}
+                    alt="profile"
                     className="mobilizer-img m-2"
                   />
                 </div>
                 <div className="flex-center flex-col">
                   <span className="black">
-                    <b>Marc, Fabiola,Max</b>
+                  <b>{Supporters[0].fullname+","+Supporters[1].fullname+","+Supporters[2].fullname }</b>
                     <br /> and 10 others are part of this circle.
                   </span>
                   <button
