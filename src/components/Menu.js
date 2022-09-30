@@ -194,10 +194,77 @@ function Menu(props) {
             <ul className="listview flush transparent no-line image-listview blue-list">
               <li>
                 <a
+                  href="https://herolabsco.notion.site/Why-HERO-279ef91efeb94fb8b2713acdf6018536"
+                  className="item pt-0 pb-0"
+                >
+                  <div className="in blue">Why HERO</div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href=""
+                  className="item pt-0 pb-0"
+                  data-bs-dismiss="modal"
+                  onClick={() => {
+                    history.push({
+                      pathname: "/",
+                      state: { to: "3" },
+                    });
+                  }}
+                >
+                  <div className="in blue">How HERO works</div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href=""
+                  className="item pt-0 pb-0"
+                  onClick={() => {
+                    history.push({
+                      pathname: "/",
+                      state: { to: "2" },
+                    });
+                  }}
+                >
+                  <div className="in blue">What is HERO</div>
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://herolabsco.notion.site/Discover-how-HERO-Mobilizers-are-verified-a3b9028ab257499fafa9d724c2ecb11b"
                   className="item pt-0 pb-0"
                 >
                   <div className="in blue">How are mobilizers verified?</div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href=""
+                  className="item pt-0 pb-0"
+                  data-bs-dismiss="modal"
+                  onClick={() => {
+                    history.push({
+                      pathname: "/",
+                      state: { to: "4" },
+                    });
+                  }}
+                >
+                  <div className="in blue">Why HERO is effective</div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href=""
+                  className="item pt-0 pb-0"
+                  data-bs-dismiss="modal"
+                  onClick={() => {
+                    history.push({
+                      pathname: "/",
+                      state: { to: "5" },
+                    });
+                  }}
+                >
+                  <div className="in blue">In the words of HERO supporters</div>
                 </a>
               </li>
               <li>
@@ -215,21 +282,6 @@ function Menu(props) {
                   className="item pt-0 pb-0"
                 >
                   <div className="in blue">Subscriptions & Pricing</div>
-                </a>
-              </li>
-              <li>
-                <a
-                  href=""
-                  className="item pt-0 pb-0"
-                  data-bs-dismiss="modal"
-                  onClick={() => {
-                    history.push({
-                      pathname: "/",
-                      state: { fromMenu: "fromMenu" },
-                    });
-                  }}
-                >
-                  <div className="in blue">How HERO works</div>
                 </a>
               </li>
             </ul>

@@ -187,7 +187,7 @@ function FindCircle4(props) {
                 offset={30}
                 duration={500}
               >
-                <text>Reviews from HERO Supporters</text>
+                <span>Reviews from HERO Supporters</span>
               </Link>
             </button>
             <Link
