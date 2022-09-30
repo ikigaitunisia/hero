@@ -115,6 +115,7 @@ function CircleFeed(props) {
   }
   }
   useEffect(() => {
+    console.log(window.location.action);
     axios
       .post("https://hegemony.donftify.digital:8080/circle/all", {
         tags: [],

@@ -12,12 +12,16 @@ function FindCircle11(props) {
   const [loggedin, setLogedin] = useState(false);
 
   useEffect(() => {
+    
     const user = JSON.parse(localStorage.getItem("user"));
     console.log(user);
     if (user != null) {
       setLogedin(true);
     }
+   
   }, []);
+
+  
   return (
     <div id="findcircle11">
       <div id="findcirclecontainer" className="">

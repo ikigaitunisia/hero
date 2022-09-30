@@ -36,16 +36,6 @@ function ClubSelectMembershipModal(props) {
    
     };
   }, [props.show]);
-  useEffect(() => {
-  return history.listen(location => {
-    if (history.action === "POP") {
-      // Do your stuff
-console.log(history); 
-window.location.reload();
-}
-  });
-
-})
 
   const [isLoading, setIsLoading] = useState(0);
   const [showAmountSelect, setShowAmountSelect] = useState(true);
