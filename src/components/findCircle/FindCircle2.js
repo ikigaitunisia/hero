@@ -86,7 +86,7 @@ function FindCircle2(props) {
                 offset={30}
                 duration={500}
               >
-                <text>Learn how HERO Circles work</text>
+                <span>Learn how HERO Circles work</span>
               </Link>
             </button>
             <Link

@@ -72,7 +72,7 @@ function FindCircle11(props) {
               offset={30}
               duration={500}
             >
-              <text style={{ color: "#8585FF" }}>Learn more about HERO</text>
+              <span style={{ color: "#8585FF" }}>Learn more about HERO</span>
             </Link>
           </button>
           <Link

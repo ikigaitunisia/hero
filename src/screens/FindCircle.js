@@ -12,10 +12,10 @@ import { useHistory } from "react-router-dom";
 
 function FindCircle(props) {
   const history = useHistory();
-  const fromMenu = props.location.state ? props.location.state.fromMenu : null;
+  const to = props.location.state ? props.location.state.to : null;
 
   useEffect(() => {
-    if (fromMenu === "fromMenu") {
+    if (to === "3") {
       scroller.scrollTo("findcircle3", {
         duration: 500,
         smooth: true,
@@ -24,7 +24,34 @@ function FindCircle(props) {
       });
       history.replace("", null);
     }
-  }, [fromMenu]);
+    if (to === "2") {
+      scroller.scrollTo("findcircle2", {
+        duration: 500,
+        smooth: true,
+        spy: true,
+        offset: 30,
+      });
+      history.replace("", null);
+    }
+    if (to === "4") {
+      scroller.scrollTo("findCircle4", {
+        duration: 500,
+        smooth: true,
+        spy: true,
+        offset: 30,
+      });
+      history.replace("", null);
+    }
+    if (to === "5") {
+      scroller.scrollTo("findCircle5", {
+        duration: 500,
+        smooth: true,
+        spy: true,
+        offset: 30,
+      });
+      history.replace("", null);
+    }
+  }, [to]);
   return (
     <InfiniteScroll
       dataLength={5}

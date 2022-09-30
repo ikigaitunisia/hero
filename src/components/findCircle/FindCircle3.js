@@ -51,7 +51,7 @@ function FindCircle3(props) {
             </button>
           </div>
           <div className="feed2" style={{ minHeight: "90vh!important" }}>
-            <video preLoad="none" playsInline id="2"   muted={muted} poster="assets/img/C0502 1.png">
+            <video preload="none" playsInline id="2"   muted={muted} poster="assets/img/C0502 1.png">
             <source
               src={"assets/videos/" + "howHeroWorks_Trim.mp4"}
               type="video/mp4"
@@ -70,9 +70,9 @@ function FindCircle3(props) {
                 offset={30}
                 duration={500}
               >
-                <text className="learnMore">
+                <span className="learnMore">
                   Learn about the impact of mobilizers
-                </text>
+                </span>
               </Link>
             </button>
           
