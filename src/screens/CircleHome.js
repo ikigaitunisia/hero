@@ -194,17 +194,17 @@ function CircleHome(props) {
               <img
                 src={Supporters[0].profileImage.indexOf("https") == -1 ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[0].profileImage : Supporters[0].profileImage}
                 alt="profile"
-                className="imaged w48 rounded m-2"
+                className="imaged w48 rounded mobilizer-img m-2"
               />
               <img
                 src={Supporters[1].profileImage.indexOf("https") == -1 ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[1].profileImage : Supporters[1].profileImage}
                 alt="profile"
-                className="imaged w48 rounded m-2"
+                className="imaged w48 rounded mobilizer-img m-2"
               />
               <img
                 src={Supporters[2].profileImage.indexOf("https") == -1  ?  "https://hegemony.donftify.digital:8080/getFile:"+Supporters[2].profileImage : Supporters[2].profileImage}
                 alt="profile"
-                className="imaged w48 rounded m-2"
+                className="imaged w48 rounded mobilizer-img m-2"
               />
             </div>
             <span id="list-supporters">
