@@ -9,9 +9,10 @@ import { w3cwebsocket as W3CWebSocket } from "websocket";
 import axios from "axios";
 
 const client = new W3CWebSocket("wss://hegemony.donftify.digital:8081");
-const user = JSON.parse(localStorage.getItem("user"));
 
 function CircleUpdates(props) {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const history = useHistory();
   const { circlename } = useParams();
   const [feed, setFeed] = useState([]);
