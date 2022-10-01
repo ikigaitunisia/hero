@@ -58,8 +58,8 @@ useEffect(() => {
       .then((res) => {
         console.log(res.data);
         setMobilizersCircle(res.data);
+        setMobilizerSelected(res.data[0].Name)
           console.log(res.data);
-          setMobilizerSelected(res.data[0].name);
         });
         
   client.onopen = () => {
@@ -249,7 +249,7 @@ client.onmessage = (message) => {
                   <button onClick={() => chooseFile("video")}>video</button>
                   <select value={mobilizerSelected} onChange={(e) => setMobilizerSelected(e.target.value)}  >
                     {MobilizersCircle.map(mb =>
-                      <option key={mb.name} value={mb.nam}>{mb.name}</option>
+                      <option key={mb.Name} value={mb.Name}>{mb.Name}</option>
                     )};
                   </select>
                   <button onClick={() => Submit()}>Confirm</button>

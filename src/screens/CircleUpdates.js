@@ -48,7 +48,39 @@ function CircleUpdates(props) {
     console.log(feed[0]);
     feed.map((item, i) => {
       if (item.typeMedia == "text") {
-        k.push(<TextFeed item={item} key={i} index={i} />);
+        k.push(
+          <li key={i + item.id + "li"}>
+          <div>
+            <img
+              src="assets/img/sample/photo/1.jpg"
+              alt="image"
+              className="imaged w48 rounded"
+            />
+          </div>
+          <div className="in" style={{ textAlign: "start", marginLeft: "20px" }}>
+            <div className="blue">
+              <div className="">
+                <strong> {item.mobilizer} <small>{item.time}</small></strong>
+              </div>
+              <div className="mb-05">
+              <span>{"@" + item.mobilizer}</span>
+              </div>
+              <div className="text-xsmall">{item.description}</div>
+            </div>
+            <div className="flex-row mt-3" key={i}>
+              <div className="flex-center flex-row">
+                <ion-icon
+                  src="assets/img/svg/icon20.svg"
+                  style={{ width: "15px", height: "15px" }}
+                  class="me-1"
+                  onClick={() => like(i, item.id)}
+                ></ion-icon>
+                <span className="me-2">{item.likes}</span>
+              </div>
+             
+            </div>
+          </div>
+        </li>);
       } else if (item.typeMedia == "video") {
         k.push(<VideoFeed item={item} key={i} index={i} />);
       } else if (item.typeMedia == "photo") {
@@ -124,8 +156,9 @@ function CircleUpdates(props) {
       })
       .then((res) => {
         let k = [];
-        console.log(res.data);
-        for (var t = 0; t < res.data.length - 1; t++) {
+       
+        for (var t = 0; t < res.data.length; t++) {
+            
           res.data[t]._fields[0].properties.typeMedia =
             res.data[t]._fields[0].properties.type;
           delete res.data[t]._fields[0].properties.type;
@@ -136,6 +169,7 @@ function CircleUpdates(props) {
           delete res.data[t]._fields[0].properties.media;
           k.push(res.data[t]._fields[0].properties);
         }
+        console.log(k);
         setFeed((prevState) => {
           return [...k];
         });
@@ -147,11 +181,12 @@ function CircleUpdates(props) {
 
   useEffect(() => {
     getFeed();
-    addFeed();
 
     client.onopen = () => {
       console.log("WebSocket Client Connected");
     };
+    addFeed();
+
   }, [test]);
 
   client.onmessage = (msg) => {
@@ -181,7 +216,7 @@ function CircleUpdates(props) {
             a[i].likes = data.data[0]._fields[0].properties.likes.low;
           }
         }
-
+         console.log(a);
         setFeed(a);
         addFeed();
       }
@@ -220,7 +255,7 @@ function CircleUpdates(props) {
         <div className="section mt-2">
           <div className="card">
             <ul className="listview flush transparent simple-listview">
-              <TextFeed item={null} key={1} index={1} />
+            {feedHtml}
             </ul>
           </div>
         </div>
