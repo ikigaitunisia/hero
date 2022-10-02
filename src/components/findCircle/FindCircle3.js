@@ -50,13 +50,20 @@ function FindCircle3(props) {
               Fund a HERO Circle
             </button>
           </div>
-          <div className="feed2" style={{ minHeight: "90vh!important" }}>
+          <div className="feedCustom2" style={{ minHeight: "90vh!important" }}>
             <video preload="none" playsInline id="2"   muted={muted} poster="assets/img/C0502 1.png">
             <source
               src={"assets/videos/" + "howHeroWorks_Trim.mp4"}
               type="video/mp4"
             />
             </video>
+            <button
+            type="button"
+            className="btn btn-primary rounded play-btn buttonplay"
+            onClick={() => playVideo(2)}>
+            {muted && <ion-icon name="play" class="m-0"></ion-icon>}
+            {!muted && <ion-icon name="pause" class="m-0"></ion-icon>}
+            </button>
             <div className="bottom mt-4 flex-col">
             <button
               id="whiteBtn"
@@ -78,13 +85,7 @@ function FindCircle3(props) {
           
           </div>
           </div>
-          <button
-            type="button"
-            className="btn btn-primary rounded play-btn buttonplay"
-            onClick={() => playVideo(2)}>
-            {muted && <ion-icon name="play" class="m-0"></ion-icon>}
-            {!muted && <ion-icon name="pause" class="m-0"></ion-icon>}
-            </button>
+
 
          
         </div>

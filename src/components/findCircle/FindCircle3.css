@@ -16,7 +16,7 @@ text-align: center;
 color: #191919;
 }
 .buttonplay{
-  margin-top: 107px;
+  /*margin-top: 107px;*/
 }
 #findcircle3 {
   min-height: 110vh!important;
@@ -38,5 +38,63 @@ color: #191919;
 @media screen and (min-width: 600px) {
   .circle-feed-container .feed2 {
     width: 400px!important;
+  }
+  .circle-feed-container .feedCustom2 {
+    width: 400px!important;
+  }
+}
+
+.feedCustom2 a {
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.feedCustom2 {
+  bottom: 9% !important;
+}
+.feedCustom2 video {
+  border-radius: 30px;
+}
+
+.feedCustom2 {
+  position: relative;
+  /* overflow: hidden; */
+  width: 80%;
+  height: unset;
+  padding: 0 !important;
+  min-height: unset !important;
+  scroll-snap-align: start;
+  margin: 60px auto;
+}
+.feedCustom2 video {
+  border-radius: 30px;
+  height: unset;
+}
+
+@media screen and (min-width: 500px) {
+  .feedCustom2 {
+    position: relative;
+    /* overflow: hidden; */
+    width: 80%;
+    height: 80vh;
+    padding: 0 !important;
+    min-height: 80vh !important;
+    scroll-snap-align: start;
+    margin: 60px auto;
+  }
+  .feedCustom2 video {
+    border-radius: 30px;
+    height: 100%;
+  }
+  #findcircle3 {
+    min-height: max-content!important;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .learnMore {
+    font-size: 12px;
+    padding: 0;
   }
 }
