@@ -239,7 +239,7 @@ function CircleHome(props) {
               />
             </div>
             <span id="list-supporters">
-              <b>{Supporters[0].fullname+","+Supporters[1].fullname+","+Supporters[2].fullname }</b>
+              <b>{Supporters[0].fullname+" , "+Supporters[1].fullname+" , "+Supporters[2].fullname }</b>
               <br /> recently joined this circle.
             </span>
             <hr className="hr mt-4 mb-4" />
