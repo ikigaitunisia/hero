@@ -19,7 +19,24 @@ function CircleUpdates(props) {
   const [page, setpage] = useState(1);
   const [test, setTest] = useState(1);
   const [feedHtml, setFeedHtml] = useState([]);
+  const [MobilizersCircle,setMobilizersCircle] = useState([]);
 
+
+  const setMembers = () => {
+    axios
+      .get(
+        "https://hegemony.donftify.digital:8080/circle/members/" +
+        circlename.replace(":","")
+      )
+      .then((res) => {
+        console.log(res.data);
+        let  k = res.data.sort((a, b) => a.priority.low > b.priority.low ? 1 : -1)
+        console.log(k);
+        setMobilizersCircle((prevState) => {
+          return [...k];
+        });
+      });
+  };
   const like = (i, postID) => {
     console.log("llll");
     axios
@@ -46,14 +63,23 @@ function CircleUpdates(props) {
 
   const addFeed = () => {
     let k = [];
+    console.log(feed);
+
     console.log(feed[0]);
     feed.map((item, i) => {
       if (item.typeMedia == "text") {
         k.push(
           <li key={i + item.id + "li"}>
-          <div>
+          <div  onClick={() =>
+                          history.push({
+                            pathname:
+                              "/mobilizer-profile2:" +
+                              circlename.replace(":", ""),
+                            state: { index: item.index-1 },
+                          })
+                        }>
             <img
-              src="assets/img/sample/photo/1.jpg"
+              src={"assets/img/"+item.profile}
               alt="image"
               className="imaged w48 rounded"
             />
@@ -87,10 +113,17 @@ function CircleUpdates(props) {
         console.log("yes");
         k.push(
           <li key={i + item.id + "li"}>
-            <div>
+            <div  onClick={() =>
+                          history.push({
+                            pathname:
+                              "/mobilizer-profile2:" +
+                              circlename.replace(":", ""),
+                            state: { index: item.index -1},
+                          })
+                        }>
               <img
-                src="assets/img/sample/photo/1.jpg"
-                alt="image"
+              src={"assets/img/"+item.profile}
+              alt="image"
                 class="imaged w48 rounded"
               />
             </div>
@@ -148,7 +181,7 @@ function CircleUpdates(props) {
     setFeedHtml(k);
   };
 
-  const getFeed = () => {
+  const getFeed = (l) => {
     axios
       .post("https://hegemony.donftify.digital:8080/circle/feed", {
         cercle: circlename.replace(":", ""),
@@ -156,9 +189,10 @@ function CircleUpdates(props) {
       })
       .then((res) => {
         let k = [];
-       
         for (var t = 0; t < res.data.length; t++) {
-            
+          let mobi=l.find(mob => res.data[t]._fields[0].properties.mobilizer === mob.Name);  
+          console.log(mobi);
+          
           res.data[t]._fields[0].properties.typeMedia =
             res.data[t]._fields[0].properties.type;
           delete res.data[t]._fields[0].properties.type;
@@ -167,6 +201,10 @@ function CircleUpdates(props) {
           res.data[t]._fields[0].properties.url =
             res.data[t]._fields[0].properties.media;
           delete res.data[t]._fields[0].properties.media;
+         
+          res.data[t]._fields[0].properties.index = mobi.priority.low
+          res.data[t]._fields[0].properties.profile = mobi.imgProfil
+          
           k.push(res.data[t]._fields[0].properties);
         }
         console.log(k);
@@ -176,16 +214,34 @@ function CircleUpdates(props) {
         if (k.toString() !== feed.toString()) {
           setTest(test + 1);
         }
+        addFeed();
+
       });
   };
 
   useEffect(() => {
-    getFeed();
+    
 
     client.onopen = () => {
       console.log("WebSocket Client Connected");
     };
-    addFeed();
+    axios
+    .get(
+      "https://hegemony.donftify.digital:8080/circle/members/" +
+      circlename.replace(":","")
+    )
+    .then((res) => {
+      console.log(res.data);
+      let  k = res.data.sort((a, b) => a.priority.low > b.priority.low ? 1 : -1)
+      console.log(k);
+      setMobilizersCircle((prevState) => {
+        return [...k];
+      });
+      getFeed(res.data);
+    
+    });
+   
+
 
   }, [test]);
 
