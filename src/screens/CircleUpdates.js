@@ -82,9 +82,8 @@ function CircleUpdates(props) {
             </div>
           </div>
         </li>);
-      } else if (item.typeMedia == "video") {
-        k.push(<VideoFeed item={item} key={i} index={i} />);
-      } else if (item.typeMedia == "photo") {
+      } 
+      else if (item.typeMedia == "photo") {
         console.log("yes");
         k.push(
           <li key={i + item.id + "li"}>

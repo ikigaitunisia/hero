@@ -69,7 +69,7 @@ function FindCircle4(props) {
                     data-bs-toggle="collapse"
                     data-bs-target="#accordiond1"
                   >
-                    Step 1 : Policy proposal
+                    Policy proposal
                   </button>
                 </h2>
                 <div
@@ -101,7 +101,7 @@ function FindCircle4(props) {
                     data-bs-toggle="collapse"
                     data-bs-target="#accordiond6"
                   >
-                    Step 2 : Supporter engagement
+                   Supporter engagement
                   </button>
                 </h2>
                 <div
@@ -127,7 +127,7 @@ function FindCircle4(props) {
                     data-bs-toggle="collapse"
                     data-bs-target="#accordiond7"
                   >
-                    Step 3 : Policy change
+                    Policy change
                   </button>
                 </h2>
                 <div
@@ -153,7 +153,7 @@ function FindCircle4(props) {
                     data-bs-toggle="collapse"
                     data-bs-target="#accordiond8"
                   >
-                    Step 4 : Communication
+                   Communication
                   </button>
                 </h2>
                 <div

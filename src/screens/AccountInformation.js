@@ -22,6 +22,9 @@ function AccountInformation(props) {
   const [success, setSuccess] = useState(false);
   const [heroIdError, setHeroIdError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [changed,setChanged] = useState(false);
+  const [changedE,setChangedE] = useState(false);
+
   const options = useMemo(() => countryList().getData(), []);
   const inputFilePhoto = useRef(null);
   const clickedFile = () => {
@@ -29,8 +32,9 @@ function AccountInformation(props) {
     console.log(choosedFile);
   };
   console.log(choosedFile);
-
+  
   const onChangeEmail = (ev) => {
+    setChangedE(true);
     setEmail(ev.target.value);
     if (/\S+@\S+\.\S+/.test(ev.target.value)) {
       setEmailError("");
@@ -39,6 +43,40 @@ function AccountInformation(props) {
     }
   };
 
+  const EmailExis = async () => {
+    axios
+      .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
+        email: Email,
+      })
+      .then((K) => {
+        console.log(K.data);
+        if (K.data.found) {
+          setEmailError("Email already exists");
+          return;
+        } else {
+          setEmailError("");
+          return;
+        }
+      });
+  };
+  const isHeroExist = async () => {
+    let K = await axios.post(
+      "https://hegemony.donftify.digital:8080/supporter/HeroIDExist ",
+      {
+        HeroID: HeroId,
+      }
+    );
+
+    console.log(K.data);
+    if(K.data.subscribed > 0)
+    {
+      setHeroIdError("this hero id exist");
+    }
+    else{
+      setHeroIdError("");
+    }
+    return K.data;
+  };
   const getUserInfo = () => {
     axios
       .post(
@@ -199,7 +237,10 @@ function AccountInformation(props) {
                       id="email4b"
                       placeholder={HeroId}
                       value={HeroId}
-                      onChange={(ev) => setHeroId(ev.target.value)}
+                      onChange={(ev) => {setHeroId(ev.target.value);
+                        setChanged(true)
+                      }}
+                      onBlur={()=> changed ? isHeroExist(): null}
                     />
                     <i className="clear-input">
                       <ion-icon name="close-circle"></ion-icon>
@@ -220,6 +261,7 @@ function AccountInformation(props) {
                       id="email4b"
                       placeholder={Email}
                       value={Email}
+                      onBlur={() => changedE ? EmailExis() : null}
                       onChange={(ev) => onChangeEmail(ev)}
                     />
                     <i className="clear-input">

@@ -41,11 +41,6 @@ function App() {
         <Route path="/mobilizer-feed" exact component={MobilizerFeed} />
         <Route path="/mobilizer-profile" exact component={ActivistProfile} />
 
-        <Route
-          path="/circle-updates:circlename"
-          exact
-          component={CircleUpdates}
-        />
 
         <Route
           path="/african-leaders-circle-profile"

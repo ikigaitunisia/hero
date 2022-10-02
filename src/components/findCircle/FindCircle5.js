@@ -77,12 +77,12 @@ function FindCircle5(props) {
                   alt="image"
                   className="imaged w48 rounded"
                 />
-                <span className="blue">Leo Horn</span>
+                <span className="blue">Horn-Phathanothai</span>
                 <small className="blue mb-2">London, UK</small>
                 <p className="blue">
-                  “HERO has made changing the world as
-                  <br /> simple as supporting incredible people that
-                  <br /> have now become my personal heroes.”
+                  “These are the brave pioneers clearing a new path to a brighter, fairer future, in balance with nature
+                  <br /> Mobilisers create political space and unstoppable pressure for bold climate action; 
+                  <br /> they deserve our full support, and more than that, our partnership.”
                 </p>
               </div>
             </div>
