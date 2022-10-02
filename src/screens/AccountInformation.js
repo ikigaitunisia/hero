@@ -70,7 +70,7 @@ function AccountInformation(props) {
     console.log(K.data);
     if(K.data.subscribed > 0)
     {
-      setHeroIdError("this hero id exist");
+      setHeroIdError("Sorry, this HERO ID already exists");
     }
     else{
       setHeroIdError("");
