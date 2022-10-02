@@ -172,6 +172,18 @@ function Menu(props) {
                 <h5 className="text-start blue-text">Go to my Circles</h5>
               </div>
             )}
+             {subbscibed > 0 && (
+              <div
+                className="listview-title log"
+                onClick={() => {
+                  history.push("/circle-feed");
+                  window.location.reload();
+                }}
+                style={{ color: "#0000ff" }}
+              >
+                <h5 className="text-start blue-text">Go to all Circles</h5>
+              </div>
+            )}
             {loggedin && (
               <div
                 className="listview-title log"
@@ -181,7 +193,7 @@ function Menu(props) {
                 <h5 className="text-start blue-text">Account Settings</h5>
               </div>
             )}
-            {loggedin && (
+            {loggedin && subbscibed == 0 && (
               <div className="listview-title mb-3 ">
                 <a
                   href="https://herolabsco.notion.site/HERO-FAQ-a74c18e9ad1d4f308a3ec06e0bb62732"
