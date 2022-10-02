@@ -101,6 +101,7 @@ function AccountInformation(props) {
       });
   };
   const updateUserInfo = () => {
+    setSuccess(false);
     const formData = new FormData();
 
     formData.append("Email", user.Email);
