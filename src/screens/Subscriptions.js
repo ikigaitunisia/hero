@@ -8,19 +8,9 @@ function Subscriptions(props) {
   const history = useHistory();
   const subscriptions = [
     {
-      circleName: "HERO First Circle",
-      subscriptionType: "HERO Subscription Type",
+      circleName: "HERO UK Climate Justice Circle",
+      subscriptionType: "HERO Starter (€10 / mo)",
       amount: "10",
-    },
-    {
-      circleName: "HERO Second Circle",
-      subscriptionType: "HERO Subscription Type",
-      amount: "20",
-    },
-    {
-      circleName: "HERO Third Circle",
-      subscriptionType: "HERO Subscription Type",
-      amount: "50",
     },
   ];
   return (
@@ -70,23 +60,29 @@ function Subscriptions(props) {
                       <div className="in">
                         <div
                           className="flex-col"
-                          style={{ alignItems: "flex-start" }}
+                          style={{ alignItems: "flex-start", textAlign: "start" }}
                         >
                           <strong>{item.circleName}</strong>
-                          <div className="flex-center"><p>{item.subscriptionType}</p>
-                          <div className="amount-div black ml-1">
-                            (<sup> €</sup>
-                            {item.amount}
-                            <span>/mo </span>)
-                          </div></div>
+                          <div className="flex-center">
+                            <p>{item.subscriptionType}</p>
+                          </div>
                         </div>
-                        <div>
+                        <div style={{textAlign: "end"}}>
                           <button
                             id="joinCircleBtn"
                             type="button"
-                            className="btn btn-primary rounded font-size-btn mt-1"
+                            className="btn btn-primary rounded font-size-btn mt-1 me-1"
+                            style={{width: "68px"}}
                           >
-                            Edit
+                            Change
+                          </button>
+                          <button
+                            id="joinCircleBtn"
+                            type="button"
+                            className="btn btn-primary rounded font-size-btn mt-1 me-1"
+                            style={{width: "68px"}}
+                          >
+                            Cancel
                           </button>
                         </div>
                       </div>
