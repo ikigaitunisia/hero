@@ -3,26 +3,19 @@ import { useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import "./Subscriptions.css";
+import CancelSubscriptionModal from "../components/modals/CancelSubscriptionModal";
 
 function Subscriptions(props) {
   const history = useHistory();
   const subscriptions = [
     {
-      circleName: "HERO First Circle",
-      subscriptionType: "HERO Subscription Type",
+      circleName: "HERO UK Climate Justice Circle",
+      subscriptionType: "HERO Starter (€10 / mo)",
       amount: "10",
     },
-    {
-      circleName: "HERO Second Circle",
-      subscriptionType: "HERO Subscription Type",
-      amount: "20",
-    },
-    {
-      circleName: "HERO Third Circle",
-      subscriptionType: "HERO Subscription Type",
-      amount: "50",
-    },
   ];
+  const [showCancelSubscriptionModal, setShowCancelSubscriptionModal] = useState(false);
+
   return (
     <>
       <Header
@@ -64,29 +57,39 @@ function Subscriptions(props) {
             <hr className="hr mt-4 mb-4" />
             <div className="section" style={{ width: "100%" }}>
               <ul className="listview image-listview transparent flush me-3 ml-3">
-                {subscriptions.map((item) => (
-                  <li>
+                {subscriptions.map((item, i) => (
+                  <li key={i}>
                     <div className="item pe-0 pl-0">
                       <div className="in">
                         <div
                           className="flex-col"
-                          style={{ alignItems: "flex-start" }}
+                          style={{
+                            alignItems: "flex-start",
+                            textAlign: "start",
+                          }}
                         >
                           <strong>{item.circleName}</strong>
-                          <div className="flex-center"><p>{item.subscriptionType}</p>
-                          <div className="amount-div black ml-1">
-                            (<sup> €</sup>
-                            {item.amount}
-                            <span>/mo </span>)
-                          </div></div>
+                          <div className="flex-center">
+                            <p>{item.subscriptionType}</p>
+                          </div>
                         </div>
-                        <div>
+                        <div style={{ textAlign: "end" }}>
                           <button
                             id="joinCircleBtn"
                             type="button"
-                            className="btn btn-primary rounded font-size-btn mt-1"
+                            className="btn btn-primary rounded font-size-btn mt-1 me-1"
+                            style={{ width: "68px" }}
                           >
-                            Edit
+                            Change
+                          </button>
+                          <button
+                            id="joinCircleBtn"
+                            type="button"
+                            className="btn btn-primary rounded font-size-btn mt-1 me-1"
+                            style={{ width: "68px" }}
+                            onClick={() => setShowCancelSubscriptionModal(true)}
+                          >
+                            Cancel
                           </button>
                         </div>
                       </div>
@@ -98,6 +101,12 @@ function Subscriptions(props) {
           </div>
         </div>
       </div>
+      {showCancelSubscriptionModal && (
+        <CancelSubscriptionModal
+          show={showCancelSubscriptionModal}
+          onClose={() => setShowCancelSubscriptionModal(false)}
+        />
+      )}
     </>
   );
 }

@@ -19,18 +19,20 @@ function CircleUpdates(props) {
   const [page, setpage] = useState(1);
   const [test, setTest] = useState(1);
   const [feedHtml, setFeedHtml] = useState([]);
-  const [MobilizersCircle,setMobilizersCircle] = useState([]);
-
+  const [MobilizersCircle, setMobilizersCircle] = useState([]);
+  const [isLiked, setIsLiked] = useState(true);
 
   const setMembers = () => {
     axios
       .get(
         "https://hegemony.donftify.digital:8080/circle/members/" +
-        circlename.replace(":","")
+          circlename.replace(":", "")
       )
       .then((res) => {
         console.log(res.data);
-        let  k = res.data.sort((a, b) => a.priority.low > b.priority.low ? 1 : -1)
+        let k = res.data.sort((a, b) =>
+          a.priority.low > b.priority.low ? 1 : -1
+        );
         console.log(k);
         setMobilizersCircle((prevState) => {
           return [...k];
@@ -39,6 +41,7 @@ function CircleUpdates(props) {
   };
   const like = (i, postID) => {
     console.log("llll");
+    setIsLiked((current) => !current);
     axios
       .post(
         "https://hegemony.donftify.digital:8080/supporter/react-post",
@@ -50,6 +53,7 @@ function CircleUpdates(props) {
         console.log(res.data);
         let k = feed;
         k[i].likes = res.data[0]._fields[0].properties.likes.low;
+        k[i].like = isLiked;
         setFeed(k);
         client.send(
           JSON.stringify({
@@ -70,60 +74,71 @@ function CircleUpdates(props) {
       if (item.typeMedia == "text") {
         k.push(
           <li key={i + item.id + "li"}>
-          <div  onClick={() =>
-                          history.push({
-                            pathname:
-                              "/mobilizer-profile2:" +
-                              circlename.replace(":", ""),
-                            state: { index: item.index-1 },
-                          })
-                        }>
-            <img
-              src={"assets/img/"+item.profile}
-              alt="image"
-              className="imaged w48 rounded"
-            />
-          </div>
-          <div className="in" style={{ textAlign: "start", marginLeft: "20px" }}>
-            <div className="blue">
-              <div className="">
-                <strong> {item.mobilizer} <small>{item.time}</small></strong>
-              </div>
-              <div className="mb-05">
-              <span>{"@" + item.mobilizer}</span>
-              </div>
-              <div className="text-xsmall">{item.description}</div>
+            <div
+              onClick={() =>
+                history.push({
+                  pathname:
+                    "/mobilizer-profile2:" + circlename.replace(":", ""),
+                  state: { index: item.index - 1 },
+                })
+              }
+            >
+              <img
+                src={"assets/img/" + item.profile}
+                alt="image"
+                className="imaged w48 rounded"
+              />
             </div>
-            <div className="flex-row mt-3" key={i}>
-              <div className="flex-center flex-row">
-                <ion-icon
-                  src="assets/img/svg/icon20.svg"
-                  style={{ width: "15px", height: "15px" }}
-                  class="me-1"
-                  onClick={() => like(i, item.id)}
-                ></ion-icon>
-                <span className="me-2">{item.likes}</span>
+            <div
+              className="in"
+              style={{ textAlign: "start", marginLeft: "20px" }}
+            >
+              <div className="blue">
+                <div className="">
+                  <strong>
+                    {" "}
+                    {item.mobilizer} <small>{item.time}</small>
+                  </strong>
+                </div>
+                <div className="mb-05">
+                  <span>{"@" + item.mobilizer}</span>
+                </div>
+                <div className="text-xsmall">{item.description}</div>
               </div>
-             
+              <div className="flex-row mt-3" key={i}>
+                <div className="flex-center flex-row">
+                  <ion-icon
+                    src={
+                      item.like === true
+                        ? "assets/img/svg/icon25.svg"
+                        : "assets/img/svg/icon20.svg"
+                    }
+                    style={{ width: "15px", height: "15px" }}
+                    class="me-1"
+                    onClick={() => like(i, item.id)}
+                  ></ion-icon>
+                  <span className="me-2">{item.likes}</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </li>);
-      } 
-      else if (item.typeMedia == "photo") {
+          </li>
+        );
+      } else if (item.typeMedia == "photo") {
         console.log("yes");
         k.push(
           <li key={i + item.id + "li"}>
-            <div  onClick={() =>
-                          history.push({
-                            pathname:
-                              "/mobilizer-profile2:" +
-                              circlename.replace(":", ""),
-                            state: { index: item.index -1},
-                          })
-                        }>
+            <div
+              onClick={() =>
+                history.push({
+                  pathname:
+                    "/mobilizer-profile2:" + circlename.replace(":", ""),
+                  state: { index: item.index - 1 },
+                })
+              }
+            >
               <img
-              src={"assets/img/"+item.profile}
-              alt="image"
+                src={"assets/img/" + item.profile}
+                alt="image"
                 class="imaged w48 rounded"
               />
             </div>
@@ -190,9 +205,11 @@ function CircleUpdates(props) {
       .then((res) => {
         let k = [];
         for (var t = 0; t < res.data.length; t++) {
-          let mobi=l.find(mob => res.data[t]._fields[0].properties.mobilizer === mob.Name);  
+          let mobi = l.find(
+            (mob) => res.data[t]._fields[0].properties.mobilizer === mob.Name
+          );
           console.log(mobi);
-          
+
           res.data[t]._fields[0].properties.typeMedia =
             res.data[t]._fields[0].properties.type;
           delete res.data[t]._fields[0].properties.type;
@@ -201,10 +218,10 @@ function CircleUpdates(props) {
           res.data[t]._fields[0].properties.url =
             res.data[t]._fields[0].properties.media;
           delete res.data[t]._fields[0].properties.media;
-         
-          res.data[t]._fields[0].properties.index = mobi.priority.low
-          res.data[t]._fields[0].properties.profile = mobi.imgProfil
-          
+
+          res.data[t]._fields[0].properties.index = mobi.priority.low;
+          res.data[t]._fields[0].properties.profile = mobi.imgProfil;
+
           k.push(res.data[t]._fields[0].properties);
         }
         console.log(k);
@@ -215,34 +232,29 @@ function CircleUpdates(props) {
           setTest(test + 1);
         }
         addFeed();
-
       });
   };
 
   useEffect(() => {
-    
-
     client.onopen = () => {
       console.log("WebSocket Client Connected");
     };
     axios
-    .get(
-      "https://hegemony.donftify.digital:8080/circle/members/" +
-      circlename.replace(":","")
-    )
-    .then((res) => {
-      console.log(res.data);
-      let  k = res.data.sort((a, b) => a.priority.low > b.priority.low ? 1 : -1)
-      console.log(k);
-      setMobilizersCircle((prevState) => {
-        return [...k];
+      .get(
+        "https://hegemony.donftify.digital:8080/circle/members/" +
+          circlename.replace(":", "")
+      )
+      .then((res) => {
+        console.log(res.data);
+        let k = res.data.sort((a, b) =>
+          a.priority.low > b.priority.low ? 1 : -1
+        );
+        console.log(k);
+        setMobilizersCircle((prevState) => {
+          return [...k];
+        });
+        getFeed(res.data);
       });
-      getFeed(res.data);
-    
-    });
-   
-
-
   }, [test]);
 
   client.onmessage = (msg) => {
@@ -272,13 +284,13 @@ function CircleUpdates(props) {
             a[i].likes = data.data[0]._fields[0].properties.likes.low;
           }
         }
-         console.log(a);
+        console.log(a);
         setFeed(a);
         addFeed();
       }
     }
   };
-  
+
   return (
     <>
       <Header
@@ -288,7 +300,7 @@ function CircleUpdates(props) {
         showMenuBtn
         transparent
         whiteMode
-        backTo={"/circle-home"+ circlename}
+        backTo={"/circle-home" + circlename}
       />
       <div id="appCapsule" className="circles-updates">
         <div className="mt-4">
@@ -311,7 +323,7 @@ function CircleUpdates(props) {
         <div className="section mt-2">
           <div className="card">
             <ul className="listview flush transparent simple-listview">
-            {feedHtml}
+              {feedHtml}
             </ul>
           </div>
         </div>

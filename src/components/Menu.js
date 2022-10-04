@@ -298,7 +298,7 @@ function Menu(props) {
                 </a>
               </li>
             </ul>
-            <div id="social-btn-container2" className="row mb-4 mt-4 pr-5">
+            <div id="social-btn-container2" className="mb-4 mt-4 pr-5 pl-3" style={{margin: "unset"}}>
               <button
                 type="button"
                 className="btn btn-icon rounded btn-primary social-btn me-2"
@@ -306,12 +306,12 @@ function Menu(props) {
               >
                 <ion-icon name="logo-instagram"></ion-icon>
               </button>
-              <button
+              {/*<button
                 type="button"
                 className="btn btn-icon rounded btn-primary social-btn me-2"
               >
                 <ion-icon name="logo-tiktok"></ion-icon>
-              </button>
+                </button>*/}
               <button
                 type="button"
                 className="btn btn-icon rounded btn-primary social-btn me-2"
@@ -319,12 +319,12 @@ function Menu(props) {
               >
                 <ion-icon name="logo-twitter"></ion-icon>
               </button>
-              <button
+              {/*<button
                 type="button"
                 className="btn btn-icon rounded btn-primary social-btn me-2"
               >
                 <ion-icon name="logo-youtube"></ion-icon>
-              </button>
+                </button>*/}
             </div>
             <div className="listview-title mb-3">
               <h6 className="text-start blue-text">
