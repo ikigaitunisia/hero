@@ -24,12 +24,12 @@ function CancelSubscriptionModal(props) {
   const [cancel, setCancel] = useState(false);
 
   useEffect(() => {
-    const btn1 = document.getElementById("btn1");
+    const btn1 = document.getElementById("btn11");
     btn1.addEventListener("click", () => {
       history.push("/subscriptions");
       window.location.reload();
     });
-    const btn2 = document.getElementById("btn2");
+    const btn2 = document.getElementById("btn22");
     btn2.addEventListener("click", async () => {
       setConfirmCancel(true);
       setCancel(false);
@@ -78,7 +78,7 @@ function CancelSubscriptionModal(props) {
 
                   <div>
                     <button
-                      id="btn1"
+                      id="btn11"
                       type="button"
                       className="btn btn-lg mb-4 me-1"
                       onClick={() => console.log("ok")}
@@ -87,7 +87,7 @@ function CancelSubscriptionModal(props) {
                       Go back
                     </button>
                     <button
-                      id="btn2"
+                      id="btn22"
                       type="button"
                       className="btn btn-lg mb-4"
                       onClick={() => setConfirmCancel(true)}
@@ -116,7 +116,7 @@ function CancelSubscriptionModal(props) {
 
                   <div>
                     <button
-                      id="btn1"
+                      id="btn33"
                       type="button"
                       className="btn btn-lg mb-2 me-1"
                       onClick={() => console.log("ok")}
@@ -126,7 +126,7 @@ function CancelSubscriptionModal(props) {
                       Explore other circles
                     </button>
                     <button
-                      id="btn2"
+                      id="btn44"
                       type="button"
                       className="btn btn-lg mb-2"
                       style={{ width: "unset" }}
@@ -145,7 +145,7 @@ function CancelSubscriptionModal(props) {
                     HERO experience.
                   </p>
                   <button
-                    id="btn1"
+                    id="btn55"
                     type="button"
                     className="btn btn-lg mb-4 me-1"
                     style={{ width: "unset" }}
