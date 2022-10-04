@@ -43,8 +43,9 @@ function ChangeSubscription(props) {
               className="header-text mt-4 white"
               style={{ textAlign: "center" }}
             >
-              Choose your HERO Circle
-              <br /> Membership
+              Change your HERO Circle
+              <br />
+              Subscription
             </p>
             <div className="button-wrapper mt-4">
               <button
