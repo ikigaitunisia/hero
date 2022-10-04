@@ -271,6 +271,7 @@ function Login1() {
   };
 
   useEffect(() => {
+    
     console.log(checked);
     checkFullName(HeroID);
     checkEmail(phoneNumber);
@@ -278,6 +279,13 @@ function Login1() {
     checkRePassword(rePassword);
     checkIsChecked(checked);
   }, [HeroID, phoneNumber, password, rePassword, checked]);
+  useEffect(() => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  });
+}, []);
   const EmailExis = async () => {
     axios
       .post(`https://hegemony.donftify.digital:8080/CheckEmail`, {
