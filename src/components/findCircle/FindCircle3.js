@@ -18,6 +18,11 @@ function FindCircle3(props) {
       setIsEnded(x);
       setMuted(true);
     };
+    window.onscroll = () => {
+      video.pause();
+      setMuted(true);
+      setIsEnded(true);
+    }
   }, []);
 
   useEffect(() => {
