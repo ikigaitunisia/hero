@@ -10,7 +10,7 @@ function Subscriptions(props) {
     {
       circleName: "HERO UK Climate Justice Circle",
       subscriptionType: "HERO Starter (€10 / mo)",
-      amount: "10",
+      amount: 10,
     },
   ];
 
@@ -77,7 +77,12 @@ function Subscriptions(props) {
                             type="button"
                             className="btn btn-primary rounded font-size-btn mt-1 me-1"
                             style={{ width: "68px" }}
-                            onClick={() => history.push("/change-subscription")}
+                            onClick={() =>
+                              history.push({
+                                pathname: "/change-subscription",
+                                state: { subscription: item },
+                              })
+                            }
                           >
                             Change
                           </button>
