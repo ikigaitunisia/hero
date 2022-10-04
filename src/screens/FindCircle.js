@@ -20,7 +20,7 @@ function FindCircle(props) {
         duration: 500,
         smooth: true,
         spy: true,
-        offset: 30,
+        offset: 0,
       });
       history.replace("", null);
     }
