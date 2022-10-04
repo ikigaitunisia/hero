@@ -6,6 +6,8 @@ import Login from "./screens/Login";
 import Home from "./screens/Home";
 import ChangePassword from "./screens/ChangePassword";
 import SearchFilters from "./screens/SearchFilters";
+
+import ForgetPasswordEmailSent from "./screens/ForgetPasswordEmailSent"
 import Feed from "./screens/Feed";
 import ActivistProfile from "./screens/ActivistProfile";
 import AfricanLeadersCircleProfile from "./screens/AfricanLeadersCircleProfile";
@@ -48,12 +50,15 @@ function App() {
           exact
           component={AfricanLeadersCircleProfile}
         />
-        <Route path="/changepassword" exact component={ChangePassword} />
+        <Route path="/lostPassword" exact component={ChangePassword} />
         <Route path="/supporters" exact component={ListSupporter} />
         <Route path="/mobilizers" exact component={ListMobilizer} />
         <Route path="/" exact component={FindCircle} />
         <Route path="/circle-feed" exact component={CircleFeed} />
         <Route path="/Notion" exact component={Notion} />
+        <Route path="/ForgetPasswordEmailSent" exact component={ForgetPasswordEmailSent} />
+
+        
         <Route
           path="/circle-feed-details:circlename"
           exact
