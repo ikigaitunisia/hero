@@ -180,31 +180,31 @@ sendEmail({
 
 }
 
-// exports.createPortalSession =  async (req, res) => {
-//     // For demonstration purposes, we're using the Checkout session to retrieve the customer ID.
-//     // Typically this is stored alongside the authenticated user in your database.
-//     try {
-//       const session_id= req.body.sessionId;
-//       const checkoutSession = await stripe.checkout.sessions.retrieve(session_id);
-//       console.log(checkoutSession)
-//     // This is the url to which the customer will be redirected when they are done
-//     // managing their billing with the portal.
+exports.createPortalSession =  async (req, res) => {
+    // For demonstration purposes, we're using the Checkout session to retrieve the customer ID.
+    // Typically this is stored alongside the authenticated user in your database.
+    try {
+      const session_id= req.body.sessionId;
+      const checkoutSession = await stripe.checkout.sessions.retrieve(session_id);
+      console.log(checkoutSession)
+    // This is the url to which the customer will be redirected when they are done
+    // managing their billing with the portal.
   
-//       const portalSession = await stripe.billingPortal.sessions.create({
-//         customer: checkoutSession.customer,
-//         return_url: `${process.env.DOMAIN}${process.env.PORT}`,
-//       });
+      const portalSession = await stripe.billingPortal.sessions.create({
+        customer: checkoutSession.customer,
+        return_url: `${process.env.DOMAIN}${process.env.PORT}`,
+      });
   
-//       return res.status(200).json(portalSession)
-//       } catch (err) {
-//         if (!err.statusCode) {
-//           err.statusCode = 500;
-//         }
-//         return res.status(500).json(err)
-//     }
+      return res.status(200).json(portalSession)
+      } catch (err) {
+        if (!err.statusCode) {
+          err.statusCode = 500;
+        }
+        return res.status(500).json(err)
+    }
     
 
-// };   
+};   
 
 
 exports.monthPay = async(req,res,next)=>{
@@ -272,33 +272,33 @@ exports.monthPay = async(req,res,next)=>{
 }
 
 
-// exports.handleWebhooks= async(request,response)=>{
-//   const sig = request.headers['stripe-signature'];
+exports.handleWebhooks= async(request,response)=>{
+  const sig = request.headers['stripe-signature'];
   
-//   const endpointSecret = "whsec_36bdc93754b80d5a5caa4d229d3f20c92edfdb0f67dfdad6409108e1b1921ee0";
+  const endpointSecret = "whsec_36bdc93754b80d5a5caa4d229d3f20c92edfdb0f67dfdad6409108e1b1921ee0";
 
-//   let event;
-//   try {
-//     event = await stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
-//   } catch (err) {
-//     console.log(err.message)
-//     response.status(400).send(`Webhook Error: ${err.message}`);
-//     return;
-//   }
+  let event;
+  try {
+    event = await stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+  } catch (err) {
+    console.log(err.message)
+    response.status(400).send(`Webhook Error: ${err.message}`);
+    return;
+  }
 
-//   // Handle the event
-//   console.log(event)
-//   console.log(event.type)
-//   switch (event.type) {
-//     case 'customer.subscription.updated':
-//       const subscription = event.data.object;
-//       console.log(" plan canceled !")
-//       break;
-//     // ... handle other event types
-//     default:
-//       console.log(`Unhandled event type ${event.type}`);
-//   }
+  // Handle the event
+  console.log(event)
+  console.log(event.type)
+  switch (event.type) {
+    case 'customer.subscription.updated':
+      const subscription = event.data.object;
+      console.log(" plan canceled !")
+      break;
+    // ... handle other event types
+    default:
+      console.log(`Unhandled event type ${event.type}`);
+  }
 
-//   // Return a 200 response to acknowledge receipt of the event
-//   response.send();
-// }
+  // Return a 200 response to acknowledge receipt of the event
+  response.send();
+}
