@@ -82,9 +82,14 @@ function MobilizerProfile(props) {
         console.log(k[currentIndex]);
         setMobilizers(k);
         let socials = JSON.parse(k[currentIndex].Socials);
+        setInstagram("");
+        setTwitter("");
+        setFacebook("");
+        setTikTok("");
         if ("Instagram" in socials) {
           setInstagram(socials.Instagram);
         }
+        
         if ("Twitter" in socials) {
           setTwitter(socials.Twitter);
         }

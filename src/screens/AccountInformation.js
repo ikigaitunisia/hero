@@ -336,7 +336,7 @@ function AccountInformation(props) {
                 type="button"
                 className="btn btn-outline-secondary btn-lg mt-4"
                 onClick={() => updateUserInfo()}
-                disabled={emailError || heroIdError}
+                disabled={emailError != "" || heroIdError != ""}
               >
                 Save
               </button>

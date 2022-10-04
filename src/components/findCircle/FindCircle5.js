@@ -70,7 +70,7 @@ function FindCircle5(props) {
                 </p>
               </div>
             </div>
-            <div className="card border-blue mb-3" style={{width:300}}>
+            <div className="card border-blue mb-3" style={{width:310}}>
               <div className="card-body flex-center flex-col">
                 <img
                   src="assets/img/Leo.jpeg"
@@ -80,9 +80,7 @@ function FindCircle5(props) {
                 <span className="blue">Horn-Phathanothai</span>
                 <small className="blue mb-2">London, UK</small>
                 <p className="blue">
-                  “These are the brave pioneers clearing a new path to a brighter, fairer future, in balance with nature action;
-                  <br /> Mobilisers create political space and unstoppable pressure for bold climate  
-                  <br /> they deserve our full support, and more than that, our partnership.”
+                  “These are the brave pioneers clearing a new path to a brighter, fairer future, in balance with nature.<br/> Mobilisers create political space and unstoppable pressure for bold climate action;<br/> they deserve our full support, and more than that, our partnership.”
                 </p>
               </div>
             </div>

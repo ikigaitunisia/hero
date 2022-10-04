@@ -239,7 +239,7 @@ function CircleFeedDetails(props) {
                 <div className="flex-center flex-col">
                   <span className="black">
                   <b>{Supporters[0].fullname+" , "+Supporters[1].fullname+" , "+Supporters[2].fullname }</b>
-                    <br /> and 10 others are part of this circle.
+                    <br /> {"and "+(Supporters[0].nbSupporters - 3)+" others are part of this circle."} 
                   </span>
                   <button
                     id="blueBtn"
