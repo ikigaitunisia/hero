@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-scroll";
 import "./FindCircle3.css";
@@ -8,6 +8,15 @@ function FindCircle3(props) {
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const [muted, setMuted] = useState(true);
+  const [isEnded, setIsEnded] = useState(false);
+
+  useEffect(() => {
+    const video = document.getElementById("2");
+    video.onended = () => {
+    var x = document.getElementById("2").ended;
+      setIsEnded(x)
+    };
+  }, [])
 
   const playVideo = (id) => {
     var v = document.getElementById(id);
@@ -61,8 +70,8 @@ function FindCircle3(props) {
             type="button"
             className="btn btn-primary rounded play-btn buttonplay"
             onClick={() => playVideo(2)}>
-            {muted && <ion-icon name="play" class="m-0"></ion-icon>}
-            {!muted && <ion-icon name="pause" class="m-0"></ion-icon>}
+            {(muted || isEnded )&& <ion-icon name="play" class="m-0"></ion-icon>}
+            {(!muted && !isEnded) && <ion-icon name="pause" class="m-0"></ion-icon>}
             </button>
             <div className="bottom mt-4 flex-col">
             <button

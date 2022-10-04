@@ -16,15 +16,16 @@
   font-weight: 700 !important;
   line-height: 15px !important;
 }
-#welcomeCircles button b{
+#welcomeCircles button b {
   font-size: 16px !important;
   font-weight: 700 !important;
   line-height: 15px !important;
 }
-#welcomeCircles button span{
+#welcomeCircles button span {
   font-size: 16px !important;
   font-weight: 300 !important;
   line-height: 15px !important;
+  color: blue !important;
 }
 .center-text {
   text-align: center;
