@@ -65,7 +65,7 @@ function ChangePassword(props) {
   const updateUserPassword = () => {
     axios
       .post(
-        "https://hegemony.donftify.digital:8080/supporter/get-code",
+        "https://hegemony.donftify.digital:8080/supporter/check-code",
         {
           email: email,
           newPassword: password,

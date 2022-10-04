@@ -115,8 +115,7 @@ function ForgetPasswordEmailSent() {
             >
               Confirmation
             </button>
-          </form>
-          {resetPassword && (
+            {resetPassword && (
               <h6 className="error-message">
                 We have sent you an email, please check
                 <br /> your email to reset your password
@@ -127,6 +126,8 @@ function ForgetPasswordEmailSent() {
                 {ErrorMessage}
               </h6>
             )}
+          </form>
+        
         </div>
 
        
