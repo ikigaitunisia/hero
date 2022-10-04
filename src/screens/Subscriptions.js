@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import "./Subscriptions.css";
-import CancelSubscriptionModal from "../components/modals/CancelSubscriptionModal";
 
 function Subscriptions(props) {
   const history = useHistory();
@@ -14,7 +13,6 @@ function Subscriptions(props) {
       amount: "10",
     },
   ];
-  const [showCancelSubscriptionModal, setShowCancelSubscriptionModal] = useState(false);
 
   return (
     <>
@@ -79,6 +77,7 @@ function Subscriptions(props) {
                             type="button"
                             className="btn btn-primary rounded font-size-btn mt-1 me-1"
                             style={{ width: "68px" }}
+                            onClick={() => history.push("/change-subscription")}
                           >
                             Change
                           </button>
@@ -87,7 +86,7 @@ function Subscriptions(props) {
                             type="button"
                             className="btn btn-primary rounded font-size-btn mt-1 me-1"
                             style={{ width: "68px" }}
-                            onClick={() => setShowCancelSubscriptionModal(true)}
+                            onClick={() => history.push("/cancel-subscription")}
                           >
                             Cancel
                           </button>
@@ -101,12 +100,6 @@ function Subscriptions(props) {
           </div>
         </div>
       </div>
-      {showCancelSubscriptionModal && (
-        <CancelSubscriptionModal
-          show={showCancelSubscriptionModal}
-          onClose={() => setShowCancelSubscriptionModal(false)}
-        />
-      )}
     </>
   );
 }
