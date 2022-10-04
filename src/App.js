@@ -30,7 +30,9 @@ import Subscriptions from "./screens/Subscriptions";
 import WelcomeCircles from "./screens/WelcomeCircles";
 import Login1 from "./screens/Login1";
 import SubscriptionsAndPricing from "./screens/SubscriptionsAndPricing";
-import Login2 from './screens/Login2'
+import Login2 from "./screens/Login2";
+import ChangeSubscription from "./screens/ChangeSubscription";
+import CancelSubscription from "./screens/CancelSubscription";
 function App() {
   return (
     <div className="App">
@@ -40,7 +42,6 @@ function App() {
         <Route path="/feed" exact component={Feed} />
         <Route path="/mobilizer-feed" exact component={MobilizerFeed} />
         <Route path="/mobilizer-profile" exact component={ActivistProfile} />
-
 
         <Route
           path="/african-leaders-circle-profile"
@@ -64,8 +65,16 @@ function App() {
           exact
           component={MobilizerProfile}
         />
-        <Route path="/circle-updates:circlename" exact component={CircleUpdates} />
-        <Route path="/circle-videos:circlename" exact component={CircleVideos} />
+        <Route
+          path="/circle-updates:circlename"
+          exact
+          component={CircleUpdates}
+        />
+        <Route
+          path="/circle-videos:circlename"
+          exact
+          component={CircleVideos}
+        />
         <Route
           path="/circle-interactions:circlename"
           exact
@@ -92,11 +101,21 @@ function App() {
 
         <Route path="/subscriptions" exact component={Subscriptions} />
         <Route path="/login1" exact component={Login1} />
-        <Route path="/login" exact component={Login2}/>
+        <Route path="/login" exact component={Login2} />
         <Route
           path="/subscriptions-and-pricing"
           exact
           component={SubscriptionsAndPricing}
+        />
+        <Route
+          path="/change-subscription"
+          exact
+          component={ChangeSubscription}
+        />
+        <Route
+          path="/cancel-subscription"
+          exact
+          component={CancelSubscription}
         />
       </Router>
     </div>
