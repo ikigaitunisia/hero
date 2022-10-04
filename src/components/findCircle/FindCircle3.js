@@ -9,23 +9,39 @@ function FindCircle3(props) {
   const [showMenu, setShowMenu] = useState(false);
   const [muted, setMuted] = useState(true);
   const [isEnded, setIsEnded] = useState(false);
+  const [showPauseBtn, setShowPauseBtn] = useState(false);
 
   useEffect(() => {
     const video = document.getElementById("2");
     video.onended = () => {
-    var x = document.getElementById("2").ended;
-      setIsEnded(x)
+      var x = document.getElementById("2").ended;
+      setIsEnded(x);
+      setMuted(true);
     };
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (showPauseBtn) {
+        setShowPauseBtn(false);
+      }
+    }, 2000);
+  }, [showPauseBtn]);
+
+  const pauseVideo = () => {
+    if (!muted) {
+      setShowPauseBtn(true);
+    }
+  };
 
   const playVideo = (id) => {
     var v = document.getElementById(id);
     if (v.paused) {
       v.play();
-      setMuted(false)
+      setMuted(false);
     } else {
       v.pause();
-      setMuted(true)
+      setMuted(true);
     }
   };
   return (
@@ -60,43 +76,58 @@ function FindCircle3(props) {
             </button>
           </div>
           <div className="feedCustom2" style={{ minHeight: "90vh!important" }}>
-            <video preload="none" playsInline id="2"   muted={muted} poster="assets/img/C0502 1.png">
-            <source
-              src={"assets/videos/" + "howHeroWorks_Trim.mp4"}
-              type="video/mp4"
-            />
-            </video>
-            <button
-            type="button"
-            className="btn btn-primary rounded play-btn buttonplay"
-            onClick={() => playVideo(2)}>
-            {(muted || isEnded )&& <ion-icon name="play" class="m-0"></ion-icon>}
-            {(!muted && !isEnded) && <ion-icon name="pause" class="m-0"></ion-icon>}
-            </button>
-            <div className="bottom mt-4 flex-col">
-            <button
-              id="whiteBtn"
-              type="button"
-              className="btn btn-primary rounded font-size-btn mb-2"
+            <video
+              onClick={pauseVideo}
+              preload="none"
+              playsInline
+              id="2"
+              muted={muted}
+              poster="assets/img/C0502 1.png"
             >
-              <Link
-                to="findCircle4"
-                spy={true}
-                smooth={true}
-                offset={30}
-                duration={500}
+              <source
+                src={"assets/videos/" + "howHeroWorks_Trim.mp4"}
+                type="video/mp4"
+              />
+            </video>
+            {(muted || (muted && isEnded)) && (
+              <button
+                type="button"
+                className="btn btn-primary rounded play-btn buttonplay"
+                onClick={() => playVideo(2)}
               >
-                <span className="learnMore">
-                  Learn about the impact of mobilizers
-                </span>
-              </Link>
-            </button>
-          
+                <ion-icon name="play" class="m-0"></ion-icon>
+              </button>
+            )}
+            {((!muted && !isEnded && showPauseBtn) ||
+              (!muted && isEnded && showPauseBtn)) && (
+              <button
+                type="button"
+                className="btn btn-primary rounded play-btn buttonplay"
+                onClick={() => playVideo(2)}
+              >
+                <ion-icon name="pause" class="m-0"></ion-icon>
+              </button>
+            )}
+            <div className="bottom mt-4 flex-col">
+              <button
+                id="whiteBtn"
+                type="button"
+                className="btn btn-primary rounded font-size-btn mb-2"
+              >
+                <Link
+                  to="findCircle4"
+                  spy={true}
+                  smooth={true}
+                  offset={30}
+                  duration={500}
+                >
+                  <span className="learnMore">
+                    Learn about the impact of mobilizers
+                  </span>
+                </Link>
+              </button>
+            </div>
           </div>
-          </div>
-
-
-         
         </div>
       </div>
       <Menu show={showMenu} onClose={() => setShowMenu(false)} />
