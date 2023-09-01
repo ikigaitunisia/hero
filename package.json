@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@celo-tools/use-contractkit": "^3.1.0",
-    "@celo/contractkit": "^2.0.0",
+    "@celo/contractkit": "^4.1.1",
     "@celo/dappkit": "^2.0.0",
     "@celo/react-celo": "^4.0.0",
     "@popperjs/core": "^2.11.5",
