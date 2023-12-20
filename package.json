@@ -4,11 +4,11 @@
   "private": true,
   "dependencies": {
     "@celo-tools/use-contractkit": "^3.1.0",
-    "@celo/contractkit": "^2.0.0",
+    "@celo/contractkit": "^5.1.0",
     "@celo/dappkit": "^2.0.0",
     "@celo/react-celo": "^4.0.0",
     "@popperjs/core": "^2.11.5",
-    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
     "@walletconnect/web3-provider": "^1.7.8",
